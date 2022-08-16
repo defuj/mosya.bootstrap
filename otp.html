@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Masuk - Lupa Kata Sandi</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/signin.css">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel="stylesheet" href="./assets/css/otp.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    <nav class="navbar navbar-expand-md fixed-top background-transparent">
+        <a class="navbar-brand" href="./login.html">
+            <img src="./assets/icons/svg/fi-sr-angle-left.svg" class="color-black400" alt="icons" srcset="" width="16" height="16">
+        </a>
+    </nav>
+    
+    <form class="form-otp">
+        <img src="./assets/icons/svg/fi-sr-shield-interrogation.svg" class="svg-orange" alt="icons" srcset="" width="50">
+        <p class="mb-2 mt-2 headline6 color-black700 font-weight-bold">Masukan Kode OTP</p>
+        <p class="mb-2 bodytext2 color-black500">Masukan Kode OTP yang dikirim melalui email ke <b class="color-black500">u*****me@domain.com</b></p>
+    
+        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-3 mb-3"> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="first" maxlength="1" /> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="second" maxlength="1" /> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="third" maxlength="1" /> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="fourth" maxlength="1" /> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="fifth" maxlength="1" /> 
+            <input class="m-2 text-center otp-form bodytext2" type="password" id="sixth" maxlength="1" /> 
+        </div> 
+
+        <a href="#" id="resend" onclick="resend()" class="color-orange500 bodytext2">
+            Kirim Ulang Kode
+        </a>
+        <p id="counter" class="color-black500 bodytext2" style="display: none;">
+            Silahkan tunggu 59 detik untuk mengirim ulang kode
+        </p>
+    </form>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+
+    <script>
+        function resend() {
+            // alert("Kode OTP telah dikirim ke email Anda");
+            document.getElementById("resend").style.display = "none";
+            document.getElementById("counter").style.display = "block";
+
+            var timeleft = 59;
+            var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+                document.getElementById("counter").style.display = "none";
+                document.getElementById("resend").style.display = "block";
+            }
+            timeleft -= 1;
+            document.getElementById("counter").innerHTML = 'Silahkan tunggu ' + timeleft + ' detik untuk mengirim ulang kode';
+            }, 1000);
+        }
+        window.onload = resend;
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var code = '';
+            function OTPInput() {
+                const inputs = document.querySelectorAll('#otp > *[id]');
+                for (let i = 0; i < inputs.length; i++) { 
+                    inputs[i].addEventListener('keydown', function(event) { 
+                        if (event.key==="Backspace" ) { 
+                            inputs[i].value='';
+                            if (i !==0) inputs[i - 1].focus(); 
+                        } else { 
+                            if (i===inputs.length - 1 && inputs[i].value !=='' ) {
+                                code+=inputs[i].value;
+                                return true; 
+                            } else if (event.keyCode> 47 && event.keyCode < 58) { 
+                                inputs[i].value=event.key; 
+                                if (i !==inputs.length - 1) {
+                                    inputs[i + 1].focus();
+                                }
+                                code+=inputs[i].value; 
+                                event.preventDefault(); 
+                            } else if (event.keyCode> 64 && event.keyCode < 91) { 
+                                inputs[i].value=String.fromCharCode(event.keyCode); 
+                                if (i !==inputs.length - 1) {
+                                    inputs[i + 1].focus(); 
+                                }
+                                code+=inputs[i].value;
+                                event.preventDefault(); 
+                            } 
+                            if(code.length == 6){
+                                window.location.href = "./reset_password.html";
+                            }
+                        } 
+                    }); 
+
+                    
+                } 
+            } 
+        OTPInput();
+        });
+    </script>
+  </body>
+</html>

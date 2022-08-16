@@ -1,0 +1,61 @@
+.color-primary {
+	color: #ec5b21 !important;
+}
+
+.background-primary {
+	background-color: #ec5b21 !important;
+}
+
+.button-primary {
+	background-color: #ec5b21 !important;
+	color: #ffffff !important;
+	border-radius: 8px !important;
+	min-height: 48px;
+}
+
+.input-group-text {
+	background-color: transparent !important;
+	border: none !important;
+}
+
+.input-group {
+	background-color: #f7f7fa;
+	border-radius: 8px;
+	min-height: 48px;
+}
+
+.form-control,
+.form-control:focus {
+	border: none !important;
+	background-color: transparent !important;
+	resize: none !important;
+	outline: 0px none #fff !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+input.middle:focus {
+	outline-width: 0;
+}
+
+.form-otp {
+	width: 100%;
+	max-width: 330px;
+	padding: 16px;
+	margin: auto;
+	background: transparent;
+}
+
+.svg-orange {
+	fill: #ec5b21;
+	color: #ec5b21;
+}
+
+.svg-orange path {
+	background-color: #ec5b21;
+}

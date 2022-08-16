@@ -1,0 +1,176 @@
+.headline1{
+    font-size: 92px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.headline2{
+    font-size: 57px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.headline3{
+    font-size: 46px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.headline4{
+    font-size: 32px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.headline5{
+    font-size: 23px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.headline6{
+    font-size: 19px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.subtitle1{
+    font-size: 15px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.subtitle2{
+    font-size: 13px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.bodytext1{
+    font-size: 16px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.bodytext2{
+    font-size: 14px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.buttontext{
+    font-size: 14px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.caption{
+    font-size: 12px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+.overline{
+    font-size: 10px !important;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+/* CUSTOM COLOR */
+.color-black50{
+    color: #f7f7fa !important;
+}
+.color-black100{
+    color: #f1f1f1 !important;
+}
+.color-black200{
+    color: #e8e8e8 !important;
+}
+.color-black300{
+    color: #cacccf !important;
+}
+.color-black400{
+    color: #a0a4a8 !important;
+}
+.color-black500{
+    color: #52575c !important;
+}
+.color-black600{
+    color: #25282b !important;
+}
+.color-black700{
+    color: #000000 !important;
+}
+.color-black800{
+    color: #000000 !important;
+}
+.color-black900{
+    color: #000000 !important;
+}
+.color-orange100{
+    color: #FEEAD2 !important;
+}
+.color-orange200{
+    color: #FDD0A6 !important;
+}
+.color-orange300{
+    color: #F9AE78 !important;
+}
+.color-orange400{
+    color: #F38E56 !important;
+}
+.color-orange500{
+    color: #EC5B21 !important;
+}
+.color-orange600{
+    color: #CA3F18 !important;
+}
+.color-orange700{
+    color: #A92710 !important;
+}
+.color-orange800{
+    color: #88140A !important;
+}
+.color-orange900{
+    color: #710706 !important;
+}
+
+/* CUSTOM BACKGROUND */
+.background-transparent{
+    background-color: transparent !important;
+}
+.background-black50{
+    background-color: #f7f7fa !important;
+}
+.background-black100{
+    background-color: #f1f1f1 !important;
+}
+.background-black200{
+    background-color: #e8e8e8 !important;
+}
+.background-black300{
+    background-color: #cacccf !important;
+}
+.background-black400{
+    background-color: #a0a4a8 !important;
+}
+.background-black500{
+    background-color: #52575c !important;
+}
+.background-black600{
+    background-color: #25282b !important;
+}
+.background-black700{
+    background-color: #000000 !important;
+}
+.background-black800{
+    background-color: #000000 !important;
+}
+.background-black900{
+    background-color: #000000 !important;
+}
+.background-orange100{
+    background-color: #FEEAD2 !important;
+}
+.background-orange200{
+    background-color: #FDD0A6 !important;
+}
+.background-orange300{
+    background-color: #F9AE78 !important;
+}
+.background-orange400{
+    background-color: #F38E56 !important;
+}
+.background-orange500{
+    background-color: #EC5B21 !important;
+}
+.background-orange600{
+    background-color: #CA3F18 !important;
+}
+.background-orange700{
+    background-color: #A92710 !important;
+}
+.background-orange800{
+    background-color: #88140A !important;
+}
+.background-orange900{
+    background-color: #710706 !important;
+}
