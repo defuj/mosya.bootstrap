@@ -76,9 +76,9 @@ input.middle:focus {
 	padding: 0px 16px;
 }
 
-.swiper {
-	width: 100%;
-	height: 118px;
+.mySlider {
+	width: 100% !important;
+	height: 118px !important;
 }
 
 .swiper-slide {
@@ -109,4 +109,74 @@ input.middle:focus {
 	height: 100%;
 	object-fit: cover;
 	border-radius: 14px;
+}
+
+.myBrands {
+	width: 100% !important;
+	height: 118px !important;
+}
+
+.brand-slide {
+	cursor: pointer;
+	width: 75px !important;
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	border-radius: 8px;
+
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+
+.brand-slide.active {
+	background: #49505786 !important;
+}
+
+.brand-slide p {
+	margin: 8px 0px 0px 0px !important;
+	padding-left: 6px;
+	padding-right: 6px;
+	font-family: "Open Sans", sans-serif;
+}
+
+.brand-slide.active p {
+	margin: 8px 0px 0px 0px !important;
+	padding-left: 6px;
+	padding-right: 6px;
+	color: #fff !important;
+	font-weight: 600;
+	font-family: "Open Sans", sans-serif;
+}
+
+.brand-slide svg {
+	fill: #495057 !important;
+	height: 50px;
+	width: 50px;
+}
+
+.brand-slide.active svg {
+	fill: #fff !important;
+	height: 50px;
+	width: 50px;
+}
+
+.horizontal-scrollable > .row {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-xs-4 {
+	display: inline-block;
+	float: none;
 }
