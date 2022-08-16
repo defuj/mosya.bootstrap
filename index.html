@@ -16,20 +16,21 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
-  <body class="text-center">
+  <body class="align-items-start">
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto d-flex justify-content-between align-items-center">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center">
         <a class="navbar-brand" href="./index.html">
           <img src="./assets/images/app_icon.png" alt="icons" srcset="" height="40">
         </a>
-        <div class="input-group-search d-flex w-100 align-items-center">
+        <div class="input-group-search">
           <input type="text" class="form-search bodytext2 color-black400" placeholder="Cari mobil di sini ..." required>
           <i class="fi fi-br-search bodytext1 color-black400"></i>
         </div>
@@ -37,23 +38,38 @@
     </nav>
     <!-- end navigation bar -->
 
+    <!-- start body content -->
+    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ml-auto mr-auto mt-5 p-0">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
+        </div>
+      </div>
+    </main>
+    <!-- end body content -->
+
     <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand navbar-light bg-white border-top shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white border-top shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
       <div class="bottom-nav-item active">
         <div class="bottom-nav-link">
-          <i class="fi fi-rr-home headline5"></i>
-          <span>Home</span>
+          <i class="fi fi-rr-home"></i>
+          <span>Beranda</span>
         </div>
       </div>
       <div class="bottom-nav-item">
         <div class="bottom-nav-link">
-          <i class="fi fi-rr-car-circle-bolt headline5"></i>
-          <span>Booking</span>
+          <i class="fi fi-rr-car-circle-bolt"></i>
+          <span>Dipesan</span>
         </div>
       </div>
       <div class="bottom-nav-item">
         <div class="bottom-nav-link">
-          <i class="fi fi-rr-user headline5"></i>
+          <i class="fi fi-rr-user"></i>
           <span>Profile</span>
         </div>
       </div>
@@ -65,9 +81,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="./assets/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
     <script>
       var navItems = document.querySelectorAll(".bottom-nav-item");
-
       navItems.forEach(function(e, i) {
         e.addEventListener("click", function(e) {
           navItems.forEach(function(e2, i2) {
@@ -75,6 +92,20 @@
           });
           this.classList.add("active");
         });
+      });
+    </script>
+
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        direction: 'horizontal',
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
       });
     </script>
   </body>

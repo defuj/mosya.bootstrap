@@ -17,6 +17,11 @@ body {
 	border-radius: 50px !important;
 	height: 40px !important;
 	padding: 16px 16px;
+	-ms-flex-align: center !important;
+	align-items: center !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	width: 100% !important;
 }
 .form-search {
 	display: block;
