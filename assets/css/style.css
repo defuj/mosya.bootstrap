@@ -59,3 +59,9 @@ input.middle:focus {
 .svg-orange path {
 	background-color: #ec5b21;
 }
+
+.input-group-search {
+	background-color: #f7f7fa;
+	border-radius: 50px !important;
+	height: 40px !important;
+}

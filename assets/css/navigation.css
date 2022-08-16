@@ -1,0 +1,30 @@
+.bottom-nav {
+	display: flex;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0.5rem 0;
+	background-color: #fff;
+	z-index: 99;
+	will-change: transform;
+	transform: translateZ(0);
+	box-shadow: 0 0.125rem 10rem 1px rgb(0 0 0 / 8%) !important;
+	border-radius: 8px 8px 0px 0px;
+}
+.navbar .bottom-nav-item {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	justify-content: center;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #252a32;
+}
+.navbar .bottom-nav-link {
+	display: flex;
+	flex-direction: column;
+}
+.bottom-nav .active {
+	color: #ec5b21;
+}
