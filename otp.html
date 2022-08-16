@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="./assets/css/signin.css">
     <link rel="stylesheet" href="./assets/css/typography.css">
     <link rel="stylesheet" href="./assets/css/otp.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +30,11 @@
     </nav>
     
     <form class="form-otp">
-        <img src="./assets/icons/svg/fi-sr-shield-interrogation.svg" class="svg-orange" alt="icons" srcset="" width="50">
+        <i class="fi fi-sr-shield-interrogation color-green500 headline2"></i>
         <p class="mb-2 mt-2 headline6 color-black700 font-weight-bold">Masukan Kode OTP</p>
         <p class="mb-2 bodytext2 color-black500">Masukan Kode OTP yang dikirim melalui email ke <b class="color-black500">u*****me@domain.com</b></p>
     
-        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-3 mb-3"> 
+        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-3 mb-4"> 
             <input class="m-2 text-center otp-form bodytext2" type="password" id="first" maxlength="1" /> 
             <input class="m-2 text-center otp-form bodytext2" type="password" id="second" maxlength="1" /> 
             <input class="m-2 text-center otp-form bodytext2" type="password" id="third" maxlength="1" /> 
@@ -40,7 +43,7 @@
             <input class="m-2 text-center otp-form bodytext2" type="password" id="sixth" maxlength="1" /> 
         </div> 
 
-        <a href="#" id="resend" onclick="resend()" class="color-orange500 bodytext2">
+        <a href="#" id="resend" onclick="resend()" class="color-green500 bodytext2">
             Kirim Ulang Kode
         </a>
         <p id="counter" class="color-black500 bodytext2" style="display: none;">

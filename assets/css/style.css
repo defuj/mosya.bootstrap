@@ -1,13 +1,13 @@
 .color-primary {
-	color: #ec5b21 !important;
+	color: #5bb318 !important;
 }
 
 .background-primary {
-	background-color: #ec5b21 !important;
+	background-color: #5bb318 !important;
 }
 
 .button-primary {
-	background-color: #ec5b21 !important;
+	background-color: #5bb318 !important;
 	color: #ffffff !important;
 	border-radius: 8px !important;
 	min-height: 48px;
@@ -51,17 +51,27 @@ input.middle:focus {
 	background: transparent;
 }
 
-.svg-orange {
-	fill: #ec5b21;
-	color: #ec5b21;
-}
-
-.svg-orange path {
-	background-color: #ec5b21;
-}
-
-.input-group-search {
+.input-group-custom {
 	background-color: #f7f7fa;
-	border-radius: 50px !important;
-	height: 40px !important;
+	border-radius: 8px !important;
+	min-height: 48px !important;
+	padding: 0px 0px 0px 16px;
+	-ms-flex-align: center !important;
+	align-items: center !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+}
+
+.form-input {
+	display: block;
+	width: 100%;
+	min-height: 48px;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	padding: 0px 16px;
 }

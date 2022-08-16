@@ -12,7 +12,12 @@ body {
 	padding-bottom: 40px;
 	background-color: #f5f5f5;
 }
-
+.input-group-search {
+	background-color: #f7f7fa;
+	border-radius: 50px !important;
+	height: 40px !important;
+	padding: 16px 16px;
+}
 .form-search {
 	display: block;
 	width: 100%;
@@ -21,5 +26,7 @@ body {
 	font-weight: 400;
 	line-height: 1.5;
 	color: #495057;
-	background-color: #fff;
+	background-color: transparent;
+	outline: none;
+	border: none;
 }
