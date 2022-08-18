@@ -1,3 +1,6 @@
+.semibold {
+	font-weight: 600;
+}
 .headline1 {
 	font-size: 92px !important;
 	font-family: "Open Sans", sans-serif !important;
@@ -56,38 +59,47 @@
 
 /* CUSTOM COLOR */
 .color-green500 {
-	color: #5bb318 !important;
+	color: #32a02d !important;
 }
 
 .color-black50 {
 	color: #f7f7fa !important;
 }
 .color-black100 {
-	color: #f1f1f1 !important;
+	/* color: #f1f1f1 !important; */
+	color: #d1d2d2 !important;
 }
 .color-black200 {
-	color: #e8e8e8 !important;
+	/* color: #e8e8e8 !important; */
+	color: #c4c8cb !important;
 }
 .color-black300 {
-	color: #cacccf !important;
+	/* color: #cacccf !important; */
+	color: #757778 !important;
 }
 .color-black400 {
-	color: #a0a4a8 !important;
+	/* color: #a0a4a8 !important; */
+	color: #47494c !important;
 }
 .color-black500 {
-	color: #52575c !important;
+	/* color: #52575c !important; */
+	color: #191c1f !important;
 }
 .color-black600 {
-	color: #25282b !important;
+	/* color: #25282b !important; */
+	color: #141619 !important;
 }
 .color-black700 {
-	color: #000000 !important;
+	/* color: #000000 !important; */
+	color: #0f1112 !important;
 }
 .color-black800 {
-	color: #000000 !important;
+	/* color: #000000 !important; */
+	color: #0a0b0c !important;
 }
 .color-black900 {
-	color: #000000 !important;
+	/* color: #000000 !important; */
+	color: #050606 !important;
 }
 .color-orange100 {
 	color: #feead2 !important;
@@ -119,7 +131,7 @@
 
 /* CUSTOM BACKGROUND */
 .background-green500 {
-	background-color: #5bb318 !important;
+	background-color: #32a02d !important;
 }
 
 .background-transparent {
@@ -129,31 +141,40 @@
 	background-color: #f7f7fa !important;
 }
 .background-black100 {
-	background-color: #f1f1f1 !important;
+	/* background-color: #f1f1f1 !important; */
+	background-color: #d1d2d2 !important;
 }
 .background-black200 {
-	background-color: #e8e8e8 !important;
+	/* background-color: #e8e8e8 !important; */
+	background-color: #c4c8cb !important;
 }
 .background-black300 {
-	background-color: #cacccf !important;
+	/* background-color: #cacccf !important; */
+	background-color: #757778 !important;
 }
 .background-black400 {
-	background-color: #a0a4a8 !important;
+	/* background-color: #a0a4a8 !important; */
+	background-color: #47494c !important;
 }
 .background-black500 {
+	/* background-color: #52575c !important; */
 	background-color: #52575c !important;
 }
 .background-black600 {
-	background-color: #25282b !important;
+	/* background-color: #25282b !important; */
+	background-color: #141619 !important;
 }
 .background-black700 {
-	background-color: #000000 !important;
+	/* background-color: #000000 !important; */
+	background-color: #0f1112 !important;
 }
 .background-black800 {
-	background-color: #000000 !important;
+	/* background-color: #000000 !important; */
+	background-color: #0a0b0c !important;
 }
 .background-black900 {
-	background-color: #000000 !important;
+	/* background-color: #000000 !important; */
+	background-color: #050606 !important;
 }
 .background-orange100 {
 	background-color: #feead2 !important;
