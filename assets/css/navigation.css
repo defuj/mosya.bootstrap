@@ -40,3 +40,19 @@
 	color: #5bb318;
 	font-weight: 500;
 }
+
+.bottom-nav .bottom-nav-link i.unselected {
+	display: block;
+}
+
+.bottom-nav .active .bottom-nav-link i.unselected {
+	display: none;
+}
+
+.bottom-nav .bottom-nav-link i.selected {
+	display: none;
+}
+
+.bottom-nav .active .bottom-nav-link i.selected {
+	display: block;
+}
