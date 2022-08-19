@@ -296,3 +296,26 @@ input.middle:focus {
 .container-footer-button .button-footer img {
 	height: 40px;
 }
+
+.container-menu-tab .menu-tab-item {
+	background-color: #fff;
+	border: none;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 12px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.container-menu-tab .menu-tab-item.active {
+	background-color: #32a02d;
+	border: none;
+	color: #fff;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	border-radius: 12px;
+}
