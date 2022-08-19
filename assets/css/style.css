@@ -283,3 +283,16 @@ input.middle:focus {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+.action-load-more {
+	background-color: #afcfae;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-radius: 16px;
+}
+
+.container-footer-button .button-footer img {
+	height: 40px;
+}
