@@ -285,5 +285,5 @@ input.middle:focus {
 	width: 100%;
 	height: calc(50%);
 	object-fit: cover;
-	border-radius: 12px;
+	border-radius: 12px 12px 0px 0px;
 }
