@@ -199,6 +199,22 @@ input.middle:focus {
 	border: none;
 }
 
+.form-search::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #757778;
+	opacity: 1; /* Firefox */
+}
+
+.form-search:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #757778;
+}
+
+.form-search::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: #757778;
+}
+
 .brand-slide.active svg {
 	fill: #fff !important;
 	height: 50px;
@@ -223,6 +239,7 @@ input.middle:focus {
 	border-radius: 12px !important;
 	min-height: 48px;
 	min-width: 48px;
+	border: none;
 }
 .input-group-search {
 	border-radius: 12px !important;
@@ -318,4 +335,18 @@ input.middle:focus {
 	padding-top: 6px;
 	padding-bottom: 6px;
 	border-radius: 12px;
+}
+
+.modal-filter-content {
+	border-radius: 24px 24px 0px 0px;
+}
+
+.modal.fade .modal-dialog {
+	transform: translate3d(0, 5%, 0);
+}
+.modal.in .modal-dialog {
+	transform: translate3d(0, 0, 0);
+}
+.button-action-filter {
+	border-radius: 8px;
 }

@@ -27,15 +27,16 @@
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-column py-0 px-xl-0 px-lg-0 px-md-0 px-sm-3 px-3">
-        <div class="container-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
+        <form method="get" action="./catalog.html" class="container-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
             <div class="input-group-search background-black50 h-100">
                 <i class="fi fi-br-search color-black200 mr-2 headline5"></i>
-                <input type="text" class="form-search bodytext1 color-black100" placeholder="Cari mobil ..." required>
+                <input type="text" name="search" class="form-search bodytext1" placeholder="Cari mobil ..." required>
             </div>
-            <a href="#" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
+            <button type="submit" hidden>search</button>
+            <button type="button" data-toggle="modal" data-target="#dialogFilter" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
               <i class="fi fi-sr-settings-sliders text-white headline5"></i>
-            </a>
-        </div>
+            </button>
+        </form>
 
         <div class="container-menu-tab w-100 d-flex justify-content-around mt-2">
             <button class="menu-tab-item bodytext2 active">Terkait</button>
@@ -43,9 +44,6 @@
             <button class="menu-tab-item bodytext2">Harga</button>
         </div>
       </div>
-
-      
-
     </nav>
     <!-- end navigation bar -->
 
@@ -185,6 +183,30 @@
       </div>
     </nav>
     <!-- end navigation bottom -->
+
+    <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 h-100">
+          <div class="modal-content modal-filter-content mt-auto">
+            <div class="modal-header">
+              <h5 class="modal-title headline6" id="staticBackdropLabel">Filter</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fi fi-br-cross headline6"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="textbody1 semibold">Warna</p>
+              <p class="textbody1 semibold">Tahun</p>
+              <p class="textbody1 semibold">Bahan Bakar</p>
+              <p class="textbody1 semibold">Batas Harga (Rp)</p>
+
+            </div>
+            <div class="modal-footer justify-content-around">
+              <button type="button" class="btn flex-fill button-action-filter background-black200 bodytext2 py-2" data-dismiss="modal">Atur ulang</button>
+              <button type="button" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2">Tampilkan</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

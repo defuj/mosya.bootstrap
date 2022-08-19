@@ -57,15 +57,14 @@
       <!-- end content welcome user -->
 
       <!-- start content form search -->
-      <div class="container-search mx-3 mb-4 d-flex justify-content-between align-items-center" style="height: 48px;">
-        <div class="input-group-search bg-white h-100">
-          <input type="text" class="form-search bodytext1 color-black800" placeholder="Cari mobil di sini ..." required>
-          
-        </div>
-        <a href="#" class="h-100 d-flex align-items-center justify-content-center button-search ml-3" style="width: 48px;">
-          <i class="fi fi-br-search text-white"></i>
-        </a>
-      </div>
+      <form action="./catalog.html" method="get" class="container-search mx-3 mb-4 d-flex justify-content-between align-items-center" style="height: 48px;">
+          <div class="input-group-search bg-white h-100">
+            <input type="text" name="search" class="form-search bodytext1 color-black800" placeholder="Cari mobil di sini ..." required>
+          </div>
+          <button type="submit" class="h-100 d-flex align-items-center justify-content-center button-search ml-3" style="width: 48px;">
+            <i class="fi fi-br-search text-white"></i>
+          </button>
+      </form>
       <!-- end content form search -->
       
       <!-- start content slider -->
@@ -97,7 +96,9 @@
       <div class="contaier-brand d-flex w-100 flex-row px-3 mt-4">
         <div class="w-100 d-flex justify-content-between align-items-center">
           <p class="bodytext1 color-black500 font-weight-bold">Merek Mobil</p>
-          <p class="caption color-black500 semibold">Lainnya</p>
+          <a href="#">
+            <p class="caption color-black500 semibold">Lainnya</p>
+          </a>
         </div>
       </div>
       <!-- end content brands list -->
@@ -158,9 +159,35 @@
       <div class="container-products w-100 mb-4">
         <div class="w-100 d-flex justify-content-between align-items-center px-3 mt-4">
           <p class="bodytext1 color-black500 font-weight-bold m-0">Merek Tersedia</p>
-          <p class="caption color-black500 semibold m-0">Lainnya</p>
+          <a href="#" class="">
+            <p class="caption color-black500 semibold m-0">Lainnya</p>
+          </a>
         </div>
         <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-2">
+          <a class="product-items w-50 flex-column" href="./product.html">
+            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
+            <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
+            <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
+          </a>
+          <a class="product-items w-50 flex-column" href="./product.html">
+            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
+            <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
+            <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
+          </a>
+          <a class="product-items w-50 flex-column" href="./product.html">
+            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
+            <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
+            <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
+          </a>
+          <a class="product-items w-50 flex-column" href="./product.html">
+            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
+            <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
+            <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
+          </a>
           <a class="product-items w-50 flex-column" href="./product.html">
             <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
             <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
