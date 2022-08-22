@@ -355,6 +355,10 @@ input.middle:focus {
 	border-radius: 8px;
 }
 
+.button-action-filter-reset {
+	border: solid 2px #32a02d;
+}
+
 .select-item:hover {
 	text-decoration: none;
 }
