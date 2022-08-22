@@ -301,6 +301,10 @@ input.middle:focus {
 	background-size: cover;
 }
 
+.product-items:hover {
+	text-decoration: none;
+}
+
 .action-load-more {
 	background-color: #afcfae;
 	padding-left: 16px;
