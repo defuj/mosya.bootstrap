@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mosya - Mobil Syariah</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="align-items-start pt-0">
+
+    <!-- start body content -->
+    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 pb-5">
+    
+      <!-- start content product list -->
+      <div class="container-history w-100 mb-5 d-flfex justify-content-start w-100 flex-wrap py-1">
+        <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+            <img src="./assets/images/car_history.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="250">
+            <div class="empty-text text-center">
+              <p class="headline5 color-black500 semibold m-0 px-3" id="title-not-found">Belum ada riwayat beli nih.</p>
+              <p class="bodytext1 color-black300 semibold mx-3 px-5" id="desc-not-found">Pasti ada yang kamu suka deh, cari dulu yuu.</p>
+            </div>
+        </div>
+      </div>
+      <!-- end content product list -->
+
+      <!-- start content footer -->
+      <div class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center">
+        <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
+        <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
+        <div class="container-footer-button d-flex justify-content-center">
+          <a class="button-footer px-2" href="#">
+            <img src="./assets/images/btn-google-play.png" alt="">
+          </a>
+          <a class="button-footer px-2" href="#">
+            <img src="./assets/images/btn-app-store.png" alt="">
+          </a>
+        </div>
+
+        <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
+          <a class="action-footer px-1 color-black300 bodytext2" href="#">
+            Tentang Mosya |
+          </a>
+          <a class="action-footer px-1  color-black300 bodytext2" href="#">
+            Syarat dan Ketentuan | 
+          </a>
+          <a class="action-footer px-1  color-black300 bodytext2" href="#">
+            Pusat Bantuan
+          </a>
+        </div>
+
+        <div class="container-line background-black100 w-100 mt-4" style="height: 1px;"></div>
+
+        <div class="container-footer-copyright d-flex justify-content-center flex-wrap mt-4">
+          <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
+        </div>
+      <!-- end content footer -->
+    </main>
+    <!-- end body content -->
+
+    <!-- start navigation bottom -->
+    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white border-top shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="fi fi-rr-home unselected"></i>
+          <i class="fi fi-sr-home selected"></i>
+          <span>Beranda</span>
+        </div>
+      </div>
+      <div class="bottom-nav-item">
+        <div class="bottom-nav-link">
+          <i class="fi fi-rr-car-alt unselected"></i>
+          <i class="fi fi-sr-car-alt selected"></i>
+          <span>Katalog</span>
+        </div>
+      </div>
+      <div class="bottom-nav-item active">
+        <div class="bottom-nav-link">
+          <i class="fi fi-rr-ballot unselected"></i>
+          <i class="fi fi-sr-ballot selected"></i>
+          <span>Riwayat</span>
+        </div>
+      </div>
+    </nav>
+    <!-- end navigation bottom -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/filter.js"></script>
+
+    <script>
+      var titleEmpty = "Belum ada produk";
+      var descEmpty = 'Silahkan coba lagi nanti';
+
+      const fetchCars = () => {
+        const filters = new URLSearchParams(window.location.search);
+        const root = window.location.href; //window.location.origin;
+        console.log(window.location.href);
+        document.getElementById('form-filter').action = root;
+        document.getElementById('form-search').action = root;
+        
+        axios.get(window.location.origin+'/assets/js/cars.json')
+          .then(response => {
+              var cars = response.data;
+              // filter by color
+              if(filters.has('color')){
+                if(filters.get('color').toString() != 'Semua' && filters.get('color').toString() != ''){
+                  cars = cars.filter(car => car.color == filters.get('color').toString());
+                }
+              }
+
+              // filter by fuel
+              if(filters.has('fuel')){
+                if(filters.get('fuel').toString() != 'Semua' && filters.get('fuel').toString() != ''){
+                  cars = cars.filter(car => car.fuel == filters.get('fuel').toString());
+                }
+              }
+
+              // filter by merk
+              if(filters.has('merk')){
+                if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
+                  cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
+                }
+              }
+
+              // filter by search
+              if(filters.has('search')){
+                document.getElementById('input-search').value = filters.get('search').toString();
+                if(filters.get('search').toString() != ''){
+                  cars = cars.filter(car => car.model.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase()));
+                  titleEmpty = `Pencarian <span class="color-green500 semibold">"${filters.get('search').toString()}"</span> Tidak Ditemukan`;
+                  descEmpty = 'Silahkan gunakan kata kunci lain';
+                }else{
+                  titleEmpty = "Belum ada produk";
+                  descEmpty = 'Silahkan coba lagi nanti';
+                }
+              }
+
+              const emptyState = `
+              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+                <div class="empty-text text-center">
+                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+                  <p class="bodytext2 color-black400 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+                </div>
+              </div>`;
+
+              if(cars.length > 0){
+                if(filters.has('search')){
+                  if(filters.get('search').toString() != ''){
+                    document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
+                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3">Menampilkan hasil pencarian <span class="color-green500">${filters.get('search')}</span></p>`)
+                  }else{
+                    document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
+                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3"><span class="color-green500">${cars.length}</span> mobil terkait ditemukan </p>`)
+                  }
+                }else{
+                  document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
+                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3"><span class="color-green500">${cars.length}</span> mobil terkait ditemukan </p>`)
+                }
+
+                cars.map((data, i)=>{
+                  document.querySelector('.container-product').insertAdjacentHTML('afterbegin',`
+                  <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
+                      <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
+                      <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
+                      <p class="bodytext2 color-black300 semibold m-0 px-2">${data.year} ${data.color}</p>
+                      <p class="caption color-green500 m-0 py-1 px-2">${data.price}</p>
+                  </a>`)
+                });
+                try { document.querySelector('.container-empty').remove();} catch (error) {}
+              }else{
+                try { document.querySelector('.text-search-result').remove();} catch (error) {}
+                document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
+              }
+          })
+          .catch(error => '');
+      };
+
+      fetchCars();
+    </script>
+  </body>
+</html>

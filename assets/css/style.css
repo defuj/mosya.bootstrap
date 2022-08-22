@@ -134,6 +134,10 @@ input.middle:focus {
 	border-radius: 8px;
 	margin: 0px 10px;
 	color: #191c1f;
+	/* margin: 8px 0px 0px 0px !important; */
+	padding-left: 6px;
+	padding-right: 6px;
+	font-family: "Open Sans", sans-serif;
 
 	/* Center slide text vertically */
 	display: -webkit-box;
@@ -151,32 +155,19 @@ input.middle:focus {
 }
 .brand-slide:hover {
 	color: #191c1f;
+	/* margin: 8px 0px 0px 0px !important; */
+	padding-left: 6px;
+	padding-right: 6px;
+	/* color: #fff !important; */
+	/* font-weight: 600; */
+	font-family: "Open Sans", sans-serif;
 }
 
 .brand-slide.active {
 	background: #49505786;
-}
-
-.brand-slide p {
-	margin: 8px 0px 0px 0px !important;
-	padding-left: 6px;
-	padding-right: 6px;
-	font-family: "Open Sans", sans-serif;
-}
-
-.brand-slide.active p {
-	margin: 8px 0px 0px 0px !important;
-	padding-left: 6px;
-	padding-right: 6px;
-	color: #fff !important;
+	color: #fff;
 	font-weight: 600;
 	font-family: "Open Sans", sans-serif;
-}
-
-.brand-slide svg {
-	fill: #495057 !important;
-	height: 50px;
-	width: 50px;
 }
 
 .input-group-search {

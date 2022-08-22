@@ -1,3 +1,18 @@
+var merkSelector = document.querySelectorAll(".select-merk-item");
+merkSelector.forEach( (item) => {
+    item.addEventListener("click", (e) => {
+        merkSelector.forEach( (item) => {
+            console.log("remove active");
+            item.classList.remove("active");
+        });
+        item.classList.add("active");
+    });
+});
+
+$(".input-select-merk").change(function() {
+    $(".input-select-merk").not(this).prop('checked', false);
+});
+
 var colorSelector = document.querySelectorAll(".select-color-item");
 colorSelector.forEach( (item) => {
     item.addEventListener("click", (e) => {
@@ -29,6 +44,14 @@ $(".input-select-fuel").change(function() {
 });
 
 function reseltFilter(){
+    document.querySelectorAll(".select-merk-item").forEach(item => {
+        const resultName = item.textContent.toString().replace(/\s/g, '')
+        if(resultName.toString() === "Semua"){
+            item.click();
+            return false;
+        }
+    });
+
     document.querySelectorAll(".select-color-item").forEach(item => {
         const resultName = item.textContent.toString().replace(/\s/g, '')
         if(resultName.toString() === "Semua"){
@@ -48,6 +71,16 @@ function reseltFilter(){
 
 function prepareFilter(){
     const params = new URLSearchParams(window.location.search);
+    if(params.has('merk')){
+        document.querySelectorAll(".select-merk-item").forEach(item => {
+            const resultName = item.textContent.toString().replace(/\s/g, '')
+            if(params.get('merk').toString() === resultName.toString()){
+                item.click();
+                return false;
+            }
+        });
+    }
+
     if(params.has('color')){
         document.querySelectorAll(".select-color-item").forEach(item => {
             const resultName = item.textContent.toString().replace(/\s/g, '')
