@@ -187,24 +187,96 @@
     <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 h-100">
           <div class="modal-content modal-filter-content mt-auto">
-            <div class="modal-header">
-              <h5 class="modal-title headline6" id="staticBackdropLabel">Filter</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <i class="fi fi-br-cross headline6"></i>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p class="textbody1 semibold">Warna</p>
-              
-              <p class="textbody1 semibold">Tahun</p>
-              <p class="textbody1 semibold">Bahan Bakar</p>
-              <p class="textbody1 semibold">Batas Harga (Rp)</p>
-
-            </div>
-            <div class="modal-footer justify-content-around">
-              <button type="button" class="btn flex-fill button-action-filter background-black200 bodytext2 py-2" data-dismiss="modal">Atur ulang</button>
-              <button type="button" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2">Tampilkan</button>
-            </div>
+            
+            <form action="./catalog.html" method="get">
+              <div class="modal-header">
+                <h5 class="modal-title headline6" id="staticBackdropLabel">Filter</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <i class="fi fi-br-cross headline6"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p class="textbody1 semibold mb-2">Warna</p>
+                <div class="container-select-color d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
+                  <label class="select-item select-color-item active">
+                      <input type="checkbox" name="color" class="input-select-color" value="Semua" hidden checked>
+                      Semua
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Hitam" hidden>
+                      Hitam
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Silver" hidden>
+                      Silver
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Putih" hidden>
+                      Putih
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Biru" hidden>
+                      Biru
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Jingga" hidden>
+                      Jingga
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Merah" hidden>
+                      Merah
+                  </label>
+                  <label class="select-item select-color-item">
+                      <input type="checkbox" name="color" class="input-select-color" value="Gray" hidden>
+                      Gray
+                  </label>
+                </div>
+                <p class="textbody1 semibold mb-2">Tahun</p>
+                <div class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2">
+                  <div class="input-group-search background-black50 h-50 py-0 px-3">
+                    <input type="number" name="tahun-awal" id="tahun-awal" maxlength="4" minlength="4" class="form-search  bodytext1 text-center" placeholder="Tahun Awal">
+                  </div>
+                  <p class="bodytext1 color-black500 semibold px-2 pt-3">sd</p>
+                  <div class="input-group-search background-black50 h-50 py-0 px-3">
+                    <input type="number" name="tahun-akhir" id="tahun-akhir" maxlength="4" minlength="4" class="form-search  bodytext1 text-center" placeholder="Tahun Akhir">
+                  </div>
+                </div>
+                <p class="textbody1 semibold mb-2">Bahan Bakar</p>
+                <div class="container-select-fuel d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
+                  <label class="select-item select-fuel-item active">
+                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Semua" checked hidden>
+                      Semua
+                  </label>
+                  <label class="select-item select-fuel-item">
+                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Bensin" hidden>
+                      Bensin
+                  </label>
+                  <label class="select-item select-fuel-item">
+                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Solar" hidden>
+                      Solar
+                  </label>
+                  <label class="select-item select-fuel-item">
+                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Listrik" hidden>
+                      Listrik
+                  </label>
+                </div>
+                <p class="textbody1 semibold mb-2">Batas Harga (Rp)</p>
+                <div class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2">
+                  <div class="input-group-search background-black50 h-50 py-0 px-3">
+                    <input type="number" name="harga-awal" id="harga-awal" class="form-search  bodytext1 text-center" placeholder="Harga Awal">
+                  </div>
+                  <p class="bodytext1 color-black500 semibold px-2 pt-3">sd</p>
+                  <div class="input-group-search background-black50 h-50 py-0 px-3">
+                    <input type="number" name="harga-akhir" id="harga-akhir" class="form-search  bodytext1 text-center" placeholder="Harga Akhir">
+                  </div>
+                </div>
+  
+              </div>
+              <div class="modal-footer justify-content-around">
+                <button type="reset" class="btn flex-fill button-action-filter background-black200 bodytext2 py-2" onclick="reseltFilter()">Atur ulang</button>
+                <button type="submit" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2">Tampilkan</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -215,64 +287,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-
-    <script>
-        var menuTabs = document.querySelectorAll(".menu-tab-item");
-        menuTabs.forEach(function(e, i) {
-          e.addEventListener("click", function(e) {
-            menuTabs.forEach(function(e2, i2) {
-              e2.classList.remove("active");
-            });
-            this.classList.add("active");
-          });
-        });
-      </script>
-
-    <script>
-      var brandSlides = document.querySelectorAll(".brand-slide");
-      brandSlides.forEach(function(e, i) {
-        e.addEventListener("click", function(e) {
-          brandSlides.forEach(function(e2, i2) {
-            e2.classList.remove("active");
-          });
-          this.classList.add("active");
-        });
-      });
-    </script>
-
-    <script>
-      var navItems = document.querySelectorAll(".bottom-nav-item");
-      navItems.forEach(function(e, i) {
-        e.addEventListener("click", function(e) {
-          navItems.forEach(function(e2, i2) {
-            e2.classList.remove("active");
-          });
-          this.classList.add("active");
-          if(i == 0) {
-            window.location.href = "./home.html";
-          } else if(i == 1) {
-            window.location.href = "./catalog.html";
-          } else if(i == 2) {
-            window.location.href = "./history.html";
-          }
-        });
-      });
-    </script>
-
-    <script>
-      var swiper = new Swiper(".mySlider", {
-        // slidesPerView: 'auto',
-        slidesPerView: 1.3,
-        // centeredSlides: true,
-        centeredSlides: false,
-        direction: 'horizontal',
-        spaceBetween: 10,
-        loop: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-      });
-    </script>
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/filter.js"></script>
   </body>
 </html>
