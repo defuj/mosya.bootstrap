@@ -513,3 +513,8 @@ input.middle:focus {
 	border: none;
 	background-color: #f46d5b;
 }
+.button-action-save {
+	padding: 12px;
+	border-radius: 8px;
+	border: none;
+}
