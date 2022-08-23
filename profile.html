@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mosya - Profil</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="align-items-start pt-0 flex-column pb-0">
+    <!-- start navigation bar -->
+    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
+        <a class="navbar-brand" title="back" onclick="history.back()">
+            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
+        </a>
+        <p class="mb-0 bodytext1 semibold color-black500 px-2 py-2">Profil</p>
+      </div>
+    </nav>
+    <!-- end navigation bar -->
+
+    <!-- start body content -->
+    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5">
+        <!-- start content welcome user -->
+        <div class="container-user d-flex justify-content-center flex-column w-100 px-3 py-4 mb-4">
+            <div class="container-image-profile mx-auto">
+                <img src="./assets/images/user-placeholder.png" alt="profile" class="image-profile">
+            </div>
+
+            <div class="input-group-custom bg-white mt-3">
+                <i class="fi fi-rr-user color-black400"></i>
+                <input type="text" class="form-input bodytext2" placeholder="Nama Lengkap" readonly required>
+            </div>
+
+            <div class="input-group-custom bg-white mt-3">
+                <i class="fi fi-rr-hastag color-black400"></i>
+                <input type="number" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" readonly required>
+            </div>
+
+            <div class="input-group-custom bg-white mt-3">
+                <i class="fi fi-rr-at color-black400"></i>
+                <input type="email" class="form-input bodytext2" placeholder="Alamat Email" readonly required>
+            </div>
+
+            <button class="button-action-profile color-black500 bodytext1 text-center mt-5">
+                Edit Profil
+            </button>
+            <button class="button-action-profile color-black500 bodytext1 text-center mt-2">
+                Ubah Kata Sandi
+            </button>
+            <a href="login.html" class="text-decoration-none d-flex">
+                <button class="button-action-logout text-white bodytext1 text-center mt-2 d-flex flex-row justify-content-center flex-fill">
+                    <p class="mb-0">Keluar Akun</p>
+                    <i class="fi fi-sr-sign-out-alt ml-2 bodytext1 mt-1"></i>
+                </button>
+            </a>
+            
+
+      </div>
+      <!-- end content welcome user -->
+      
+    </main>
+    <!-- end body content -->
+
+    <!-- start content footer -->
+    <footer style="max-height: 280px !important;min-height: 280px !important;" class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ml-auto mr-auto mb-0">
+      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
+      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
+      <div class="container-footer-button d-flex justify-content-center">
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-google-play.png" alt="">
+        </a>
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-app-store.png" alt="">
+        </a>
+      </div>
+
+      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
+        <a class="action-footer px-1 color-black300 bodytext2" href="#">
+          Tentang Mosya |
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Syarat dan Ketentuan | 
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Pusat Bantuan
+        </a>
+      </div>
+
+      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+
+      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
+        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- end content footer -->
+
+    <!-- start navigation bottom -->
+    <nav class="d-none navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+        <!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
+        <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+            <p class="mb-0 py-1">Cari Mobil</p>
+            <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
+        </button>
+    </nav>
+    <!-- end navigation bottom -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+
+    <script>
+      
+    </script>
+  </body>
+</html>
