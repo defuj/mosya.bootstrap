@@ -333,6 +333,8 @@ input.middle:focus {
 
 .container-footer {
 	margin-bottom: 1rem;
+	min-height: 360px;
+	max-height: 360px;
 }
 
 .container-menu-tab .menu-tab-item {
