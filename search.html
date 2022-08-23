@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Mosya - Mobil Syariah</title>
+    <title>Mosya - Pencarian</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,14 +28,16 @@
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-column py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <form method="get" action="./search.html" id="form-search" class="container-search form-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
+        <form method="get" action="" id="form-search" class="container-search form-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
+            <a class="navbar-brand" href="./home.html" title="">
+                <i class="fi fi-sr-angle-left color-black400 headline5"></i>
+            </a>
             <div class="input-group-search background-black50 h-100">
                 <i class="fi fi-br-search color-black200 mr-2 headline5"></i>
                 <input type="text" name="search" class="bodytext1" id="input-search" placeholder="Cari mobil ...">
             </div>
             <button type="submit" hidden>search</button>
             <button type="button" data-toggle="modal" data-target="#dialogFilter" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
-              
               <i class="fi fi-rr-settings-sliders text-white headline5"></i>
             </button>
         </form>
@@ -51,15 +53,10 @@
 
     <!-- start body content -->
     <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 main-content">
+    
       <!-- start content product list -->
       <div class="container-products w-100 mb-4">
         <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-1">
-          <!-- <a class="product-items w-50 flex-column" href="./product.html">
-            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
-            <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
-            <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
-            <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
-          </a> -->
         </div>
       </div>
       <!-- end content product list -->
@@ -67,63 +64,37 @@
     <!-- end body content -->
 
     <!-- start content footer -->
-    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+    <footer class="container-footer w-100 bg-white p-3 flex-row justify-content-center mb-0 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
+        <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
+        <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
+        <div class="container-footer-button d-flex justify-content-center">
+          <a class="button-footer px-2" href="#">
+            <img src="./assets/images/btn-google-play.png" alt="">
+          </a>
+          <a class="button-footer px-2" href="#">
+            <img src="./assets/images/btn-app-store.png" alt="">
+          </a>
+        </div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+        <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
+          <a class="action-footer px-1 color-black300 bodytext2" href="#">
+            Tentang Mosya |
+          </a>
+          <a class="action-footer px-1  color-black300 bodytext2" href="#">
+            Syarat dan Ketentuan | 
+          </a>
+          <a class="action-footer px-1  color-black300 bodytext2" href="#">
+            Pusat Bantuan
+          </a>
+        </div>
 
-      <div class="container-line background-black100 w-100 mt-4" style="height: 1px;"></div>
+        <div class="container-line background-black100 w-100 mt-4" style="height: 1px;"></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap mt-4">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
+        <div class="container-footer-copyright d-flex justify-content-center flex-wrap mt-4">
+          <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
+        </div>
     </footer>
-    <!-- end content footer -->
-
-    <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white border-top shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <i class="fi fi-rr-home unselected"></i>
-          <i class="fi fi-sr-home selected"></i>
-          <span>Beranda</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item active">
-        <div class="bottom-nav-link">
-          <i class="fi fi-rr-car-alt unselected"></i>
-          <i class="fi fi-sr-car-alt selected"></i>
-          <span>Katalog</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <i class="fi fi-rr-ballot unselected"></i>
-          <i class="fi fi-sr-ballot selected"></i>
-          <span>Riwayat</span>
-        </div>
-      </div>
-    </nav>
-    <!-- end navigation bottom -->
+      <!-- end content footer -->
 
     <form action="" method="get" id="form-filter">
       <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -137,7 +108,7 @@
               </div>
               <div class="modal-body">
                 <p class="textbody1 semibold mb-2">Merek</p>
-                <div class="container-select-merk d-flex align-content-start flex-wrap w-100 my-2">
+                <div class="container-select-merk d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
                   <label class="select-item select-merk-item active">
                     <input type="checkbox" name="merk" class="input-select-merk" value="Semua" hidden checked>
                     Semua
@@ -288,8 +259,9 @@
       const fetchCars = () => {
         const filters = new URLSearchParams(window.location.search);
         const root = window.location.href; //window.location.origin;
+        console.log(window.location.href);
         document.getElementById('form-filter').action = root;
-        document.getElementById('form-search').action = window.location.origin+'/search.html';
+        document.getElementById('form-search').action = root;
         
         axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
           .then(response => {

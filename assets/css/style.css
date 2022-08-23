@@ -81,6 +81,20 @@ input.middle:focus {
 	height: 150px !important;
 }
 
+.carSlider {
+	width: 100% !important;
+	height: 180px !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	width: 20px !important;
+	background-color: #32a02d;
+}
+
+.swiper-pagination-bullet {
+	border-radius: 20px !important;
+}
+
 .swiper-slide {
 	/* width: 359px !important; */
 	width: 300px !important;
@@ -313,8 +327,12 @@ input.middle:focus {
 	height: 40px;
 }
 
+.main-content {
+	margin-top: 130px;
+}
+
 .container-footer {
-	margin-bottom: 1rem !important;
+	margin-bottom: 1rem;
 }
 
 .container-menu-tab .menu-tab-item {
@@ -322,8 +340,8 @@ input.middle:focus {
 	border: none;
 	padding-left: 20px;
 	padding-right: 20px;
-	padding-top: 6px;
-	padding-bottom: 6px;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	border-radius: 12px;
 	margin-top: 8px;
 	margin-bottom: 8px;
@@ -397,4 +415,30 @@ input.middle:focus {
 .container-empty {
 	padding-top: 40%;
 	padding-bottom: 45%;
+}
+
+.button-message {
+	border: none;
+	border-radius: 10px;
+}
+
+.container-spec .spec-item {
+	box-shadow: 4px 4px 8px 0px rgba(38, 50, 56, 0.1);
+	border-radius: 6px;
+	background-color: #fff;
+	margin: 8px 8px;
+	min-width: calc(33.3% - 16px) !important;
+	padding: 12px;
+}
+
+.button-message {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	font-weight: 500 !important;
+}
+
+.button-message i {
+	margin-top: 8px;
 }

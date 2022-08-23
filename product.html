@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mosya - Mobil Syariah</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="align-items-start pt-0 flex-column" style="background-color: #FAFAFA;">
+    <!-- start navigation bar -->
+    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
+        <a class="navbar-brand" href="./home.html" title="">
+            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
+        </a>
+        <p class="mb-0 bodytext1 color-black500 px-2">Detail Mobil</p>
+      </div>
+    </nav>
+    <!-- end navigation bar -->
+
+    <!-- start body content -->
+    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
+      <!-- start content slider -->
+      <div class="container-slider">
+        <div class="swiper carSlider">
+            <div class="swiper-wrapper">
+            </div>
+          </div>
+          <div class="swiper-pagination" style="bottom: auto;"></div>
+      </div>
+
+      <div class="container-data mt-5 mb-3">
+        <p class="color-green500 caption semibold mb-0 px-3" id="data-merk">Honda</p>
+        <p class="color-black800 headline5 semibold px-3" id="data-model">Brio Satya 1.2E CVT</p>
+
+        <p class="color-black500 bodytext1 semibold mb-1 px-3">Deskripsi</p>
+        <p class="color-black500 bodytext2 px-3" id="data-desc">Mobil bagus mesin dan body terawat siap pakai...</p>
+
+        <p class="color-black500 bodytext1 semibold mb-1 px-3">Spesifikasi</p>
+        <div class="container-spec d-flex align-content-start flex-wrap px-2 mb-3 data-spec" id="data-spec">
+        </div>
+
+        <p class="color-black500 bodytext1 semibold mb-1 px-3">DP & Cicilan</p>
+        <div class="container-spec d-flex align-content-start flex-wrap px-2 data-dp" id="data-dp">
+            <div class="spec-item flex-column justify-content-start">
+                <p class="caption color-black300 mb-0">DP</p>
+                <p class="bodytext2 color-black500 semibold mb-0">-</p>
+            </div>
+            <div class="spec-item flex-column justify-content-start">
+                <p class="caption color-black300 mb-0">Cicilan</p>
+                <p class="bodytext2 color-black500 semibold mb-0">-</p>
+            </div>
+        </div>
+        
+      </div>
+      
+      <!-- end content slider -->
+    </main>
+    <!-- end body content -->
+
+    <!-- start content footer -->
+    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
+      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
+      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
+      <div class="container-footer-button d-flex justify-content-center">
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-google-play.png" alt="">
+        </a>
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-app-store.png" alt="">
+        </a>
+      </div>
+
+      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
+        <a class="action-footer px-1 color-black300 bodytext2" href="#">
+          Tentang Mosya |
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Syarat dan Ketentuan | 
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Pusat Bantuan
+        </a>
+      </div>
+
+      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+
+      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
+        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- end content footer -->
+
+    <!-- start navigation bottom -->
+    <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 border-top shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+        <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 150.000.000</p>
+        <button class="button-message bodytext2 semibold text-white d-flex flex-row justify-content-start align-items-center background-green500" type="button">
+            <p class="mb-0">Kirim Pesan</p>
+            <i class="fi fi-rr-comment bodytext1 ml-2"></i>
+        </button>
+    </nav>
+    <!-- end navigation bottom -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+
+    <script>
+        var titleEmpty = "Produk tidak ditemukan";
+        var descEmpty = 'Silahkan cari produk lainnya';
+
+        // banner slider
+        const startSlider = () => {
+            var swiper = new Swiper(".carSlider", {
+                slidesPerView: 'auto',
+                // centeredSlides: true,
+                centeredSlides: false,
+                direction: 'horizontal',
+                spaceBetween: 16,
+                loop: true,
+                autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+            });
+        }
+
+        const fetchCars = () => {
+            const filters = new URLSearchParams(window.location.search);
+
+            const emptyState = `
+                <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+                    <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+                    <div class="empty-text text-center">
+                        <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+                        <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+                    </div>
+                </div>`;
+            
+            axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
+            .then(response => {
+                var cars = response.data;
+                // filter by color
+                if(filters.has('id') && filters.get('id').toString() != ''){
+                    cars = cars.filter(car => car.id == filters.get('id').toString());
+
+                    if(cars.length > 0){
+                        const data = cars[0];
+                        data.images.map((img)=>{
+                            document.querySelector('.swiper-wrapper').insertAdjacentHTML('afterbegin',`
+                            <div class="swiper-slide">
+                                <img src="${img}" alt="" srcset="">
+                            </div>`);
+                        });
+                        startSlider();
+
+                        document.getElementById('data-merk').innerHTML = data.merk;
+                        document.getElementById('data-model').innerHTML = data.model;
+                        document.getElementById('data-desc').innerHTML = data.conditions;
+                        document.getElementById('data-price').innerHTML = 'Rp '+data.price;
+                        try {
+                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
+                            <div class="spec-item flex-column justify-content-start">
+                                <p class="caption color-black300 mb-0">Warna</p>
+                                <p class="bodytext2 color-black500 semibold mb-0">${data.color != undefined ? data.color : '-'}</p>
+                            </div>
+                            `);
+                        } catch (error) {}
+                        try {
+                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
+                            <div class="spec-item flex-column justify-content-start">
+                                <p class="caption color-black300 mb-0">Tahun</p>
+                                <p class="bodytext2 color-black500 semibold mb-0">${data.year != undefined ? data.year : '-'}</p>
+                            </div>
+                            `);
+                        } catch (error) {}
+                        try {
+                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
+                            <div class="spec-item flex-column justify-content-start">
+                                <p class="caption color-black300 mb-0">Bahan Bakar</p>
+                                <p class="bodytext2 color-black500 semibold mb-0">${data.fuel != undefined ? data.fuel : '-'}</p>
+                            </div>
+                            `);
+                        } catch (error) {}
+                        try {
+                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
+                            <div class="spec-item flex-column justify-content-start">
+                                <p class="caption color-black300 mb-0">Kilometer</p>
+                                <p class="bodytext2 color-black500 semibold mb-0">${data.kilometer != undefined ? data.kilometer : '-'}</p>
+                            </div>
+                            `);
+                        } catch (error) {}
+                        try {
+                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
+                            <div class="spec-item flex-column justify-content-start">
+                                <p class="caption color-black300 mb-0">Plat Nomor</p>
+                                <p class="bodytext2 color-black500 semibold mb-0">${data.plat_number != undefined ? data.plat_number : '-'}</p>
+                            </div>
+                            `);
+                        } catch (error) {}
+                        
+                        document.querySelector('.data-dp').insertAdjacentHTML('afterbegin',``);
+
+                        try { document.querySelector('.container-empty').remove();} catch (error) {}
+                    }else{
+                        try { document.querySelector('.container-slider').remove();} catch (error) {}
+                        try { document.querySelector('.container-data').remove();} catch (error) {}
+                        try { document.querySelector('.bottom-nav-buy').remove();} catch (error) {}
+                        document.querySelector('.container-car').insertAdjacentHTML('afterbegin',emptyState);
+                    }
+                }else{
+                    try { document.querySelector('.container-slider').remove();} catch (error) {}
+                    try { document.querySelector('.container-data').remove();} catch (error) {}
+                    try { document.querySelector('.bottom-nav-buy').remove();} catch (error) {}
+                    document.querySelector('.container-car').insertAdjacentHTML('afterbegin',emptyState);
+                }
+            })
+            .catch(error => '');
+        };
+
+        fetchCars();
+        
+    </script>
+  </body>
+</html>
