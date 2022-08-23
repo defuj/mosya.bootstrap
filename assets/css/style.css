@@ -460,4 +460,5 @@ input.middle:focus {
 	border-radius: 8px;
 	font-size: 28px;
 	color: #1e601b;
+	cursor: pointer;
 }
