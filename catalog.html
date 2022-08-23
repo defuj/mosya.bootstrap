@@ -355,8 +355,8 @@
                   <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
                       <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
                       <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                      <p class="bodytext2 color-black300 semibold m-0 px-2">${data.year} ${data.color}</p>
-                      <p class="caption color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
+                      <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
+                      <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
                   </a>`)
                 });
                 try { document.querySelector('.container-empty').remove();} catch (error) {}

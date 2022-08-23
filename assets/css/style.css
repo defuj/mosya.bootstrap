@@ -358,6 +358,7 @@ input.middle:focus {
 	padding-top: 6px;
 	padding-bottom: 6px;
 	border-radius: 12px;
+	font-weight: 600;
 }
 
 .modal-filter-content {
