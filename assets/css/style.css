@@ -399,6 +399,7 @@ input.middle:focus {
 }
 
 .select-item.active {
+	font-weight: 600;
 	cursor: pointer;
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
