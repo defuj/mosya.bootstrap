@@ -16,6 +16,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,18 +68,30 @@
         <div class="container-spec d-flex align-content-start flex-wrap px-2 mb-3 data-spec" id="data-spec">
         </div>
 
-        <p class="color-black500 bodytext1 semibold mb-1 px-3">DP & Cicilan</p>
-        <div class="container-spec d-flex align-content-start flex-wrap px-2 data-dp" id="data-dp">
-            <div class="spec-item flex-column justify-content-start">
-                <p class="caption color-black300 mb-0">DP</p>
-                <p class="bodytext2 color-black500 semibold mb-0">-</p>
+        <p class="color-black500 bodytext1 semibold mb-1 px-3">Harga & Cicilan</p>
+        <div class="container-spec d-flex align-content-start flex-wrap px-2 data-dp mb-3" id="data-dp">
+          <!-- <div class="spec-item d-flex flex-row justify-content-start w-100">
+            <div class="flex-fill w-50">
+              <p class="caption color-black300 mb-0">DP</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Rp 20,400,000</p>
             </div>
-            <div class="spec-item flex-column justify-content-start">
-                <p class="caption color-black300 mb-0">Cicilan</p>
-                <p class="bodytext2 color-black500 semibold mb-0">-</p>
+            <div class="flex-fill w-50">
+              <p class="caption color-black300 mb-0">Cicilan</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
             </div>
+          </div> -->
         </div>
-        
+
+        <p class="color-black500 bodytext1 semibold mb-2 px-3">Kontak</p>
+        <div class="container-contact d-flex flex-row align-items-center px-3">
+          <img src="./assets/images/contact.jpg" alt="" class="mr-3">
+          <div class="flex-column flex-fill">
+            <p class="mb-0 bodytext1 semibold color-black500">Sintia</p>
+            <p class="mb-0 bodytext2 color-black200">Narahubung</p>
+          </div>
+          <i class="fi fi-brands-whatsapp mr-3 color-green500 headline6"></i>
+          <i class="fi fi-rr-phone-call color-green500 headline6"></i>
+        </div>
       </div>
       
       <!-- end content slider -->
@@ -233,7 +246,40 @@
                             `);
                         } catch (error) {}
                         
-                        document.querySelector('.data-dp').insertAdjacentHTML('afterbegin',``);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
+                        <div class="spec-item flex-column justify-content-start flex-fill">
+                            <p class="caption color-black300 mb-0">Tunai</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp ${data.price}</p>
+                        </div>`);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
+                        <div class="spec-item flex-column justify-content-start flex-fill">
+                            <p class="caption color-black300 mb-0">Booking Fee</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp 200,000</p>
+                        </div>`);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
+                        <div class="spec-item d-flex flex-row justify-content-start w-100">
+                          <div class="flex-fill w-50">
+                            <p class="caption color-black300 mb-0">DP</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp 20,400,000</p>
+                          </div>
+                          <div class="flex-fill w-50">
+                            <p class="caption color-black300 mb-0">Cicilan</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
+                          </div>
+                        </div>`);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
+                        <div class="spec-item d-flex flex-row justify-content-start w-100">
+                          <div class="flex-fill w-50">
+                            <p class="caption color-black300 mb-0">DP</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp 60,400,000</p>
+                          </div>
+                          <div class="flex-fill w-50">
+                            <p class="caption color-black300 mb-0">Cicilan</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Rp 1.973.000 X 96 bln</p>
+                          </div>
+                        </div>`);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',``);
+                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',``);
 
                         try { document.querySelector('.container-empty').remove();} catch (error) {}
                     }else{
