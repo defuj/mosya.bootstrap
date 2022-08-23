@@ -5,12 +5,12 @@
 	left: 0;
 	right: 0;
 	padding: 0.5rem 0;
-	background-color: #dafebe !important;
+	/* background-color: #dafebe !important; */
 	z-index: 99;
 	will-change: transform;
 	transform: translateZ(0);
-	box-shadow: 0 0.125rem 10rem 1px rgb(0 0 0 / 8%) !important;
-	border-radius: 8px 8px 0px 0px;
+	box-shadow: 0 0.125rem 1rem 1px rgb(0 0 0 / 8%) !important;
+	/* border-radius: 8px 8px 0px 0px; */
 }
 .bottom-nav-buy {
 	display: flex;
@@ -22,8 +22,8 @@
 	z-index: 99;
 	will-change: transform;
 	transform: translateZ(0);
-	box-shadow: 0 0.125rem 10rem 1px rgb(0 0 0 / 8%) !important;
-	border-radius: 8px 8px 0px 0px;
+	box-shadow: 0 0.125rem 1rem 1px rgb(0 0 0 / 8%) !important;
+	/* border-radius: 8px 8px 0px 0px; */
 }
 .navbar .bottom-nav-item {
 	display: flex;
