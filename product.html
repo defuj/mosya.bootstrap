@@ -48,11 +48,20 @@
       </div>
 
       <div class="container-data mt-5 mb-3">
-        <p class="color-green500 caption semibold mb-0 px-3" id="data-merk">Honda</p>
-        <p class="color-black800 headline5 semibold px-3" id="data-model">Brio Satya 1.2E CVT</p>
+        <p class="color-black300 caption semibold mb-0 px-3" id="data-merk">
+          <!-- Honda -->
+        </p>
+        <p class="color-black800 headline5 semibold px-3 mb-0" id="data-model">
+          <!-- Brio Satya 1.2E CVT -->
+        </p>
+        <p class="color-green500 bodytext1 semibold px-3" id="data-price">
+          <!-- Brio Satya 1.2E CVT -->
+        </p>
 
         <p class="color-black500 bodytext1 semibold mb-1 px-3">Deskripsi</p>
-        <p class="color-black500 bodytext2 px-3 text-justify" id="data-desc">Mobil bagus mesin dan body terawat siap pakai...</p>
+        <p class="color-black500 bodytext2 px-3 text-justify" id="data-desc">
+          <!-- Mobil bagus mesin dan body terawat siap pakai... -->
+        </p>
 
         <p class="color-black500 bodytext1 semibold mb-1 px-3">Spesifikasi</p>
         <div class="container-spec d-flex align-content-start flex-wrap px-2 mb-3 data-spec" id="data-spec">
@@ -111,7 +120,7 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-        <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 150.000.000</p>
+        <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p>
         <button class="button-message bodytext2 semibold text-white d-flex flex-row justify-content-start align-items-center background-green500" type="button">
             <p class="mb-0">Kirim Pesan</p>
             <i class="fi fi-rr-comment bodytext1 ml-2"></i>
@@ -179,7 +188,7 @@
                         });
                         startSlider();
 
-                        document.getElementById('data-merk').innerHTML = data.merk;
+                        document.getElementById('data-merk').innerHTML = `<a href="search.html?merk=${data.merk}" class=" color-black300"><u>#${data.merk}</u></a>`;
                         document.getElementById('data-model').innerHTML = data.model;
                         document.getElementById('data-desc').innerHTML = data.conditions;
                         document.getElementById('data-price').innerHTML = 'Rp '+data.price;
