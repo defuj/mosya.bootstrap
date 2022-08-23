@@ -289,7 +289,6 @@
         const filters = new URLSearchParams(window.location.search);
         const root = window.location.href; //window.location.origin;
         document.getElementById('form-filter').action = root;
-        document.getElementById('form-search').action = window.location.origin+'/search.html';
         
         axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
           .then(response => {
