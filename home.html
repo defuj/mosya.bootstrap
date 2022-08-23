@@ -221,8 +221,7 @@
 
       const fetchCars = () => {
         const filters = new URLSearchParams(window.location.search);
-        const root = window.location.href; //window.location.origin;
-        console.log(window.location.href);
+        
 
         if(filters.has('merk')){
           if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
@@ -238,7 +237,7 @@
           }
         }
         
-        axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
+        axios.get('assets/js/cars.json')
           .then(response => {
               var cars = response.data;
 

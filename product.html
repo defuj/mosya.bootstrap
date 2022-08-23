@@ -162,7 +162,7 @@
                     </div>
                 </div>`;
             
-            axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
+            axios.get('assets/js/cars.json')
             .then(response => {
                 var cars = response.data;
                 // filter by color

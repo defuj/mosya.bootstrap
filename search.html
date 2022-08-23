@@ -258,12 +258,9 @@
 
       const fetchCars = () => {
         const filters = new URLSearchParams(window.location.search);
-        const root = window.location.href; //window.location.origin;
-        console.log(window.location.href);
-        document.getElementById('form-filter').action = root;
-        document.getElementById('form-search').action = root;
+        const root = window.location.href;
         
-        axios.get(window.location.origin+'/mosya.bootstrap/assets/js/cars.json')
+        axios.get('assets/js/cars.json')
           .then(response => {
               var cars = response.data;
               // filter by color
