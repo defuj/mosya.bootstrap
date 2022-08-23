@@ -466,3 +466,24 @@ input.middle:focus {
 	color: #1e601b;
 	cursor: pointer;
 }
+
+.container-merk .merk-item {
+	box-shadow: 4px 4px 8px 0px rgba(38, 50, 56, 0.1);
+	border-radius: 8px;
+	background-color: #fff;
+	margin: 10px 10px;
+	min-width: calc(50% - 20px) !important;
+	padding: 12px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.container-merk .merk-item.active {
+	box-shadow: 4px 4px 8px 0px rgba(38, 50, 56, 0.1);
+	border-radius: 8px;
+	background-color: #d6ecd5;
+	margin: 10px 10px;
+	min-width: calc(50% - 20px) !important;
+	padding: 12px;
+	cursor: pointer;
+}
