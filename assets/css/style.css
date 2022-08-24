@@ -568,3 +568,25 @@ input.middle:focus {
 .container-form {
 	border-radius: 16px;
 }
+
+.product-section-payment img {
+	width: 84px;
+	height: 84px;
+	border-radius: 8px;
+	object-fit: cover;
+}
+
+.payment-type-item {
+	padding: 16px;
+	border-radius: 8px;
+	border: solid 2px #d1d2d2;
+	cursor: pointer;
+}
+
+.payment-type-item.active {
+	padding: 16px;
+	border-radius: 8px;
+	border: 2px solid #84c681;
+	cursor: pointer;
+	background-color: #d6ecd5;
+}

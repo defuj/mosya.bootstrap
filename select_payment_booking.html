@@ -40,47 +40,46 @@
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
       <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-4">
-        <p class="headline6 color-black500 semibold p-0 mb-4">
-          Identitas Pembeli
+        <p class="headline6 color-black500 semibold p-0 mb-3">
+          Rencana Pembayaran
         </p>
 
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nama Lengkap <span class="text-danger">*</span>
-        </label>
-        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
+        <div class="d-flex flex-row product-section-payment justify-content-between mb-3">
+          <img src="https://autonetmagz.com/wp-content/uploads/2022/04/Honda-Brio-RS-urbanite-2022.jpg" alt="" srcset="">
+          <div class="flex-fill ml-3">
+            <p class="caption color-green500 semibold mb-0">Honda</p>
+            <p class="headline6 semibold color-black800 mb-0">Brio Satya 1.2E CVT</p>
+            <p class="bodytext1 color-black300 mb-0">Putih|2017</p>
+          </div>
+        </div>
 
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Alamat Lengkap <span class="text-danger">*</span>
-        </label>
-        <input type="text" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
+        <p class="bodytext1 color-black500 semibold p-0 mb-2">
+          Pilih Pembayaran
+        </p>
 
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nomor HP <span class="text-danger">*</span>
-        </label>
-        <input type="number" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KTP <span class="text-danger">*</span>
-        </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KK <span class="text-danger">*</span>
-        </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK">
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nama Lengkap Pasangan (Jika Ada)
-        </label>
-        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan">
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KTP Pasangan (Jika Ada)
-        </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+        <div class="container-payment-type d-flex flex-column">
+          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2 active">
+              <p class="bodytext2 color-black500 semibold mb-1">Cicilan</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
+              <input type="checkbox" name="payment" class="input-select-method" value="1" checked hidden>
+          </label>
+          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+            <p class="bodytext2 color-black500 semibold mb-1">Cicilan 48 Bulan</p>
+            <div class="d-flex flex-fill flex-row justity-content-between w-100">
+              <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: 20.400.000</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Cicilan: 4.973.000</p>
+            </div>
+            <input type="checkbox" name="payment" class="input-select-method" value="2" hidden>
+          </label>
+          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+            <p class="bodytext2 color-black500 semibold mb-1">Cicilan 96 Bulan</p>
+            <div class="d-flex flex-fill flex-row justity-content-between w-100">
+              <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: 60.400.000</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Cicilan: 1.973.000</p>
+            </div>
+            <input type="checkbox" name="payment" class="input-select-method" value="3" hidden>
+          </label>
+        </div>
 
       </div>
     </main>
@@ -125,9 +124,9 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <a href="select_payment_booking.html" class="text-decoration-none d-flex flex-fill">
+      <a href="#" class="text-decoration-none d-flex flex-fill">
         <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-          <p class="mb-0 py-1">Selanjutnya</p>
+          <p class="mb-0 py-1">Konfirmasi Pemesanan</p>
           <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
         </button>
       </a>
@@ -143,7 +142,20 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-        
+        var paymentSelector = document.querySelectorAll(".payment-type-item");
+        paymentSelector.forEach( (item) => {
+            item.addEventListener("click", (e) => {
+              paymentSelector.forEach( (item) => {
+                    console.log("remove active");
+                    item.classList.remove("active");
+                });
+                item.classList.add("active");
+            });
+        });
+
+        $(".input-select-method").change(function() {
+            $(".input-select-method").not(this).prop('checked', false);
+        });
     </script>
   </body>
 </html>
