@@ -12,6 +12,8 @@ navItems.forEach(function(e, i) {
             window.location.href = "./catalog.html";
         } else if(i == 2) {
             window.location.href = "./history.html";
+        } else if(i == 3) {
+            window.location.href = "./profile.html";
         }
     });
 });
