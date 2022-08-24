@@ -534,3 +534,37 @@ input.middle:focus {
 	border-radius: 16px;
 	box-shadow: 4px 4px 8px 0px rgba(38, 50, 56, 0.1);
 }
+
+.dropdown-menu.show {
+	margin-left: calc(100% - 235px) !important;
+}
+
+.form-data-booking {
+	border: solid 2px #d1d2d2;
+	border-radius: 8px;
+	padding: 14px 16px;
+}
+
+.form-data-file-booking {
+	border: solid 2px #d1d2d2;
+	border-radius: 8px;
+	padding: 14px 16px 14px 0px;
+}
+
+.form-data-file-booking::-webkit-file-upload-button {
+	display: none;
+}
+
+.form-data-file-booking::before {
+	content: "Pilih File";
+	background-color: #d1d2d2;
+	padding: 16px;
+	font-family: "Open Sans", sans-serif;
+	color: #191c1f;
+	margin-right: 16px;
+	border-radius: 6px;
+}
+
+.container-form {
+	border-radius: 16px;
+}

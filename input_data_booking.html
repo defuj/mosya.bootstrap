@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Mosya - Profil</title>
+    <title>Mosya - Informasi Pemesanan</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,6 +16,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,72 +25,64 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <body class="align-items-start pt-0 flex-column pb-0">
+  <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between  align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-2">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
         <a class="navbar-brand" title="back" onclick="history.back()">
-            <!-- <i class="fi fi-sr-angle-left color-black400 headline6"></i> -->
+            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
         </a>
-        <p class="mb-0 bodytext1 semibold color-black500 px-2 py-2 flex-fill">Profil Akun</p>
-        <p class="mb-0 bodytext1 semibold color-black500 px-2 py-2 action-menu" type="button" data-toggle="dropdown" aria-expanded="false">
-          <i class="fi fi-br-menu-dots-vertical"></i>
-          <div class="dropdown-menu col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </p>
+        <p class="mb-0 bodytext1 semibold color-black500 px-2">Informasi Pemesanan</p>
       </div>
     </nav>
     <!-- end navigation bar -->
 
     <!-- start body content -->
-    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5">
-        <!-- start content welcome user -->
-        <div class="container-user d-flex flex-column w-100 px-3 py-4 mb-4">
-            <div class="content-profile d-flex flex-column align-items-center mt-2">
-              <div class="container-image-profile">
-                <img src="./assets/images/user-placeholder.png" alt="profile" class="image-profile">
-              </div>
-              <div class="data-profile d-flex flex-column flex-fill ml-4">
+    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
+      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-4">
+        <p class="headline6 color-black500 semibold p-0 mb-4">
+          Identitas Pembeli
+        </p>
 
-                <p class="headline5 color-black500 semibold p-0 mb-1">
-                  User Full Name
-                </p>
-                <p class="bodytext2 color-black500 p-0 m-0">
-                  Email : user.mail@domain.com
-                </p>
-                <p class="bodytext2 color-black500 p-0 m-0">
-                  Telpon : +62 812-345-6789
-                </p>
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Nama Lengkap <span class="text-danger">*</span>
+        </label>
+        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
 
-              </div>
-            </div>
-            
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Alamat Lengkap <span class="text-danger">*</span>
+        </label>
+        <input type="text" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
 
-            <a href="edit_profile.html" class="text-decoration-none d-flex">
-                <button class="button-action-profile button-action-filter color-green500 bg-white bodytext1 text-center mt-5 flex-fill">
-                    Edit Profil
-                </button>
-            </a>
-            
-            <a href="change_password.html" class="text-decoration-none d-flex">
-                <button class="button-action-profile button-action-filter color-green500 bg-white bodytext1 text-center mt-2 flex-fill">
-                    Ubah Kata Sandi
-                </button>
-            </a>
-            
-            <a href="login.html" class="text-decoration-none d-flex">
-                <button class="button-action-logout text-white bodytext1 text-center mt-2 d-flex flex-row justify-content-center flex-fill">
-                    <p class="mb-0">Keluar Akun</p>
-                </button>
-            </a>
-            
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Nomor HP <span class="text-danger">*</span>
+        </label>
+        <input type="number" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
+
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Upload KTP <span class="text-danger">*</span>
+        </label>
+        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
+        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Upload KK <span class="text-danger">*</span>
+        </label>
+        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK">
+        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Nama Lengkap Pasangan (Jika Ada)
+        </label>
+        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan">
+
+        <label class="bodytext1 color-black500 p-0 mb-1">
+          Upload KTP Pasangan (Jika Ada)
+        </label>
+        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
+        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
       </div>
-      <!-- end content welcome user -->
-      
     </main>
     <!-- end body content -->
 
@@ -123,47 +116,21 @@
       <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
         <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
       </div>
+
+      <div class="d-none">
+        
+      </div>
     </footer>
     <!-- end content footer -->
 
     <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-home unselected"></i>
-            <i class="fi fi-sr-home selected"></i>
-          </p>
-          <span>Beranda</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-car-alt unselected"></i>
-            <i class="fi fi-sr-car-alt selected"></i>
-          </p>
-          <span>Katalog</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-ballot unselected"></i>
-            <i class="fi fi-sr-ballot selected"></i>
-          </p>
-          <span>Riwayat</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item active">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-user unselected"></i>
-            <i class="fi fi-sr-user selected"></i>
-          </p>
-          <span>Profil</span>
-        </div>
-      </div>
+    <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+      <a href="#" class="text-decoration-none d-flex flex-fill">
+        <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+          <p class="mb-0 py-1">Selanjutnya</p>
+          <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
+        </button>
+      </a>
     </nav>
     <!-- end navigation bottom -->
 
@@ -176,7 +143,7 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-      
+        
     </script>
   </body>
 </html>
