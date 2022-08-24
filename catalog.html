@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -51,6 +52,7 @@
 
     <!-- start body content -->
     <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 main-content">
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
       <!-- start content product list -->
       <div class="container-products w-100 mb-4">
         <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-1">
@@ -127,8 +129,8 @@
 
     <form action="" method="get" id="form-filter">
       <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 fixed-bottom">
-          <div class="modal-content modal-filter-content mt-auto">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+          <div class="modal-content modal-filter-content">
               <div class="modal-header">
                 <h5 class="modal-title headline6" id="staticBackdropLabel">Filter</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -284,6 +286,14 @@
     <script>
       var titleEmpty = "Belum ada produk";
       var descEmpty = 'Silahkan coba lagi nanti';
+      var emptyState = `
+        <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <div class="empty-text text-center">
+            <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+          </div>
+        </div>`;
 
       const fetchCars = () => {
         const filters = new URLSearchParams(window.location.search);
@@ -327,7 +337,7 @@
                 }
               }
 
-              const emptyState = `
+              emptyState = `
               <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
                 <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
                 <div class="empty-text text-center">
@@ -359,13 +369,30 @@
                       <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
                   </a>`)
                 });
+                try { document.querySelector('.loading').remove();} catch (error) {}
                 try { document.querySelector('.container-empty').remove();} catch (error) {}
               }else{
+                try { document.querySelector('.loading').remove();} catch (error) {}
                 try { document.querySelector('.text-search-result').remove();} catch (error) {}
                 document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
               }
           })
-          .catch(error => '');
+          .catch(error => {
+            console.log(error);
+            titleEmpty = "Terjadi Kesalahan";
+            descEmpty = 'Silahkan coba lagi nanti';
+            emptyState = `
+              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+                <div class="empty-text text-center">
+                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+                  <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+                </div>
+              </div>`;
+            try { document.querySelector('.loading').remove();} catch (error) {}
+            try { document.querySelector('.text-search-result').remove();} catch (error) {}
+            // document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
+          });
       };
 
       fetchCars();

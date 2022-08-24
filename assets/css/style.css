@@ -1,3 +1,6 @@
+body {
+	background-color: #fafafa;
+}
 .color-primary {
 	color: #32a02d !important;
 }
@@ -362,17 +365,19 @@ input.middle:focus {
 }
 
 .modal-filter-content {
-	border-radius: 24px 24px 0px 0px;
+	/* border-radius: 24px 24px 0px 0px; */
+	border-radius: 24px;
 }
 
-.modal.fade .modal-dialog {
+/* .modal.fade .modal-dialog {
 	transform: translate3d(0, 5%, 0);
 }
 .modal.in .modal-dialog {
 	transform: translate3d(0, 0, 0);
-}
+} */
 .button-action-filter {
-	border-radius: 8px;
+	border-radius: 45px;
+	min-height: 45px;
 }
 
 .button-action-filter-reset {
