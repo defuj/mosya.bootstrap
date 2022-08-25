@@ -38,18 +38,18 @@
     <!-- end navigation bar -->
 
     <!-- start body content -->
-    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
-      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-4">
+    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
+      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
         <p class="headline6 color-black500 semibold p-0 mb-3">
           Rencana Pembayaran
         </p>
 
         <div class="d-flex flex-row product-section-payment justify-content-between mb-3">
-          <img id="data-image" src="" alt="">
+          <img id="dataImage" src="" alt="">
           <div class="flex-fill ml-3">
-            <p class="caption color-green500 semibold mb-0" id="data-merk">Honda</p>
-            <p class="headline6 semibold color-black800 mb-0" id="data-model">Brio Satya 1.2E CVT</p>
-            <p class="bodytext1 color-black300 mb-0" id="data-color-year">Putih | 2017</p>
+            <p class="caption color-green500 semibold mb-0" id="dataMerk">-</p>
+            <p class="headline6 semibold color-black800 mb-0" id="dataModel">-</p>
+            <p class="bodytext1 color-black300 mb-0" id="dataColorYear">- | -</p>
           </div>
         </div>
 
@@ -152,8 +152,6 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-      const params = new URLSearchParams(window.location.search);
-
       function submitForm(){
         document.getElementById("buttonSumbit").click();
       }
@@ -174,30 +172,32 @@
       });
 
       const fetchCars = () => {
-            const filters = new URLSearchParams(window.location.search);
+            const params = new URLSearchParams(window.location.search);
             
             axios.get('assets/js/cars.json')
             .then(response => {
                 var cars = response.data;
                 // filter by color
-                if(filters.has('id') && filters.get('id').toString() != ''){
+                if(params.has('id') && params.get('id').toString() != ''){
                     $("#productId").val(params.get('id'));
                     params.has('name') && params.get('name') != '' ? $('#dataName').val(params.get('name')) : '';
                     params.has('name2') && params.get('name2') != '' ? $('#dataName2').val(params.get('name2')) : '';
                     params.has('address') && params.get('address') != '' ? $('#dataAddress').val(params.get('address')) : '';
                     params.has('phone') && params.get('phone') != '' ? $('#dataPhone').val(params.get('phone')) : '';
-                    params.has('cardId') ? $('#dataCardId').val(params.get('cardId')) : '';
-                    params.has('cardId2') ? $('#dataCardId2').val(params.get('cardId2')) : '';
-                    params.has('cardFamilly') ? $('#dataCardFamilly').val(params.get('cardFamilly')) : '';
+                    // params.has('cardId') ? $('#dataCardId').val(params.get('cardId')) : '';
+                    // params.has('cardId2') ? $('#dataCardId2').val(params.get('cardId2')) : '';
+                    // params.has('cardFamilly') ? $('#dataCardFamilly').val(params.get('cardFamilly')) : '';
                     
-                    cars = cars.filter(car => car.id == filters.get('id').toString());
+                    cars = cars.filter(car => car.id == params.get('id').toString());
                     if(cars.length > 0){
                         const data = cars[0];
-                        
-                        document.getElementById('data-image').src = data.images[Math.floor(Math.random()*data.images.length)];
-                        document.getElementById('data-merk').innerHTML = data.merk;
-                        document.getElementById('data-model').innerHTML = data.model;
-                        document.getElementById('data-color-year').innerHTML = data.color + ' | ' + data.year;
+                        const img = data.images[Math.floor(Math.random()*data.images.length)];
+                        console.log(img);
+
+                        document.getElementById('dataImage').src = img;
+                        document.getElementById('dataMerk').innerHTML = data.merk;
+                        document.getElementById('dataModel').innerHTML = data.model;
+                        document.getElementById('dataColorYear').innerHTML = data.color + ' | ' + data.year;
                     }else{
                       history.back();
                     }

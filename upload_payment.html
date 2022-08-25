@@ -38,7 +38,7 @@
     <!-- end navigation bar -->
 
     <!-- start body content -->
-    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
+    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
       <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
         <p class="bodytext1 color-black500 semibold p-0 mb-4">
           Untuk melanjutkan booking, harap transfer sesuai petunjuk di bawah!
@@ -85,12 +85,12 @@
         
       </div>
 
-      <form action="" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+      <form action="history.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
         <p class="bodytext1 color-black500 semibold p-0 mb-4">
           Upload Bukti Bayar
         </p>
         
-        <input type="file" name="payment-image" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data" required>
+        <input type="file" name="payment-image" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
         <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
         <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
           <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
@@ -139,17 +139,19 @@
                 <i class="fi fi-br-angle-up up bodytext1"></i>
               </button>
             </div>
-            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample" style="">
+            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
-                1. Buka aplikasi, kemudian pilih menu Mobile Banking BRI.</br>
-                2. Untuk mengirim uang, tap menu Transfer.</br>
-                3. Untuk transfer ke sesama rekening BRI, tap menu Sesama BRI.</br>
-                4. Pada halaman baru, masukkan nomor rekening BRI yang dituju.</br>
-                5. Masukkan jumlah transfer yang akan dikirim.</br>
-                6. Klik OK. Lalu, masukkan PIN Mobile Banking BRI Anda. Klik SEND.</br>
-                7. Untuk melakukan verifikasi SMS, Klik OK.</br>
-                8. Terima SMS dari Mobile Banking BRI, lalu ketik YA <spasi> Kode Transaksi. Kalau bingung, ikuti saja petunjuk yang ada pada SMS tersebut.</br>
-                9. Kalau sudah benar, langsung Kirim SMS.</br>
+                <ol type="1">
+                  <li>Buka aplikasi, kemudian pilih menu Mobile Banking BRI.</li>
+                  <li>Untuk mengirim uang, tap menu Transfer.</li>
+                  <li>Untuk transfer ke sesama rekening BRI, tap menu Sesama BRI.</li>
+                  <li>Pada halaman baru, masukkan nomor rekening BRI yang dituju.</li>
+                  <li>Masukkan jumlah transfer yang akan dikirim.</li>
+                  <li>Klik OK. Lalu, masukkan PIN Mobile Banking BRI Anda. Klik SEND.</li>
+                  <li>Untuk melakukan verifikasi SMS, Klik OK.</li>
+                  <li>Terima SMS dari Mobile Banking BRI, lalu ketik YA <spasi> Kode Transaksi. Kalau bingung, ikuti saja petunjuk yang ada pada SMS tersebut.</li>
+                  <li>Kalau sudah benar, langsung Kirim SMS.</li>
+                </ol>
               </div>
             </div>
           </div>

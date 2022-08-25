@@ -338,7 +338,7 @@ input.middle:focus {
 }
 
 .container-footer {
-	border-radius: 22px 22px 0px 0px;
+	/* border-radius: 22px 22px 0px 0px; */
 	margin-bottom: 1rem;
 	min-height: 360px;
 	max-height: 360px;
@@ -566,7 +566,7 @@ input.middle:focus {
 }
 
 .container-form {
-	border-radius: 16px;
+	/* border-radius: 16px; */
 }
 
 .product-section-payment img {
@@ -610,18 +610,47 @@ input.middle:focus {
 .payment-guide .card .card-header button {
 	padding: 8px 0px !important;
 	font-family: "Open Sans", sans-serif;
-	font-size: 12px !important;
+	font-size: 14px !important;
 	color: #191c1f;
 	text-decoration: none;
 	border-radius: 0px !important;
 }
 
+.payment-guide .card .card-header button:focus {
+	outline: none;
+	box-shadow: none;
+}
+
 .payment-guide .card .card-body {
-	padding: 6px 0px !important;
+	padding: 8px 8px !important;
 	font-family: "Open Sans", sans-serif;
-	font-size: 12px !important;
-	color: #191c1f;
+	font-size: 14px !important;
+	color: #47494c;
 	text-decoration: none;
+	background-color: #f8f8f8;
+	border-radius: 6px;
+}
+.payment-guide .card .card-body ol {
+	padding-left: 6px;
+	list-style: none;
+	counter-reset: item;
+	margin: 0px;
+}
+
+.payment-guide .card .card-body ol li {
+	counter-increment: item;
+	margin-bottom: 6px;
+}
+
+.payment-guide .card .card-body ol li::before {
+	margin-right: 10px;
+	content: counter(item);
+	background: #b8b8b8;
+	border-radius: 100%;
+	color: white;
+	width: 1.5em;
+	text-align: center;
+	display: inline-block;
 }
 
 .payment-guide .card .card-header button .up,
