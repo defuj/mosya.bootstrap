@@ -590,3 +590,46 @@ input.middle:focus {
 	cursor: pointer;
 	background-color: #d6ecd5;
 }
+
+.button-back-payment {
+	border: 2px solid #84c681;
+	border-radius: 8px;
+	padding: 14px 16px;
+}
+
+.payment-guide .card {
+	border: none !important;
+}
+
+.payment-guide .card .card-header {
+	border: none !important;
+	padding: 0px !important;
+	background-color: #fff;
+}
+
+.payment-guide .card .card-header button {
+	padding: 8px 0px !important;
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px !important;
+	color: #191c1f;
+	text-decoration: none;
+	border-radius: 0px !important;
+}
+
+.payment-guide .card .card-body {
+	padding: 6px 0px !important;
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px !important;
+	color: #191c1f;
+	text-decoration: none;
+}
+
+.payment-guide .card .card-header button .up,
+.payment-guide .card .card-header button.collapsed .down {
+	display: block;
+}
+
+.payment-guide .card .card-header button .down,
+.payment-guide .card .card-header button.collapsed .up {
+	display: none;
+}

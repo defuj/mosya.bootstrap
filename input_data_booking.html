@@ -39,50 +39,51 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
-      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-4">
+      <form action="select_payment_booking.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-4">
         <p class="headline6 color-black500 semibold p-0 mb-4">
           Identitas Pembeli
         </p>
 
+        <input type="text" name="id" id="productId" hidden>
         <label class="bodytext1 color-black500 p-0 mb-1">
           Nama Lengkap <span class="text-danger">*</span>
         </label>
-        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
+        <input type="text" name="name" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Alamat Lengkap <span class="text-danger">*</span>
         </label>
-        <input type="text" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
+        <input type="text" name="address" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Nomor HP <span class="text-danger">*</span>
         </label>
-        <input type="number" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
+        <input type="number" name="phone" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Upload KTP <span class="text-danger">*</span>
         </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
+        <input type="file" name="cardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
         <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Upload KK <span class="text-danger">*</span>
         </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK">
+        <input type="file" name="cardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
         <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Nama Lengkap Pasangan (Jika Ada)
         </label>
-        <input type="text" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan">
+        <input type="text" name="name2" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan" enctype="multipart/form-data">
 
         <label class="bodytext1 color-black500 p-0 mb-1">
           Upload KTP Pasangan (Jika Ada)
         </label>
-        <input type="file" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP">
+        <input type="file" name="cardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
         <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-
-      </div>
+        <button type="submit" id="buttonSubmit" hidden></button>
+      </form>
     </main>
     <!-- end body content -->
 
@@ -125,12 +126,9 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <a href="select_payment_booking.html" class="text-decoration-none d-flex flex-fill">
-        <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-          <p class="mb-0 py-1">Selanjutnya</p>
-          <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
-        </button>
-      </a>
+      <button onclick="submitForm()" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+        <p class="mb-0 py-1">Selanjutnya</p>
+      </button>
     </nav>
     <!-- end navigation bottom -->
 
@@ -143,7 +141,18 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-        
+        const params = new URLSearchParams(window.location.search);
+        function submitForm(){
+            $('#buttonSubmit').click();
+        }
+
+        if(params.has('id') && params.get('id') != ''){
+            $('#productId').val(params.get('id'));
+          // document.getElementById("productId").value = params.get('id');
+        }else{
+          history.back();
+          console.log('back');
+        }
     </script>
   </body>
 </html>

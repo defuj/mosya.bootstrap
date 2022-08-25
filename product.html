@@ -141,12 +141,13 @@
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
         <!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
-        <a href="input_data_booking.html" class="text-decoration-none d-flex flex-fill">
-          <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+        <form action="input_data_booking.html" class="text-decoration-none d-flex flex-fill">
+          <input type="text" id="productId" name="id" hidden required>
+          <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
             <p class="mb-0 py-1">Pesan Mobil</p>
             <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
           </button>
-        </a>
+        </form>
     </nav>
     <!-- end navigation bottom -->
 
@@ -198,6 +199,7 @@
                 var cars = response.data;
                 // filter by color
                 if(filters.has('id') && filters.get('id').toString() != ''){
+                    document.getElementById('productId').value = filters.get('id');
                     cars = cars.filter(car => car.id == filters.get('id').toString());
 
                     if(cars.length > 0){

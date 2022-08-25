@@ -45,11 +45,11 @@
         </p>
 
         <div class="d-flex flex-row product-section-payment justify-content-between mb-3">
-          <img src="https://autonetmagz.com/wp-content/uploads/2022/04/Honda-Brio-RS-urbanite-2022.jpg" alt="" srcset="">
+          <img id="data-image" src="" alt="">
           <div class="flex-fill ml-3">
-            <p class="caption color-green500 semibold mb-0">Honda</p>
-            <p class="headline6 semibold color-black800 mb-0">Brio Satya 1.2E CVT</p>
-            <p class="bodytext1 color-black300 mb-0">Putih|2017</p>
+            <p class="caption color-green500 semibold mb-0" id="data-merk">Honda</p>
+            <p class="headline6 semibold color-black800 mb-0" id="data-model">Brio Satya 1.2E CVT</p>
+            <p class="bodytext1 color-black300 mb-0" id="data-color-year">Putih | 2017</p>
           </div>
         </div>
 
@@ -57,11 +57,20 @@
           Pilih Pembayaran
         </p>
 
-        <div class="container-payment-type d-flex flex-column">
-          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2 active">
-              <p class="bodytext2 color-black500 semibold mb-1">Cicilan</p>
-              <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
-              <input type="checkbox" name="payment" class="input-select-method" value="1" checked hidden>
+        <form action="upload_payment.html" id="formPayment" name="formPayment" class="container-payment-type d-flex flex-column">
+          <input type="text" name="id" id="productId" hidden required>
+          <input type="text" name="name" id="dataName" hidden required>
+          <input type="text" name="address" id="dataAddress" hidden required>
+          <input type="text" name="phone" id="dataPhone" hidden required>
+          <input type="text" name="name2" id="dataName2" hidden>
+          <input type="file" name="cardId" id="dataCardId" enctype="multipart/form-data" hidden>
+          <input type="file" name="cardFamilly" id="dataCardFamilly" enctype="multipart/form-data" hidden>
+          <input type="file" name="cardId2" id="dataCardId2" enctype="multipart/form-data" hidden>
+
+          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+              <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
+              <p class="bodytext2 color-black500 semibold mb-0">Rp 150.000.000</p>
+              <input type="checkbox" name="payment" class="input-select-method" value="1" hidden>
           </label>
           <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
             <p class="bodytext2 color-black500 semibold mb-1">Cicilan 48 Bulan</p>
@@ -79,7 +88,8 @@
             </div>
             <input type="checkbox" name="payment" class="input-select-method" value="3" hidden>
           </label>
-        </div>
+          <button type="submit" id="buttonSumbit" hidden>next</button>
+        </form>
 
       </div>
     </main>
@@ -124,12 +134,12 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <a href="#" class="text-decoration-none d-flex flex-fill">
-        <button class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-          <p class="mb-0 py-1">Konfirmasi Pemesanan</p>
-          <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
-        </button>
-      </a>
+      <button type="reset" class="btn flex-fill button-action-filter button-back-payment bg-white bodytext2 semibold color-green500 mr-2" onclick="history.back()">
+        Kembali
+      </button>
+      <button onclick="submitForm()" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+        <p class="mb-0 py-1">Konfirmasi Pemesanan</p>
+      </button>
     </nav>
     <!-- end navigation bottom -->
 
@@ -142,20 +152,63 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-        var paymentSelector = document.querySelectorAll(".payment-type-item");
-        paymentSelector.forEach( (item) => {
-            item.addEventListener("click", (e) => {
-              paymentSelector.forEach( (item) => {
-                    console.log("remove active");
-                    item.classList.remove("active");
-                });
-                item.classList.add("active");
-            });
-        });
+      const params = new URLSearchParams(window.location.search);
 
-        $(".input-select-method").change(function() {
-            $(".input-select-method").not(this).prop('checked', false);
-        });
+      function submitForm(){
+        document.getElementById("buttonSumbit").click();
+      }
+
+      var paymentSelector = document.querySelectorAll(".payment-type-item");
+      paymentSelector.forEach( (item) => {
+          item.addEventListener("click", (e) => {
+            paymentSelector.forEach( (item) => {
+                  console.log("remove active");
+                  item.classList.remove("active");
+              });
+              item.classList.add("active");
+          });
+      });
+
+      $(".input-select-method").change(function() {
+          $(".input-select-method").not(this).prop('checked', false);
+      });
+
+      const fetchCars = () => {
+            const filters = new URLSearchParams(window.location.search);
+            
+            axios.get('assets/js/cars.json')
+            .then(response => {
+                var cars = response.data;
+                // filter by color
+                if(filters.has('id') && filters.get('id').toString() != ''){
+                    $("#productId").val(params.get('id'));
+                    params.has('name') && params.get('name') != '' ? $('#dataName').val(params.get('name')) : '';
+                    params.has('name2') && params.get('name2') != '' ? $('#dataName2').val(params.get('name2')) : '';
+                    params.has('address') && params.get('address') != '' ? $('#dataAddress').val(params.get('address')) : '';
+                    params.has('phone') && params.get('phone') != '' ? $('#dataPhone').val(params.get('phone')) : '';
+                    params.has('cardId') ? $('#dataCardId').val(params.get('cardId')) : '';
+                    params.has('cardId2') ? $('#dataCardId2').val(params.get('cardId2')) : '';
+                    params.has('cardFamilly') ? $('#dataCardFamilly').val(params.get('cardFamilly')) : '';
+                    
+                    cars = cars.filter(car => car.id == filters.get('id').toString());
+                    if(cars.length > 0){
+                        const data = cars[0];
+                        
+                        document.getElementById('data-image').src = data.images[Math.floor(Math.random()*data.images.length)];
+                        document.getElementById('data-merk').innerHTML = data.merk;
+                        document.getElementById('data-model').innerHTML = data.model;
+                        document.getElementById('data-color-year').innerHTML = data.color + ' | ' + data.year;
+                    }else{
+                      history.back();
+                    }
+                }else{
+                  history.back();
+                }
+            })
+            .catch(error => '');
+        };
+
+        fetchCars();
     </script>
   </body>
 </html>
