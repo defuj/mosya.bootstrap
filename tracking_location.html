@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Mosya - Pembayaran Booking</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="./assets/css/navigation.css">
+    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body class="align-items-start pt-0 flex-column">
+    <!-- start navigation bar -->
+    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
+        <a class="navbar-brand" title="back" onclick="history.back()">
+            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
+        </a>
+        <p class="mb-0 bodytext1 semibold color-black500 px-2">Detail Pengiriman</p>
+      </div>
+    </nav>
+    <!-- end navigation bar -->
+
+    <!-- start body content -->
+    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
+
+      <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2 mt-3">
+        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+          Status Pemesanan
+        </p>
+        <div class="d-flex flex-row justify-content-between mb-1">
+          <p class="mb-0 bodytext2 color-black400 flex-fill">
+            Nomor Pesanan
+          </p>
+          <p class="mb-0 bodytext2 semibold color-black500">
+            #92929379938
+          </p>
+        </div>
+        <div class="d-flex flex-row justify-content-between mb-1">
+            <p class="mb-0 bodytext2 color-black400 flex-fill">
+              Waktu Pemesanan
+            </p>
+            <p class="mb-0 bodytext2 semibold color-black500">
+              07-08-2022 13:00:59
+            </p>
+          </div>
+      </div>
+
+      <div class="container-tracking px-3 py-3 d-flex flex-column mb-2 mt-3">
+
+      </div>
+
+    </main>
+    <!-- end body content -->
+
+    <!-- start content footer -->
+    <footer class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto" style="max-height: 270px !important;">
+      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
+      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
+      <div class="container-footer-button d-flex justify-content-center">
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-google-play.png" alt="">
+        </a>
+        <a class="button-footer px-2" href="#">
+          <img src="./assets/images/btn-app-store.png" alt="">
+        </a>
+      </div>
+
+      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
+        <a class="action-footer px-1 color-black300 bodytext2" href="#">
+          Tentang Mosya |
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Syarat dan Ketentuan | 
+        </a>
+        <a class="action-footer px-1  color-black300 bodytext2" href="#">
+          Pusat Bantuan
+        </a>
+      </div>
+
+      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+
+      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
+        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- end content footer -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/bootstrap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+
+    <script>
+        
+    </script>
+  </body>
+</html>

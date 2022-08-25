@@ -39,12 +39,12 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <div class="container-status status-1 px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold text-white">
-          Pesanan Kamu Belum Dibayar
+      <div id="container-status" class="container-status status-0 px-3 py-3 d-flex flex-column mb-2">
+        <p class="mb-1 bodytext1 semibold" id="statusTitle">
+          
         </p>
-        <p class="mb-0 bodytext2 text-white">
-          Segera lakukan pembayaran booking fee !
+        <p class="mb-0 bodytext2" id="statusDesc">
+          
         </p>
       </div>
 
@@ -144,6 +144,10 @@
         </div>
       </div>
 
+      <div id="container-action" class="container-action bg-white px-3 py-3 d-flex flex-column mb-2">
+        
+      </div>
+
     </main>
     <!-- end body content -->
 
@@ -177,10 +181,6 @@
       <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
         <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
       </div>
-
-      <div class="d-none">
-        
-      </div>
     </footer>
     <!-- end content footer -->
 
@@ -194,16 +194,80 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        function submitForm(){
-            $('#buttonSubmit').click();
-        }
+        $('#container-status').removeClass('status-0');
 
-        if(params.has('id') && params.get('id') != ''){
-            $('#productId').val(params.get('id'));
-          // document.getElementById("productId").value = params.get('id');
+        if(params.has('status') && params.get('status') != ''){
+            switch (params.get('status')) {
+              case '1':
+                $('#container-status').addClass('status-1');
+                $('#statusTitle').html('Pesanan Kamu Belum Dibayar');
+                $('#statusDesc').html('Segera lakukan pembayaran booking fee !');
+                $('#container-action').html(`
+                  <a href="upload_payment.html?id=1" class="d-flex flex-fill text-decoration-none">
+                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                      <p class="mb-0 py-1">Bayar Sekarang</p>
+                    </button>
+                  </a>
+                `);
+                break;
+            
+              case '2':
+                $('#container-status').addClass('status-2');
+                $('#statusTitle').html('Pesanan Kamu Sudah Dibayar');
+                $('#statusDesc').html('Silahkan tunggu, informasi selanjutnya akan kamihubungi via nomor telepon yang terdaftar');
+                $('#container-action').remove();
+                break;
+
+              case '3':
+                $('#container-status').addClass('status-2');
+                $('#statusTitle').html('Pesanan Kamu Sedang Diverifikasi');
+                $('#statusDesc').html('Pesanan kamu sedang diverifikasi oleh tim kami, harap  tunggu informasi selanjunya.');
+                $('#container-action').remove();
+                break;
+              
+              case '4':
+                $('#container-status').addClass('status-1');
+                $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
+                $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu,(Jelaskeun naha bet di cancel)');
+                $('#container-action').remove();
+                break;
+
+              case '5':
+                $('#container-status').addClass('status-2');
+                $('#statusTitle').html('Pesana Kamu Dalam Perjalanan');
+                $('#statusDesc').html('Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN.');
+                $('#container-action').html(`
+                  <a href="#" class="d-flex flex-fill text-decoration-none mb-3">
+                    <button type="submit" class="button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
+                      <p class="mb-0 py-1">Pesanan Diterima</p>
+                    </button>
+                  </a>  
+                  <a href="tracking_location.html" class="d-flex flex-fill text-decoration-none">
+                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                      <p class="mb-0 py-1">Lacak Pesanan</p>
+                    </button>
+                  </a>
+                `);
+                break;
+
+              case '6':
+                $('#container-status').addClass('status-2');
+                $('#statusTitle').html('Pesanan Kamu Sudah Sampai');
+                $('#statusDesc').html('Alhamdulillah pesanan kamu sudah sampai.');
+                $('#container-action').html(`
+                  <a href="#" class="d-flex flex-fill text-decoration-none">
+                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                      <p class="mb-0 py-1">Belanja Lagi</p>
+                    </button>
+                  </a>
+                `);
+                break;
+
+              default:
+                break;
+            }
         }else{
           history.back();
-          console.log('back');
         }
     </script>
   </body>
