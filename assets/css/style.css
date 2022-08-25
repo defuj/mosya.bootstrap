@@ -690,3 +690,7 @@ input.middle:focus {
 	border-radius: 4px;
 	padding: 2px 4px;
 }
+
+.container-status.status-1 {
+	background-color: #f46d5b;
+}
