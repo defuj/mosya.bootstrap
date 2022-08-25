@@ -662,3 +662,31 @@ input.middle:focus {
 .payment-guide .card .card-header button.collapsed .up {
 	display: none;
 }
+
+.container-history .history-item {
+	padding: 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	background-color: #fff;
+}
+
+.container-history .history-item img {
+	width: 74px;
+	height: 74px;
+	border-radius: 8px;
+	object-fit: cover;
+}
+
+.payment-status-1 {
+	background-color: #fee3d3;
+	color: #ed2e28;
+	border-radius: 4px;
+	padding: 2px 4px;
+}
+
+.payment-status-2 {
+	background-color: #d6ecd5;
+	color: #32a02d;
+	border-radius: 4px;
+	padding: 2px 4px;
+}
