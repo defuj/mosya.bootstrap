@@ -712,3 +712,59 @@ input.middle:focus {
 	background-color: #add9ab;
 	color: #191c1f;
 }
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+	position: relative;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+	content: "";
+	position: absolute;
+	width: 3px;
+	background-color: white;
+	top: 0;
+	bottom: 0;
+}
+
+/* Container around content */
+.container-track {
+	padding: 0px 30px;
+	position: relative;
+	background-color: inherit;
+}
+
+/* The circles on the timeline */
+.container-track::after {
+	content: "";
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: -17px;
+	background-color: #32a02d;
+	top: 1px;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.container-track.finish::after {
+	content: "";
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	right: -17px;
+	background-color: #a3a4a5;
+	top: 1px;
+	border-radius: 50%;
+	z-index: 1;
+}
+
+.right {
+	left: 1.4%;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+	left: -16px;
+}
