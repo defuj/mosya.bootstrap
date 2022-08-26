@@ -773,6 +773,18 @@ input.middle:focus {
 	z-index: 1;
 }
 
+.container-track.end::before {
+	content: "";
+	position: absolute;
+	width: 3px;
+	background-color: #32a02d;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	margin-left: -5px;
+	margin-top: 5px;
+}
+
 /* The line vertical timeline */
 .container-track.start::before {
 	content: "";

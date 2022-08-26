@@ -144,10 +144,6 @@
         </div>
       </div>
 
-      <div id="container-action" class="container-action bg-white px-3 py-3 d-flex flex-column mb-2">
-        
-      </div>
-
     </main>
     <!-- end body content -->
 
@@ -184,6 +180,14 @@
     </footer>
     <!-- end content footer -->
 
+    <!-- start navigation bottom -->
+    <nav id="container-action" class="d-none navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+      <!-- <div  class="container-action bg-white d-flex flex-row mb-2">
+        
+      </div> -->
+    </nav>
+  <!-- end navigation bottom -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -199,6 +203,8 @@
         if(params.has('status') && params.get('status') != ''){
             switch (params.get('status')) {
               case '1':
+                $('nav').removeClass('d-none');
+                $('footer').removeClass('without-navbar');
                 $('#container-status').addClass('status-1');
                 $('#statusTitle').html('Pesanan Kamu Belum Dibayar');
                 $('#statusDesc').html('Segera lakukan pembayaran booking fee !');
@@ -228,29 +234,33 @@
               case '4':
                 $('#container-status').addClass('status-1');
                 $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
-                $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu,(Jelaskeun naha bet di cancel)');
+                $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.');
                 $('#container-action').remove();
                 break;
 
               case '5':
+                $('nav').removeClass('d-none');
+                $('footer').removeClass('without-navbar');
                 $('#container-status').addClass('status-2');
                 $('#statusTitle').html('Pesana Kamu Dalam Perjalanan');
                 $('#statusDesc').html('Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN.');
                 $('#container-action').html(`
-                  <a href="#" class="d-flex flex-fill text-decoration-none mb-3">
-                    <button type="submit" class="button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
-                      <p class="mb-0 py-1">Pesanan Diterima</p>
+                  <a href="#" class="d-flex flex-fill text-decoration-none">
+                    <button type="submit" class="mr-2 button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
+                      Pesanan Diterima
                     </button>
                   </a>  
                   <a href="tracking_location.html" class="d-flex flex-fill text-decoration-none">
-                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-                      <p class="mb-0 py-1">Lacak Pesanan</p>
+                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white justify-content-center background-green500" type="button">
+                      Lacak Pesanan
                     </button>
                   </a>
                 `);
                 break;
 
               case '6':
+                $('nav').removeClass('d-none');
+                $('footer').removeClass('without-navbar');
                 $('#container-status').addClass('status-2');
                 $('#statusTitle').html('Pesanan Kamu Sudah Sampai');
                 $('#statusDesc').html('Alhamdulillah pesanan kamu sudah sampai.');
