@@ -133,6 +133,8 @@
                 document.getElementById('image-profile').src = fr.result;
             }
             fr.readAsDataURL(files[0]);
+        }else{
+          document.getElementById('image-profile').src = 'assets/images/user-default.png';
         }
       }
     </script>
