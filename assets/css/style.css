@@ -576,8 +576,8 @@ input.middle:focus {
 }
 
 .product-section-payment img {
-	width: 84px;
-	height: 84px;
+	width: 56px;
+	height: 56px;
 	border-radius: 8px;
 	object-fit: cover;
 }
