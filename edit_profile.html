@@ -39,33 +39,33 @@
     <!-- start body content -->
     <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5">
         <!-- start content welcome user -->
-        <div class="container-user d-flex justify-content-center flex-column w-100 px-3 py-4 mb-4">
-            <div class="container-image-profile mx-auto">
-                <img src="./assets/images/user-default.png" alt="profile" class="image-profile">
-            </div>
+        <form class="container-user d-flex justify-content-center flex-column w-100 px-3 py-4 mb-4">
+            <label class="container-image-profile mx-auto" for="choose-image">
+                <img src="./assets/images/user-default.png" alt="profile" class="image-profile" id="image-profile">
+                <input type="file" name="picture" id="choose-image" accept="image/png, image/gif, image/jpeg" hidden>
+                <i class="fi fi-rr-camera change-picture"></i>
+            </label>
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-user color-black400"></i>
-                <input type="text" class="form-input bodytext2" placeholder="Nama Lengkap" required>
+                <input type="text" name="name" class="form-input bodytext2" placeholder="Nama Lengkap" required>
             </div>
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-hastag color-black400"></i>
-                <input type="number" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" required>
+                <input type="number" name="phone" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" required>
             </div>
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-at color-black400"></i>
-                <input type="email" class="form-input bodytext2" placeholder="Alamat Email" required>
+                <input type="email" name="email" class="form-input bodytext2" placeholder="Alamat Email" required>
             </div>
 
-            <button class="button-action-save text-white background-green500 bodytext1 text-center mt-5">
+            <button type="submit" class="button-action-save text-white background-green500 bodytext1 text-center mt-5">
               Simpan Perubahan
             </button>
-            
-
-      </div>
-      <!-- end content welcome user -->
+        </form>
+        <!-- end content welcome user -->
       
     </main>
     <!-- end body content -->
@@ -122,7 +122,19 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-      
+      document.getElementById('choose-image').onchange = function (evt) {
+        var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+        
+        // FileReader support
+        if (FileReader && files && files.length) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                document.getElementById('image-profile').src = fr.result;
+            }
+            fr.readAsDataURL(files[0]);
+        }
+      }
     </script>
   </body>
 </html>

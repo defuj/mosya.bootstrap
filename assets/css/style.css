@@ -519,6 +519,7 @@ input.middle:focus {
 	height: 96px;
 	border-radius: 50%;
 	margin: 2px;
+	object-fit: cover;
 }
 
 .button-action-profile {
@@ -827,4 +828,19 @@ input.middle:focus {
 .without-navbar {
 	max-height: 300px !important;
 	min-height: 190px;
+}
+
+.change-picture {
+	height: 25px;
+	width: 24px;
+	text-align: center;
+	padding-top: 3px;
+	border-radius: 100%;
+	background-color: #fff;
+	color: #000;
+	font-size: 16px;
+	position: absolute;
+	margin-top: 70px;
+	margin-left: -25px !important;
+	box-shadow: 0px 0px 6px rgba(38, 50, 56, 0.1);
 }
