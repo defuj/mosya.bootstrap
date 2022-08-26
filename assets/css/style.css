@@ -520,7 +520,7 @@ input.middle:focus {
 .button-action-profile {
 	padding: 12px;
 	border-radius: 8px;
-	border: 2px solid #32a02d;
+	border: none;
 }
 .button-action-logout {
 	padding: 12px;
@@ -537,7 +537,7 @@ input.middle:focus {
 .content-profile {
 	background-color: #fff;
 	padding: 16px;
-	border-radius: 16px;
+	border-radius: 18px;
 	box-shadow: 4px 4px 8px 0px rgba(38, 50, 56, 0.1);
 }
 
