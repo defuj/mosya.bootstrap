@@ -512,6 +512,7 @@ input.middle:focus {
 	height: 100px;
 	background-color: #d1d2d2;
 	border-radius: 50%;
+	cursor: pointer;
 }
 
 .container-image-profile img {
