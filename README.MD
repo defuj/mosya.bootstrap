@@ -24,7 +24,7 @@ Request :
 -   Header :
     -   tulaks : "tulaks"
 
-<details>
+</details>
 
 ## Login
 
