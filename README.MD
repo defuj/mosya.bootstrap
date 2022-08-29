@@ -53,7 +53,6 @@ Response :
 		name: "string",
 		email: "string",
 		phone: "string",
-		address: "string",
 		image: "string",
 	},
 }
@@ -76,7 +75,6 @@ Request :
 	email: "string",
 	password: "string",
 	phone: "string",
-	address: "string",
 }
 ```
 
@@ -91,9 +89,74 @@ Response :
 		name: "string",
 		email: "string",
 		phone: "string",
-		address: "string",
 		image: "string",
 	},
+}
+```
+
+## Update Profile
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/auth/update_profile`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	id: "string",
+	email: "string",
+	phone: "string",
+	image: "file",
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: {
+		id: "string",
+		name: "string",
+		email: "string",
+		phone: "string",
+		image: "string",
+	},
+}
+```
+
+## Update Password
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/auth/update_password`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	id: "string",
+	email: "string",
+	password_old: "string",
+	password_new: "string",
+	password_confirm: "string",
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
 }
 ```
 
