@@ -11,8 +11,8 @@
 
 </p>
 
-## Authentication
-
+<details>
+<summary>## Authentication</summary>
 All API must use this authentication
 
 Request :
@@ -23,6 +23,8 @@ Request :
     -   password : "password"
 -   Header :
     -   tulaks : "tulaks"
+
+<details>
 
 ## Login
 
@@ -94,5 +96,45 @@ Response :
 		address: "string",
 		image: "string",
 	},
+}
+```
+
+## List Brand (Merk Mobil)
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/brand/list`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	search: "string", // value : search by name (parameter is optional, just use for search)
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: [
+		{
+			id: "string",
+			name: "string",
+		},
+		{
+			id: "string",
+			name: "string",
+		},
+		{
+			id: "string",
+			name: "string",
+		},
+	],
 }
 ```
