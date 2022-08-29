@@ -11,9 +11,6 @@
 
 </p>
 
-<details>
-<summary>Authentication</summary>
-
 ## Authentication
 
 All API must use this authentication
@@ -26,8 +23,6 @@ Request :
     -   password : "password"
 -   Header :
     -   tulaks : "tulaks"
-
-</details>
 
 ## Login
 
@@ -102,6 +97,42 @@ Response :
 }
 ```
 
+## List Banner
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/banner/list`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: [
+		{
+			id: "string",
+			image: "string", // the value is image url
+			link: "string", // the value is link url
+		},
+		{
+			id: "string",
+			image: "string", // the value is image url
+			link: "string", // the value is link url
+		},
+		{
+			id: "string",
+			image: "string", // the value is image url
+			link: "string", // the value is link url
+		},
+	],
+}
+```
+
 ## List Brand (Merk Mobil)
 
 Request :
@@ -137,6 +168,80 @@ Response :
 		{
 			id: "string",
 			name: "string",
+		},
+	],
+}
+```
+
+## List Car
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/car/list`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	search: "string", // value : search keyword (parameter is optional, just use for search)
+	color: "string", // value : flter by color name (parameter is optional, just use for filter)
+	brand: "string", // value : filter by brand name (parameter is optional, just use for filter)
+	fuel: "string", // value : Bensin, Solar, Listrik, Hybrid (parameter is optional, just use for filter)
+	start_year: "string", // value : filter dengan tahun mulai (parameter is optional, just use for filter)
+	end_year: "string", // value : filter dengan tahun akhir (parameter is optional, just use for filter)
+	price_start: "string", // value : filter dengan harga mulai (parameter is optional, just use for filter)
+	price_end: "string", // value : filter dengan harga akhir (parameter is optional, just use for filter)
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: [
+		{
+			id: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			fuel: "string",
+			year: "string",
+			price: "string",
+			image: "string",
+			description: "string",
+			plate_number: "string",
+			status: "string",
+		},
+		{
+			id: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			fuel: "string",
+			year: "string",
+			price: "string",
+			image: "string",
+			description: "string",
+			plate_number: "string",
+			status: "string",
+		},
+		{
+			id: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			fuel: "string",
+			year: "string",
+			price: "string",
+			image: "string",
+			description: "string",
+			plate_number: "string",
+			status: "string",
 		},
 	],
 }
