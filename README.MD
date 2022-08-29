@@ -72,8 +72,11 @@ Request :
 
 ```json5
 {
-	user: "string,unique", //example : 6282245672763 or user@mail.com
-	type: "string", //value : email or phone
+	name: "string",
+	email: "string",
+	password: "string",
+	phone: "string",
+	address: "string",
 }
 ```
 
