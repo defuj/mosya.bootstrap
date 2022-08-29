@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="./assets/js/session.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -30,7 +32,7 @@
       <!-- start content welcome user -->
       <div class="container-user d-flex flex-row justify-content-between px-3 py-4">
         <div class="content-text flex-column w-100">
-          <p class="bodytext2 color-black500 p-0 m-0">
+          <p class="bodytext2 color-black500 p-0 m-0" id="dataName">
             Assalamualaikum
           </p>
           <p class="headline6 color-black500 semibold p-0 m-0">
@@ -39,7 +41,7 @@
         </div>
         <a class="content-image-profile flex-shrink" href="profile.html">
           <div class="frame-image">
-            <img src="./assets/images/user-default.png" alt="profile" srcset="">
+            <img src="./assets/images/user-default.png" alt="profile" srcset="" id="dataImage">
           </div>
         </a>
       </div>
@@ -233,6 +235,17 @@
     <script src="./assets/js/home.js"></script>
 
     <script>
+      const checkUser = ()=> {
+        if(checkAccount()){
+          const user = getAccount();
+          console.log(user.name);
+          $('#dataName').text('Assalamualaikum, ' + user.name)
+          $('#dataImage').attr('src', user.image);
+        }
+      }
+
+      checkUser();
+
       var titleEmpty = "Belum ada produk";
       var descEmpty = 'Silahkan coba lagi nanti';
 

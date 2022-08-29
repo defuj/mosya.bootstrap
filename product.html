@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="./assets/js/session.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -143,7 +145,8 @@
         <!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
         <form action="input_data_booking.html" class="text-decoration-none d-flex flex-fill">
           <input type="text" id="productId" name="id" hidden required>
-          <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+          <button type="submit" id="buttonSubmit" hidden></button>
+          <button id="buttonRequest" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
             <p class="mb-0 py-1">Pesan Mobil</p>
             <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
           </button>
@@ -160,6 +163,14 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      $('#buttonRequest').click(function(){
+        if(checkAccount()){
+          $('#buttonSubmit').click();
+        }else{
+          window.location.href = "login.html";
+        }
+      });
+
         var titleEmpty = "Produk tidak ditemukan";
         var descEmpty = 'Silahkan cari produk lainnya';
 

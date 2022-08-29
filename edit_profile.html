@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="./assets/js/session.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -48,20 +50,20 @@
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-user color-black400"></i>
-                <input type="text" name="name" class="form-input bodytext2" placeholder="Nama Lengkap" required>
+                <input type="text" name="name" id="dataName" class="form-input bodytext2" placeholder="Nama Lengkap" required>
             </div>
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-hastag color-black400"></i>
-                <input type="number" name="phone" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" required>
+                <input type="number" name="phone" id="dataPhone" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" required>
             </div>
 
             <div class="input-group-custom bg-white mt-3">
                 <i class="fi fi-rr-at color-black400"></i>
-                <input type="email" name="email" class="form-input bodytext2" placeholder="Alamat Email" required>
+                <input type="email" name="email" id="dataEmail" class="form-input bodytext2" placeholder="Alamat Email" required>
             </div>
 
-            <button type="submit" class="button-action-save text-white background-green500 bodytext1 text-center mt-5">
+            <button type="button" id="buttonSave" class="button-action-save text-white background-green500 bodytext1 text-center mt-5">
               Simpan Perubahan
             </button>
         </form>
@@ -122,6 +124,18 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      const checkUser = ()=> {
+        if(checkAccount()){
+          const user = getAccount();
+          $('#dataName').val(user.name);
+          $('#dataPhone').val(user.phone);
+          $('#dataEmail').val(user.email);
+          $('#image-profile').attr('src', user.image);
+        }
+      }
+
+      checkUser();
+
       document.getElementById('choose-image').onchange = function (evt) {
         var tgt = evt.target || window.event.srcElement,
             files = tgt.files;
@@ -137,6 +151,30 @@
           document.getElementById('image-profile').src = 'assets/images/user-default.png';
         }
       }
+
+      $('#buttonSave').click(function(e){
+        const name = $('#dataName').val();
+        const phone = $('#dataPhone').val();
+        const email = $('#dataEmail').val();
+        const image = $('#image-profile').attr('src');
+        const data = {
+          name: name,
+          phone: phone,
+          email: email,
+          image: image
+        }
+
+        console.log(data);
+        if(name != '' && phone != '' && email != ''){
+          
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Data tidak boleh kosong',
+          })
+        }
+      });
     </script>
   </body>
 </html>

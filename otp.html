@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="./assets/js/session.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -29,10 +31,12 @@
           </a>
     </nav>
     
-    <form class="form-otp">
+    <form class="form-otp" action="reset_password.html" method="get">
+        <input type="email" name="email" id="inputEmail" required hidden>
+        <!-- <input type="number" name="otp" id="inputOTP" required hidden> -->
         <i class="fi fi-sr-shield-interrogation color-green500 headline2"></i>
         <p class="mb-2 mt-2 headline6 color-black700 font-weight-bold">Masukan Kode OTP</p>
-        <p class="mb-2 bodytext2 color-black500">Masukan Kode OTP yang dikirim melalui email ke <b class="color-black500">u*****me@domain.com</b></p>
+        <p class="mb-2 bodytext2 color-black500">Masukan Kode OTP yang dikirim melalui email ke <b class="color-black500" id="dataEmail"></b></p>
     
         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-3 mb-4"> 
             <input class="m-2 text-center otp-form bodytext2" type="password" id="first" maxlength="1" /> 
@@ -42,6 +46,7 @@
             <input class="m-2 text-center otp-form bodytext2" type="password" id="fifth" maxlength="1" /> 
             <input class="m-2 text-center otp-form bodytext2" type="password" id="sixth" maxlength="1" /> 
         </div> 
+        <button type="submit" id="buttonSubmit" hidden></button>
 
         <a href="#" id="resend" onclick="resend()" class="color-green500 bodytext2">
             Kirim Ulang Kode
@@ -57,8 +62,15 @@
     <script src="./assets/js/bootstrap.js"></script>
 
     <script>
-        function resend() {
-            // alert("Kode OTP telah dikirim ke email Anda");
+        var otpCode = "";
+        const params = new URLSearchParams(window.location.search);
+
+        const resend = () => {
+            // request otp to server
+            // if success, show form otp
+            // if failed, show error message
+            otpCode = `${Math.floor(Math.random() * 900000) + 99999}`;
+            console.log(`Kode OTP : ${otpCode}`);
             document.getElementById("resend").style.display = "none";
             document.getElementById("counter").style.display = "block";
 
@@ -73,37 +85,76 @@
             document.getElementById("counter").innerHTML = 'Silahkan tunggu ' + timeleft + ' detik untuk mengirim ulang kode';
             }, 1000);
         }
-        window.onload = resend;
+
+        const checkParams = () => {
+            if(params.has('email')){
+                const email = params.get('email');
+                // check email is available in server
+                // if available, show form otp
+                // if not available, back to login page
+
+                $('#dataEmail').val(email);
+                $('#inputEmail').val(email);
+                resend();
+            }else{
+                window.location.href = "./login.html";
+            }
+        }
+
+        checkParams();
+
         document.addEventListener("DOMContentLoaded", function(event) {
             var code = '';
-            function OTPInput() {
+            const OTPInput = () => {
                 const inputs = document.querySelectorAll('#otp > *[id]');
                 for (let i = 0; i < inputs.length; i++) { 
                     inputs[i].addEventListener('keydown', function(event) { 
                         if (event.key==="Backspace" ) { 
+                            code = code.slice(0, -1);
+                            // console.log("result backspace : "+code);
                             inputs[i].value='';
                             if (i !==0) inputs[i - 1].focus(); 
                         } else { 
                             if (i===inputs.length - 1 && inputs[i].value !=='' ) {
-                                code+=inputs[i].value;
                                 return true; 
                             } else if (event.keyCode> 47 && event.keyCode < 58) { 
                                 inputs[i].value=event.key; 
                                 if (i !==inputs.length - 1) {
                                     inputs[i + 1].focus();
                                 }
-                                code+=inputs[i].value; 
+                                code += inputs[i].value;
                                 event.preventDefault(); 
                             } else if (event.keyCode> 64 && event.keyCode < 91) { 
                                 inputs[i].value=String.fromCharCode(event.keyCode); 
                                 if (i !==inputs.length - 1) {
                                     inputs[i + 1].focus(); 
                                 }
-                                code+=inputs[i].value;
+                                code += inputs[i].value;
                                 event.preventDefault(); 
                             } 
+
+                            // console.log(code);
                             if(code.length == 6){
-                                window.location.href = "./reset_password.html";
+                                if(otpCode == code){
+                                    // window.location.href = "./reset_password.html";
+                                    localStorage.setItem('otp', code);
+                                    localStorage.setItem('forgot_password', $('#inputEmail').val());
+                                    $('#buttonSubmit').click();
+                                }else{
+                                    code = '';
+                                    for (let j = 0; j < inputs.length; j++) { 
+                                        inputs[j].value='';
+                                    }
+                                    inputs[0].focus();
+
+                                    Swal.fire({
+                                        title: 'Perhatian',
+                                        text: 'Kode OTP yang anda masukkan salah',
+                                        icon: 'error',
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'OK'
+                                    })
+                                }
                             }
                         } 
                     }); 

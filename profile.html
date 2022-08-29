@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="./assets/js/session.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -41,14 +43,14 @@
         <div class="container-user d-flex flex-column w-100 px-3 py-4 mb-4">
             <div class="content-profile d-flex flex-column align-items-center mt-2 py-4">
               <div class="container-image-profile">
-                <img src="./assets/images/user-default.png" alt="profile" class="image-profile">
+                <img src="./assets/images/user-default.png" alt="profile" class="image-profile" id="dataImage">
               </div>
               <div class="data-profile d-flex flex-column flex-fill">
 
-                <p class="headline5 color-black500 semibold p-0 mb-2 mt-2 text-center">
+                <p class="headline5 color-black500 semibold p-0 mb-2 mt-2 text-center" id="dataName">
                   Yusup Apandi
                 </p>
-                <p class="bodytext2 color-black500 p-0 m-0 text-center">
+                <p class="bodytext2 color-black500 p-0 m-0 text-center" id="dataEmail">
                   yusup@gmail.com | 0821220345678
                 </p>
 
@@ -85,11 +87,9 @@
                   </button>
                 </a>
 
-                <a href="login.html" class="text-decoration-none d-flex mt-2">
-                  <button class="button-action-logout text-white bodytext1 text-center mt-2 d-flex flex-row justify-content-center flex-fill">
-                      <p class="mb-0">Keluar Akun</p>
-                  </button>
-                </a>
+                <button class="button-action-logout text-white bodytext1 text-center mt-2 d-flex flex-row w-100 justify-content-center flex-fill" id="buttonLogout">
+                  <p class="mb-0">Keluar Akun</p>
+                </button>
               </div>
             </div>
           
@@ -182,7 +182,32 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      try {
+        const account = getAccount();
+        $('#dataImage').attr('src', account.image);
+        $('#dataEmail').text(account.email + ' | ' + account.phone);
+        $('#dataName').text(account.name);
+      } catch (error) {}
       
+
+      $('#buttonLogout').click(function(){
+        // alert dialog
+        Swal.fire({
+          title: 'Keluar Akun',
+          text: "Apakah kamu yakin ingin keluar akun?",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Ya, Keluar!'
+        }).then((result) => {
+          if (result.value) {
+            deleteAccount();
+            window.location.href = './home.html';
+          }
+        })
+      });
+
     </script>
   </body>
 </html>

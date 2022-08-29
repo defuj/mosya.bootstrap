@@ -845,3 +845,23 @@ input.middle:focus {
 	margin-left: -25px !important;
 	box-shadow: 0px 0px 6px rgba(38, 50, 56, 0.1);
 }
+
+.swal2-container.swal2-center.swal2-backdrop-show {
+	backdrop-filter: blur(10px) !important;
+	-webkit-backdrop-filter: blur(10px) !important;
+}
+
+.swal2-container.swal2-center > .swal2-popup {
+	border-radius: 16px;
+}
+
+.swal2-title {
+	font-size: 20px;
+	color: #191c1f;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+}
+
+.swal2-popup {
+	width: auto !important;
+}
