@@ -17,12 +17,12 @@ All API must use this authentication
 
 Request :
 
--   base url: http://
+-   base url: `https://`
 -   Auth :
-    -   username : "\_"
-    -   password : "\_"
+    -   username : "username"
+    -   password : "password"
 -   Header :
-    -   tulaks : "\_"
+    -   tulaks : "tulaks"
 
 ## Login
 
