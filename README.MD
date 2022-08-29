@@ -309,3 +309,54 @@ Response :
 	],
 }
 ```
+
+## List History Booking
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/history/list`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: [
+		{
+			id: "string",
+			date: "string",
+			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
+			image: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			year: "string",
+		},
+		{
+			id: "string",
+			date: "string",
+			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
+			image: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			year: "string",
+		},
+		{
+			id: "string",
+			date: "string",
+			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
+			image: "string",
+			name: "string",
+			brand: "string",
+			color: "string",
+			year: "string",
+		},
+	],
+}
+```
