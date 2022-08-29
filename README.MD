@@ -5,16 +5,11 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/defuj/moza/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Mosya - Mobil Syariah is released under the MIT license." />
-  </a>
   <a href="https://getbootstrap.com/docs/4.6/getting-started/download/">
     <img src="https://img.shields.io/badge/Bootstrap-v4.6.2-informational?style=flat&logoColor=white"/>
   </a>
 
 </p>
-
-# API Spec for agen
 
 ## Authentication
 
@@ -22,20 +17,19 @@ All API must use this authentication
 
 Request :
 
--   base url: http://124.158.169.186:8080
--   base_url_image: https://assetsmoza.pakeaplikasi.com/
+-   base url: http://
 -   Auth :
-    -   username : "!array-smd2021"
-    -   password : "be677fab93e92122d10851df008a3098187a298051eb1403e6d88e7f31a55a41"
+    -   username : "\_"
+    -   password : "\_"
 -   Header :
-    -   tulaks : "53a206a7fcfc80eac70514297ba3b112fff958a1bace234b0a16a6f4ed17403a"
+    -   tulaks : "\_"
 
-## :heavy_check_mark: SIGN
+## Login
 
 Request :
 
 -   Method : POST
--   Endpoint : `api/auth/sign`
+-   Endpoint : `/auth/login`
 -   Header :
     -   Content-Type: application/json
     -   Accept: application/json
@@ -43,7 +37,7 @@ Request :
 
 ```json5
 {
-	user: "string", //example : 6282245672763 or user@mail.com
+	email: "string", //ex: user@mail.com
 	password: "string",
 }
 ```
@@ -54,16 +48,23 @@ Response :
 {
 	status: "boolean", //value : true or false
 	message: "string",
-	user_id: "integer",
+	data: {
+		id: "string",
+		name: "string",
+		email: "string",
+		phone: "string",
+		address: "string",
+		image: "string",
+	},
 }
 ```
 
-## :heavy_check_mark: Check Email/Phone Number is available
+## Register
 
 Request :
 
 -   Method : POST
--   Endpoint : `api/auth/check`
+-   Endpoint : `/auth/register`
 -   Header :
     -   Content-Type: application/json
     -   Accept: application/json
@@ -81,7 +82,14 @@ Response :
 ```json5
 {
 	status: "boolean", //value : true or false
-	type: "string", //example : 6282245672763 or user@mail.com
 	message: "string",
+	data: {
+		id: "string",
+		name: "string",
+		email: "string",
+		phone: "string",
+		address: "string",
+		image: "string",
+	},
 }
 ```
