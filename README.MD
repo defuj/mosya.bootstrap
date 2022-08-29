@@ -12,7 +12,10 @@
 </p>
 
 <details>
-<summary>## Authentication</summary>
+<summary>Authentication</summary>
+
+## Authentication
+
 All API must use this authentication
 
 Request :
