@@ -299,6 +299,42 @@ Response :
 				},
 			],
 		},
+		{
+			id: "string",
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			fuel: "string", // the value is fuel type, ex: Bensin
+			year: "string", // the value is car year, ex: 2019
+			price: "string", // the value is car price, ex: 1.000.000.000
+			description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+			plate_number: "string", // the value is car plate number, ex: B 12345
+			status: "string", // the value is car status, ex: Available
+			kilometer: "string", // the value is car kilometer, ex: 100.000
+			image: [
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+			]
+			payments: [
+				{
+					id: "string",
+					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
+					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
+				},
+				{
+					id: "string",
+					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
+					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
+				},
+				{
+					id: "string",
+					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
+					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
+				},
+			],
+		},
 	],
 }
 ```
