@@ -253,6 +253,7 @@ Request :
 	end_year: "string", // value : filter dengan tahun akhir (parameter is optional, just use for filter)
 	price_start: "string", // value : filter dengan harga mulai (parameter is optional, just use for filter)
 	price_end: "string", // value : filter dengan harga akhir (parameter is optional, just use for filter)
+	limit: "string", // value : limit data (parameter is optional, just use for pagination) ex: 10
 }
 ```
 
@@ -299,43 +300,190 @@ Response :
 				},
 			],
 		},
-		{
-			id: "string",
-			name: "string", // the value is car name, ex: Honda Jazz
-			brand: "string", // the value is brand name, ex: Honda
-			color: "string", // the value is color name, ex: Black
-			fuel: "string", // the value is fuel type, ex: Bensin
-			year: "string", // the value is car year, ex: 2019
-			price: "string", // the value is car price, ex: 1.000.000.000
-			description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
-			plate_number: "string", // the value is car plate number, ex: B 12345
-			status: "string", // the value is car status, ex: Available
-			kilometer: "string", // the value is car kilometer, ex: 100.000
-			image: [
-				"https://www.google.com/images/brand/brand.png",
-				"https://www.google.com/images/brand/brand.png",
-				"https://www.google.com/images/brand/brand.png",
-				"https://www.google.com/images/brand/brand.png",
-			]
-			payments: [
-				{
-					id: "string",
-					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
-					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
-				},
-				{
-					id: "string",
-					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
-					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
-				},
-				{
-					id: "string",
-					dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000
-					cicilan: "string", // the value is car cicilan, ex: Rp 4.973.000 X 48 bln
-				},
-			],
-		},
 	],
+}
+```
+
+## List Catalog Car
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/car/catalog`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: {
+		merk : "string",
+		total: "string", // the value is total car, ex: 1 sd 99+, if value is > 100, then value is 99+
+		cars: [ // list car, just 4 piece for every merk
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+		]
+	},
+	{
+		merk : "string",
+		total: "string", // the value is total car, ex: 1 sd 99+, if value is > 100, then value is 99+
+		cars: [ // list car, just 4 piece for every merk
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+			{
+				id: "string",
+				name: "string", // the value is car name, ex: Honda Jazz
+				brand: "string", // the value is brand name, ex: Honda
+				color: "string", // the value is color name, ex: Black
+				fuel: "string", // the value is fuel type, ex: Bensin
+				year: "string", // the value is car year, ex: 2019
+				price: "string", // the value is car price, ex: 1.000.000.000
+				description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+				plate_number: "string", // the value is car plate number, ex: B 12345
+				status: "string", // the value is car status, ex: Available
+				kilometer: "string", // the value is car kilometer, ex: 100.000
+				image: [
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+					"https://www.google.com/images/brand/brand.png",
+				]
+			},
+		]
+	}
 }
 ```
 
