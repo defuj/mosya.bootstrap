@@ -60,9 +60,9 @@
       <!-- start content slider -->
       <div class="swiper mySlider">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <a class="swiper-slide" href="#">
             <img src="./assets/images/slider_1.png" alt="" srcset="">
-          </div>
+          </a>
           <div class="swiper-slide">
             <img src="./assets/images/slider_2.png" alt="" srcset="">
           </div>
@@ -95,40 +95,40 @@
 
       <!-- start content brands -->
       <div class="container-brand-text d-flex justify-content-start">
-        <a href="./home.html?merk=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
+        <a href="./search.html?merk=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
           Semua
         </a>
-        <a href="./home.html?merk=Audi" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Audi" class="bodytext2 text-decoration-none flex-column brand-slide">
           Audi
         </a>
-        <a href="./home.html?merk=BMW" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=BMW" class="bodytext2 text-decoration-none flex-column brand-slide">
           BMW
         </a>
-        <a href="./home.html?merk=Daihatsu" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Daihatsu" class="bodytext2 text-decoration-none flex-column brand-slide">
           Daihatsu
         </a>
-        <a href="./home.html?merk=Honda" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Honda" class="bodytext2 text-decoration-none flex-column brand-slide">
           Honda
         </a>
-        <a href="./home.html?merk=Hyundai" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Hyundai" class="bodytext2 text-decoration-none flex-column brand-slide">
           Hyundai
         </a>
-        <a href="./home.html?merk=Isuzu" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Isuzu" class="bodytext2 text-decoration-none flex-column brand-slide">
           Isuzu
         </a>
-        <a href="./home.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">
           Mercedes
         </a>
-        <a href="./home.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">          
+        <a href="./search.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">          
           Mitsubishi
         </a>
-        <a href="./home.html?merk=Nissan" class="bodytext2 text-decoration-none flex-column brand-slide">          
+        <a href="./search.html?merk=Nissan" class="bodytext2 text-decoration-none flex-column brand-slide">          
           Nissan
         </a>
-        <a href="./home.html?merk=Suzuki" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Suzuki" class="bodytext2 text-decoration-none flex-column brand-slide">
           Suzuki
         </a>
-        <a href="./home.html?merk=Toyota" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?merk=Toyota" class="bodytext2 text-decoration-none flex-column brand-slide">
           Toyota
         </a>
       </div>
@@ -142,7 +142,7 @@
             <p class="caption color-green500 semibold m-0">Lainnya</p>
           </a>
         </div>
-        <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-2">
+        <div id="container-product" class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-2">
         </div>
       </div>
       <!-- end content product list -->
@@ -231,7 +231,6 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./assets/js/session.js"></script>
     <script src="./assets/js/navigation.js"></script>
-    <script src="./assets/js/filter.js"></script>
     <script src="./assets/js/home.js"></script>
 
     <script>
@@ -246,78 +245,63 @@
 
       checkUser();
 
-      var titleEmpty = "Belum ada produk";
-      var descEmpty = 'Silahkan coba lagi nanti';
+      let titleEmpty = "Belum ada produk";
+      let descEmpty = 'Silahkan coba lagi nanti';
+      let emptyState = `
+        <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <div class="empty-text text-center">
+            <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+            <p class="bodytext2 color-black400 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+          </div>
+        </div>`;
 
       const fetchCars = () => {
-        const filters = new URLSearchParams(window.location.search);
-        
+        // const filters = new URLSearchParams(window.location.search);
+        // if(filters.has('merk')){
+        //   if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
+        //     document.querySelectorAll(".brand-slide").forEach(item => {
+        //       const resultName = item.textContent.toString().replace(/\s/g, '')
+        //       item.classList.remove("active");
 
-        if(filters.has('merk')){
-          if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-            document.querySelectorAll(".brand-slide").forEach(item => {
-              const resultName = item.textContent.toString().replace(/\s/g, '')
-              item.classList.remove("active");
-
-              if(resultName.toString().toLocaleLowerCase() === filters.get('merk').toString().toLocaleLowerCase()){
-                  item.classList.add("active");
-                  return false;
-              }
-          });
-          }
-        }
+        //       if(resultName.toString().toLocaleLowerCase() === filters.get('merk').toString().toLocaleLowerCase()){
+        //           item.classList.add("active");
+        //           return false;
+        //       }
+        //     });
+        //   }
+        // }
         
-        axios.get('assets/js/cars.json')
+        axios.get('assets/js/home.json')
           .then(response => {
-              var cars = response.data;
+              let result = response.data;
+              if(result.status){
+                var cars = result.data;
+                console.log(cars);
 
-              if(filters.has('merk')){
-                if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-                  cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
-                }
-              }
+                // if(filters.has('merk')){
+                //   if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
+                //     cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
+                //   }
+                // }
 
-              const emptyState = `
-              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
-                <div class="empty-text text-center">
-                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-                  <p class="bodytext2 color-black400 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
-                </div>
-              </div>`;
-
-              if(cars.length > 0){
-                if(cars.length <= 14){
-                  cars.map((data, i)=>{
-                    document.querySelector('.container-product').insertAdjacentHTML('beforeend',`
-                    <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
-                        <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
-                        <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                        <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                        <p class="caption color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
-                    </a>`)
+                if(cars.length > 0){
+                  cars.map((car, i)=>{
+                    $('#container-product').append(`
+                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                          <div class="product-cover mb-2" style="background-image: url('${car.images[Math.floor(Math.random()*car.images.length)]}');"></div>
+                          <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
+                          <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
+                          <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
+                      </a>
+                      `)
+                    
                   });
                 }else{
-                  for (let index = 0; index < 14; index++) {
-                    const data = cars[index];
-                    document.querySelector('.container-product').insertAdjacentHTML('beforeend',`
-                    <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
-                        <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
-                        <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                        <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                        <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
-                    </a>`)
-                  }
+                  $('.container-product').html(emptyState);
                 }
-                
-                try {
-                  document.querySelector('.container-empty').remove();
-                } catch (error) { '' }
-              }else{
-                document.querySelector('.container-products').insertAdjacentHTML('beforeend',emptyState);
               }
           })
-          .catch(error => '');
       };
 
       fetchCars();

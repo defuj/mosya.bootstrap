@@ -66,32 +66,31 @@
             confirmButtonText: 'Mengerti',
           })
         }else{
-          axios.get('assets/js/account.json').then(response => {
-            const result = response.data;
-            if(result.status){
-              const account = result.data;
-              setAccount(account);
-              window.location.href = './home.html';
-            }else{
+          axios.get('assets/js/account.json')
+            .then(response => {
+              const result = response.data;
+              if(result.status){
+                const account = result.data;
+                setAccount(account);
+                window.location.href = './home.html';
+              }else{
+                Swal.fire({
+                  title: 'Perhatian',
+                  text: 'Email atau kata sandi salah!',
+                  icon: 'error',
+                  confirmButtonText: 'Mengerti'
+                })
+              }
+            })
+            .catch(error => 
+              // alert dialog
               Swal.fire({
                 title: 'Perhatian',
-                text: 'Email atau kata sandi salah!',
+                text: 'Terjadi kesalahan, silahkan coba lagi!',
                 icon: 'error',
-                confirmButtonText: 'Mengerti'
+                confirmButtonText: 'Oke'
               })
-            }
-          })
-          .catch(error => 
-            // alert dialog
-            Swal.fire({
-              title: 'Perhatian',
-              text: 'Terjadi kesalahan, silahkan coba lagi!',
-              icon: 'error',
-              confirmButtonText: 'Oke'
-            })
-          
-          );
-          
+            );
         }
       });
     </script>
