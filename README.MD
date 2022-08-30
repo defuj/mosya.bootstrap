@@ -410,6 +410,13 @@ Request :
 -   Header :
     -   Content-Type: application/json
     -   Accept: application/json
+-   Body :
+
+```json5
+{
+	id: "string", // value : user id
+}
+```
 
 Response :
 
@@ -422,32 +429,85 @@ Response :
 			id: "string",
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
-			image: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			year: "string",
+			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			year: "string", // the value is car year, ex: 2019
 		},
 		{
 			id: "string",
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
-			image: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			year: "string",
+			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			year: "string", // the value is car year, ex: 2019
 		},
 		{
 			id: "string",
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
-			image: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			year: "string",
+			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			year: "string", // the value is car year, ex: 2019
 		},
 	],
+}
+```
+
+## Detail History Booking
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/history/detail`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	user_id: "string", // value : user id
+	id: "string", // value : history id
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: {
+		id: "string",
+		date: "string",
+		status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
+		car: {
+			id: "string",
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			fuel: "string", // the value is fuel type, ex: Bensin
+			year: "string", // the value is car year, ex: 2019
+			price: "string", // the value is car price, ex:
+		},
+		address: {
+			name: "string", // the value is user name, ex: John Doe
+			phone: "string", // the value is user phone, ex: 081234567890
+			email: "string", // the value is user email, ex: user@domain.com
+			address: "string", // the value is user address, ex: Jl. Kebon Jeruk No. 1
+		},
+		payment: {
+			payment_method: "string", // the value is payment method, ex: Cicilan
+			booking_fee: "string", // the value is booking fee, ex: Rp 200.000
+			code_uniq: "string", // the value is code uniq, ex: Rp 751
+			total_payment: "string", // the value is total price, ex: Rp 200.751
+		},
+	},
 }
 ```
