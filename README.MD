@@ -485,7 +485,8 @@ Response :
 	message: "string",
 	data: {
 		id: "string",
-		date: "string",
+		code: "string", // the value is history code, ex: #92929379938
+		date: "string", // the value is booking date, ex: 2019-01-01
 		status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
 		car: {
 			id: "string",
