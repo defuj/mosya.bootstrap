@@ -847,21 +847,100 @@ input.middle:focus {
 }
 
 .swal2-container.swal2-center.swal2-backdrop-show {
-	backdrop-filter: blur(10px) !important;
-	-webkit-backdrop-filter: blur(10px) !important;
+	backdrop-filter: blur(6px) !important;
+	-webkit-backdrop-filter: blur(6px) !important;
 }
 
 .swal2-container.swal2-center > .swal2-popup {
 	border-radius: 16px;
+	overflow: hidden;
 }
 
 .swal2-title {
-	font-size: 20px;
-	color: #191c1f;
-	font-family: "Open Sans", sans-serif;
-	font-weight: 600;
+	font-size: 22px;
+	color: #000000;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.swal2-html-container {
+	font-size: 16px;
+	color: #52575c;
+	font-family: "Roboto", sans-serif;
 }
 
 .swal2-popup {
 	width: auto !important;
+	padding: 0px !important;
+	font-size: 0.8rem;
+}
+
+.swal2-styled {
+	margin: 0px;
+}
+
+.swal2-actions {
+	width: 100% !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+	overflow: hidden;
+	margin: 0px;
+}
+
+.swal2-actions > button {
+	border-top: solid 1px rgb(0 0 0 / 10%) !important;
+	width: 100% !important;
+	height: 48px;
+	background-color: white !important;
+	border-radius: 0px !important;
+	font-family: "Roboto", sans-serif !important;
+	font-size: 15px !important;
+}
+
+.swal2-html-container {
+	padding: 0em 1.6em 1.25em 1.6em;
+	margin: 1em 0em 0em;
+}
+
+.swal2-styled.swal2-confirm {
+	color: #2196f3;
+}
+
+.swal2-styled.swal2-cancel {
+	color: #e53935;
+	font-weight: 500;
+}
+
+.swal2-styled.swal2-deny {
+	color: #000;
+	font-weight: 500;
+}
+
+.swal2-styled.swal2-confirm:hover {
+	background-color: #fff;
+}
+/* config button text color when error type dialog */
+.swal2-icon-error .swal2-actions .swal2-confirm {
+	color: #e53935;
+}
+
+.swal2-icon-error .swal2-actions .swal2-deny {
+	color: #000;
+}
+
+.swal2-icon-error .swal2-actions .swal2-cancel {
+	color: #000;
+}
+
+/* config button text color when error type dialog */
+.swal2-icon-warning .swal2-actions .swal2-confirm {
+	color: #ff5722;
+}
+
+.swal2-icon-warningr .swal2-actions .swal2-deny {
+	color: #000;
+}
+
+.swal2-icon-warning .swal2-actions .swal2-cancel {
+	color: #000;
 }

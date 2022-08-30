@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
-    <script src="./assets/js/session.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
@@ -179,6 +178,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="./assets/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/session.js"></script>
     <script src="./assets/js/navigation.js"></script>
 
     <script>
@@ -193,15 +193,14 @@
       $('#buttonLogout').click(function(){
         // alert dialog
         Swal.fire({
-          title: 'Keluar Akun',
+          title: 'Keluar Akun?',
           text: "Apakah kamu yakin ingin keluar akun?",
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Ya, Keluar!'
+          confirmButtonText: 'Ya, Keluar!',
+          cancelButtonText: 'Tidak'
         }).then((result) => {
-          if (result.value) {
+          if (result.isConfirmed) {
             deleteAccount();
             window.location.href = './home.html';
           }

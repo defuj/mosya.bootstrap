@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="./assets/images/favicon.ico">
-    <script src="./assets/js/session.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
@@ -59,10 +58,12 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="./assets/js/session.js"></script>
     <script src="./assets/js/bootstrap.js"></script>
 
     <script>
         var otpCode = "";
+        var codeTime = new Date().getTime();
         const params = new URLSearchParams(window.location.search);
 
         const resend = () => {
@@ -70,6 +71,7 @@
             // if success, show form otp
             // if failed, show error message
             otpCode = `${Math.floor(Math.random() * 900000) + 99999}`;
+            codeTime = new Date().getTime();
             console.log(`Kode OTP : ${otpCode}`);
             document.getElementById("resend").style.display = "none";
             document.getElementById("counter").style.display = "block";
@@ -137,9 +139,22 @@
                             if(code.length == 6){
                                 if(otpCode == code){
                                     // window.location.href = "./reset_password.html";
-                                    localStorage.setItem('otp', code);
-                                    localStorage.setItem('forgot_password', $('#inputEmail').val());
-                                    $('#buttonSubmit').click();
+                                    const now = new Date().getTime();
+                                    if(checkDeffTime(codeTime,now) <= 5){
+                                        console.log('Kode OTP sudah kadaluarsa :'+checkDeffTime(codeTime,now));
+                                        localStorage.setItem('otp', code);
+                                        localStorage.setItem('forgot_password', $('#inputEmail').val());
+                                        $('#buttonSubmit').click();
+                                    }else{
+                                        console.log('Kode OTP sudah kadaluarsa :'+checkDeffTime(codeTime,now));
+                                        Swal.fire({
+                                            title: 'Perhatian',
+                                            text: 'Kode OTP sudah tidak berlaku',
+                                            icon: 'error',
+                                            confirmButtonText: 'Mengerti',
+                                        })
+                                    }
+                                    
                                 }else{
                                     code = '';
                                     for (let j = 0; j < inputs.length; j++) { 
@@ -151,8 +166,7 @@
                                         title: 'Perhatian',
                                         text: 'Kode OTP yang anda masukkan salah',
                                         icon: 'error',
-                                        confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'OK'
+                                        confirmButtonText: 'Mengerti',
                                     })
                                 }
                             }

@@ -36,6 +36,17 @@ const getAccount = () => {
     return null;
 }
 
+const checkDeffTime = (time1, time2) => {
+    var date1 = new Date(time1);
+    var date2 = new Date(time2);
+    var diff = date2.getTime() - date1.getTime();
+    var msec = diff;
+    var hh = Math.floor(msec / 1000 / 60 / 60);
+    msec -= hh * 1000 * 60 * 60;
+    var mm = Math.floor(msec / 1000 / 60);
+    return mm;
+}
+
 const checkAccount = () => {
     if (storageAvailable('localStorage')) {
         if(localStorage.getItem('account') !== null){
