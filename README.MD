@@ -512,3 +512,79 @@ Response :
 	},
 }
 ```
+
+## Tracking History
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/history/tracking`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	user_id: "string", // value : user id
+	id: "string", // value : history id
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: {
+		id: "string",
+		code: "string", // the value is history code, ex: #92929379938
+		date: "string", // the value is booking date, ex: 2019-01-01
+		tracking: [
+			{
+				date: "string", // the value is tracking date, ex: Sabtu, 20 Agustus 2022
+				time: "string", // the value is tracking time, ex: 10:00
+				description: "string", // the value is tracking description, ex: Mobil telah diterima penerima.
+			},
+			{
+				date: "string", // the value is tracking date, ex: Sabtu, 20 Agustus 2022
+				time: "string", // the value is tracking time, ex: 10:00
+				description: "string", // the value is tracking description, ex: Mobil telah diterima penerima.
+			},
+			{
+				date: "string", // the value is tracking date, ex: Sabtu, 20 Agustus 2022
+				time: "string", // the value is tracking time, ex: 10:00
+				description: "string", // the value is tracking description, ex: Mobil telah diterima penerima.
+			},
+		],
+	},
+}
+```
+
+## Confirm Car is Arrived
+
+Request :
+
+-   Method : GET
+-   Endpoint : `/history/confirm`
+-   Header :
+    -   Content-Type: application/json
+    -   Accept: application/json
+-   Body :
+
+```json5
+{
+	user_id: "string", // value : user id
+	id: "string", // value : history id
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+}
+```
