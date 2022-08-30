@@ -271,11 +271,16 @@ Response :
 			fuel: "string", // the value is fuel type, ex: Bensin
 			year: "string", // the value is car year, ex: 2019
 			price: "string", // the value is car price, ex: 1.000.000.000
-			image: "string", // the value is car image url, ex: https://www.google.com/images/brand/brand.png
 			description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
 			plate_number: "string", // the value is car plate number, ex: B 12345
 			status: "string", // the value is car status, ex: Available
 			kilometer: "string", // the value is car kilometer, ex: 100.000
+			image: [
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+			]
 			payments: [
 				{
 					id: "string",
