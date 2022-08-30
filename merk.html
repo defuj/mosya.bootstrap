@@ -53,17 +53,17 @@
       <!-- end content welcome user -->
 
       <!-- start content form search -->
-      <form action="" method="get" class="form-search container-search mx-3 mb-4 d-flex justify-content-between align-items-center" style="height: 48px;">
+      <form class="form-search container-search mx-3 mb-4 d-flex justify-content-between align-items-center" style="height: 48px;">
           <div class="input-group-search bg-white h-100">
             <input type="text" name="search" id="search-merk" class=" bodytext1 color-black800" placeholder="Cari merk mobil">
           </div>
-          <button type="submit" class="h-100 d-flex align-items-center justify-content-center button-search ml-3" style="width: 48px;">
+          <button type="button" class="h-100 d-flex align-items-center justify-content-center button-search ml-3" style="width: 48px;">
             <i class="fi fi-br-search text-white headline6"></i>
           </button>
       </form>
       <!-- end content form search -->
 
-      <div class="container-merk d-flex flex-wrap align-content-start px-2 mb-3">
+      <div class="container-merk d-flex flex-wrap align-content-start px-2 mb-3" id="container-merk">
         <!-- <a href="search.html?merk=" class="merk-item text-decoration-none">
             <p class="bodytext1 color-black500 semibold mb-0 merk-name">Honda</p>
             <p class="caption color-black400 mb-0 merk-car">100+ Mobil Tersedia</p>
@@ -126,45 +126,55 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      let merks;
+      let cars;
+      // load data car
+      axios.get('assets/js/cars.json')
+          .then(response => cars = response.data)
+
+      // laad data merk
+      axios.get('assets/js/brands.json')
+        .then(response => {
+          merks = response.data;
+          merks.forEach(merk => {
+            if(merk.name != 'Semua'){
+              const countCar = cars.filter(car => car.merk.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
+              $('#container-merk').append(`
+              <a href="search.html?merk=${merk.name}" class="merk-item text-decoration-none">
+                  <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
+                  <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+' : countCar} Mobil Tersedia</p>
+              </a>
+              `);
+            }
+          });
+        })
+
+      $('#search-merk').on('keyup', function() {
+        const keyword = $(this).val();
+        let newMerk = merks;
+        // filter by merk
+        if(keyword.length >= 1){
+          if(keyword != ' ' && keyword != ''){
+            newMerk = merks.filter(merk => merk.name.toString().toLowerCase() == keyword.toString().toLowerCase());
+          }
+        }
+        
+        $('#container-merk').empty();
+        newMerk.forEach(merk => {
+            if(merk.name != 'Semua'){
+              const countCar = cars.filter(car => car.merk.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
+              $('#container-merk').append(`
+              <a href="search.html?merk=${merk.name}" class="merk-item text-decoration-none">
+                  <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
+                  <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+' : countCar} Mobil Tersedia</p>
+              </a>
+              `);
+            }
+        });
+      });
+
       var titleEmpty = "Belum ada produk";
       var descEmpty = 'Silahkan coba lagi nanti';
-
-      const fetchMerk = () => {
-        const filters = new URLSearchParams(window.location.search);
-        
-        var merks;
-        var cars;
-        axios.get('assets/js/cars.json')
-            .then(response => cars = response.data)
-            .catch(error => '');
-
-        axios.get('assets/js/brands.json')
-            .then(response => {
-                merks = response.data;
-                // filter by merk
-                if(filters.has('search')){
-                    document.getElementById('search-merk').value = filters.get('search');
-                  if(filters.get('search').toString() != 'Semua' && filters.get('search').toString() != ''){
-                    merks = merks.filter(merk => merk.name.toString().toLowerCase() == filters.get('search').toString().toLowerCase());
-                  }
-                }
-
-                merks.forEach(merk => {
-                    if(merk.name != 'Semua'){
-                        const countCar = cars.filter(car => car.merk.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
-                        document.querySelector('.container-merk').insertAdjacentHTML('beforeend',`
-                        <a href="search.html?merk=${merk.name}" class="merk-item text-decoration-none">
-                            <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
-                            <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+' : countCar} Mobil Tersedia</p>
-                        </a>
-                        `);
-                    }
-                });
-            })
-            .catch(error => '');
-      };
-
-      fetchMerk();
     </script>
   </body>
 </html>
