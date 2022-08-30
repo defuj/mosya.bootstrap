@@ -588,3 +588,29 @@ Response :
 	message: "string",
 }
 ```
+
+## Booking
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/booking/create`
+-   Body :
+
+```json5
+{
+	id: "string",
+	name: "string",
+	phone: "string",
+	image: "file",
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+}
+```

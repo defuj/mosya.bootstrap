@@ -35,29 +35,31 @@
                 <i class="fi fi-br-search color-black200 mr-2 headline5"></i>
                 <input type="text" name="search" class="bodytext1" id="input-search" placeholder="Cari mobil ...">
             </div>
-            <button type="submit" hidden>search</button>
-            <button type="button" data-toggle="modal" data-target="#dialogFilter" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
-              
-              <i class="fi fi-rr-settings-sliders text-white headline5"></i>
+            <button type="submit" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
+              <i class="fi fi-rr-search text-white headline5"></i>
             </button>
         </form>
 
-        <div class="container-menu-tab w-100 d-flex justify-content-between mt-2">
+        <!-- <div class="container-menu-tab w-100 d-flex justify-content-between mt-2">
             <button class="menu-tab-item bodytext2 flex-fill active">Semua</button>
             <button class="menu-tab-item bodytext2 flex-fill">Terbaru</button>
             <button class="menu-tab-item bodytext2 flex-fill">Harga</button>
-        </div>
+        </div> -->
       </div>
     </nav>
     <!-- end navigation bar -->
 
     <!-- start body content -->
-    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 main-content">
+    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pl-0 pr-0 mt-5">
       <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
       <!-- start content product list -->
       <div class="container-products w-100 mb-2">
         <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-1">
-          <!-- <a class="product-items w-50 flex-column" href="./product.html">
+          <!-- <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
+            <p class="headline6 flex-fill color-black600 mb-0"><b>Honda</b> (99+)</p>
+            <a href="search.html?merk=HONDA" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
+          </div>
+          <a class="product-items w-50 flex-column" href="./product.html">
             <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
             <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
             <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
@@ -298,12 +300,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./assets/js/session.js"></script>
     <script src="./assets/js/navigation.js"></script>
-    <script src="./assets/js/filter.js"></script>
 
     <script>
-      var titleEmpty = "Belum ada produk";
-      var descEmpty = 'Silahkan coba lagi nanti';
-      var emptyState = `
+      const filters = new URLSearchParams(window.location.search);
+      const root = window.location.href; 
+
+      let titleEmpty = "Belum ada produk";
+      let descEmpty = 'Silahkan coba lagi nanti';
+      let emptyState = `
         <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
           <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
@@ -312,107 +316,46 @@
           </div>
         </div>`;
 
-      const fetchCars = () => {
-        const filters = new URLSearchParams(window.location.search);
-        const root = window.location.href; //window.location.origin;
-        // document.getElementById('form-filter').action = root;
-        
-        axios.get('assets/js/cars.json')
-          .then(response => {
-              var cars = response.data;
-              // filter by color
-              if(filters.has('color')){
-                if(filters.get('color').toString() != 'Semua' && filters.get('color').toString() != ''){
-                  cars = cars.filter(car => car.color == filters.get('color').toString());
-                }
-              }
+      axios.get('assets/js/catalog.json')
+        .then(response => {
+          let result = response.data;
+          console.log(result.status);
+          if(result.status){
+            let catalog = result.data;
+            if(catalog.length > 0){
+              $('.loading').remove();
+              $('.container-empty').remove();
+              $('.container-product').empty();
 
-              // filter by fuel
-              if(filters.has('fuel')){
-                if(filters.get('fuel').toString() != 'Semua' && filters.get('fuel').toString() != ''){
-                  cars = cars.filter(car => car.fuel == filters.get('fuel').toString());
-                }
-              }
-
-              // filter by merk
-              if(filters.has('merk')){
-                if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-                  cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
-                }
-              }
-
-              // filter by search
-              if(filters.has('search')){
-                document.getElementById('input-search').value = filters.get('search').toString();
-                if(filters.get('search').toString() != ''){
-                  cars = cars.filter(car => car.model.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase()));
-                  titleEmpty = `Pencarian <span class="color-green500 semibold">"${filters.get('search').toString()}"</span> Tidak Ditemukan`;
-                  descEmpty = 'Silahkan gunakan kata kunci lain';
-                }else{
-                  titleEmpty = "Belum ada produk";
-                  descEmpty = 'Silahkan coba lagi nanti';
-                }
-              }
-
-              emptyState = `
-              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
-                <div class="empty-text text-center">
-                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-                  <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+              catalog.map((data, i)=>{
+                // section merk title
+                $('.container-product').append(`
+                <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
+                  <p class="bodytext1 flex-fill color-black600 mb-0"><b>${data.merk}</b> (${data.total})</p>
+                  <a href="search.html?merk=${data.merk}" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
                 </div>
-              </div>`;
-
-              if(cars.length > 0){
-                if(filters.has('search')){
-                  if(filters.get('search').toString() != ''){
-                    document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
-                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3">Menampilkan hasil pencarian <span class="color-green500">${filters.get('search')}</span></p>`)
-                  }else{
-                    document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
-                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3"><span class="color-green500">${cars.length}</span> mobil terkait ditemukan </p>`)
-                  }
-                }else{
-                  document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
-                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3"><span class="color-green500">${cars.length}</span> mobil terkait ditemukan </p>`)
-                }
-
-                cars.map((data, i)=>{
-                  document.querySelector('.container-product').insertAdjacentHTML('afterbegin',`
-                  <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
-                      <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
-                      <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                      <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                      <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
-                  </a>`)
+                `);
+                // section car list
+                let cars = data.cars;
+                cars.map((car, a)=>{
+                  $('.container-product').append(`
+                    <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                        <div class="product-cover mb-2" style="background-image: url('${car.images[Math.floor(Math.random()*car.images.length)]}');"></div>
+                        <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
+                        <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
+                        <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
+                    </a>
+                  `);
                 });
-                try { document.querySelector('.loading').remove();} catch (error) {}
-                try { document.querySelector('.container-empty').remove();} catch (error) {}
-              }else{
-                try { document.querySelector('.loading').remove();} catch (error) {}
-                try { document.querySelector('.text-search-result').remove();} catch (error) {}
-                document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
-              }
-          })
-          .catch(error => {
-            console.log(error);
-            titleEmpty = "Terjadi Kesalahan";
-            descEmpty = 'Silahkan coba lagi nanti';
-            emptyState = `
-              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
-                <div class="empty-text text-center">
-                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-                  <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
-                </div>
-              </div>`;
-            try { document.querySelector('.loading').remove();} catch (error) {}
-            try { document.querySelector('.text-search-result').remove();} catch (error) {}
-            // document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
-          });
-      };
-
-      fetchCars();
+              });
+            }else{
+              $('.loading').remove();
+              $('.text-search-result').remove();
+              $('.container-products').empty().append(emptyState);
+            }
+          }
+          
+        })
     </script>
   </body>
 </html>
