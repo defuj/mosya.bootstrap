@@ -311,7 +311,12 @@ Response :
 			plate_number: "string", // the value is car plate number, ex: B 12345
 			status: "string", // the value is car status, ex: Available
 			kilometer: "string", // the value is car kilometer, ex: 100.000
-			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
+			image: [
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+				"https://www.google.com/images/brand/brand.png",
+			]
 			payments: [
 				{
 					id: "string",
