@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body class="text-center">
     <nav class="navbar navbar-expand-md fixed-top background-transparent">
@@ -84,16 +85,38 @@
                 confirmButtonText: 'Mengerti',
               })
             }else{
-              Swal.fire({
-                  icon: 'success',
-                  title: 'Selamat!',
-                  text: 'Akun kamu berhasil dibuat!',
-                  confirmButtonText: 'Masuk'
-                }).then((result) => {
-                  if (result.value) {
-                    window.location.href = './login.html';
-                  }
-                })
+              axios.get('assets/js/account.json')
+              .then(response => {
+                let result = response.data;
+                if(result.status){
+                  Swal.fire({
+                    icon: 'success',
+                    title: 'Selamat!',
+                    text: 'Akun kamu berhasil dibuat!',
+                    confirmButtonText: 'Masuk'
+                  }).then((result) => {
+                    if (result.value) {
+                      window.location.href = './login.html';
+                    }
+                  })
+                }else{
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Perhatian',
+                    text: result.message ?? 'Silahkan coba lagi',
+                    confirmButtonText: 'Mengerti',
+                  })
+                }
+              })
+              .catch(error=>{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Perhatian',
+                    text: 'Terjadi kesalahan! Silahkan coba lagi',
+                    confirmButtonText: 'Mengerti',
+                  })
+              })
+              
             }
           }else{
             Swal.fire({
