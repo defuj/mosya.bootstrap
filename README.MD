@@ -100,15 +100,12 @@ Request :
 
 -   Method : POST
 -   Endpoint : `/auth/update_profile`
--   Header :
-    -   Content-Type: application/json
-    -   Accept: application/json
 -   Body :
 
 ```json5
 {
 	id: "string",
-	email: "string",
+	name: "string",
 	phone: "string",
 	image: "file",
 }
@@ -144,7 +141,6 @@ Request :
 ```json5
 {
 	id: "string",
-	email: "string",
 	password_old: "string",
 	password_new: "string",
 	password_confirm: "string",
@@ -269,42 +265,29 @@ Response :
 	data: [
 		{
 			id: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			fuel: "string",
-			year: "string",
-			price: "string",
-			image: "string",
-			description: "string",
-			plate_number: "string",
-			status: "string",
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			fuel: "string", // the value is fuel type, ex: Bensin
+			year: "string", // the value is car year, ex: 2019
+			price: "string", // the value is car price, ex: 1.000.000.000
+			image: "string", // the value is car image url, ex: https://www.google.com/images/brand/brand.png
+			description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+			plate_number: "string", // the value is car plate number, ex: B 12345
+			status: "string", // the value is car status, ex: Available
 		},
 		{
 			id: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			fuel: "string",
-			year: "string",
-			price: "string",
-			image: "string",
-			description: "string",
-			plate_number: "string",
-			status: "string",
-		},
-		{
-			id: "string",
-			name: "string",
-			brand: "string",
-			color: "string",
-			fuel: "string",
-			year: "string",
-			price: "string",
-			image: "string",
-			description: "string",
-			plate_number: "string",
-			status: "string",
+			name: "string", // the value is car name, ex: Honda Jazz
+			brand: "string", // the value is brand name, ex: Honda
+			color: "string", // the value is color name, ex: Black
+			fuel: "string", // the value is fuel type, ex: Bensin
+			year: "string", // the value is car year, ex: 2019
+			price: "string", // the value is car price, ex: 1.000.000.000
+			image: "string", // the value is car image url, ex: https://www.google.com/images/brand/brand.png
+			description: "string", // the value is car description, ex: Honda Jazz adalah salah satu mobil terbaik di Indonesia
+			plate_number: "string", // the value is car plate number, ex: B 12345
+			status: "string", // the value is car status, ex: Available
 		},
 	],
 }
