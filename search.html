@@ -30,7 +30,7 @@
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-column py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <form method="get" action="" id="form-search" class="container-search form-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
+        <form id="form-search" class="container-search form-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
             <a class="navbar-brand" title="back" onclick="history.back()">
                 <i class="fi fi-sr-angle-left color-black400 headline6"></i>
             </a>
@@ -38,9 +38,8 @@
                 <i class="fi fi-br-search color-black200 mr-2 headline5"></i>
                 <input type="text" name="search" class="bodytext1" id="input-search" placeholder="Cari mobil ...">
             </div>
-            <button type="submit" hidden>search</button>
-            <button type="button" data-toggle="modal" data-target="#dialogFilter" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
-              <i class="fi fi-rr-settings-sliders text-white headline5"></i>
+            <button type="button" id="toggleFilter" data-toggle="modal" data-target="#dialogFilter" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
+              <i class="fi fi-rr-filter text-white headline5"></i>
             </button>
         </form>
 
@@ -98,6 +97,7 @@
     </footer>
       <!-- end content footer -->
 
+    
     <form action="" method="get" id="form-filter">
       <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
@@ -109,57 +109,6 @@
                 </button>
               </div>
               <div class="modal-body">
-                <!-- <p class="textbody1 semibold mb-2 d-none">Merek</p>
-                <div class="container-select-merk d-flex align-content-start flex-wrap flex-wrap w-100 my-2 d-none">
-                  <label class="select-item select-merk-item active">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Semua" hidden checked>
-                    Semua
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Audi" hidden >
-                    Audi
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="BMW" hidden >
-                    BMW
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Daihatsu" hidden >
-                    Daihatsu
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Honda" hidden >
-                    Honda
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Hyundai" hidden >
-                    Hyundai
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Isuzu" hidden >
-                    Isuzu
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Mercedes" hidden >
-                    Mercedes
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Mitsubishi" hidden >
-                    Mitsubishi
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Nissan" hidden >
-                    Nissan
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Suzuki" hidden >
-                    Suzuki
-                  </label>
-                  <label class="select-item select-merk-item ">
-                    <input type="checkbox" name="merk" class="input-select-merk" value="Toyota" hidden >
-                    Toyota
-                  </label>
-                </div> -->
                 <p class="textbody1 semibold mb-2">Warna</p>
                 <div class="container-select-color d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
                   <label class="select-item select-color-item active">
@@ -237,8 +186,8 @@
   
               </div>
               <div class="modal-footer justify-content-around">
-                <button type="reset" class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500" onclick="reseltFilter()">Atur ulang</button>
-                <button type="submit" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2">Tampilkan</button>
+                <button type="reset" class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500" data-dismiss="modal"  id="buttonReset" onclick="reseltFilter()">Atur ulang</button>
+                <button type="button" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2" data-dismiss="modal" id="buttonFilter" onclick="filterCar()">Tampilkan</button>
               </div>
           </div>
         </div>
@@ -256,10 +205,16 @@
     <script src="./assets/js/filter.js"></script>
 
     <script>
-      var titleEmpty = "Belum ada produk";
-      var descEmpty = 'Silahkan coba lagi nanti';
-      var emptyState = `
-        <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+      const params = new URLSearchParams(window.location.search);
+      if(params.has('search')){
+        const search = params.get('search');
+        $('#input-search').val(search);
+      }
+      let cars;
+      let titleEmpty = "Belum ada produk";
+      let descEmpty = 'Silahkan coba lagi nanti';
+      let emptyState = `
+        <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5" >
           <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
             <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
@@ -267,52 +222,181 @@
           </div>
         </div>`;
 
-      const fetchCars = () => {
-        const filters = new URLSearchParams(window.location.search);
-        const root = window.location.href;
-        
-        axios.get('assets/js/cars.json')
-          .then(response => {
-              var cars = response.data;
-              // filter by color
-              if(filters.has('color')){
-                if(filters.get('color').toString() != 'Semua' && filters.get('color').toString() != ''){
-                  cars = cars.filter(car => car.color == filters.get('color').toString());
-                }
+      const loadCars = (search = '') => {
+        let newCars = cars;
+        // check car is empty
+        if(newCars.length > 0){
+          // clear last view
+          $('.container-product').empty();
+          $('.loading').remove();
+          $('.container-empty').remove();
+
+          // check filter
+          // load current filter from localtorage
+          // clearFilter();
+
+          let filterCount = 0;
+          const filter = getFilter();
+
+          // filter color
+          if(filter.color != 'Semua' && filter.color != ''){
+            console.log('filter by color ' + filter.color);
+            newCars = newCars.filter(car => car.color == filter.color);
+            filterCount++;
+          }
+
+          // filter by fuel
+          if(filter.fuel != 'Semua' && filter.fuel != ''){
+            console.log('filter by fuel ' + filter.fuel);
+            newCars = newCars.filter(car => car.fuel == filter.fuel);
+            filterCount++;
+          }
+
+          // filter by merk
+          if(filter.merk != 'Semua' && filter.merk != ''){
+            console.log('filter by merk ' + filter.merk);
+            newCars = newCars.filter(car => car.merk == filter.merk);
+            filterCount++;
+          }
+
+          // filter by start price
+          if(filter.start_price != ''){
+            if(filter.end_price != ''){
+              console.log('filter by price ' + filter.start_price + ' - ' + filter.end_price);
+              newCars = newCars.filter(car => paerseInt(car.price) >= parseInt(filter.start_price) && paerseInt(car.price) <= paerseInt(filter.end_price));
+              filterCount++;
+            }else{
+              console.log('filter by start price ' + filter.start_price);
+              newCars = newCars.filter(car => paerseInt(car.price) >= parseInt(filter.start_price));
+              filterCount++;
+            }
+          }else{
+            if(filter.end_price != ''){
+              console.log('filter by end price ' + filter.end_price);
+              newCars = newCars.filter(car => paerseInt(car.price) <= parseInt(filter.end_price));
+              filterCount++;
+            }
+          }
+
+          // filter by year
+          if(filter.start_year != ''){
+            if(filter.end_year != ''){
+              console.log('filter by year ' + filter.start_year + ' - ' + filter.end_year);
+              newCars = newCars.filter(car => paerseInt(car.year) >= parseInt(filter.start_year) && paerseInt(car.year) <= paerseInt(filter.end_year));
+              filterCount++;
+            }else{
+              console.log('filter by start year ' + filter.start_year);
+              newCars = newCars.filter(car => paerseInt(car.year) >= parseInt(filter.start_year));
+              filterCount++;
+            }
+          }else{
+            if(filter.end_year != ''){
+              console.log('filter by end year ' + filter.end_year);
+              newCars = newCars.filter(car => paerseInt(car.year) <= parseInt(filter.end_year));
+              filterCount++;
+            }
+          }
+
+          if(filterCount > 0){
+            isFiltered();
+          }else{
+            isNotFiltered();
+          }
+
+          // filter by search
+          if(search != ''){
+            console.log('filter by keyword ' + search);
+            // document.getElementById('input-search').value = filters.get('search').toString();
+            newCars = newCars.filter(car => 
+                car.model.toString().toLowerCase().includes(search.toString().toLowerCase())
+                || car.merk.toString().toLowerCase().includes(search.toString().toLowerCase())
+                || car.color.toString().toLowerCase().includes(search.toString().toLowerCase())
+                || car.fuel.toString().toLowerCase().includes(search.toString().toLowerCase()));
+
+            titleEmpty = `Pencarian <span class="color-green500 semibold">"${search}"</span> Tidak Ditemukan`;
+            descEmpty = 'Silahkan gunakan kata kunci lain';
+          }else{
+            titleEmpty = "Belum ada produk";
+            descEmpty = 'Silahkan coba lagi nanti';
+          }
+
+          emptyState = `
+            <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
+              <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+              <div class="empty-text text-center">
+                <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+                <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+              </div>
+            </div>`;
+
+          if(newCars.length > 0){
+            if(search != ''){
+              $('.container-product').append(`
+                <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3 w-100">
+                  Menampilkan hasil pencarian <span class="color-green500">${search}</span>
+                </p>
+              `);
+            }else{
+              $('.container-product').append(`
+                <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3 w-100">
+                  <span class="color-green500 semibold">${newCars.length}</span> mobil ditemukan
+                </p>
+              `);
+            }
+            
+            newCars.map((data, i)=>{
+              try {
+                $('.container-product').append(
+                `<a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
+                    <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
+                    <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
+                    <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
+                    <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
+                </a>`
+                );
+              } catch (error) {
+                
               }
+              
+            });
+          }else{
+            $('.container-product').append(emptyState);
+          }
+        }else{
+          // Show empty state
+          $('.container-product').empty();
+          $('.loading').remove();
+          $('.text-search-result').remove();
 
-              // filter by fuel
-              if(filters.has('fuel')){
-                if(filters.get('fuel').toString() != 'Semua' && filters.get('fuel').toString() != ''){
-                  cars = cars.filter(car => car.fuel == filters.get('fuel').toString());
-                }
-              }
+          titleEmpty = "Belum ada produk";
+          descEmpty = 'Silahkan coba lagi nanti';
+          emptyState = `
+            <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5" >
+              <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+              <div class="empty-text text-center">
+                <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+                <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+              </div>
+            </div>`;
 
-              // filter by merk
-              if(filters.has('merk')){
-                if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-                  cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
-                }
-              }
-
-              // filter by search
-              if(filters.has('search') && filters.get('search').toString() != ''){
-                document.getElementById('input-search').value = filters.get('search').toString();
-                cars = cars.filter(car => 
-                    car.model.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase())
-                    || car.merk.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase())
-                    || car.color.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase())
-                    || car.fuel.toString().toLowerCase().includes(filters.get('search').toString().toLowerCase()));
-
-                titleEmpty = `Pencarian <span class="color-green500 semibold">"${filters.get('search').toString()}"</span> Tidak Ditemukan`;
-                descEmpty = 'Silahkan gunakan kata kunci lain';
-              }else{
-                titleEmpty = "Belum ada produk";
-                descEmpty = 'Silahkan coba lagi nanti';
-              }
-
+            $('.container-product').append(emptyState);
+        } 
+      };
+      
+      // Get data car from server
+      axios.get('assets/js/cars.json')
+        .then(response => {
+            if(response.status == 200){
+              cars = response.data;
+              console.log(cars.length + ' cars is available');
+              const search = params.has('search') ? params.get('search') : '';
+              loadCars(search);
+            }else{
+              // Show error state
+              titleEmpty = "Terjadi Kesalahan";
+              descEmpty = 'Silahkan coba lagi nanti';
               emptyState = `
-                <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
+                <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
                   <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
                   <div class="empty-text text-center">
                     <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
@@ -320,50 +404,31 @@
                   </div>
                 </div>`;
 
-              if(cars.length > 0){
-                if(filters.has('search') && filters.get('search').toString() != ''){
-                  document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
-                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3">Menampilkan hasil pencarian <span class="color-green500">${filters.get('search')}</span></p>`)
-                }else{
-                  document.querySelector('.container-product').insertAdjacentHTML('beforebegin',`
-                  <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3"><span class="color-green500">${cars.length}</span> mobil terkait ditemukan </p>`)
-                }
+                $('.loading').remove();
+                $('.text-search-result').remove();
+                $('.container-content').append(emptyState);
+            }
+        });
 
-                cars.map((data, i)=>{
-                  document.querySelector('.container-product').insertAdjacentHTML('afterbegin',`
-                  <a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
-                      <div class="product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
-                      <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                      <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                      <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
-                  </a>`)
-                });
-                try { document.querySelector('.loading').remove();} catch (error) {}
-                try { document.querySelector('.container-empty').remove();} catch (error) {}
-              }else{
-                try { document.querySelector('.loading').remove();} catch (error) {}
-                try { document.querySelector('.text-search-result').remove();} catch (error) {}
-                document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
-              }
-          })
-          .catch(error => {
-            titleEmpty = "Terjadi Kesalahan";
-            descEmpty = 'Silahkan coba lagi nanti';
-            emptyState = `
-              <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-                <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
-                <div class="empty-text text-center">
-                  <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-                  <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
-                </div>
-              </div>`;
-            try { document.querySelector('.loading').remove();} catch (error) {}
-            try { document.querySelector('.text-search-result').remove();} catch (error) {}
-            // document.querySelector('.container-products').insertAdjacentHTML('afterbegin',emptyState);
-          });
-      };
+      $('#input-search').on('keyup', function(){
+        let search = $(this).val();
+        loadCars(search);
+      });
 
-      fetchCars();
+      const filterCar = () => {
+        let filter = getFilter();
+        filter.start_price = document.querySelector("#harga-awal").value;
+        filter.end_price = document.querySelector("#harga-akhir").value;
+        filter.start_year = document.querySelector("#tahun-awal").value;
+        filter.end_year = document.querySelector("#tahun-akhir").value;
+        console.log(filter);
+        setFilter(filter);
+
+        const keyword = $('#input-search').val();
+        loadCars(keyword);
+      }
+
     </script>
+
   </body>
 </html>

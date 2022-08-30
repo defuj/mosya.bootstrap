@@ -105,6 +105,35 @@ const account = {
 };
 const pathname = window.location.pathname;
 
+const filter = {
+    color: '',
+    fuel: '',
+    merk: '',
+    start_year: '',
+    end_year: '',
+    start_price: '',
+    end_price: '',
+}
+
+const setFilter = (data) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('filter', JSON.stringify(data));
+    }
+}
+
+const getFilter = () => {
+    if (storageAvailable('localStorage')) {
+        return JSON.parse(localStorage.getItem('filter') == null ? JSON.stringify(filter) : localStorage.getItem('filter'));
+    }
+    return JSON.parse(JSON.stringify(filter));
+}
+
+const clearFilter = () => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('filter', JSON.stringify(filter));
+    }
+}
+
 const checkSessionOnPage = () => {
     if(checkAccount()){
         // redirect to home page if user is already logged in

@@ -21,6 +21,10 @@ colorSelector.forEach( (item) => {
             item.classList.remove("active");
         });
         item.classList.add("active");
+        
+        let filter = getFilter();
+        filter.color = item.textContent.toString().replace(/\s/g, '');
+        setFilter(filter);
     });
 });
 
@@ -36,6 +40,10 @@ fuelSelector.forEach( (item) => {
             item.classList.remove("active");
         });
         item.classList.add("active");
+        
+        let filter = getFilter();
+        filter.fuel = item.textContent.toString().replace(/\s/g, '');
+        setFilter(filter);
     });
 });
 
@@ -67,54 +75,61 @@ function reseltFilter(){
             return false;
         }
     });
+
+    clearFilter();
 }
 
 function prepareFilter(){
-    const params = new URLSearchParams(window.location.search);
-    if(params.has('merk')){
+    const filter = getFilter();
+    if(filter.merk != ''){
         document.querySelectorAll(".select-merk-item").forEach(item => {
             const resultName = item.textContent.toString().replace(/\s/g, '')
-            if(params.get('merk').toString() === resultName.toString()){
+            if(filter.merk === resultName.toString()){
                 item.click();
                 return false;
             }
         });
     }
 
-    if(params.has('color')){
+    if(filter.color != ''){
         document.querySelectorAll(".select-color-item").forEach(item => {
             const resultName = item.textContent.toString().replace(/\s/g, '')
-            if(params.get('color').toString() === resultName.toString()){
+            if(filter.color === resultName.toString()){
                 item.click();
                 return false;
             }
         });
     }
 
-    if(params.has('fuel')){
+    if(filter.fuel != ''){
         document.querySelectorAll(".select-fuel-item").forEach(item => {
             const resultName = item.textContent.toString().replace(/\s/g, '')
-            if(params.get('fuel').toString() === resultName.toString()){
+            if(filter.fuel === resultName.toString()){
                 item.click();
                 return false;
             }
         });
     }
 
-    if(params.has('tahun-awal')){
-        document.querySelector("#tahun-awal").value = params.get('tahun-awal');
+    if(filter.start_year != ''){
+        document.querySelector("#tahun-awal").value = filter.start_year;
     }
 
-    if(params.has('tahun-akhir')){
-        document.querySelector("#tahun-akhir").value = params.get('tahun-akhir');
+    if(filter.end_year != ''){
+        document.querySelector("#tahun-akhir").value = filter.end_year;
     }
 
-    if(params.has('harga-awal')){
-        document.querySelector("#harga-awal").value = params.get('harga-awal');
+    if(filter.start_price != ''){
+        document.querySelector("#harga-awal").value = filter.start_price;
     }
 
-    if(params.has('harga-akhir')){
-        document.querySelector("#harga-akhir").value = params.get('harga-akhir');
+    if(filter.end_price != ''){
+        document.querySelector("#harga-akhir").value = filter.end_price;
     }
 }
+
+const isFiltered = ()=> $('#toggleFilter').html('<i class="fi fi-sr-filter text-white headline5"></i>');
+
+const isNotFiltered = ()=> $('#toggleFilter').html('<i class="fi fi-rr-filter text-white headline5"></i>');
+
 window.onload = prepareFilter();
