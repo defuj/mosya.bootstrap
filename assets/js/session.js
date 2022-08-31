@@ -150,7 +150,44 @@ const checkSessionOnPage = () => {
 checkSessionOnPage();
 
 // config axios
-axios.defaults.baseURL = 'http://192.168.1.251/mosya/';
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-// axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
+
+// axios.defaults.baseURL = 'http://192.168.1.251/mosya/';
+// axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
+// axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
+const request = (method, url , data) => {
+    const instance = axios.create({
+        baseURL: 'http://192.168.1.251/mosya/'+url,
+        withCredentials: false,
+        method: method,
+        auth: {
+            username: 'mosyaApi',
+            password: '9f6615f7fc0503b813820e1ba4bad530',
+        },
+        mode: 'cors',
+        crossDomain: true,
+        headers: {
+            // Authorization: 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=',
+            'Access-Control-Allow-Origin': '*',
+        },
+    });
+    return instance.request({
+        data: data
+    });
+}
+
+const requestData = (method, url , data) => {
+    $.ajax({
+        url: 'http://192.168.1.251/mosya/'+url,
+        type: method,
+        data: data,
+        headers: {
+            Authorization: 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=',
+            'Accept': '*/*',
+            'Access-Control-Allow-Origin': '*',
+        },
+        success: (data) => {
+            console.log(data);
+        }
+    });
+};
