@@ -76,23 +76,28 @@
           //   password: password
           // })
 
-          $.ajax({
-            type: "POST",
-            url: "https://10e3-103-144-175-142.ap.ngrok.io/mosya/auth/sign",
-            crossDomain: true,
-            data: {
-              email: email,
-              password: password
+          var data = JSON.stringify({
+            "email": "defuj.official@gmail.com",
+            "password": "sdfdf"
+          });
+
+          var config = {
+            method: 'post',
+            url: 'https://10e3-103-144-175-142.ap.ngrok.io/mosya/auth/sign',
+            headers: { 
+              'Authorization': 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=', 
+              'Content-Type': 'application/json', 
+              'Cookie': 'ci_session=39qea7g39sh4980hhko7rr4adh2mmd0o'
             },
-            headers: {
-                "Authorization": "Basic " + btoa("mosyaApi:9f6615f7fc0503b813820e1ba4bad530"),
-                "Access-Control-Allow-Origin": '*',
-            },
-            processData: false,
-            dataType: "JSON",
-            success: function(response) {
-                console.log(response);
-            }
+            data : data
+          };
+
+          axios(config)
+          .then(function (response) {
+            console.log(JSON.stringify(response.data));
+          })
+          .catch(function (error) {
+            console.log(error);
           });
 
           // axios.get('assets/js/account.json')
