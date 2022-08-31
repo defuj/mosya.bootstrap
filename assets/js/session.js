@@ -148,3 +148,9 @@ const checkSessionOnPage = () => {
 }
 
 checkSessionOnPage();
+
+// config axios
+axios.defaults.baseURL = 'http://192.168.1.251/mosya/';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+// axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
