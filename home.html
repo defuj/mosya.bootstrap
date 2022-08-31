@@ -59,25 +59,10 @@
       
       <!-- start content slider -->
       <div class="swiper mySlider">
-        <div class="swiper-wrapper">
-          <a class="swiper-slide" href="#">
+        <div class="swiper-wrapper" id="content-banner">
+          <!-- <a class="swiper-slide" href="#" target="_blank">
             <img src="./assets/images/slider_1.png" alt="" srcset="">
-          </a>
-          <div class="swiper-slide">
-            <img src="./assets/images/slider_2.png" alt="" srcset="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/images/slider_3.png" alt="" srcset="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/images/slider_1.png" alt="" srcset="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/images/slider_2.png" alt="" srcset="">
-          </div>
-          <div class="swiper-slide">
-            <img src="./assets/images/slider_3.png" alt="" srcset="">
-          </div>
+          </a> -->
         </div>
       </div>
       <!-- end content slider -->
@@ -234,17 +219,6 @@
     <script src="./assets/js/home.js"></script>
 
     <script>
-      const checkUser = ()=> {
-        if(checkAccount()){
-          const user = getAccount();
-          console.log(user.name);
-          $('#dataName').text('Assalamualaikum, ' + user.name)
-          $('#dataImage').attr('src', user.image);
-        }
-      }
-
-      checkUser();
-
       let titleEmpty = "Belum ada produk";
       let descEmpty = 'Silahkan coba lagi nanti';
       let emptyState = `
@@ -256,55 +230,59 @@
           </div>
         </div>`;
 
-      const fetchCars = () => {
-        // const filters = new URLSearchParams(window.location.search);
-        // if(filters.has('merk')){
-        //   if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-        //     document.querySelectorAll(".brand-slide").forEach(item => {
-        //       const resultName = item.textContent.toString().replace(/\s/g, '')
-        //       item.classList.remove("active");
+      // check if session is empty
+      if(checkAccount()){
+        const user = getAccount();
+        $('#dataName').text('Assalamualaikum, ' + user.name)
+        $('#dataImage').attr('src', user.image);
+      }
 
-        //       if(resultName.toString().toLocaleLowerCase() === filters.get('merk').toString().toLocaleLowerCase()){
-        //           item.classList.add("active");
-        //           return false;
-        //       }
-        //     });
-        //   }
-        // }
-        
-        axios.get('assets/js/home.json')
-          .then(response => {
-              let result = response.data;
-              if(result.status){
-                var cars = result.data;
-                console.log(cars);
+      // get data banner
+      axios.get('assets/js/banner.json')
+        .then(response => {
+          let result = response.data;
+          if(result.status){
+            if(result.data.length > 0){
+              result.data.forEach(item => {
+                $('#content-banner').append(`
+                <a class="swiper-slide" href="${item.link}" target="_blank">
+                  <img src="${item.image}" alt="" srcset="">
+                </a>
+                `);
+              });
 
-                // if(filters.has('merk')){
-                //   if(filters.get('merk').toString() != 'Semua' && filters.get('merk').toString() != ''){
-                //     cars = cars.filter(car => car.merk.toString().toLowerCase() == filters.get('merk').toString().toLowerCase());
-                //   }
-                // }
+              startBanner();
+            }else{
+              $('.mySlider').remove();  
+            }
+          }else{
+            $('.mySlider').remove();
+          }
+        })
 
-                if(cars.length > 0){
-                  cars.map((car, i)=>{
-                    $('#container-product').append(`
-                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
-                          <div class="product-cover mb-2" style="background-image: url('${car.images[Math.floor(Math.random()*car.images.length)]}');"></div>
-                          <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
-                          <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
-                          <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
-                      </a>
-                      `)
-                    
-                  });
-                }else{
-                  $('.container-product').html(emptyState);
-                }
+      // get data car
+      axios.get('assets/js/home.json')
+        .then(response => {
+            let result = response.data;
+            if(result.status){
+              var cars = result.data;
+
+              if(cars.length > 0){
+                cars.map((car, i)=>{
+                  $('#container-product').append(`
+                    <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                        <div class="product-cover mb-2" style="background-image: url('${car.images[Math.floor(Math.random()*car.images.length)]}');"></div>
+                        <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
+                        <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
+                        <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
+                    </a>
+                    `)
+                });
+              }else{
+                $('.container-product').html(emptyState);
               }
-          })
-      };
-
-      fetchCars();
+            }
+        })
     </script>
   </body>
 </html>

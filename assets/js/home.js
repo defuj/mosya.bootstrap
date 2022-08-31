@@ -10,16 +10,18 @@ brandSlides.forEach(function(e, i) {
 });
 
 // banner slider
-var swiper = new Swiper(".mySlider", {
-    // slidesPerView: 'auto',
-    slidesPerView: 1.3,
-    // centeredSlides: true,
-    centeredSlides: false,
-    direction: 'horizontal',
-    spaceBetween: 10,
-    loop: true,
-    autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-    },
-});
+const startBanner = ()=>{
+  new Swiper(".mySlider", {
+      // slidesPerView: 'auto',
+      slidesPerView: 1.3,
+      // centeredSlides: true,
+      centeredSlides: false,
+      direction: 'horizontal',
+      spaceBetween: 10,
+      loop: true,
+      autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      },
+  });
+}
