@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -40,8 +41,9 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
       <!-- start content slider -->
-      <div class="container-slider">
+      <div class="container-slider d-none">
         <div class="swiper carSlider">
             <div class="swiper-wrapper">
             </div>
@@ -49,7 +51,7 @@
           <div class="swiper-pagination" style="bottom: auto;"></div>
       </div>
 
-      <div class="container-data mt-5 mb-3">
+      <div class="container-data mt-5 mb-3  d-none">
         <p class="color-black300 caption semibold mb-0 px-3" id="data-merk">
           <!-- Honda -->
         </p>
@@ -163,6 +165,18 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      const params = new URLSearchParams(window.location.search);
+      let titleEmpty = "Produk tidak ditemukan";
+      let descEmpty = 'Silahkan cari produk lainnya';
+      let emptyState = `
+      <div class="container-empty py-5 d-flex justify-content-center align-items-center flex-column">
+          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <div class="empty-text text-center">
+              <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+              <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+          </div>
+      </div>`;
+
       $('#buttonRequest').click(function(){
         if(checkAccount()){
           $('#buttonSubmit').click();
@@ -171,157 +185,129 @@
         }
       });
 
-        var titleEmpty = "Produk tidak ditemukan";
-        var descEmpty = 'Silahkan cari produk lainnya';
+      // banner slider
+      const startSlider = () => {
+        var swiper = new Swiper(".carSlider", {
+            slidesPerView: 'auto',
+            // centeredSlides: true,
+            centeredSlides: false,
+            direction: 'horizontal',
+            spaceBetween: 16,
+            loop: true,
+            autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+      }
 
-        // banner slider
-        const startSlider = () => {
-            var swiper = new Swiper(".carSlider", {
-                slidesPerView: 'auto',
-                // centeredSlides: true,
-                centeredSlides: false,
-                direction: 'horizontal',
-                spaceBetween: 16,
-                loop: true,
-                autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                },
-            });
+      if(params.has('id')){
+        if(params.get('id') == ''){
+          $('.container-slider').remove();
+          $('.container-data').remove();
+          $('.bottom-nav-buy').remove();
+          $('.loading').remove();
+          $('.container-car').html(emptyState); 
+        }else{
+          $('#productId').val(params.get('id'));
+          axios.get('assets/js/product.json')
+          .then(response =>{
+            let result = response.data;
+            if(result.status){
+              let data = result.data;
+              // load image banner
+              data.image.map((img)=>{
+                  document.querySelector('.swiper-wrapper').insertAdjacentHTML('afterbegin',`
+                  <div class="swiper-slide">
+                      <img src="${img}" alt="" srcset="">
+                  </div>`);
+              });
+              startSlider();
+
+              // load data product
+              $('#data-merk').html(`<a href="search.html?merk=${data.brand}" class=" color-black300"><u>#${data.brand}</u></a>`);
+              $('#data-model').html(data.model);
+              $('#data-desc').html(data.description)
+              $('#data-price').html(`Rp ${data.price}`);
+              $('.data-spec').append(`
+              <div class="spec-item flex-column justify-content-start">
+                  <p class="caption color-black300 mb-0">Warna</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.color != undefined ? data.color : '-'}</p>
+              </div>
+              `);
+              $('.data-spec').append(`
+              <div class="spec-item flex-column justify-content-start">
+                  <p class="caption color-black300 mb-0">Tahun</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.year != undefined ? data.year : '-'}</p>
+              </div>
+              `);
+              $('.data-spec').append(`
+              <div class="spec-item flex-column justify-content-start">
+                  <p class="caption color-black300 mb-0">Bahan Bakar</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.fuel != undefined ? data.fuel : '-'}</p>
+              </div>
+              `);
+              $('.data-spec').append(`
+              <div class="spec-item flex-column justify-content-start">
+                  <p class="caption color-black300 mb-0">Kilometer</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.kilometer != undefined ? data.kilometer : '-'}</p>
+              </div>
+              `);
+              $('.data-spec').append(`
+              <div class="spec-item flex-column justify-content-start">
+                  <p class="caption color-black300 mb-0">Plat Nomor</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.plate_number != undefined ? data.plate_number : '-'}</p>
+              </div>
+              `);
+              $('.data-dp').append(`
+              <div class="spec-item flex-column justify-content-start flex-fill">
+                  <p class="caption color-black300 mb-0">Tunai</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">Rp ${data.price}</p>
+              </div>`);
+              $('.data-dp').append(`
+              <div class="spec-item flex-column justify-content-start flex-fill">
+                  <p class="caption color-black300 mb-0">Booking Fee</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">Rp 200.000</p>
+              </div>`);
+
+              data.payments.map((pay)=>{
+                $('.data-dp').append(`
+                <div class="spec-item d-flex flex-row justify-content-start w-100">
+                  <div class="flex-fill w-50">
+                    <p class="caption color-black300 mb-0">DP</p>
+                    <p class="bodytext2 color-black500 semibold mb-0">${pay.dp}</p>
+                  </div>
+                  <div class="flex-fill w-50">
+                    <p class="caption color-black300 mb-0">Cicilan</p>
+                    <p class="bodytext2 color-black500 semibold mb-0">${pay.cicilan}</p>
+                  </div>
+                </div>`);
+              });
+
+              // remove empty page
+              $('.container-empty').remove();
+              $('.loading').remove();
+              $('.container-slider').removeClass('d-none');
+              $('.container-data').removeClass('d-none');
+
+            }else{
+              $('.container-slider').remove();
+              $('.container-data').remove();
+              $('.bottom-nav-buy').remove();
+              $('.container-car').html(emptyState);    
+            }
+          })
         }
-
-        const fetchCars = () => {
-            const filters = new URLSearchParams(window.location.search);
-
-            const emptyState = `
-                <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-                    <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
-                    <div class="empty-text text-center">
-                        <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-                        <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
-                    </div>
-                </div>`;
-            
-            axios.get('assets/js/cars.json')
-            .then(response => {
-                var cars = response.data;
-                // filter by color
-                if(filters.has('id') && filters.get('id').toString() != ''){
-                    document.getElementById('productId').value = filters.get('id');
-                    cars = cars.filter(car => car.id == filters.get('id').toString());
-
-                    if(cars.length > 0){
-                        const data = cars[0];
-                        data.images.map((img)=>{
-                            document.querySelector('.swiper-wrapper').insertAdjacentHTML('afterbegin',`
-                            <div class="swiper-slide">
-                                <img src="${img}" alt="" srcset="">
-                            </div>`);
-                        });
-                        startSlider();
-
-                        document.getElementById('data-merk').innerHTML = `<a href="search.html?merk=${data.merk}" class=" color-black300"><u>#${data.merk}</u></a>`;
-                        document.getElementById('data-model').innerHTML = data.model;
-                        document.getElementById('data-desc').innerHTML = data.conditions;
-                        document.getElementById('data-price').innerHTML = 'Rp '+data.price;
-                        try {
-                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
-                            <div class="spec-item flex-column justify-content-start">
-                                <p class="caption color-black300 mb-0">Warna</p>
-                                <p class="bodytext2 color-black500 semibold mb-0">${data.color != undefined ? data.color : '-'}</p>
-                            </div>
-                            `);
-                        } catch (error) {}
-                        try {
-                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
-                            <div class="spec-item flex-column justify-content-start">
-                                <p class="caption color-black300 mb-0">Tahun</p>
-                                <p class="bodytext2 color-black500 semibold mb-0">${data.year != undefined ? data.year : '-'}</p>
-                            </div>
-                            `);
-                        } catch (error) {}
-                        try {
-                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
-                            <div class="spec-item flex-column justify-content-start">
-                                <p class="caption color-black300 mb-0">Bahan Bakar</p>
-                                <p class="bodytext2 color-black500 semibold mb-0">${data.fuel != undefined ? data.fuel : '-'}</p>
-                            </div>
-                            `);
-                        } catch (error) {}
-                        try {
-                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
-                            <div class="spec-item flex-column justify-content-start">
-                                <p class="caption color-black300 mb-0">Kilometer</p>
-                                <p class="bodytext2 color-black500 semibold mb-0">${data.kilometer != undefined ? data.kilometer : '-'}</p>
-                            </div>
-                            `);
-                        } catch (error) {}
-                        try {
-                            document.querySelector('.data-spec').insertAdjacentHTML('beforeend',`
-                            <div class="spec-item flex-column justify-content-start">
-                                <p class="caption color-black300 mb-0">Plat Nomor</p>
-                                <p class="bodytext2 color-black500 semibold mb-0">${data.plat_number != undefined ? data.plat_number : '-'}</p>
-                            </div>
-                            `);
-                        } catch (error) {}
-                        
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
-                        <div class="spec-item flex-column justify-content-start flex-fill">
-                            <p class="caption color-black300 mb-0">Tunai</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp ${data.price}</p>
-                        </div>`);
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
-                        <div class="spec-item flex-column justify-content-start flex-fill">
-                            <p class="caption color-black300 mb-0">Booking Fee</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp 200,000</p>
-                        </div>`);
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
-                        <div class="spec-item d-flex flex-row justify-content-start w-100">
-                          <div class="flex-fill w-50">
-                            <p class="caption color-black300 mb-0">DP</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp 20,400,000</p>
-                          </div>
-                          <div class="flex-fill w-50">
-                            <p class="caption color-black300 mb-0">Cicilan</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
-                          </div>
-                        </div>`);
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',`
-                        <div class="spec-item d-flex flex-row justify-content-start w-100">
-                          <div class="flex-fill w-50">
-                            <p class="caption color-black300 mb-0">DP</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp 60,400,000</p>
-                          </div>
-                          <div class="flex-fill w-50">
-                            <p class="caption color-black300 mb-0">Cicilan</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Rp 1.973.000 X 96 bln</p>
-                          </div>
-                        </div>`);
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',``);
-                        document.querySelector('.data-dp').insertAdjacentHTML('beforeend',``);
-
-                        try { document.querySelector('.container-empty').remove();} catch (error) {}
-                    }else{
-                        try { document.querySelector('.container-slider').remove();} catch (error) {}
-                        try { document.querySelector('.container-data').remove();} catch (error) {}
-                        try { document.querySelector('.bottom-nav-buy').remove();} catch (error) {}
-                        document.querySelector('.container-car').insertAdjacentHTML('afterbegin',emptyState);
-                    }
-                }else{
-                    try { document.querySelector('.container-slider').remove();} catch (error) {}
-                    try { document.querySelector('.container-data').remove();} catch (error) {}
-                    try { document.querySelector('.bottom-nav-buy').remove();} catch (error) {}
-                    document.querySelector('.container-car').insertAdjacentHTML('afterbegin',emptyState);
-                }
-            })
-            .catch(error => '');
-        };
-
-        fetchCars();
-        
+      }else{
+        $('.container-slider').remove();
+          $('.container-data').remove();
+          $('.bottom-nav-buy').remove();
+          $('.container-car').html(emptyState); 
+      }
+      
     </script>
   </body>
 </html>

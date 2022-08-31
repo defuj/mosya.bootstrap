@@ -395,8 +395,9 @@
       // Get data car from server
       axios.get('assets/js/cars.json')
         .then(response => {
-            if(response.status == 200){
-              cars = response.data;
+          let result = response.data;
+            if(result.status && result.data.length > 0){
+              cars = result.data;
               console.log(cars.length + ' cars is available');
               const search = params.has('search') ? params.get('search') : '';
               loadCars(search);
