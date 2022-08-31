@@ -151,6 +151,6 @@ checkSessionOnPage();
 
 // config axios
 
-// axios.defaults.baseURL = 'http://192.168.1.251/mosya/';
-// axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
+axios.defaults.baseURL = 'http://ee55-103-144-175-142.ap.ngrok.io/mosya/';
+axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
