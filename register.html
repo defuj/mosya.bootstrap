@@ -85,8 +85,15 @@
                 confirmButtonText: 'Mengerti',
               })
             }else{
-              axios.get('assets/js/account.json')
+              $('#buttonRegister').html(spinnerWhite);
+              axios.postForm('auth/register', {
+                name: name,
+                phone: phone,
+                email: email,
+                password: password,
+              })
               .then(response => {
+                $('#buttonRegister').html('Buat Akun');
                 let result = response.data;
                 if(result.status){
                   Swal.fire({

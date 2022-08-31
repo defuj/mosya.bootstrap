@@ -1,3 +1,5 @@
+const spinnerWhite = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+const loading = '<lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>';
 const storageAvailable = (type) => {
     let storage;
     try {
@@ -150,7 +152,6 @@ const checkSessionOnPage = () => {
 checkSessionOnPage();
 
 // config axios
-
-axios.defaults.baseURL = 'http://ee55-103-144-175-142.ap.ngrok.io/mosya/';
+axios.defaults.baseURL = 'https://apimosya.miebledek.com/';
 axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
