@@ -80,42 +80,42 @@
 
       <!-- start content brands -->
       <div class="container-brand-text d-flex justify-content-start">
-        <a href="./search.html?merk=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
+        <!-- <a href="./search.html?search=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
           Semua
         </a>
-        <a href="./search.html?merk=Audi" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Audi" class="bodytext2 text-decoration-none flex-column brand-slide">
           Audi
         </a>
-        <a href="./search.html?merk=BMW" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=BMW" class="bodytext2 text-decoration-none flex-column brand-slide">
           BMW
         </a>
-        <a href="./search.html?merk=Daihatsu" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Daihatsu" class="bodytext2 text-decoration-none flex-column brand-slide">
           Daihatsu
         </a>
-        <a href="./search.html?merk=Honda" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Honda" class="bodytext2 text-decoration-none flex-column brand-slide">
           Honda
         </a>
-        <a href="./search.html?merk=Hyundai" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Hyundai" class="bodytext2 text-decoration-none flex-column brand-slide">
           Hyundai
         </a>
-        <a href="./search.html?merk=Isuzu" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Isuzu" class="bodytext2 text-decoration-none flex-column brand-slide">
           Isuzu
         </a>
-        <a href="./search.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=" class="bodytext2 text-decoration-none flex-column brand-slide">
           Mercedes
         </a>
-        <a href="./search.html?merk=" class="bodytext2 text-decoration-none flex-column brand-slide">          
+        <a href="./search.html?search=" class="bodytext2 text-decoration-none flex-column brand-slide">          
           Mitsubishi
         </a>
-        <a href="./search.html?merk=Nissan" class="bodytext2 text-decoration-none flex-column brand-slide">          
+        <a href="./search.html?search=Nissan" class="bodytext2 text-decoration-none flex-column brand-slide">          
           Nissan
         </a>
-        <a href="./search.html?merk=Suzuki" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Suzuki" class="bodytext2 text-decoration-none flex-column brand-slide">
           Suzuki
         </a>
-        <a href="./search.html?merk=Toyota" class="bodytext2 text-decoration-none flex-column brand-slide">
+        <a href="./search.html?search=Toyota" class="bodytext2 text-decoration-none flex-column brand-slide">
           Toyota
-        </a>
+        </a> -->
       </div>
       <!-- end content brands -->
 
@@ -259,6 +259,34 @@
             $('.mySlider').remove();
           }
         })
+      
+      // get brand list
+      axios.get('assets/js/brands.json')
+        .then(response => {
+          let result = response.data;
+          if(result.status){
+            if(result.data.length > 0){
+              $('.container-brand-text').append(`
+              <a href="./search.html?search=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
+                Semua
+              </a>
+              `);
+              result.data.forEach(item => {
+                $('.container-brand-text').append(`
+                <a href="./search.html?search=${item.name}" class="bodytext2 text-decoration-none flex-column brand-slide">
+                  ${item.name}
+                </a>
+                `);
+              });
+            }else{
+              $('.contaier-brand').remove();
+              $('.container-brand-text').remove();
+            }
+          }else{
+            $('.contaier-brand').remove();
+            $('.container-brand-text').remove();
+          }
+        });
 
       // get data car
       axios.get('assets/js/home.json')

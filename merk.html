@@ -141,31 +141,39 @@
 
       // load data car
       axios.get('assets/js/cars.json')
-          .then(response => cars = response.data)
+          .then(response => {
+            let result = response.data;
+            if(result.status){
+              cars = result.data
+            }
+          })
 
       // laad data merk
       axios.get('assets/js/brands.json')
         .then(response => {
-          merks = response.data;
-          // clear container merk
-          $('#container-merk').empty();
+          let result = response.data;
+          if(result.status){
+            merks = result.data;
+            // clear container merk
+            $('#container-merk').empty();
 
-          // check if merk is empty
-          if (merks.length == 0) {
-            $('#container-merk').html(emptyState);
-          } else {
-            // looping data merk
-            merks.forEach(merk => {
-              if(merk.name != 'Semua'){
-                const countCar = cars.filter(car => car.merk.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
-                $('#container-merk').append(`
-                <a href="search.html?merk=${merk.name}" class="merk-item text-decoration-none">
-                    <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
-                    <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+ Mobil Tersedia' : countCar == 0 ? 'Tidak Ada Mobil' : countCar+' Mobil Tersedia'}</p>
-                </a>
-                `);
-              }
-            });
+            // check if merk is empty
+            if (merks.length == 0) {
+              $('#container-merk').html(emptyState);
+            } else {
+              // looping data merk
+              merks.forEach(merk => {
+                if(merk.name != 'Semua'){
+                  const countCar = cars.filter(car => car.merk.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
+                  $('#container-merk').append(`
+                  <a href="search.html?search=${merk.name}" class="merk-item text-decoration-none">
+                      <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
+                      <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+ Mobil Tersedia' : countCar == 0 ? 'Tidak Ada Mobil' : countCar+' Mobil Tersedia'}</p>
+                  </a>
+                  `);
+                }
+              });
+            }
           }
 
         })

@@ -341,7 +341,7 @@
             if(search != ''){
               $('.container-product').append(`
                 <p class="mb-0 bodytext1 color-black500 text-search-result semibold px-3 w-100">
-                  Menampilkan hasil pencarian <span class="color-green500">${search}</span>
+                  Menemukan <span class="color-green500">${newCars.length}</span> Mobil dengan kata kunci <span class="color-green500">${search}</span>
                 </p>
               `);
             }else{
@@ -355,7 +355,7 @@
             newCars.map((data, i)=>{
               try {
                 $('.container-product').append(
-                `<a class="product-items w-50 flex-column" href="./product.html?id=${data.id}">
+                `<a class="product-items w-50 flex-column lazy" href="./product.html?id=${data.id}">
                     <div class="lazy product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
                     <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
                     <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
@@ -420,9 +420,26 @@
             }
         });
 
+      let lastKeyword = '';
+      let timeout;
       $('#input-search').on('keyup', function(){
-        let search = $(this).val();
-        loadCars(search);
+        const keyword = $(this).val();
+        if(keyword != lastKeyword){
+          lastKeyword = keyword;
+          $('.container-product').empty();
+          $('.container-empty').remove();
+          
+          if($('.loading').length == 0){
+            console.log('loading');
+            $('.main-content').prepend(`<lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>`)
+          }else{
+            console.log('not loading');
+          }
+          try {clearTimeout(timeout);} catch (error) {}
+          timeout = setTimeout(function() {
+            loadCars($('#input-search').val());
+          }, 2000);;
+        }
       });
 
       const filterCar = () => {
