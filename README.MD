@@ -19,8 +19,8 @@ Request :
 
 -   base url: `https://`
 -   Auth :
-    -   username : "username"
-    -   password : "password"
+    -   username : "mosyaApi"
+    -   password : "9f6615f7fc0503b813820e1ba4bad530"
 -   Header :
     -   tulaks : "tulaks"
 
