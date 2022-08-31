@@ -854,6 +854,7 @@ input.middle:focus {
 .swal2-container.swal2-center > .swal2-popup {
 	border-radius: 16px;
 	overflow: hidden;
+	width: 320px !important;
 }
 
 .swal2-title {
