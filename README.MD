@@ -737,7 +737,7 @@ Response :
 }
 ```
 
-## Booking
+## Booking - Create Booking Code/ID
 
 Request :
 
@@ -749,8 +749,36 @@ Request :
 {
 	id: "string",
 	name: "string",
+	address: "string",
 	phone: "string",
-	image: "file",
+	name_2: "string",
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	code: "string", // the value is booking code, ex: #92929379938
+}
+```
+
+## Booking - Upload Image (ID CARD,FAMILLY CARD,ID CARD 2)
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/booking/create`
+-   Body :
+
+```json5
+{
+	id: "string",
+	card_id: "file",
+	card_familly: "file",
+	card_id_2: "file",
 }
 ```
 
