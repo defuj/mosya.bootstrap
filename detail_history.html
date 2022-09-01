@@ -200,10 +200,24 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+        if(!checkAccount()){
+          window.location.href = './login.html';
+        }
+
         const params = new URLSearchParams(window.location.search);
         $('#container-status').removeClass('status-0');
 
-        if(params.has('status') && params.get('status') != ''){
+        const user = getAccount();
+        if(params.has('code') && params.get('code') != ''){
+          axios.get(`booking/detail?id=${params.get('code')}&user_id=${user.id}`)
+          .then(response=> {
+            let result = response.data;
+            if(result.status){
+
+            }else{
+
+            }
+          })
             switch (params.get('status')) {
               case '1':
                 $('nav').removeClass('d-none');
