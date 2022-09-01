@@ -106,195 +106,216 @@
 
         const params = new URLSearchParams(window.location.search);
 
-        let car = getCurrentCar();
+        const car = getCurrentCar();
+        console.log(car);
         if(car != null){
           axios.get('car/detail?id='+params.get('id'))
             .then(response => {
               let result = response.data;
               if(result.status){
-                $('.loading').remove();
-                $('.container-car').html(`
-                <form action="select_payment_booking.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
-                  <p class="headline6 color-black500 semibold p-0 mb-4">
-                    Identitas Pembeli
-                  </p>
+                setCurrentCar(result.data);
+                if(result.data.status == 'Ready'){
+                  $('.loading').remove();
+                  $('.container-car').html(`
+                  <form action="select_payment_booking.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+                    <p class="headline6 color-black500 semibold p-0 mb-4">
+                      Identitas Pembeli
+                    </p>
 
-                  <input type="text" name="id" id="productId" hidden>
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Nama Lengkap <span class="text-danger">*</span>
-                  </label>
-                  <input type="text" id="inputName" name="name" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
+                    <input type="text" name="id" id="productId" hidden>
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Nama Lengkap <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" id="inputName" name="name" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Alamat Lengkap <span class="text-danger">*</span>
-                  </label>
-                  <input type="text" id="inputAddress" name="address" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Alamat Lengkap <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" id="inputAddress" name="address" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Nomor HP <span class="text-danger">*</span>
-                  </label>
-                  <input type="number" id="inputPhone" name="phone" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Nomor HP <span class="text-danger">*</span>
+                    </label>
+                    <input type="number" id="inputPhone" name="phone" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Upload KTP <span class="text-danger">*</span>
-                  </label>
-                  <input type="file" name="cardId" id="inputCardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
-                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Upload KTP <span class="text-danger">*</span>
+                    </label>
+                    <input type="file" name="cardId" id="inputCardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
+                    <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Upload KK <span class="text-danger">*</span>
-                  </label>
-                  <input type="file" name="cardFamilly" id="inputCardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
-                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Upload KK <span class="text-danger">*</span>
+                    </label>
+                    <input type="file" name="cardFamilly" id="inputCardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
+                    <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Nama Lengkap Pasangan (Jika Ada)
-                  </label>
-                  <input type="text" name="name2" id="inputName2" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan" enctype="multipart/form-data">
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Nama Lengkap Pasangan (Jika Ada)
+                    </label>
+                    <input type="text" name="name2" id="inputName2" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan" enctype="multipart/form-data">
 
-                  <label class="bodytext1 color-black500 p-0 mb-1">
-                    Upload KTP Pasangan (Jika Ada)
-                  </label>
-                  <input type="file" name="cardId2" id="inputCardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
-                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-                </form>
-                `)
-                
-                $('#buttonSubmit').click(function() {
-                    const inputName = $('#inputName').val()
-                    const inputAddress = $('#inputAddress').val()
-                    const inputPhone = $('#inputPhone').val()
-                    const inputCarId = document.querySelector('#inputCardId')
-                    const inputCardFamilly = document.querySelector('#inputCardFamilly')
-                    const inputName2 = $('#inputName2').val()
-                    const inputCardId2 = document.querySelector('#inputCardId2')
+                    <label class="bodytext1 color-black500 p-0 mb-1">
+                      Upload KTP Pasangan (Jika Ada)
+                    </label>
+                    <input type="file" name="cardId2" id="inputCardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
+                    <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+                  </form>
+                  `)
+                  
+                  $('#buttonSubmit').click(function() {
+                      const inputName = $('#inputName').val()
+                      const inputAddress = $('#inputAddress').val()
+                      const inputPhone = $('#inputPhone').val()
+                      const inputCarId = document.querySelector('#inputCardId')
+                      const inputCardFamilly = document.querySelector('#inputCardFamilly')
+                      const inputName2 = $('#inputName2').val()
+                      const inputCardId2 = document.querySelector('#inputCardId2')
 
-                    if(inputName == ''){
-                      Swal.fire({
-                        title: 'Perhatian',
-                        text: 'Nama lengkap harus diisi',
-                        icon: 'error',
-                        confirmButtonText: 'Mengerti',
-                      })
-                    }else{
-                      if(inputAddress == ''){
+                      if(inputName == ''){
                         Swal.fire({
                           title: 'Perhatian',
-                          text: 'Alamat lengkap harus diisi',
+                          text: 'Nama lengkap harus diisi',
                           icon: 'error',
                           confirmButtonText: 'Mengerti',
                         })
                       }else{
-                        if(inputPhone == ''){
+                        if(inputAddress == ''){
                           Swal.fire({
                             title: 'Perhatian',
-                            text: 'Nomor HP harus diisi',
+                            text: 'Alamat lengkap harus diisi',
                             icon: 'error',
                             confirmButtonText: 'Mengerti',
                           })
                         }else{
-                          if(inputCarId.files.length == 0){
+                          if(inputPhone == ''){
                             Swal.fire({
                               title: 'Perhatian',
-                              text: 'File KTP harus diisi',
+                              text: 'Nomor HP harus diisi',
                               icon: 'error',
                               confirmButtonText: 'Mengerti',
                             })
                           }else{
-                            if(inputCardFamilly.files.length == 0){
+                            if(inputCarId.files.length == 0){
                               Swal.fire({
                                 title: 'Perhatian',
-                                text: 'File KK harus diisi',
+                                text: 'File KTP harus diisi',
                                 icon: 'error',
                                 confirmButtonText: 'Mengerti',
                               })
                             }else{
-                              $('#buttonSubmit').html(spinnerWhite)
-                              $('#buttonSubmit').attr('disabled', true)
+                              if(inputCardFamilly.files.length == 0){
+                                Swal.fire({
+                                  title: 'Perhatian',
+                                  text: 'File KK harus diisi',
+                                  icon: 'error',
+                                  confirmButtonText: 'Mengerti',
+                                })
+                              }else{
+                                $('#buttonSubmit').html(spinnerWhite)
+                                $('#buttonSubmit').attr('disabled', true)
 
-                              const user = getAccount();
-                              
-                              // upload data 
-                              axios.postForm('booking/create', {
-                                id: user.id,
-                                id_car: name,
-                                name: inputName,
-                                address: inputAddress,
-                                phone: inputPhone,
-                                name_2: inputName2
-                              }).then(response => {
-                                let result = response.data
-                                if(result.status){
-                                  const code = result.code;
-                                  // upload image
-                                  const postForm = {
-                                    code: code,
-                                    card_id: inputCarId.files[0],
-                                    card_familly: inputCardFamilly.files[0],
-                                    card_id_2: inputCardId2.files.length > 0 ? inputCardId2.files[0] : null,
-                                  }
-                                  axios.postForm('booking/update', postForm).then(response => {
-                                    let result = response.data;
-                                    $('#buttonSubmit').html('Selanjutnya')
-                                    $('#buttonSubmit').attr('disabled', false)
-                                    if(result.status){
+                                const user = getAccount();
+                                
+                                // upload data 
+                                axios.postForm('booking/create', {
+                                  id: user.id,
+                                  id_car: car.id,
+                                  name: inputName,
+                                  address: inputAddress,
+                                  phone: inputPhone,
+                                  name_2: inputName2
+                                }).then(response => {
+                                  let result = response.data
+                                  if(result.status){
+                                    const code = result.code;
+                                    // upload image
+                                    const postForm = {
+                                      code: code,
+                                      card_id: inputCarId.files[0],
+                                      card_familly: inputCardFamilly.files[0],
+                                      card_id_2: inputCardId2.files.length > 0 ? inputCardId2.files[0] : null,
+                                    }
+                                    axios.postForm('booking/update', postForm).then(response => {
+                                      let result = response.data;
+                                      $('#buttonSubmit').html('Selanjutnya')
+                                      $('#buttonSubmit').attr('disabled', false)
+                                      if(result.status){
+                                        Swal.fire({
+                                          title: 'Berhasil',
+                                          text: 'Pemesanan berhasil',
+                                          icon: 'success',
+                                          confirmButtonText: 'Mengerti',
+                                        }).then(() => {
+                                          window.location.href = 'history.html'
+                                        })
+                                      }else{
+                                        Swal.fire({
+                                          title: 'Gagal',
+                                          text: result.message,
+                                          icon: 'error',
+                                          confirmButtonText: 'Mengerti',
+                                        })
+                                      }
+                                    }).catch(error => {
+                                      $('#buttonSubmit').html('Selanjutnya')
+                                      $('#buttonSubmit').attr('disabled', false)
                                       Swal.fire({
-                                        title: 'Berhasil',
-                                        text: 'Pemesanan berhasil',
-                                        icon: 'success',
-                                        confirmButtonText: 'Mengerti',
-                                      }).then(() => {
-                                        window.location.href = 'history.html'
-                                      })
-                                    }else{
-                                      Swal.fire({
-                                        title: 'Gagal',
-                                        text: result.message,
+                                        title: 'Perhatian',
+                                        text: 'Gagal mengupload file',
                                         icon: 'error',
                                         confirmButtonText: 'Mengerti',
                                       })
-                                    }
-                                  }).catch(error => {
+                                    })
+                                  }else{
                                     $('#buttonSubmit').html('Selanjutnya')
                                     $('#buttonSubmit').attr('disabled', false)
+                                    console.log(result);
                                     Swal.fire({
                                       title: 'Perhatian',
-                                      text: 'Terjadi kesalahan',
+                                      text: result.message,
                                       icon: 'error',
                                       confirmButtonText: 'Mengerti',
                                     })
-                                  })
-                                }else{
+                                  }
+                                }).catch(error => {
                                   $('#buttonSubmit').html('Selanjutnya')
                                   $('#buttonSubmit').attr('disabled', false)
                                   Swal.fire({
                                     title: 'Perhatian',
-                                    text: result.message,
+                                    text: 'Terjadi kesalahan',
                                     icon: 'error',
                                     confirmButtonText: 'Mengerti',
                                   })
-                                }
-                              }).catch(error => {
-                                $('#buttonSubmit').html('Selanjutnya')
-                                $('#buttonSubmit').attr('disabled', false)
-                                Swal.fire({
-                                  title: 'Perhatian',
-                                  text: 'Terjadi kesalahan',
-                                  icon: 'error',
-                                  confirmButtonText: 'Mengerti',
                                 })
-                              })
+                              }
                             }
                           }
                         }
                       }
+                      
+                      
+                  });
+                }else{
+                  deleteCurrentCar();
+                  Swal.fire({
+                    title: 'Perhatian',
+                    text: 'Mobil yang anda pilih sudah terjual',
+                    icon: 'error',
+                    confirmButtonText: 'Kembali',
+                    allowOutsideClick: false,
+                  }).then((result) => {
+                    if (result.value) {
+                      deleteCurrentCar();
+                      history.back();
                     }
-                    
-                    
-                });
+                  })
+                }
+
+                
               }else{
                 deleteCurrentCar();
-                  Swal.fire({
+                Swal.fire({
                   title: 'Perhatian',
                   text: 'Mobil yang anda pilih tidak tersedia',
                   icon: 'error',

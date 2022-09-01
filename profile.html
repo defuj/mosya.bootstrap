@@ -183,12 +183,19 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-      try {
-        const account = getAccount();
-        account.image != null ? $('#dataImage').attr('src', account.image) : '';
-        $('#dataEmail').text(account.email + ' | ' + account.phone);
-        $('#dataName').text(account.name);
-      } catch (error) {}
+      function isAccount(){
+        const user = getAccount();
+        if(user != null){
+          user.image != null ? $('#dataImage').attr('src', user.image) : '';
+          $('#dataEmail').text(user.email + ' | ' + user.phone);
+          $('#dataName').text(user.name);
+        }else{
+          window.location.href = "./login.html";
+        }
+      }
+
+      isAccount();
+      
       
 
       $('#buttonLogout').click(function(){
