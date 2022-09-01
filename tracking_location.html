@@ -173,7 +173,7 @@
                         <div class="pb-4 container-track ${i == 0 ? 'start' : i+1 == result.data.tracking.length ? 'end' : ''} right">
                           <div class="content">
                             <div class="d-flex flex-row justify-content-between">
-                                <p class="mb-0 color-green500 bodytext1 flex-fill">${item.date}</p>
+                                <p class="mb-0 ${i == 0 ? 'color-black500' : i+1 == result.data.tracking.length ? 'color-green500' : ''}   bodytext1 flex-fill">${item.date}</p>
                                 <p class="mb-0 color-black300 bodytext2">${item.time}</p>
                             </div>
                             <p class="mb-0 color-black300 bodytext2">${item.description}</p>
