@@ -819,7 +819,7 @@ Response :
 Request :
 
 -   Method : POST
--   Endpoint : `/payment/info`
+-   Endpoint : `/booking/payment_info`
 -   Body :
 
 ```json5
@@ -838,5 +838,29 @@ Response :
 		code_unique: "string", // the value is code uniq, ex: Rp 751
 		total_payment: "string", // the value is total price, ex: Rp 200.751
 	},
+}
+```
+
+## Booking - Upload Bukti Bayar
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/booking/payment_upload`
+-   Body :
+
+```json5
+{
+	code: "string",
+	image: "file",
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
 }
 ```

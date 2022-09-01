@@ -148,6 +148,7 @@
           }).catch(error => {
             $('#buttonSubmit').html('Selanjutnya')
             $('#buttonSubmit').attr('disabled', false)
+            console.log(error);
             Swal.fire({
               title: 'Perhatian',
               text: 'Gagal mengupload file',
@@ -200,6 +201,7 @@
           }).catch(error => {
             $('#buttonSubmit').html('Selanjutnya')
             $('#buttonSubmit').attr('disabled', false)
+            console.log(error);
             Swal.fire({
               title: 'Perhatian',
               text: 'Terjadi kesalahan',

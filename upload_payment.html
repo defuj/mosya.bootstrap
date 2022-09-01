@@ -64,16 +64,16 @@
         <p class="caption color-black500 p-0 mb-1">
           Kode Unik
         </p>
-        <p class="bodytext2 color-black500 p-0 flex-fill">
-          <b>751</b>
+        <p class="bodytext2 color-black500 p-0 flex-fill" id="codeUnique">
+          <!-- <b>751</b> -->
         </p>
 
         <p class="caption color-black500 p-0 mb-1">
           Total Bayar
         </p>
         <div class="d-flex flex-fill flex-column-justify-content-between mb-0">
-          <p class="bodytext2 color-black500 p-0 flex-fill">
-            <b>Rp19.751</b>
+          <p class="bodytext2 color-black500 p-0 flex-fill" id="totalPayment">
+            <!-- <b>Rp19.751</b> -->
           </p>
           <p class="bodytext2 semibold color-green500 p-0">
             Salin
@@ -87,14 +87,14 @@
         
       </div>
 
-      <form action="history.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+      <form class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
         <p class="bodytext1 color-black500 semibold p-0 mb-4">
           Upload Bukti Bayar
         </p>
         
-        <input type="file" name="payment-image" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
+        <input type="file" name="payment-image" id="buktiBayar" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
         <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-        <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+        <button type="button" id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
           <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
         </button>
       </form>
@@ -218,20 +218,93 @@
       console.log(booking);
       if(booking == null){
         window.location.href = './home.html';
-      }
-      
-      const params = new URLSearchParams(window.location.search);
-      if(params.has('code') && params.get('code') != ''){
-
       }else{
-        window.location.href = './home.html';
+        const params = new URLSearchParams(window.location.search);
+        if(params.has('code') && params.get('code') != ''){
+          axios.postForm('booking/payment_info',{
+            code: params.get('code')
+          })
+          .then(response => {
+            let result = response.data;
+            if(result.status){
+              let data = result.data;
+              console.log(result.data);
+              $('#codeUnique').html(`<b>${data.code_unique}</b>`);
+              $('#totalPayment').html(`<b>${data.total_payment}</b>`);
+
+              $('#buttonSubmit').click(function(){
+                let image = document.querySelector('#buktiBayar')
+                if(image.files.length > 0){
+                  $('#buttonSubmit').attr('disabled', true);
+                  $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+                  axios.postForm('',{
+                    code: params.get('code'),
+                    image: image.files[0]
+                  }).then(response=>{
+                    $('#buttonSubmit').attr('disabled', false);
+                    $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
+                    let result = response.data;
+                    if(result.status){
+                      Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil',
+                        text: 'Bukti pembayaran berhasil dikirim.',
+                        buttonConfirmText: 'Lanjutkan',
+                      }).then(()=>{
+                        window.location.href = './history.html';
+                      })
+                    }else{
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Perhatian',
+                        text: result.message,
+                        buttonConfirmText: 'Mengerti',
+                      })
+                    }
+                  }).catch(error => {
+                    $('#buttonSubmit').attr('disabled', false);
+                    $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Terjadi Kesalahan',
+                      text: 'Silahkan mencoba lagi nanti',
+                      buttonConfirmText: 'Mengerti',
+                    })
+                  })
+                }else{
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Perhatian',
+                    text: 'Bukti pembayaran belum dipilih',
+                    buttonConfirmText: 'Mengerti',
+                  })
+                }
+              });
+            }else{
+              Swal.fire({
+                icon: 'error',
+                title: 'Perhatian',
+                text: result.message,
+                buttonConfirmText: 'Mengerti',
+              }).then(() => {
+                // window.location.href = './home.html';
+              });
+            }
+          }).catch(error => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Terjadi Kesalahan',
+              text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
+              buttonConfirmText: 'Kembali',
+            }).then(() => {
+              window.location.href = './home.html';
+            });
+          })
+        }else{
+          window.location.href = './home.html';
+        }
       }
       
-      function submitForm(){
-          $('#buttonSubmit').click();
-      }
-
-
     </script>
   </body>
 </html>
