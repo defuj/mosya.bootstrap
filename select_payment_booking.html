@@ -214,7 +214,10 @@
                         }else{
                           $('#buttonSubmit').attr('disabled', true);
                           $('#buttonSubmit').html(spinnerWhite);
-                          axios.postForm()
+                          axios.postForm('',{
+                            booking: booking.code,
+                            payment: paymentSelected
+                          })
                             .then(response => {
                               $('#buttonSubmit').attr('disabled', false);
                               $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
