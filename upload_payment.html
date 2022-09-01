@@ -237,7 +237,7 @@
                 if(image.files.length > 0){
                   $('#buttonSubmit').attr('disabled', true);
                   $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
-                  axios.postForm('',{
+                  axios.postForm('booking/payment_upload',{
                     code: params.get('code'),
                     image: image.files[0]
                   }).then(response=>{
@@ -249,7 +249,7 @@
                         icon: 'success',
                         title: 'Berhasil',
                         text: 'Bukti pembayaran berhasil dikirim.',
-                        buttonConfirmText: 'Lanjutkan',
+                        confirmButtonText: 'Lanjutkan',
                       }).then(()=>{
                         window.location.href = './history.html';
                       })
@@ -258,17 +258,18 @@
                         icon: 'error',
                         title: 'Perhatian',
                         text: result.message,
-                        buttonConfirmText: 'Mengerti',
+                        confirmButtonText: 'Mengerti',
                       })
                     }
                   }).catch(error => {
                     $('#buttonSubmit').attr('disabled', false);
                     $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
+                    console.log(error);
                     Swal.fire({
                       icon: 'error',
                       title: 'Terjadi Kesalahan',
                       text: 'Silahkan mencoba lagi nanti',
-                      buttonConfirmText: 'Mengerti',
+                      confirmButtonText: 'Mengerti',
                     })
                   })
                 }else{
@@ -276,7 +277,7 @@
                     icon: 'error',
                     title: 'Perhatian',
                     text: 'Bukti pembayaran belum dipilih',
-                    buttonConfirmText: 'Mengerti',
+                    confirmButtonText: 'Mengerti',
                   })
                 }
               });
@@ -285,7 +286,7 @@
                 icon: 'error',
                 title: 'Perhatian',
                 text: result.message,
-                buttonConfirmText: 'Mengerti',
+                confirmButtonText: 'Mengerti',
               }).then(() => {
                 // window.location.href = './home.html';
               });
@@ -295,7 +296,7 @@
               icon: 'error',
               title: 'Terjadi Kesalahan',
               text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
-              buttonConfirmText: 'Kembali',
+              confirmButtonText: 'Kembali',
             }).then(() => {
               window.location.href = './home.html';
             });
