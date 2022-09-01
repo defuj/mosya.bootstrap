@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -39,9 +40,9 @@
 
     <!-- start body content -->
     <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
-    
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
       <!-- start content history list -->
-      <div class="container-history w-100 d-flex flex-column w-100 py-1 px-3">
+      <!-- <div class="container-history w-100 d-flex flex-column w-100 py-1 px-3">
 
         <a href="detail_history.html?status=1" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
@@ -187,7 +188,7 @@
           </div>
         </a>
         
-      </div>
+      </div> -->
       <!-- end content history list -->
     </main>
     <!-- end body content -->
@@ -277,6 +278,79 @@
     
 
     <script>
+      const emptyState = `
+        <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
+          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <div class="empty-text text-center">
+            <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">Tidak ada riwayat</p>
+            <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">Anda belum melakukan pemesanan mobil</p>
+          </div>
+        </div>`;
+
+      if(!checkAccount()){
+        window.location.href = './login.html';
+      }
+
+      const getHistory = () => {
+        const user = getAccount();
+        axios.get(`history/list?id=${user.id}`)
+        .then(response => {
+          let result = response.data;
+          console.log(result);
+          if(result.status){
+            let data = result.data;
+            if(data.length > 0){
+              $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
+              data.map((data, i)=>{
+                $('.container-history').append(`
+                <a href="detail_history.html?id=${data.id}" class="d-flex flex-column history-item mb-3 text-decoration-none">
+                  <div class=" d-flex flex-row justify-content-center align-items-center">
+                    <div class="d-flex flex-column flex-fill">
+                      <p class="semibold bodytext2 color-black500 mb-0">
+                        Pesanan
+                      </p>
+                      <p class="caption color-black400 mb-0">
+                        ${data.date}
+                      </p>
+                    </div>
+                    <p class="${(data.status == 'Belum Bayar' || data.status == 'Dibatalkan') ? 'payment-status-1' : 'payment-status-2'} semibold caption mb-0">
+                      ${data.status == null ? 'NULL - Salah A Eko' : data.status}
+                    </p>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mt-2">
+                    <img src="${data.image}" alt="" class="">
+                    <div class="d-flex flex-fill flex-column pl-3">
+                      <p class="caption semibold color-green500 mb-0">${data.brand}</p>
+                      <p class="bodytext1 semibold color-black800 mb-0">${data.model}</p>
+                      <p class="caption semibold color-black300 mb-0">${data.color} | ${data.year}</p>
+                    </div>
+                  </div>
+                </a>`)
+              })
+            }else{
+              $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
+              $('.container-history').html(emptyState);
+            }
+          }else{
+            $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
+            $('.container-history').html(emptyState);
+          }
+        }).catch(error => {
+          $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
+          $('.container-history').html(`
+          <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
+            <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+            <div class="empty-text text-center">
+              <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">Terjadi Kesalahan</p>
+              <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">Silahkan muat ulang halaman</p>
+            </div>
+          </div>
+          `);
+        })
+      }
+      getHistory();
+      
+
     </script>
   </body>
 </html>

@@ -105,7 +105,7 @@
     <!-- end body content -->
 
     <!-- start content footer -->
-    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
+    <footer class="container-footer without-navbar w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
       <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
       <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
       <div class="container-footer-button d-flex justify-content-center">
@@ -138,7 +138,7 @@
     <!-- end content footer -->
 
     <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
+    <nav class="navbar d-none bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
         <!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
         <form action="input_data_booking.html" class="text-decoration-none d-flex flex-fill">
           <input type="text" id="productId" name="id" hidden required>
@@ -208,6 +208,12 @@
             if(result.status){
               let data = result.data;
               console.log(data);
+              if(data.status != 'Ready'){
+                $('.bottom-nav-buy').remove();
+              }else{
+                $('.bottom-nav-buy').removeClass('d-none');
+                $('footer').removeClass('without-navbar');
+              }
               // prepare data car for request
               $('#buttonRequest').click(function(){
                 if(checkAccount()){

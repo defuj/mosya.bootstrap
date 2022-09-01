@@ -38,16 +38,22 @@ const getAccount = () => {
     return null;
 }
 
-const getCodeBooking = () => {
+const getBooking = () => {
     if (storageAvailable('localStorage')) {
-        return localStorage.getItem('code_booking') != null ? localStorage.getItem('code_booking') : null;
+        return localStorage.getItem('booking') != null ? JSON.parse(localStorage.getItem('booking')) : null;
     }
     return null;
 }
 
-const setCodeBooking = (code) => {
+const setBooking = (data) => {
     if (storageAvailable('localStorage')) {
-        localStorage.setItem('code_booking', code);
+        localStorage.setItem('booking', JSON.stringify(data));
+    }
+}
+
+const deleteBooking = () => {
+    if (storageAvailable('localStorage')) {
+        localStorage.removeItem('booking');
     }
 }
 
