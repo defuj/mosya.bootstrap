@@ -789,3 +789,27 @@ Response :
 	message: "string",
 }
 ```
+
+## Booking - Select Method Payment (Cash, Credit)
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/booking/payment`
+-   Body :
+
+```json5
+{
+	code: "string", // value : booking code
+	payment_method: "string", // value : payment method id
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+}
+```

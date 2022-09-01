@@ -149,25 +149,20 @@
     <script>
       var paymentSelected = null;
 
-      function selectPayment(payment) {
+      function selectPayment(item, payment) {
         paymentSelected = payment;
         console.log(paymentSelected);
+
+        var paymentSelector = document.querySelectorAll(".payment-type-item");
+        paymentSelector.forEach( (e) => {
+            e.classList.remove("active");
+        });
+        item.classList.add("active");
       }
 
       function submitForm(){
         document.getElementById("buttonSumbit").click();
       }
-
-      var paymentSelector = document.querySelectorAll(".payment-type-item");
-      paymentSelector.forEach( (item) => {
-          item.addEventListener("click", (e) => {
-            paymentSelector.forEach( (item) => {
-                  console.log("remove active");
-                  item.classList.remove("active");
-              });
-              item.classList.add("active");
-          });
-      });
 
       $(".input-select-method").change(function() {
           $(".input-select-method").not(this).prop('checked', false);
@@ -189,7 +184,7 @@
                       $('#dataColorYear').html(data.color + ' | ' + data.year);
 
                       $('.container-payment-type').append(`
-                      <label onclick="selectPayment(0)" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                      <label onclick="selectPayment(this,0)" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
                         <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
                         <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
                         <input type="checkbox" name="payment" class="input-select-method" value="0" hidden>
@@ -197,7 +192,7 @@
                       `)
                       data.payments.map((pay)=>{
                         $('.container-payment-type').append(`
-                        <label onclick="selectPayment(${pay.id})" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                        <label onclick="selectPayment(this,${pay.id})" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
                           <p class="bodytext2 color-black500 semibold mb-1">Kumaha Eko</p>
                           <div class="d-flex flex-fill flex-row justity-content-between w-100">
                             <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: ${pay.dp}</p>
@@ -207,6 +202,52 @@
                         </label>
                         `)
                       })
+
+                      $('#buttonSubmit').click(function(){
+                        if(paymentSelected == null){
+                          Swal.fire({
+                            title: 'Perhatian',
+                            text: 'Silahkan pilih metode pembayaran',
+                            icon: 'error',
+                            confirmButtonText: 'Mengerti'
+                          })
+                        }else{
+                          $('#buttonSubmit').attr('disabled', true);
+                          $('#buttonSubmit').html(spinnerWhite);
+                          axios.postForm()
+                            .then(response => {
+                              $('#buttonSubmit').attr('disabled', false);
+                              $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
+                              
+                                let result = response.data;
+                                if(result.status){
+                                  Swal.fire({
+                                    title: 'Berhasil',
+                                    text: 'Pemesanan berhasil',
+                                    icon: 'success',
+                                    confirmButtonText: 'Mengerti'
+                                  }).then(()=>{
+                                    window.location.href = './';
+                                  })
+                                }else{
+                                  Swal.fire({
+                                    title: 'Gagal',
+                                    text: result.message,
+                                    icon: 'error',
+                                    confirmButtonText: 'Mengerti'
+                                  })
+                                }
+                            })
+                            .catch(error => {
+                                Swal.fire({
+                                  title: 'Gagal',
+                                  text: 'Terjadi kesalahan',
+                                  icon: 'error',
+                                  confirmButtonText: 'Mengerti'
+                                })
+                            })
+                        }
+                      });
                     }else{
                       history.back();
                     }
