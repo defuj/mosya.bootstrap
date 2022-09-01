@@ -167,7 +167,7 @@
                     const inputCarId = document.querySelector('#inputCardId')
                     const inputCardFamilly = document.querySelector('#inputCardFamilly')
                     const inputName2 = $('#inputName2').val()
-                    const inputCardFamilly2 = document.querySelector('#inputCardId2')
+                    const inputCardId2 = document.querySelector('#inputCardId2')
 
                     if(inputName == ''){
                       Swal.fire({
@@ -228,10 +228,42 @@
                                   const code = result.code;
                                   // upload image
                                   const postForm = {
-                                    id: user.id,
-                                    image: document.querySelector('#choose-image').files[0]
+                                    code: code,
+                                    card_id: inputCarId.files[0],
+                                    card_familly: inputCardFamilly.files[0],
+                                    card_id_2: inputCardId2.files[0],
                                   }
-                                  axios.postForm('booking/update', ).then()
+                                  axios.postForm('booking/update', postForm).then(response => {
+                                    let result = response.data;
+                                    $('#buttonSubmit').html('Selanjutnya')
+                                    $('#buttonSubmit').attr('disabled', false)
+                                    if(result.status){
+                                      Swal.fire({
+                                        title: 'Berhasil',
+                                        text: 'Pemesanan berhasil',
+                                        icon: 'success',
+                                        confirmButtonText: 'Mengerti',
+                                      }).then(() => {
+                                        window.location.href = 'history.html'
+                                      })
+                                    }else{
+                                      Swal.fire({
+                                        title: 'Gagal',
+                                        text: result.message,
+                                        icon: 'error',
+                                        confirmButtonText: 'Mengerti',
+                                      })
+                                    }
+                                  }).catch(error => {
+                                    $('#buttonSubmit').html('Selanjutnya')
+                                    $('#buttonSubmit').attr('disabled', false)
+                                    Swal.fire({
+                                      title: 'Perhatian',
+                                      text: 'Terjadi kesalahan',
+                                      icon: 'error',
+                                      confirmButtonText: 'Mengerti',
+                                    })
+                                  })
                                 }else{
                                   $('#buttonSubmit').html('Selanjutnya')
                                   $('#buttonSubmit').attr('disabled', false)
@@ -242,6 +274,15 @@
                                     confirmButtonText: 'Mengerti',
                                   })
                                 }
+                              }).catch(error => {
+                                $('#buttonSubmit').html('Selanjutnya')
+                                $('#buttonSubmit').attr('disabled', false)
+                                Swal.fire({
+                                  title: 'Perhatian',
+                                  text: 'Terjadi kesalahan',
+                                  icon: 'error',
+                                  confirmButtonText: 'Mengerti',
+                                })
                               })
                             }
                           }
