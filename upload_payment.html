@@ -211,13 +211,13 @@
 
     <script>
       if(!checkAccount()){
-        window.location.href = './login.html';
+        window.location.href = 'login.html';
       }
       
       let booking = getBooking();
       console.log(booking);
       if(booking == null){
-        window.location.href = './home.html';
+        window.location.href = 'home.html';
       }else{
         const params = new URLSearchParams(window.location.search);
         if(params.has('code') && params.get('code') != ''){
@@ -251,7 +251,7 @@
                         text: 'Bukti pembayaran berhasil dikirim.',
                         confirmButtonText: 'Lanjutkan',
                       }).then(()=>{
-                        window.location.href = './history.html';
+                        window.location.href = 'history.html';
                       })
                     }else{
                       Swal.fire({
@@ -298,11 +298,11 @@
               text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
               confirmButtonText: 'Kembali',
             }).then(() => {
-              window.location.href = './home.html';
+              window.location.href = 'home.html';
             });
           })
         }else{
-          window.location.href = './home.html';
+          window.location.href = 'home.html';
         }
       }
       

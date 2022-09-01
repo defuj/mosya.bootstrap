@@ -201,7 +201,7 @@
 
     <script>
         if(!checkAccount()){
-          window.location.href = './login.html';
+          window.location.href = 'login.html';
         }
 
         const params = new URLSearchParams(window.location.search);
@@ -209,14 +209,32 @@
 
         const user = getAccount();
         if(params.has('code') && params.get('code') != ''){
-          axios.get(`booking/detail?id=${params.get('code')}&user_id=${user.id}`)
+          axios.get(`history/detail?id=${params.get('code')}&user_id=${user.id}`)
           .then(response=> {
             let result = response.data;
+            console.log(result);
             if(result.status){
-
+              
             }else{
-
+              Swal.fire({
+                icon: 'error',
+                title: 'Perhatian',
+                text: result.message,
+                confirmButtonText: 'Mengerti',
+              }).then(() => {
+                window.location.href = 'history.html';
+              });
             }
+          }).catch(error=> {
+            console.log(error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Terjadi kesalahan',
+                text: 'Terjadi kesalahan, silahkan coba lagi',
+                confirmButtonText: 'Mengerti',
+              }).then(() => {
+                window.location.href = 'history.html';
+              });
           })
             switch (params.get('status')) {
               case '1':
