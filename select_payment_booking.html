@@ -60,16 +60,8 @@
         </p>
 
         <form action="upload_payment.html" id="formPayment" name="formPayment" class="container-payment-type d-flex flex-column">
-          <input type="text" name="id" id="productId" hidden required>
-          <input type="text" name="name" id="dataName" hidden required>
-          <input type="text" name="address" id="dataAddress" hidden required>
-          <input type="text" name="phone" id="dataPhone" hidden required>
-          <input type="text" name="name2" id="dataName2" hidden>
-          <input type="file" name="cardId" id="dataCardId" enctype="multipart/form-data" hidden>
-          <input type="file" name="cardFamilly" id="dataCardFamilly" enctype="multipart/form-data" hidden>
-          <input type="file" name="cardId2" id="dataCardId2" enctype="multipart/form-data" hidden>
 
-          <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+          <!-- <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
               <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
               <p class="bodytext2 color-black500 semibold mb-0">Rp 150.000.000</p>
               <input type="checkbox" name="payment" class="input-select-method" value="1" hidden>
@@ -90,7 +82,7 @@
             </div>
             <input type="checkbox" name="payment" class="input-select-method" value="3" hidden>
           </label>
-          <button type="submit" id="buttonSumbit" hidden>next</button>
+          <button type="submit" id="buttonSumbit" hidden>next</button> -->
         </form>
 
       </div>
@@ -139,7 +131,7 @@
       <button type="reset" class="btn flex-fill button-action-filter button-back-payment bg-white bodytext2 semibold color-green500 mr-2" onclick="history.back()">
         Kembali
       </button>
-      <button onclick="submitForm()" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+      <button id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
         <p class="mb-0 py-1">Konfirmasi Pemesanan</p>
       </button>
     </nav>
@@ -155,6 +147,13 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      var paymentSelected = null;
+
+      function selectPayment(payment) {
+        paymentSelected = payment;
+        console.log(paymentSelected);
+      }
+
       function submitForm(){
         document.getElementById("buttonSumbit").click();
       }
@@ -190,7 +189,7 @@
                       $('#dataColorYear').html(data.color + ' | ' + data.year);
 
                       $('.container-payment-type').append(`
-                      <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                      <label onclick="selectPayment(0)" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
                         <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
                         <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
                         <input type="checkbox" name="payment" class="input-select-method" value="0" hidden>
@@ -198,8 +197,8 @@
                       `)
                       data.payments.map((pay)=>{
                         $('.container-payment-type').append(`
-                        <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
-                          <p class="bodytext2 color-black500 semibold mb-1">Cicilan 48 Bulan</p>
+                        <label onclick="selectPayment(${pay.id})" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                          <p class="bodytext2 color-black500 semibold mb-1">Kumaha Eko</p>
                           <div class="d-flex flex-fill flex-row justity-content-between w-100">
                             <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: ${pay.dp}</p>
                             <p class="bodytext2 color-black500 semibold mb-0">Cicilan: ${pay.cicilan}</p>
