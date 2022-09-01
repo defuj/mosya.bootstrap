@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -41,125 +42,7 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
-        <p class="bodytext1 color-black500 semibold p-0 mb-4">
-          Untuk melanjutkan booking, harap transfer sesuai petunjuk di bawah!
-        </p>
-        <p class="bodytext1 color-black500 semibold p-0">
-          Bank BRI (Transfer)
-        </p>
-
-        <p class="caption color-black500 p-0 mb-1">
-          Nomor Rekening
-        </p>
-        <div class="d-flex flex-fill flex-column-justify-content-between mb-0">
-          <p class="bodytext2 color-black500 p-0 flex-fill">
-            <b>1246476978028</b>
-          </p>
-          <p class="bodytext2 semibold color-green500 p-0">
-            Salin
-          </p>
-        </div>
-
-        <p class="caption color-black500 p-0 mb-1">
-          Kode Unik
-        </p>
-        <p class="bodytext2 color-black500 p-0 flex-fill" id="codeUnique">
-          <!-- <b>751</b> -->
-        </p>
-
-        <p class="caption color-black500 p-0 mb-1">
-          Total Bayar
-        </p>
-        <div class="d-flex flex-fill flex-column-justify-content-between mb-0">
-          <p class="bodytext2 color-black500 p-0 flex-fill" id="totalPayment">
-            <!-- <b>Rp19.751</b> -->
-          </p>
-          <p class="bodytext2 semibold color-green500 p-0">
-            Salin
-          </p>
-        </div>
-
-        <p class="caption semibold text-danger p-0">
-          * Pastikan untuk membayar sesuai total bayar!
-        </p>
-
-        
-      </div>
-
-      <form class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
-        <p class="bodytext1 color-black500 semibold p-0 mb-4">
-          Upload Bukti Bayar
-        </p>
-        
-        <input type="file" name="payment-image" id="buktiBayar" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-        <button type="button" id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-          <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
-        </button>
-      </form>
-
-      <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
-        <p class="bodytext1 color-black500 semibold p-0 mb-4">
-          Petunjuk Transfer Bank
-        </p>
-        <div class="accordion payment-guide" id="accordionExample">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <button class="btn btn-link btn-block text-left d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <p class="mb-0 flex-fill">Petunjuk Transfer ATM</p>
-                <i class="fi fi-br-angle-down down bodytext1"></i>
-                <i class="fi fi-br-angle-up up bodytext1"></i>
-              </button>
-            </div>
-        
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
-              <div class="card-body">
-                Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <button class="btn btn-link btn-block text-left d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <p class="mb-0 flex-fill">Petunjuk Transfer iBanking</p>
-                <i class="fi fi-br-angle-down down bodytext1"></i>
-                <i class="fi fi-br-angle-up up bodytext1"></i>
-              </button>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="">
-              <div class="card-body">
-                Some placeholder content for the second accordion panel. This panel is hidden by default.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header" id="headingThree">
-              <button class="btn btn-link btn-block text-left d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                <p class="mb-0 flex-fill">Petunjuk Transfer mBanking</p>
-                <i class="fi fi-br-angle-down down bodytext1"></i>
-                <i class="fi fi-br-angle-up up bodytext1"></i>
-              </button>
-            </div>
-            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                <ol type="1">
-                  <li>Buka aplikasi, kemudian pilih menu Mobile Banking BRI.</li>
-                  <li>Untuk mengirim uang, tap menu Transfer.</li>
-                  <li>Untuk transfer ke sesama rekening BRI, tap menu Sesama BRI.</li>
-                  <li>Pada halaman baru, masukkan nomor rekening BRI yang dituju.</li>
-                  <li>Masukkan jumlah transfer yang akan dikirim.</li>
-                  <li>Klik OK. Lalu, masukkan PIN Mobile Banking BRI Anda. Klik SEND.</li>
-                  <li>Untuk melakukan verifikasi SMS, Klik OK.</li>
-                  <li>Terima SMS dari Mobile Banking BRI, lalu ketik YA <spasi> Kode Transaksi. Kalau bingung, ikuti saja petunjuk yang ada pada SMS tersebut.</li>
-                  <li>Kalau sudah benar, langsung Kirim SMS.</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
     </main>
     <!-- end body content -->
 
@@ -213,97 +96,225 @@
       if(!checkAccount()){
         window.location.href = 'login.html';
       }
-      
-      let booking = getBooking();
-      console.log(booking);
-      if(booking == null){
-        window.location.href = 'home.html';
-      }else{
-        const params = new URLSearchParams(window.location.search);
-        if(params.has('code') && params.get('code') != ''){
-          axios.postForm('booking/payment_info',{
-            code: params.get('code')
-          })
-          .then(response => {
-            let result = response.data;
-            if(result.status){
-              let data = result.data;
-              console.log(result.data);
-              $('#codeUnique').html(`<b>${data.code_unique}</b>`);
-              $('#totalPayment').html(`<b>${data.total_payment}</b>`);
 
-              $('#buttonSubmit').click(function(){
-                let image = document.querySelector('#buktiBayar')
-                if(image.files.length > 0){
-                  $('#buttonSubmit').attr('disabled', true);
-                  $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
-                  axios.postForm('booking/payment_upload',{
-                    code: params.get('code'),
-                    image: image.files[0]
-                  }).then(response=>{
-                    $('#buttonSubmit').attr('disabled', false);
-                    $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
-                    let result = response.data;
-                    if(result.status){
-                      Swal.fire({
-                        icon: 'success',
-                        title: 'Berhasil',
-                        text: 'Bukti pembayaran berhasil dikirim.',
-                        confirmButtonText: 'Lanjutkan',
-                      }).then(()=>{
-                        window.location.href = 'history.html';
-                      })
-                    }else{
-                      Swal.fire({
-                        icon: 'error',
-                        title: 'Perhatian',
-                        text: result.message,
-                        confirmButtonText: 'Mengerti',
-                      })
-                    }
-                  }).catch(error => {
-                    $('#buttonSubmit').attr('disabled', false);
-                    $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
-                    console.log(error);
+      const copyContent = (content) =>{
+        var text = "Example text to appear on clipboard";
+        navigator.clipboard.writeText(content).then(function() {
+          console.log('Berhasil disalin ke clipboard');
+          alert('Berhasil disalin ke clipboard');
+        }, function(err) {
+          console.error('Tidak dapat menyalin', err);
+          alert('Tidak dapat menyalin');
+        });
+      }
+      
+      const params = new URLSearchParams(window.location.search);
+      if(params.has('code') && params.get('code') != ''){
+        axios.postForm('booking/payment_info',{
+          code: params.get('code')
+        })
+        .then(response => {
+          let result = response.data;
+          if(result.status){
+            $('.loading').remove();
+
+            let data = result.data;
+            console.log(result.data);
+
+            $('.container-car').append(`
+            <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+              <p class="bodytext1 color-black500 semibold p-0 mb-4">
+                Untuk melanjutkan booking, harap transfer sesuai petunjuk di bawah!
+              </p>
+              <p class="bodytext1 color-black500 semibold p-0">
+                Bank BRI (Transfer)
+              </p>
+
+              <p class="caption color-black500 p-0 mb-1">
+                Nomor Rekening
+              </p>
+              <div class="d-flex flex-fill flex-column-justify-content-between mb-0">
+                <p class="bodytext2 color-black500 p-0 flex-fill">
+                  <b id="norek">1246476978028</b>
+                </p>
+                <p class="bodytext2 semibold color-green500 p-0" onclick="copyContent('1246476978028')">
+                  Salin
+                </p>
+              </div>
+
+              <p class="caption color-black500 p-0 mb-1">
+                Kode Unik
+              </p>
+              <p class="bodytext2 color-black500 p-0 flex-fill" id="codeUnique">
+                ${data.code_unique}
+              </p>
+
+              <p class="caption color-black500 p-0 mb-1">
+                Total Bayar
+              </p>
+              <div class="d-flex flex-fill flex-column-justify-content-between mb-0">
+                <p class="bodytext2 color-black500 p-0 flex-fill" id="totalPayment">
+                  ${data.total_payment}
+                </p>
+                <p class="bodytext2 semibold color-green500 p-0" onclick="copyContent('${data.total_payment}')">
+                  Salin
+                </p>
+              </div>
+
+              <p class="caption semibold text-danger p-0">
+                * Pastikan untuk membayar sesuai total bayar!
+              </p>
+
+              
+            </div>
+            `)
+            $('.container-car').append(`
+            <form class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+              <p class="bodytext1 color-black500 semibold p-0 mb-4">
+                Upload Bukti Bayar
+              </p>
+              
+              <input type="file" name="payment-image" id="buktiBayar" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
+              <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+              <button type="button" id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
+              </button>
+            </form>
+            `)
+            $('.container-car').append(`
+            <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+              <p class="bodytext1 color-black500 semibold p-0 mb-4">
+                Petunjuk Transfer Bank
+              </p>
+              <div class="accordion payment-guide" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <button class="btn btn-link btn-block text-left d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      <p class="mb-0 flex-fill">Petunjuk Transfer ATM</p>
+                      <i class="fi fi-br-angle-down down bodytext1"></i>
+                      <i class="fi fi-br-angle-up up bodytext1"></i>
+                    </button>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample" style="">
+                    <div class="card-body">
+                      Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <button class="btn btn-link btn-block text-left d-flex justify-content-between collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      <p class="mb-0 flex-fill">Petunjuk Transfer iBanking</p>
+                      <i class="fi fi-br-angle-down down bodytext1"></i>
+                      <i class="fi fi-br-angle-up up bodytext1"></i>
+                    </button>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="">
+                    <div class="card-body">
+                      Some placeholder content for the second accordion panel. This panel is hidden by default.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <button class="btn btn-link btn-block text-left d-flex justify-content-between" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+                      <p class="mb-0 flex-fill">Petunjuk Transfer mBanking</p>
+                      <i class="fi fi-br-angle-down down bodytext1"></i>
+                      <i class="fi fi-br-angle-up up bodytext1"></i>
+                    </button>
+                  </div>
+                  <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <ol type="1">
+                        <li>Buka aplikasi, kemudian pilih menu Mobile Banking BRI.</li>
+                        <li>Untuk mengirim uang, tap menu Transfer.</li>
+                        <li>Untuk transfer ke sesama rekening BRI, tap menu Sesama BRI.</li>
+                        <li>Pada halaman baru, masukkan nomor rekening BRI yang dituju.</li>
+                        <li>Masukkan jumlah transfer yang akan dikirim.</li>
+                        <li>Klik OK. Lalu, masukkan PIN Mobile Banking BRI Anda. Klik SEND.</li>
+                        <li>Untuk melakukan verifikasi SMS, Klik OK.</li>
+                        <li>Terima SMS dari Mobile Banking BRI, lalu ketik YA <spasi> Kode Transaksi. Kalau bingung, ikuti saja petunjuk yang ada pada SMS tersebut.</li>
+                        <li>Kalau sudah benar, langsung Kirim SMS.</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            `)
+
+            $('#buttonSubmit').click(function(){
+              let image = document.querySelector('#buktiBayar')
+              if(image.files.length > 0){
+                $('#buttonSubmit').attr('disabled', true);
+                $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+                axios.postForm('booking/payment_upload',{
+                  code: params.get('code'),
+                  image: image.files[0]
+                }).then(response=>{
+                  $('#buttonSubmit').attr('disabled', false);
+                  $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
+                  let result = response.data;
+                  if(result.status){
+                    Swal.fire({
+                      icon: 'success',
+                      title: 'Berhasil',
+                      text: 'Bukti pembayaran berhasil dikirim.',
+                      confirmButtonText: 'Lanjutkan',
+                    }).then(()=>{
+                      window.location.href = 'history.html';
+                    })
+                  }else{
                     Swal.fire({
                       icon: 'error',
-                      title: 'Terjadi Kesalahan',
-                      text: 'Silahkan mencoba lagi nanti',
+                      title: 'Perhatian',
+                      text: result.message,
                       confirmButtonText: 'Mengerti',
                     })
-                  })
-                }else{
+                  }
+                }).catch(error => {
+                  $('#buttonSubmit').attr('disabled', false);
+                  $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
+                  console.log(error);
                   Swal.fire({
                     icon: 'error',
-                    title: 'Perhatian',
-                    text: 'Bukti pembayaran belum dipilih',
+                    title: 'Terjadi Kesalahan',
+                    text: 'Silahkan mencoba lagi nanti',
                     confirmButtonText: 'Mengerti',
                   })
-                }
-              });
-            }else{
-              Swal.fire({
-                icon: 'error',
-                title: 'Perhatian',
-                text: result.message,
-                confirmButtonText: 'Mengerti',
-              }).then(() => {
-                // window.location.href = './home.html';
-              });
-            }
-          }).catch(error => {
+                })
+              }else{
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Perhatian',
+                  text: 'Bukti pembayaran belum dipilih',
+                  confirmButtonText: 'Mengerti',
+                })
+              }
+            });
+          }else{
             Swal.fire({
               icon: 'error',
-              title: 'Terjadi Kesalahan',
-              text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
+              title: 'Perhatian',
+              text: result.message,
               confirmButtonText: 'Kembali',
             }).then(() => {
-              window.location.href = 'home.html';
+              window.location.href = 'history.html';
             });
-          })
-        }else{
-          window.location.href = 'home.html';
-        }
+          }
+        }).catch(error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Terjadi Kesalahan',
+            text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
+            confirmButtonText: 'Kembali',
+          }).then(() => {
+            window.location.href = 'history.html';
+          });
+        })
+      }else{
+        window.location.href = 'home.html';
       }
       
     </script>

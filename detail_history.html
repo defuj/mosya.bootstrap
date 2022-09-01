@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Mosya - Pembayaran Booking</title>
+    <title>Mosya - Pemesanan Mobil</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -41,111 +42,7 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <div id="container-status" class="container-status status-0 px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold" id="statusTitle">
-          
-        </p>
-        <p class="mb-0 bodytext2" id="statusDesc">
-          
-        </p>
-      </div>
-
-      <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
-          Informasi Pemesanan
-        </p>
-        <div class="d-flex flex-row justify-content-between">
-          <p class="mb-0 bodytext2 color-black400 flex-fill">
-            Nomor Pesanan
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500" id="nomor">
-            
-          </p>
-        </div>
-      </div>
-
-      <div class="container-address bg-white px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
-          Alamat Pengiriman
-        </p>
-        <p class="mb-0 bodytext2 color-black400 flex-fill mb-2" id="phone">
-          
-        </p>
-        <p class="mb-0 bodytext2 color-black400" id="address">
-          
-        </p>
-      </div>
-
-      <div class="d-flex flex-row bg-white px-3 py-3 product-section-payment justify-content-between mb-2">
-        <img id="dataImage" src="" alt="">
-        <div class="flex-fill ml-3">
-          <p class="caption color-green500 semibold mb-0" id="dataBrand"></p>
-          <p class="bodytext1 semibold color-black800 mb-0" id="dataModel"></p>
-          <p class="caption color-black300 mb-0" id="dataColorYear"></p>
-        </div>
-      </div>
-
-      <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
-          Rincian Pembayaran
-        </p>
-        <div class="d-flex flex-row justify-content-between mb-1">
-          <p class="mb-0 bodytext2 color-black400 flex-fill">
-            Metode Pembayaran
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500" id="paymentMethod">
-            Bank Transfer BRI
-          </p>
-        </div>
-
-        <div class="d-flex flex-row justify-content-between mb-1">
-          <p class="mb-0 bodytext2 color-black400 flex-fill">
-            Booking Fee
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500" id="bookingFee">
-            Rp 200.000
-          </p>
-        </div>
-
-        <div class="d-flex flex-row justify-content-between mb-1">
-          <p class="mb-0 bodytext2 color-black400 flex-fill">
-            Kode Unik
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500" id="codeUnique">
-            Rp 751
-          </p>
-        </div>
-
-        <div class="d-flex flex-row justify-content-between mb-1">
-          <p class="mb-0 bodytext2 color-black500 semibold flex-fill">
-            Total bayar
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500 semibold" id="totalPayment">
-            Rp 200.751
-          </p>
-        </div>
-
-      </div>
-
-      <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
-          Kontak
-        </p>
-
-        <div class="container-contact d-flex flex-row align-items-center px-3 py-3">
-          <img src="./assets/images/contact.jpg" alt="" class="mr-3">
-          <div class="flex-column flex-fill">
-            <p class="mb-0 bodytext1 semibold color-black600">Sintia</p>
-            <p class="mb-0 bodytext2 color-black300">Narahubung</p>
-          </div>
-          <a href="https://wa.me/+6285315131514/?text=Hallo," target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-            <i class="fi fi-brands-whatsapp mr-2 px-2 mt-1" ></i>
-          </a>
-          
-          <i class="fi fi-rr-phone-call  px-2 mt-1" onclick="window.open('tel:+6285315131514');"></i>
-        </div>
-      </div>
-
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
     </main>
     <!-- end body content -->
 
@@ -214,23 +111,108 @@
             let result = response.data;
             console.log(result);
             if(result.status){
-              let payment = result.data.payment;
-              $('#totalPayment').html(payment.total_payment)
-              $('#codeUnique').html(payment.code_uniq)
-              $('#bookingFee').html(payment.booking_fee)
-              $('#paymentMethod').html(payment.payment_method)
-
-              let car = result.data.car;
-              $('#dataImage').attr('src', car.image);
-              $('#dataBrand').html(car.brand)
-              $('#dataModel').html(car.model)
-              $('#dataColorYear').html(`${car.color} | ${car.year}`)
-
+              $('.loading').remove();
+              $('.container-car').append(`
+              <div id="container-status" class="container-status status-0 px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold" id="statusTitle"></p>
+                <p class="mb-0 bodytext2" id="statusDesc"></p>
+              </div>
+              `);
+              $('.container-car').append(`
+              <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+                  Informasi Pemesanan
+                </p>
+                <div class="d-flex flex-row justify-content-between">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Nomor Pesanan
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500" id="nomor">#${result.data.code}</p>
+                </div>
+              </div>
+              `);
+              
               let address = result.data.address;
-              $('#phone').html(`${address.model} (${address.phone})`);
-              $('#address').html(address.address)
+              $('.container-car').append(`
+              <div class="container-address bg-white px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+                  Alamat Pengiriman
+                </p>
+                <p class="mb-0 bodytext2 color-black400 flex-fill mb-2" id="phone">${address.model} (${address.phone})</p>
+                <p class="mb-0 bodytext2 color-black400" id="address">${address.address}</p>
+              </div>
+              `);
+              
+              let car = result.data.car;
+              $('.container-car').append(`
+              <div class="d-flex flex-row bg-white px-3 py-3 product-section-payment justify-content-between mb-2">
+                <img id="dataImage" src="${car.image}" alt="">
+                <div class="flex-fill ml-3">
+                  <p class="caption color-green500 semibold mb-0" id="dataBrand">${car.brand}</p>
+                  <p class="bodytext1 semibold color-black800 mb-0" id="dataModel">${car.model}</p>
+                  <p class="caption color-black300 mb-0" id="dataColorYear">${car.color} | ${car.year}</p>
+                </div>
+              </div>
+              `);
+              
+              let payment = result.data.payment;
+              $('.container-car').append(`
+              <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+                  Rincian Pembayaran
+                </p>
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Metode Pembayaran
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500" id="paymentMethod">${payment.payment_method}</p>
+                </div>
 
-              $('#nomor').html(`#${result.data.code}`)
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Booking Fee
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500" id="bookingFee">${payment.booking_fee}</p>
+                </div>
+
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Kode Unik
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500" id="codeUnique">${payment.code_uniq}</p>
+                </div>
+
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black500 semibold flex-fill">
+                    Total bayar
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500 semibold" id="totalPayment">${payment.total_payment}</p>
+                </div>
+
+              </div>
+              `);
+              
+
+              $('.container-car').append(`
+              <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+                  Kontak
+                </p>
+
+                <div class="container-contact d-flex flex-row align-items-center px-3 py-3">
+                  <img src="./assets/images/contact.jpg" alt="" class="mr-3">
+                  <div class="flex-column flex-fill">
+                    <p class="mb-0 bodytext1 semibold color-black600">Sintia</p>
+                    <p class="mb-0 bodytext2 color-black300">Narahubung</p>
+                  </div>
+                  <a href="https://wa.me/+6285315131514/?text=Hallo,\nSaya ingin membeli mobil ${car.model}" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                    <i class="fi fi-brands-whatsapp mr-2 px-2 mt-1" ></i>
+                  </a>
+                  
+                  <i class="fi fi-rr-phone-call  px-2 mt-1" onclick="window.open('tel:+6285315131514');"></i>
+                </div>
+              </div>
+              `);
 
               switch (result.data.status) {
               case 'Belum Bayar':
