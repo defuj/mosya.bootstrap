@@ -266,7 +266,7 @@ Response :
 	data: [
 		{
 			id: "string",
-			name: "string", // the value is car name, ex: Honda Jazz
+			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
 			color: "string", // the value is color name, ex: Black
 			fuel: "string", // the value is fuel type, ex: Bensin
@@ -321,12 +321,12 @@ Response :
 	status: "boolean", //value : true or false
 	message: "string",
 	data: {
-		merk : "string",
+		brand : "string",
 		total: "string", // the value is total car, ex: 1 sd 99+, if value is > 100, then value is 99+
 		cars: [ // list car, just 4 piece for every merk
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -345,7 +345,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -364,7 +364,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -383,7 +383,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -408,7 +408,7 @@ Response :
 		cars: [ // list car, just 4 piece for every merk
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -427,7 +427,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -446,7 +446,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -465,7 +465,7 @@ Response :
 			},
 			{
 				id: "string",
-				name: "string", // the value is car name, ex: Honda Jazz
+				model: "string", // the value is car name, ex: Honda Jazz
 				brand: "string", // the value is brand name, ex: Honda
 				color: "string", // the value is color name, ex: Black
 				fuel: "string", // the value is fuel type, ex: Bensin
@@ -512,7 +512,7 @@ Response :
 	message: "string",
 	data: {
 		id: "string",
-		name: "string", // the value is car name, ex: Honda Jazz
+		model: "string", // the value is car name, ex: Honda Jazz
 		brand: "string", // the value is brand name, ex: Honda
 		color: "string", // the value is color name, ex: Black
 		fuel: "string", // the value is fuel type, ex: Bensin
@@ -578,7 +578,7 @@ Response :
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
-			name: "string", // the value is car name, ex: Honda Jazz
+			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
 			color: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
@@ -588,7 +588,7 @@ Response :
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
-			name: "string", // the value is car name, ex: Honda Jazz
+			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
 			color: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
@@ -598,7 +598,7 @@ Response :
 			date: "string",
 			status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
-			name: "string", // the value is car name, ex: Honda Jazz
+			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
 			color: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
@@ -638,7 +638,7 @@ Response :
 		status: "string", // value : Belum Dibayar, Dibayar, Diverifikasi, Dibatalkan, Dalam Perjalanan, Selesai
 		car: {
 			id: "string",
-			name: "string", // the value is car name, ex: Honda Jazz
+			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
 			color: "string", // the value is color name, ex: Black
 			fuel: "string", // the value is fuel type, ex: Bensin

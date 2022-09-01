@@ -80,7 +80,7 @@
       <!-- end content brands list -->
 
       <!-- start content brands -->
-      <div class="container-brand-text d-flex flex-wrap justify-content-start">
+      <div class="container-brand-text d-flex">
         <!-- <a href="./search.html?search=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
           Semua
         </a>
@@ -291,23 +291,39 @@
 
       // get data car
       $('#container-product').append(loading);
-      axios.get('car/list')
+      axios.get('car/list',{
+        limit: 12,
+      })
         .then(response => {
             let result = response.data;
             if(result.status){
               var cars = result.data;
 
               if(cars.length > 0){
-                cars.map((car, i)=>{
-                  $('#container-product').append(`
-                    <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
-                        <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
-                        <p class="bodytext1 color-black800 semibold m-0 px-2">${car.name}</p>
-                        <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
-                        <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
-                    </a>
+                if(cars.length > 12){
+                  for(let i = 0; i <= 11; i++){
+                    var car = cars[i];
+                    $('#container-product').append(`
+                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                          <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
+                          <p class="bodytext1 color-black800 semibold m-0 px-2">${car.name}</p>
+                          <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
+                          <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
+                      </a>
                     `)
-                });
+                  }
+                }else{
+                  cars.map((car, i)=>{
+                    $('#container-product').append(`
+                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                          <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
+                          <p class="bodytext1 color-black800 semibold m-0 px-2">${car.name}</p>
+                          <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
+                          <p class="caption color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
+                      </a>
+                    `)
+                  });
+                }
                 $('.loading').remove();
               }else{
                 $('.container-product').html(emptyState);

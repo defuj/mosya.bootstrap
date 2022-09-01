@@ -316,7 +316,7 @@
           </div>
         </div>`;
 
-      axios.get('assets/js/catalog.json')
+      axios.get('car/list_catalog')
         .then(response => {
           let result = response.data;
           console.log(result.status);
@@ -331,7 +331,7 @@
                 // section merk title
                 $('.container-product').append(`
                 <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
-                  <p class="bodytext1 flex-fill color-black600 mb-0"><b>${data.merk}</b> (${data.total})</p>
+                  <p class="bodytext1 flex-fill color-black600 mb-0"><b>${data.merk}</b> (${data.total >= 100 ? '99+' : data.total})</p>
                   <a href="search.html?search=${data.merk}" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
                 </div>
                 `);
@@ -340,8 +340,8 @@
                 cars.map((car, a)=>{
                   $('.container-product').append(`
                     <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
-                        <div class="product-cover mb-2" style="background-image: url('${car.images[Math.floor(Math.random()*car.images.length)]}');"></div>
-                        <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
+                        <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
+                        <p class="bodytext1 color-black800 semibold m-0 px-2">${car.name}</p>
                         <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
                         <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${car.price}</p>
                     </a>
