@@ -776,7 +776,7 @@ Request :
 
 ```json5
 {
-	id: "string",
+	code: "string",
 	card_id: "file",
 	card_familly: "file",
 	card_id_2: "file",

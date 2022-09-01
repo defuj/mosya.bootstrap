@@ -100,6 +100,10 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+        if(!checkAccount()){
+          window.location.href = './login.html';
+        }
+
         const params = new URLSearchParams(window.location.search);
 
         let car = getCurrentCar();
@@ -205,7 +209,40 @@
                                 confirmButtonText: 'Mengerti',
                               })
                             }else{
+                              $('#buttonSubmit').html(spinnerWhite)
+                              $('#buttonSubmit').attr('disabled', true)
+
+                              const user = getAccount();
                               
+                              // upload data 
+                              axios.postForm('booking/create', {
+                                id: user.id,
+                                id_car: name,
+                                name: inputName,
+                                address: inputAddress,
+                                phone: inputPhone,
+                                name_2: inputName2
+                              }).then(response => {
+                                let result = response.data
+                                if(result.status){
+                                  const code = result.code;
+                                  // upload image
+                                  const postForm = {
+                                    id: user.id,
+                                    image: document.querySelector('#choose-image').files[0]
+                                  }
+                                  axios.postForm('booking/update', ).then()
+                                }else{
+                                  $('#buttonSubmit').html('Selanjutnya')
+                                  $('#buttonSubmit').attr('disabled', false)
+                                  Swal.fire({
+                                    title: 'Perhatian',
+                                    text: result.message,
+                                    icon: 'error',
+                                    confirmButtonText: 'Mengerti',
+                                  })
+                                }
+                              })
                             }
                           }
                         }
