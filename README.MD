@@ -752,7 +752,7 @@ Request :
 	name: "string",
 	address: "string",
 	phone: "string",
-	name_2: "string",
+	name_2: "string", // optional
 }
 ```
 
@@ -779,7 +779,7 @@ Request :
 	code: "string",
 	card_id: "file",
 	card_familly: "file",
-	card_id_2: "file",
+	card_id_2: "file", // optional
 }
 ```
 
