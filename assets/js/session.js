@@ -38,6 +38,38 @@ const getAccount = () => {
     return null;
 }
 
+const getCodeBooking = () => {
+    if (storageAvailable('localStorage')) {
+        return localStorage.getItem('code_booking') != null ? localStorage.getItem('code_booking') : null;
+    }
+    return null;
+}
+
+const setCodeBooking = (code) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('code_booking', code);
+    }
+}
+
+const getCurrentCar = () => {
+    if (storageAvailable('localStorage')) {
+        return localStorage.getItem('current_car') != null ? JSON.parse(localStorage.getItem('current_car')) : null;
+    }
+    return null;
+}
+
+const setCurrentCar = (data) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('current_car', JSON.stringify(data));
+    }
+}
+
+const deleteCurrentCar = () => {
+    if (storageAvailable('localStorage')) {
+        localStorage.removeItem('current_car');
+    }
+}
+
 const checkDeffTime = (time1, time2) => {
     var date1 = new Date(time1);
     var date2 = new Date(time2);
@@ -62,7 +94,7 @@ const checkAccount = () => {
                 msec -= hh * 1000 * 60 * 60;
                 var mm = Math.floor(msec / 1000 / 60);
 
-                if(mm < 5){
+                if(mm < 15){
                     console.log('last time : '+lasttime);
                     console.log('update time : ' + now);
 

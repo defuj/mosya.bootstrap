@@ -67,12 +67,14 @@
             confirmButtonText: 'Mengerti',
           })
         }else{
+          $('#buttonLogin').attr('disabled', true);
           $('#buttonLogin').html(spinnerWhite);
           axios.postForm('auth/sign', {
             email: inputEmail,
             password: inputPassword
           })
           .then(function(response) {
+            $('#buttonLogin').attr('disabled', false);
             $('#buttonLogin').html('Masuk');
             console.log(response);
             const result = response.data;

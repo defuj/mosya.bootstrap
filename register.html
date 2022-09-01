@@ -85,6 +85,7 @@
                 confirmButtonText: 'Mengerti',
               })
             }else{
+              $('#buttonRegister').attr('disabled', true);
               $('#buttonRegister').html(spinnerWhite);
               axios.postForm('auth/register', {
                 name: name,
@@ -93,6 +94,7 @@
                 password: password,
               })
               .then(response => {
+                $('#buttonRegister').attr('disabled', false);
                 $('#buttonRegister').html('Buat Akun');
                 let result = response.data;
                 if(result.status){

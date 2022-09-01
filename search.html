@@ -257,12 +257,12 @@
           // filter by merk
           if(filter.merk != 'Semua' && filter.merk != ''){
             console.log('filter by merk ' + filter.merk);
-            newCars = newCars.filter(car => car.merk == filter.merk);
+            newCars = newCars.filter(car => car.brand == filter.merk);
             filterCount++;
           }else{
             if(params.has('merk')){
               const merk = params.get('merk');
-              newCars = newCars.filter(car => car.merk == merk);
+              newCars = newCars.filter(car => car.brand == merk);
               filterCount++;
             }
           }
@@ -317,7 +317,7 @@
             // document.getElementById('input-search').value = filters.get('search').toString();
             newCars = newCars.filter(car => 
                 car.model.toString().toLowerCase().includes(search.toString().toLowerCase())
-                || car.merk.toString().toLowerCase().includes(search.toString().toLowerCase())
+                || car.brand.toString().toLowerCase().includes(search.toString().toLowerCase())
                 || car.color.toString().toLowerCase().includes(search.toString().toLowerCase())
                 || car.fuel.toString().toLowerCase().includes(search.toString().toLowerCase()));
 
@@ -356,10 +356,10 @@
               try {
                 $('.container-product').append(
                 `<a class="product-items w-50 flex-column lazy" href="./product.html?id=${data.id}">
-                    <div class="lazy product-cover mb-2" style="background-image: url('${data.images[Math.floor(Math.random()*data.images.length)]}');"></div>
+                    <div class="lazy product-cover mb-2" style="background-image: url('${data.image_cover}');"></div>
                     <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
                     <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                    <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">Rp ${data.price}</p>
+                    <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">${data.price}</p>
                 </a>`
                 );
                 $('.lazy').Lazy();
@@ -393,7 +393,7 @@
       };
       
       // Get data car from server
-      axios.get('assets/js/cars.json')
+      axios.get('car/list')
         .then(response => {
           let result = response.data;
             if(result.status && result.data.length > 0){
@@ -431,7 +431,7 @@
           
           if($('.loading').length == 0){
             console.log('loading');
-            $('.main-content').prepend(`<lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>`)
+            $('.main-content').prepend(loading)
           }else{
             console.log('not loading');
           }

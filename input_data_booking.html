@@ -41,51 +41,7 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <form action="select_payment_booking.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
-        <p class="headline6 color-black500 semibold p-0 mb-4">
-          Identitas Pembeli
-        </p>
-
-        <input type="text" name="id" id="productId" hidden>
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nama Lengkap <span class="text-danger">*</span>
-        </label>
-        <input type="text" name="name" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Alamat Lengkap <span class="text-danger">*</span>
-        </label>
-        <input type="text" name="address" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nomor HP <span class="text-danger">*</span>
-        </label>
-        <input type="number" name="phone" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KTP <span class="text-danger">*</span>
-        </label>
-        <input type="file" name="cardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KK <span class="text-danger">*</span>
-        </label>
-        <input type="file" name="cardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Nama Lengkap Pasangan (Jika Ada)
-        </label>
-        <input type="text" name="name2" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan" enctype="multipart/form-data">
-
-        <label class="bodytext1 color-black500 p-0 mb-1">
-          Upload KTP Pasangan (Jika Ada)
-        </label>
-        <input type="file" name="cardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
-        <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
-        <button type="submit" id="buttonSubmit" hidden></button>
-      </form>
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
     </main>
     <!-- end body content -->
 
@@ -128,7 +84,7 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <button onclick="submitForm()" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+      <button id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
         <p class="mb-0 py-1">Selanjutnya</p>
       </button>
     </nav>
@@ -145,16 +101,178 @@
 
     <script>
         const params = new URLSearchParams(window.location.search);
-        function submitForm(){
-            $('#buttonSubmit').click();
+
+        let car = getCurrentCar();
+        if(car != null){
+          axios.get('car/detail?id='+params.get('id'))
+            .then(response => {
+              let result = response.data;
+              if(result.status){
+                $('.loading').remove();
+                $('.container-car').html(`
+                <form action="select_payment_booking.html" class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
+                  <p class="headline6 color-black500 semibold p-0 mb-4">
+                    Identitas Pembeli
+                  </p>
+
+                  <input type="text" name="id" id="productId" hidden>
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Nama Lengkap <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" id="inputName" name="name" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap" required>
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Alamat Lengkap <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" id="inputAddress" name="address" maxlength="250" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan alamat lengkap" required>
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Nomor HP <span class="text-danger">*</span>
+                  </label>
+                  <input type="number" id="inputPhone" name="phone" maxlength="15" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nomor hp" required>
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Upload KTP <span class="text-danger">*</span>
+                  </label>
+                  <input type="file" name="cardId" id="inputCardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
+                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Upload KK <span class="text-danger">*</span>
+                  </label>
+                  <input type="file" name="cardFamilly" id="inputCardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
+                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Nama Lengkap Pasangan (Jika Ada)
+                  </label>
+                  <input type="text" name="name2" id="inputName2" maxlength="100" class="form-input form-data-booking bodytext2 mb-3" placeholder="Masukan nama lengkap pasangan" enctype="multipart/form-data">
+
+                  <label class="bodytext1 color-black500 p-0 mb-1">
+                    Upload KTP Pasangan (Jika Ada)
+                  </label>
+                  <input type="file" name="cardId2" id="inputCardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
+                  <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
+                </form>
+                `)
+                
+                $('#buttonSubmit').click(function() {
+                    const inputName = $('#inputName').val()
+                    const inputAddress = $('#inputAddress').val()
+                    const inputPhone = $('#inputPhone').val()
+                    const inputCarId = document.querySelector('#inputCardId')
+                    const inputCardFamilly = document.querySelector('#inputCardFamilly')
+                    const inputName2 = $('#inputName2').val()
+                    const inputCardFamilly2 = document.querySelector('#inputCardId2')
+
+                    if(inputName == ''){
+                      Swal.fire({
+                        title: 'Perhatian',
+                        text: 'Nama lengkap harus diisi',
+                        icon: 'error',
+                        confirmButtonText: 'Mengerti',
+                      })
+                    }else{
+                      if(inputAddress == ''){
+                        Swal.fire({
+                          title: 'Perhatian',
+                          text: 'Alamat lengkap harus diisi',
+                          icon: 'error',
+                          confirmButtonText: 'Mengerti',
+                        })
+                      }else{
+                        if(inputPhone == ''){
+                          Swal.fire({
+                            title: 'Perhatian',
+                            text: 'Nomor HP harus diisi',
+                            icon: 'error',
+                            confirmButtonText: 'Mengerti',
+                          })
+                        }else{
+                          if(inputCarId.files.length == 0){
+                            Swal.fire({
+                              title: 'Perhatian',
+                              text: 'File KTP harus diisi',
+                              icon: 'error',
+                              confirmButtonText: 'Mengerti',
+                            })
+                          }else{
+                            if(inputCardFamilly.files.length == 0){
+                              Swal.fire({
+                                title: 'Perhatian',
+                                text: 'File KK harus diisi',
+                                icon: 'error',
+                                confirmButtonText: 'Mengerti',
+                              })
+                            }else{
+                              
+                            }
+                          }
+                        }
+                      }
+                    }
+                    
+                    
+                });
+              }else{
+                deleteCurrentCar();
+                  Swal.fire({
+                  title: 'Perhatian',
+                  text: 'Mobil yang anda pilih tidak tersedia',
+                  icon: 'error',
+                  confirmButtonText: 'Kembali',
+                  allowOutsideClick: false,
+                }).then((result) => {
+                  if (result.value) {
+                    deleteCurrentCar();
+                    history.back();
+                  }
+                })
+              }
+          })
+          .catch(error => {
+              deleteCurrentCar();
+              Swal.fire({
+                title: 'Perhatian',
+                text: 'Terjadi kesalahan, silahkan kembali lagi nanti',
+                icon: 'error',
+                confirmButtonText: 'Kembali',
+                allowOutsideClick: false,
+              }).then((result) => {
+                if (result.value) {
+                  deleteCurrentCar();
+                  history.back();
+                }
+              })
+          });
+        }else{
+          Swal.fire({
+            title: 'Perhatian',
+            text: 'Anda belum memilih mobil yang akan dibooking',
+            icon: 'error',
+            confirmButtonText: 'Pilih Mobil',
+            allowOutsideClick: false,
+          }).then((result) => {
+            if (result.value) {
+              window.location.href = './search.html';
+            }
+          })
         }
 
         if(params.has('id') && params.get('id') != ''){
+          // check car is already booked
+          axios.get('car/detail?id='+params.get('id'))
+            .then(response => {
+              let result = response.data;
+              if(result){
+
+              }
+            });
             $('#productId').val(params.get('id'));
           // document.getElementById("productId").value = params.get('id');
         }else{
+          deleteCurrentCar();
           history.back();
-          console.log('back');
         }
     </script>
   </body>

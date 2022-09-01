@@ -92,7 +92,7 @@
             <p class="mb-0 bodytext1 semibold color-black600">Sintia</p>
             <p class="mb-0 bodytext2 color-black300">Narahubung</p>
           </div>
-          <a href="https://wa.me/+6285315131514/?text=Hallo," target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+          <a href="https://wa.me/+6285315131514/?text=Hallo," target="_blank" id="sendMessage" rel="noopener noreferrer" class="text-decoration-none">
             <i class="fi fi-brands-whatsapp mr-2 px-2 mt-1" ></i>
           </a>
           
@@ -134,10 +134,6 @@
       <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
         <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
       </div>
-
-      <div class="d-none">
-        
-      </div>
     </footer>
     <!-- end content footer -->
 
@@ -177,14 +173,6 @@
           </div>
       </div>`;
 
-      $('#buttonRequest').click(function(){
-        if(checkAccount()){
-          $('#buttonSubmit').click();
-        }else{
-          window.location.href = "login.html";
-        }
-      });
-
       // banner slider
       const startSlider = () => {
         var swiper = new Swiper(".carSlider", {
@@ -203,35 +191,52 @@
             },
         });
       }
-
+      
       if(params.has('id')){
-        if(params.get('id') == ''){
+        const id = params.get('id')
+        if(id == ''){
           $('.container-slider').remove();
           $('.container-data').remove();
           $('.bottom-nav-buy').remove();
           $('.loading').remove();
           $('.container-car').html(emptyState); 
         }else{
-          $('#productId').val(params.get('id'));
-          axios.get('assets/js/product.json')
+          $('#productId').val(id)
+          axios.get('car/detail?id='+id)
           .then(response =>{
             let result = response.data;
             if(result.status){
               let data = result.data;
+              console.log(data);
+              // prepare data car for request
+              $('#buttonRequest').click(function(){
+                if(checkAccount()){
+                  // $('#buttonSubmit').click();
+                  setCurrentCar(data);
+                  window.location.href = "input_data_booking.html?id=" + data.id;
+                }else{
+                  window.location.href = "login.html";
+                }
+              });
+
               // load image banner
-              data.image.map((img)=>{
+              if(data.image.length > 0){
+                data.image.map((img)=>{
                   document.querySelector('.swiper-wrapper').insertAdjacentHTML('afterbegin',`
                   <div class="swiper-slide">
                       <img src="${img}" alt="" srcset="">
                   </div>`);
-              });
-              startSlider();
+                });
+                startSlider();
+              }else{
+                $('.container-slider').remove();
+              }
 
               // load data product
               $('#data-merk').html(`<a href="search.html?merk=${data.brand}" class=" color-black300"><u>#${data.brand}</u></a>`);
               $('#data-model').html(data.model);
               $('#data-desc').html(data.description)
-              $('#data-price').html(`Rp ${data.price}`);
+              $('#data-price').html(`${data.price}`);
               $('.data-spec').append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Warna</p>
@@ -265,7 +270,7 @@
               $('.data-dp').append(`
               <div class="spec-item flex-column justify-content-start flex-fill">
                   <p class="caption color-black300 mb-0">Tunai</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">Rp ${data.price}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
               </div>`);
               $('.data-dp').append(`
               <div class="spec-item flex-column justify-content-start flex-fill">
@@ -292,6 +297,8 @@
               $('.loading').remove();
               $('.container-slider').removeClass('d-none');
               $('.container-data').removeClass('d-none');
+
+              $('#sendMessage').attr('href',`https://wa.me/+6285315131514/?text=Hallo,\nSaya ingin membeli mobil ${data.model} dengan harga ${data.price}`);
 
             }else{
               $('.container-slider').remove();

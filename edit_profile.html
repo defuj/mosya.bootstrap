@@ -41,10 +41,10 @@
     <!-- start body content -->
     <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5">
         <!-- start content welcome user -->
-        <form class="container-user d-flex justify-content-center flex-column w-100 px-3 py-4 mb-4">
+        <form enctype="multipart/form-data" class="container-user d-flex justify-content-center flex-column w-100 px-3 py-4 mb-4">
             <label class="container-image-profile mx-auto" for="choose-image">
                 <img src="./assets/images/user-default.png" alt="profile" class="image-profile" id="image-profile">
-                <input type="file" name="picture" id="choose-image" accept="image/png, image/gif, image/jpeg" hidden>
+                <input type="file" name="picture"  id="choose-image" accept="image/png, image/gif, image/jpeg" hidden>
                 <i class="fi fi-rr-camera change-picture"></i>
             </label>
 
@@ -58,9 +58,9 @@
                 <input type="number" name="phone" id="dataPhone" maxlength="15" class="form-input bodytext2" placeholder="Nomor Telpon" required>
             </div>
 
-            <div class="input-group-custom bg-white mt-3">
-                <i class="fi fi-rr-at color-black400"></i>
-                <input type="email" name="email" id="dataEmail" class="form-input bodytext2" placeholder="Alamat Email" required>
+            <div class="input-group-custom bg-light mt-3">
+                <i class="fi fi-rr-at color-black300"></i>
+                <input type="email" name="email" id="dataEmail" class="form-input bodytext2 color-black300" placeholder="Alamat Email" disabled required>
             </div>
 
             <button type="button" id="buttonSave" class="button-action-save text-white background-green500 bodytext1 text-center mt-5">
@@ -125,17 +125,16 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-      const checkUser = ()=> {
-        if(checkAccount()){
-          const user = getAccount();
-          $('#dataName').val(user.name);
-          $('#dataPhone').val(user.phone);
-          $('#dataEmail').val(user.email);
-          $('#image-profile').attr('src', user.image);
-        }
+      if(checkAccount()){
+        const user = getAccount();
+        console.log(user);
+        $('#dataName').val(user.name);
+        $('#dataPhone').val(user.phone.replace('+', ''));
+        $('#dataEmail').val(user.email);
+        user.image != null ? $('#image-profile').attr('src', user.image) : '';
+      }else{
+        window.location.href = './login.html';
       }
-
-      checkUser();
 
       document.getElementById('choose-image').onchange = function (evt) {
         var tgt = evt.target || window.event.srcElement,
@@ -156,28 +155,49 @@
       $('#buttonSave').click(function(e){
         const name = $('#dataName').val();
         const phone = $('#dataPhone').val();
-        const email = $('#dataEmail').val();
-        const image = $('#image-profile').attr('src');
-        const data = {
-          id: getAccount().id,
-          name: name,
-          phone: phone,
-          email: email,
-          image: image
-        }
+        const account = getAccount()
 
-        console.log(data);
-        if(name != '' && phone != '' && email != ''){
-          Swal.fire({
-            icon: 'success',
-            title: 'Berhasil',
-            text: 'Data berhasil disimpan',
-          }).then(result => {
-            if(result.value){
-              setAccount(data);
-              window.location.href = '/profile.html';
+        if(name != '' && phone != ''){
+          $('#buttonSave').attr('disabled', true);
+          $('#buttonSave').html(spinnerWhite);
+
+          const postForm = {
+            id: account.id,
+            name: name,
+            phone: phone,
+            image: document.querySelector('#choose-image').files[0]
+          }
+          axios.postForm('auth/update_profile', postForm).then(response=>{
+            $('#buttonSave').attr('disabled', false);
+            $('#buttonSave').html('Simpan Perubahan');
+            console.log(response.data);
+            let result = response.data;
+            if(result.status){
+              Swal.fire({
+                icon: 'success',
+                title: 'Berhasil',
+                text: 'Data berhasil disimpan',
+              }).then(res => {
+                if(res.value){
+                  setAccount(result.data);
+                  window.location.href = '/profile.html';
+                }
+              })
+            }else{
+              Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Data gagal disimpan',
+              })
             }
           })
+          .catch(error=>{
+            $('#buttonSave').attr('disabled', false);
+            $('#buttonSave').html('Simpan Perubahan');
+            console.log(error);
+          })
+
+          
         }else{
           Swal.fire({
             icon: 'error',

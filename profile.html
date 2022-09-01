@@ -185,7 +185,7 @@
     <script>
       try {
         const account = getAccount();
-        $('#dataImage').attr('src', account.image);
+        account.image != null ? $('#dataImage').attr('src', account.image) : '';
         $('#dataEmail').text(account.email + ' | ' + account.phone);
         $('#dataName').text(account.name);
       } catch (error) {}
