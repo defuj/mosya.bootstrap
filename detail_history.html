@@ -103,8 +103,47 @@
 
         const params = new URLSearchParams(window.location.search);
         $('#container-status').removeClass('status-0');
-
         const user = getAccount();
+
+        const confirmRequest = () =>{
+          $('#buttonConfirm').attr('disabled', true);
+          $('#buttonConfirm').html(spinnerWhite);
+
+          axios.get(`history/confirm?id=${params.get('code')}&user_id=${user.id}`)
+            .then(response=>{
+              $('#buttonConfirm').attr('disabled', false);
+              $('#buttonConfirm').html('Pesanan Diterima');
+              let result = response.data;
+              console.log(result);
+              if(result.status){
+                Swal.fire({
+                  title: 'Pesanan Diterima',
+                  text: 'Pesanan kamu sudah diterima',
+                  icon: 'success',
+                  confirmButtonText: 'OK'
+                }).then((result) => {
+                  window.location.href = `history.html?code=${params.get('code')}`;
+                });
+              }else{
+                Swal.fire({
+                  title: 'Gagal',
+                  text: result.message,
+                  icon: 'error',
+                  confirmButtonText: 'Oke'
+                })
+              }
+            }).catch(error=>{
+              $('#buttonConfirm').attr('disabled', false);
+              $('#buttonConfirm').html('Pesanan Diterima');
+              Swal.fire({
+                title: 'Gagal',
+                text: 'Terjadi kesalahan, silahkan coba lagi',
+                icon: 'error',
+                confirmButtonText: 'Oke'
+              })
+            })
+        }
+
         if(params.has('code') && params.get('code') != ''){
           axios.get(`history/detail?id=${params.get('code')}&user_id=${user.id}`)
           .then(response=> {
@@ -244,7 +283,7 @@
                   $('#container-action').remove();
                   break;
                 
-                case 'Dibatalkan':
+                case 'Batal':
                   $('#container-status').addClass('status-1');
                   $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
                   $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.');
@@ -300,8 +339,7 @@
                   confirmButtonText: 'Ya, Sudah Sampai'
                 }).then((result) => {
                   if (result.isConfirmed) {
-                    $('#buttonConfirm').attr('disabled', true);
-                    $('#buttonConfirm').html(spinnerWhite);
+                    confirmRequest()
                   }
                 });
               })

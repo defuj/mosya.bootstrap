@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Mosya - Pembayaran Booking</title>
+    <title>Mosya - Lacak Pengiriman</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
@@ -25,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="align-items-start pt-0 flex-column">
     <!-- start navigation bar -->
@@ -40,30 +42,9 @@
 
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
+      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
 
-      <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
-        <p class="mb-1 bodytext1 semibold color-black500 mb-2">
-          Status Pemesanan
-        </p>
-        <div class="d-flex flex-row justify-content-between mb-1">
-          <p class="mb-0 bodytext2 color-black400 flex-fill">
-            Nomor Pesanan
-          </p>
-          <p class="mb-0 bodytext2 semibold color-black500">
-            #92929379938
-          </p>
-        </div>
-        <div class="d-flex flex-row justify-content-between mb-1">
-            <p class="mb-0 bodytext2 color-black400 flex-fill">
-              Waktu Pemesanan
-            </p>
-            <p class="mb-0 bodytext2 semibold color-black500">
-              07-08-2022 13:00:59
-            </p>
-          </div>
-      </div>
-
-      <div class="container-tracking px-4 py-3 d-flex flex-column mb-2 mt-3">
+      <!-- <div class="container-tracking px-4 py-3 d-flex flex-column mb-2 mt-3">
         <div class="timeline">
             <div class="pb-4 container-track end right">
               <div class="content">
@@ -71,10 +52,10 @@
                     <p class="mb-0 color-green500 bodytext1 flex-fill">Sabtu, 20 Agustus 2022</p>
                     <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
                 </div>
-                
                 <p class="mb-0 color-black300 bodytext2">Mobil telah diterima penerima.</p>
               </div>
             </div>
+
             <div class="pb-4 container-track right">
               <div class="content">
                 <div class="d-flex flex-row justify-content-between">
@@ -84,18 +65,19 @@
                 <p class="mb-0 color-black300 bodytext2">Mobil berada di Jakarta Utara</p>
               </div>
             </div>
-            <div class="pb-4 container-track start right">
-                <div class="content">
-                    <div class="d-flex flex-row justify-content-between">
-                        <p class="mb-0 color-black500 bodytext1 flex-fill">Jumat, 18 Agustus 2022</p>
-                        <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
-                    </div>
-                  <p class="mb-0 color-black300 bodytext2">Pesanan kamu sedang dikirim</p>
-                </div>
-              </div>
 
+            <div class="pb-4 container-track start right">
+              <div class="content">
+                <div class="d-flex flex-row justify-content-between">
+                    <p class="mb-0 color-black500 bodytext1 flex-fill">Jumat, 18 Agustus 2022</p>
+                    <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
+                </div>
+                <p class="mb-0 color-black300 bodytext2">Pesanan kamu sedang dikirim</p>
+              </div>
+            </div>
+          
           </div>
-      </div>
+      </div> -->
 
     </main>
     <!-- end body content -->
@@ -143,7 +125,133 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-        
+      if(!checkAccount()){
+        window.location.href = 'login.html';
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const user = getAccount();
+
+      const loadTrack = () =>{
+        axios.get(`history/tracking?id=${params.get('code')}&user_id=${user.id}`)
+          .then(response=>{
+            let result = response.data;
+            console.log(result);
+            if(result.status){
+              $('.loading').remove();
+              $('.container-car').append(`
+              <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
+                <p class="mb-1 bodytext1 semibold color-black500 mb-2">
+                  Status Pemesanan
+                </p>
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Nomor Pesanan
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500">
+                    #${result.data.id}
+                  </p>
+                </div>
+                <div class="d-flex flex-row justify-content-between mb-1">
+                  <p class="mb-0 bodytext2 color-black400 flex-fill">
+                    Waktu Pemesanan
+                  </p>
+                  <p class="mb-0 bodytext2 semibold color-black500">
+                    ${result.data.date}
+                  </p>
+                </div>
+              </div>
+              `);
+
+              if(result.data.tracking.length > 0){
+                $('.container-car').append(`
+                <div class="container-tracking px-4 py-3 d-flex flex-column mb-2 mt-3">
+                  <div class="timeline">
+                    ${
+                      result.data.tracking.map((item, i)=>{
+                        return `
+                        <div class="pb-4 container-track ${i == 0 ? 'start' : i+1 == result.data.tracking.length ? 'end' : ''} right">
+                          <div class="content">
+                            <div class="d-flex flex-row justify-content-between">
+                                <p class="mb-0 color-green500 bodytext1 flex-fill">${item.date}</p>
+                                <p class="mb-0 color-black300 bodytext2">${item.time}</p>
+                            </div>
+                            <p class="mb-0 color-black300 bodytext2">${item.description}</p>
+                          </div>
+                        </div>
+                        `;
+                      }).reverse().join('')
+                    }
+                    </div>
+                </div>
+                `)
+              }
+            }else{
+              Swal.fire({
+                title: 'Perhatian',
+                text: 'Tidak menemukan informasi pesanan',
+                icon: 'error',
+                confirmButtonText: 'Kembali'
+              }).then((result) => {
+                window.location.href = 'history.html';
+              });
+            }
+          }).catch(error=>{
+            console.log(error);
+            Swal.fire({
+              title: 'Gagal',
+              text: 'Terjadi kesalahan, silahkan coba lagi',
+              icon: 'error',
+              confirmButtonText: 'Kembali'
+            }).then((result) => {
+              window.location.href = 'history.html';
+            });
+          })
+      }
+
+      if(params.has('code') && params.get('code') != ''){
+        axios.get(`history/detail?id=${params.get('code')}&user_id=${user.id}`)
+          .then(response => {
+            let result = response.data;
+            console.log(result);
+            if(result.status){
+              if(result.data.status == 'Dikirim'){
+                loadTrack();
+              }else{
+                Swal.fire({
+                  title: 'Perhatian',
+                  text: 'Pesanan kamu belum dikirim',
+                  icon: 'warning',
+                  confirmButtonText: 'Kembali'
+                }).then((result) => {
+                  window.location.href = 'history.html';
+                });
+              }
+            }else{
+              Swal.fire({
+                title: 'Perhatian',
+                text: 'Tidak menemukan informasi pesanan',
+                icon: 'error',
+                confirmButtonText: 'Kembali'
+              }).then((result) => {
+                window.location.href = 'history.html';
+              });
+            }
+          })
+          .catch(error => {
+            console.log(error);
+            Swal.fire({
+              title: 'Gagal',
+              text: 'Terjadi kesalahan, silahkan coba lagi',
+              icon: 'error',
+              confirmButtonText: 'Kembali'
+            }).then((result) => {
+              window.location.href = 'history.html';
+            });
+          });
+      }else{
+        window.location.href = 'history.html';
+      }
     </script>
   </body>
 </html>

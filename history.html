@@ -313,7 +313,7 @@
                         ${data.date}
                       </p>
                     </div>
-                    <p class="${(data.status == 'Belum Bayar' || data.status == 'Dibatalkan' || data.status == null) ? 'payment-status-1' : 'payment-status-2'} semibold caption mb-0">
+                    <p class="${(data.status == 'Belum Bayar' || data.status == 'Batal' || data.status == null) ? 'payment-status-1' : 'payment-status-2'} semibold caption mb-0">
                       ${data.status == null ? 'Belum Bayar' : data.status}
                     </p>
                   </div>
