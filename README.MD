@@ -813,3 +813,30 @@ Response :
 	message: "string",
 }
 ```
+
+## Booking - Get Info Payment
+
+Request :
+
+-   Method : POST
+-   Endpoint : `/payment/info`
+-   Body :
+
+```json5
+{
+	code: "string", // value : booking code
+}
+```
+
+Response :
+
+```json5
+{
+	status: "boolean", //value : true or false
+	message: "string",
+	data: {
+		code_unique: "string", // the value is code uniq, ex: Rp 751
+		total_payment: "string", // the value is total price, ex: Rp 200.751
+	},
+}
+```

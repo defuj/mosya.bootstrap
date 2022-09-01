@@ -127,14 +127,15 @@
             $('#buttonSubmit').attr('disabled', false)
             console.log(result);
             if(result.status){
-              Swal.fire({
-                title: 'Berhasil',
-                text: 'Pemesanan berhasil',
-                icon: 'success',
-                confirmButtonText: 'Mengerti',
-              }).then(() => {
-                window.location.href = 'select_payment_booking.html'
-              })
+              // Swal.fire({
+              //   title: 'Berhasil',
+              //   text: 'Pemesanan berhasil',
+              //   icon: 'success',
+              //   confirmButtonText: 'Mengerti',
+              // }).then(() => {
+              //   window.location.href = 'select_payment_booking.html'
+              // })
+              window.location.href = 'select_payment_booking.html'
             }else{
               console.log(result);
               Swal.fire({

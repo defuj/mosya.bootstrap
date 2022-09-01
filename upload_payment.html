@@ -210,18 +210,28 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        function submitForm(){
-            $('#buttonSubmit').click();
-        }
+      if(!checkAccount()){
+        window.location.href = './login.html';
+      }
+      
+      let booking = getBooking();
+      console.log(booking);
+      if(booking == null){
+        window.location.href = './home.html';
+      }
+      
+      const params = new URLSearchParams(window.location.search);
+      if(params.has('code') && params.get('code') != ''){
 
-        if(params.has('id') && params.get('id') != ''){
-            $('#productId').val(params.get('id'));
-          // document.getElementById("productId").value = params.get('id');
-        }else{
-          history.back();
-          console.log('back');
-        }
+      }else{
+        window.location.href = './home.html';
+      }
+      
+      function submitForm(){
+          $('#buttonSubmit').click();
+      }
+
+
     </script>
   </body>
 </html>

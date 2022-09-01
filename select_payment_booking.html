@@ -147,6 +147,9 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+      if(!checkAccount()){
+        window.location.href = './login.html';
+      }
       var paymentSelected = null;
 
       function selectPayment(item, payment) {
@@ -158,10 +161,6 @@
             e.classList.remove("active");
         });
         item.classList.add("active");
-      }
-
-      function submitForm(){
-        document.getElementById("buttonSumbit").click();
       }
 
       $(".input-select-method").change(function() {
@@ -213,10 +212,10 @@
                           })
                         }else{
                           $('#buttonSubmit').attr('disabled', true);
-                          $('#buttonSubmit').html(spinnerWhite);
-                          axios.postForm('',{
-                            booking: booking.code,
-                            payment: paymentSelected
+                          $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+                          axios.postForm('booking/payment',{
+                            code: booking.code,
+                            payment_method: parseInt(paymentSelected)
                           })
                             .then(response => {
                               $('#buttonSubmit').attr('disabled', false);
@@ -224,15 +223,17 @@
                               
                                 let result = response.data;
                                 if(result.status){
-                                  Swal.fire({
-                                    title: 'Berhasil',
-                                    text: 'Pemesanan berhasil',
-                                    icon: 'success',
-                                    confirmButtonText: 'Mengerti'
-                                  }).then(()=>{
-                                    window.location.href = './';
-                                  })
+                                  // Swal.fire({
+                                  //   title: 'Berhasil',
+                                  //   text: 'Pemesanan berhasil',
+                                  //   icon: 'success',
+                                  //   confirmButtonText: 'Mengerti'
+                                  // }).then(()=>{
+                                  //   window.location.href = './';
+                                  // })
+                                  window.location.href = 'upload_payment.html?code='+booking.code;
                                 }else{
+                                  console.log(result);
                                   Swal.fire({
                                     title: 'Gagal',
                                     text: result.message,
@@ -242,6 +243,8 @@
                                 }
                             })
                             .catch(error => {
+                              $('#buttonSubmit').attr('disabled', false);
+                              $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
                                 Swal.fire({
                                   title: 'Gagal',
                                   text: 'Terjadi kesalahan',
