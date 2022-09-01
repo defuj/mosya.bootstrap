@@ -215,80 +215,96 @@
               `);
 
               switch (result.data.status) {
-              case 'Belum Bayar':
-                $('nav').removeClass('d-none');
-                $('footer').removeClass('without-navbar');
-                $('#container-status').addClass('status-1');
-                $('#statusTitle').html('Pesanan Kamu Belum Dibayar');
-                $('#statusDesc').html('Segera lakukan pembayaran booking fee !');
-                $('#container-action').html(`
-                  <a href="upload_payment.html?code=${params.get('code')}" class="d-flex flex-fill text-decoration-none">
-                    <button type="button" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-                      <p class="mb-0 py-1">Bayar Sekarang</p>
-                    </button>
-                  </a>
-                `);
-                break;
-            
-              case 'Dibayar':
-                $('#container-status').addClass('status-2');
-                $('#statusTitle').html('Pesanan Kamu Sudah Dibayar');
-                $('#statusDesc').html('Silahkan tunggu, informasi selanjutnya akan kamihubungi via nomor telepon yang terdaftar');
-                $('#container-action').remove();
-                break;
-
-              case 'Diverifikasi':
-                $('#container-status').addClass('status-2');
-                $('#statusTitle').html('Pesanan Kamu Sedang Diverifikasi');
-                $('#statusDesc').html('Pesanan kamu sedang diverifikasi oleh tim kami, harap  tunggu informasi selanjunya.');
-                $('#container-action').remove();
-                break;
+                case 'Belum Bayar':
+                  $('nav').removeClass('d-none');
+                  $('footer').removeClass('without-navbar');
+                  $('#container-status').addClass('status-1');
+                  $('#statusTitle').html('Pesanan Kamu Belum Dibayar');
+                  $('#statusDesc').html('Segera lakukan pembayaran booking fee !');
+                  $('#container-action').html(`
+                    <a href="upload_payment.html?code=${params.get('code')}" class="d-flex flex-fill text-decoration-none">
+                      <button type="button" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                        <p class="mb-0 py-1">Bayar Sekarang</p>
+                      </button>
+                    </a>
+                  `);
+                  break;
               
-              case 'Dibatalkan':
-                $('#container-status').addClass('status-1');
-                $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
-                $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.');
-                $('#container-action').remove();
-                break;
+                case 'Dibayar':
+                  $('#container-status').addClass('status-2');
+                  $('#statusTitle').html('Pesanan Kamu Sudah Dibayar');
+                  $('#statusDesc').html('Silahkan tunggu, informasi selanjutnya akan kamihubungi via nomor telepon yang terdaftar');
+                  $('#container-action').remove();
+                  break;
 
-              case 'Diperjalanan':
-                $('nav').removeClass('d-none');
-                $('footer').removeClass('without-navbar');
-                $('#container-status').addClass('status-2');
-                $('#statusTitle').html('Pesana Kamu Dalam Perjalanan');
-                $('#statusDesc').html('Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN.');
-                $('#container-action').html(`
-                  <a href="#" class="d-flex flex-fill text-decoration-none">
-                    <button type="submit" class="mr-2 button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
-                      Pesanan Diterima
-                    </button>
-                  </a>  
-                  <a href="tracking_location.html" class="d-flex flex-fill text-decoration-none">
-                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white justify-content-center background-green500" type="button">
-                      Lacak Pesanan
-                    </button>
-                  </a>
-                `);
-                break;
+                case 'Verifikasi':
+                  $('#container-status').addClass('status-2');
+                  $('#statusTitle').html('Pesanan Kamu Sedang Diverifikasi');
+                  $('#statusDesc').html('Pesanan kamu sedang diverifikasi oleh tim kami, harap  tunggu informasi selanjunya.');
+                  $('#container-action').remove();
+                  break;
+                
+                case 'Dibatalkan':
+                  $('#container-status').addClass('status-1');
+                  $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
+                  $('#statusDesc').html('Kami menemukan permasalahan terkain identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.');
+                  $('#container-action').remove();
+                  break;
 
-              case 'Sampai':
-                $('nav').removeClass('d-none');
-                $('footer').removeClass('without-navbar');
-                $('#container-status').addClass('status-2');
-                $('#statusTitle').html('Pesanan Kamu Sudah Sampai');
-                $('#statusDesc').html('Alhamdulillah pesanan kamu sudah sampai.');
-                $('#container-action').html(`
-                  <a href="#" class="d-flex flex-fill text-decoration-none">
-                    <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-                      <p class="mb-0 py-1">Belanja Lagi</p>
-                    </button>
-                  </a>
-                `);
-                break;
+                case 'Dikirim':
+                  $('nav').removeClass('d-none');
+                  $('footer').removeClass('without-navbar');
+                  $('#container-status').addClass('status-2');
+                  $('#statusTitle').html('Pesana Kamu Dalam Perjalanan');
+                  $('#statusDesc').html('Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN.');
+                  $('#container-action').html(`
+                    <a class="d-flex flex-fill text-decoration-none w-50">
+                      <button type="button" id="buttonConfirm" class="mr-2 button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
+                        Pesanan Diterima
+                      </button>
+                    </a>  
+                    <a href="tracking_location.html?code=${params.get('code')}" class="d-flex flex-fill text-decoration-none w-50">
+                      <button type="button" class="button-message flex-fill bodytext2 semibold text-white justify-content-center background-green500" type="button">
+                        Lacak Pesanan
+                      </button>
+                    </a>
+                  `);
+                  break;
 
-              default:
-                break;
-            }
+                case 'Sampai':
+                  $('nav').removeClass('d-none');
+                  $('footer').removeClass('without-navbar');
+                  $('#container-status').addClass('status-2');
+                  $('#statusTitle').html('Pesanan Kamu Sudah Sampai');
+                  $('#statusDesc').html('Alhamdulillah pesanan kamu sudah sampai.');
+                  $('#container-action').html(`
+                    <a href="#" class="d-flex flex-fill text-decoration-none">
+                      <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+                        <p class="mb-0 py-1">Belanja Lagi</p>
+                      </button>
+                    </a>
+                  `);
+                  break;
+
+                default:
+                  break;
+              }
+            
+              $('#buttonConfirm').click(function(){
+                Swal.fire({
+                  title: 'Mobil sudah diterima?',
+                  text: 'Apakah kamu yakin pesanan kamu sudah sampai?',
+                  icon: 'question',
+                  showCancelButton: true,
+                  cancelButtonText: 'Tidak',
+                  confirmButtonText: 'Ya, Sudah Sampai'
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    $('#buttonConfirm').attr('disabled', true);
+                    $('#buttonConfirm').html(spinnerWhite);
+                  }
+                });
+              })
 
             }else{
               Swal.fire({

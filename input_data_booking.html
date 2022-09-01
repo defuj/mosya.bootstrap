@@ -105,7 +105,7 @@
 
         // upload booking image identity
         const uploadImage = (code) => {
-          $('#buttonSubmit').html(spinnerWhite)
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`)
           $('#buttonSubmit').attr('disabled', true)
           const inputCarId = document.querySelector('#inputCardId')
           const inputCardFamilly = document.querySelector('#inputCardFamilly')
