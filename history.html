@@ -302,7 +302,7 @@
             if(data.length > 0){
               $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
               data.map((data, i)=>{
-                $('.container-history').append(`
+                $('.container-history').prepend(`
                 <a href="detail_history.html?code=${data.id}" class="d-flex flex-column history-item mb-3 text-decoration-none">
                   <div class=" d-flex flex-row justify-content-center align-items-center">
                     <div class="d-flex flex-column flex-fill">
@@ -326,7 +326,7 @@
                     </div>
                   </div>
                 </a>`)
-              })
+              });
             }else{
               $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
               $('.container-history').html(emptyState);
