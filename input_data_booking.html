@@ -236,7 +236,7 @@
                                       card_familly: inputCardFamilly.files[0],
                                       card_id_2: inputCardId2.files.length > 0 ? inputCardId2.files[0] : null,
                                     }
-                                    axios.postForm('booking/update', postForm).then(response => {
+                                    axios.postForm('booking/upload', postForm).then(response => {
                                       let result = response.data;
                                       $('#buttonSubmit').html('Selanjutnya')
                                       $('#buttonSubmit').attr('disabled', false)
