@@ -770,7 +770,7 @@ Response :
 Request :
 
 -   Method : POST
--   Endpoint : `/booking/create`
+-   Endpoint : `/booking/upload`
 -   Body :
 
 ```json5
