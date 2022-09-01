@@ -176,39 +176,47 @@
 
       const fetchCars = () => {
             const params = new URLSearchParams(window.location.search);
-            
-            axios.get('assets/js/cars.json')
-            .then(response => {
-                var cars = response.data;
-                // filter by color
-                if(params.has('id') && params.get('id').toString() != ''){
-                    $("#productId").val(params.get('id'));
-                    params.has('name') && params.get('name') != '' ? $('#dataName').val(params.get('name')) : '';
-                    params.has('name2') && params.get('name2') != '' ? $('#dataName2').val(params.get('name2')) : '';
-                    params.has('address') && params.get('address') != '' ? $('#dataAddress').val(params.get('address')) : '';
-                    params.has('phone') && params.get('phone') != '' ? $('#dataPhone').val(params.get('phone')) : '';
-                    // params.has('cardId') ? $('#dataCardId').val(params.get('cardId')) : '';
-                    // params.has('cardId2') ? $('#dataCardId2').val(params.get('cardId2')) : '';
-                    // params.has('cardFamilly') ? $('#dataCardFamilly').val(params.get('cardFamilly')) : '';
-                    
-                    cars = cars.filter(car => car.id == params.get('id').toString());
-                    if(cars.length > 0){
-                        const data = cars[0];
-                        const img = data.images[Math.floor(Math.random()*data.images.length)];
-                        console.log(img);
+            let booking = getBooking();
+            console.log(booking);
+            if(booking != null){
+              axios.get('car/detail?id='+booking.car)
+                .then(response => {
+                    let result = response.data;
+                    if(result.status){
+                      let data = result.data;
+                      $('#dataImage').attr('src', data.image_cover);
+                      $('#dataMerk').html(data.brand);
+                      $('#dataModel').html(data.model);
+                      $('#dataColorYear').html(data.color + ' | ' + data.year);
 
-                        document.getElementById('dataImage').src = img;
-                        document.getElementById('dataMerk').innerHTML = data.merk;
-                        document.getElementById('dataModel').innerHTML = data.model;
-                        document.getElementById('dataColorYear').innerHTML = data.color + ' | ' + data.year;
+                      $('.container-payment-type').append(`
+                      <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                        <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
+                        <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
+                        <input type="checkbox" name="payment" class="input-select-method" value="0" hidden>
+                      </label>
+                      `)
+                      data.payments.map((pay)=>{
+                        $('.container-payment-type').append(`
+                        <label class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                          <p class="bodytext2 color-black500 semibold mb-1">Cicilan 48 Bulan</p>
+                          <div class="d-flex flex-fill flex-row justity-content-between w-100">
+                            <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: ${pay.dp}</p>
+                            <p class="bodytext2 color-black500 semibold mb-0">Cicilan: ${pay.cicilan}</p>
+                          </div>
+                          <input type="checkbox" name="payment" class="input-select-method" value="${pay.id}" hidden>
+                        </label>
+                        `)
+                      })
                     }else{
                       history.back();
                     }
-                }else{
-                  history.back();
-                }
-            })
-            .catch(error => '');
+                })
+                .catch(error => history.back());
+            }else{
+              history.back();
+            }
+
         };
 
         fetchCars();
