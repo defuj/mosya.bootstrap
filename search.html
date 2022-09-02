@@ -46,7 +46,7 @@
         <div class="container-menu-tab w-100 d-flex justify-content-between mt-2">
             <button class="menu-tab-item bodytext2 flex-fill active">Semua</button>
             <button class="menu-tab-item bodytext2 flex-fill">Terbaru</button>
-            <button class="menu-tab-item bodytext2 flex-fill">Harga</button>
+            <button id="menu-price" class="menu-tab-item bodytext2 flex-fill">Harga</button>
         </div>
       </div>
     </nav>
@@ -211,6 +211,9 @@
 
     <script>
       const params = new URLSearchParams(window.location.search);
+      let order = 'all' // all, newest, price
+      let orderType = "asc" // asc, desc
+
       if(params.has('search')){
         const search = params.get('search');
         $('#input-search').val(search);
@@ -354,22 +357,41 @@
                 </p>
               `);
             }
+
+            switch (order) {
+              case 'all':
+                newCars = newCars.sort((a, b) => parseInt(a.id) - parseInt(b.id));
+                break;
+
+              case 'newest':
+                newCars = newCars.sort((a, b) => parseInt(b.id) - parseInt(a.id));
+                break;
+
+              case 'price':
+                console.log('order by price ' + orderType);
+                newCars = newCars.sort((a, b) => {
+                  if(orderType == 'asc'){
+                    return parseInt(a.price.replace('Rp. ', '')) - parseInt(b.price.replace('Rp. ', ''));
+                  }else{
+                    return parseInt(b.price.replace('Rp. ', '')) - parseInt(a.price.replace('Rp. ', ''));
+                  }
+                });
+                break;
             
-            newCars.map((data, i)=>{
-              try {
-                $('.container-product').append(
-                `<a class="product-items w-50 flex-column lazy" href="./product.html?id=${data.id}">
-                    <div class="lazy product-cover mb-2" style="background-image: url('${data.image_cover}');"></div>
-                    <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
-                    <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
-                    <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">${data.price}</p>
-                </a>`
-                );
-                $('.lazy').Lazy();
-              } catch (error) {
-                
-              }
-              
+              default:
+                break;
+            }
+            
+            newCars.map((data, i) => {
+              $('.container-product').append(
+              `<a class="product-items w-50 flex-column lazy" href="./product.html?id=${data.id}">
+                  <div class="lazy product-cover mb-2" style="background-image: url('${data.image_cover}');"></div>
+                  <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
+                  <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
+                  <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">${data.price}</p>
+              </a>`
+              );
+              $('.lazy').Lazy();
             });
           }else{
             $('.container-product').append(emptyState);
@@ -395,6 +417,51 @@
         } 
       };
       
+
+      // menu tab action
+      const selectAll = () => {
+        order = 'all';
+        orderType = 'desc';
+        $('#menu-price').html('Harga');
+        const search = $('#input-search').val();
+        loadCars(search);
+      }
+
+      const selectNewest = () => {
+        order = 'newest';
+        orderType = 'desc';
+        $('#menu-price').html('Harga');
+        const search = $('#input-search').val();
+        loadCars(search);
+      }
+
+      const selectPrice = () => {
+        order = 'price';
+        orderType = (orderType == 'asc') ? 'desc' : 'asc';
+        $('#menu-price').html(`Harga ${orderType == 'asc' ? '<i class="fi fi-sr-arrow-down"></i>' : '<i class="fi fi-sr-arrow-up"></i>'}`)
+        
+        const search = $('#input-search').val();
+        loadCars(search);
+      }
+
+      // menu tab controller
+      var menuTabs = document.querySelectorAll(".menu-tab-item");
+      menuTabs.forEach(function(e, i) {
+          e.addEventListener("click", function(e) {
+          menuTabs.forEach(function(e2, i2) {
+              e2.classList.remove("active");
+          });
+          if(this.textContent == 'Semua'){
+            selectAll();
+          }else if(this.textContent == 'Terbaru'){
+            selectNewest();
+          }else{
+            selectPrice();
+          }
+          this.classList.add("active");
+          });
+      });
+
       // Get data car from server
       axios.get('car/list')
         .then(response => {
