@@ -146,11 +146,11 @@
                 <p class="textbody1 semibold mb-2">Tahun</p>
                 <div class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2">
                   <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="tahun-awal" id="tahun-awal" maxlength="4" minlength="4" class="  bodytext1 text-center" placeholder="Tahun Awal">
+                    <input type="text" pattern="\d*" maxlength="4" name="tahun-awal" id="tahun-awal" class="  bodytext1 text-center" placeholder="Tahun Awal">
                   </div>
                   <p class="bodytext1 color-black500 semibold px-2 pt-3">sd</p>
                   <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="tahun-akhir" id="tahun-akhir" maxlength="4" minlength="4" class="  bodytext1 text-center" placeholder="Tahun Akhir">
+                    <input type="text" pattern="\d*" maxlength="4" name="tahun-akhir" id="tahun-akhir" class="  bodytext1 text-center" placeholder="Tahun Akhir">
                   </div>
                 </div>
                 <p class="textbody1 semibold mb-2">Bahan Bakar</p>
@@ -189,7 +189,7 @@
   
               </div>
               <div class="modal-footer justify-content-around">
-                <button type="reset" class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500" data-dismiss="modal"  id="buttonReset" onclick="reseltFilter()">Atur ulang</button>
+                <button type="reset" class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500" data-dismiss="modal"  id="buttonReset" onclick="resetFilter()">Atur ulang</button>
                 <button type="button" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2" data-dismiss="modal" id="buttonFilter" onclick="filterCar()">Tampilkan</button>
               </div>
           </div>
@@ -207,7 +207,6 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazy/1.7.5/jquery.lazy.plugins.min.js"></script>
     <script src="./assets/js/session.js"></script>
     <script src="./assets/js/navigation.js"></script>
-    <script src="./assets/js/filter.js"></script>
 
     <script>
       const params = new URLSearchParams(window.location.search);
@@ -529,5 +528,6 @@
 
     </script>
 
+    <script src="./assets/js/filter.js"></script>
   </body>
 </html>

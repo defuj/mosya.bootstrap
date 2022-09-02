@@ -51,7 +51,7 @@ $(".input-select-fuel").change(function() {
     $(".input-select-fuel").not(this).prop('checked', false);
 });
 
-function reseltFilter(){
+const resetFilter = () => {
     document.querySelectorAll(".select-merk-item").forEach(item => {
         const resultName = item.textContent.toString().replace(/\s/g, '')
         if(resultName.toString() === "Semua"){
@@ -76,10 +76,17 @@ function reseltFilter(){
         }
     });
 
+    document.querySelector("#tahun-awal").value = "";
+    document.querySelector("#tahun-akhir").value = "";
+    document.querySelector("#harga-awal").value = "";
+    document.querySelector("#harga-akhir").value = "";
+
     clearFilter();
+    const keyword = $('#input-search').val();
+    loadCars(keyword);
 }
 
-function prepareFilter(){
+const prepareFilter = () => {
     const filter = getFilter();
     if(filter.merk != ''){
         document.querySelectorAll(".select-merk-item").forEach(item => {
