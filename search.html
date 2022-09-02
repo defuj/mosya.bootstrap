@@ -322,10 +322,8 @@
             console.log('filter by keyword ' + search);
             // document.getElementById('input-search').value = filters.get('search').toString();
             newCars = newCars.filter(car => 
-                car.model.toString().toLowerCase().includes(search.toString().toLowerCase())
-                || car.brand.toString().toLowerCase().includes(search.toString().toLowerCase())
-                || car.color.toString().toLowerCase().includes(search.toString().toLowerCase())
-                || car.fuel.toString().toLowerCase().includes(search.toString().toLowerCase()));
+                `${car.brand.toString().toLowerCase()} ${car.model.toString().toLowerCase()} ${car.color.toString().toLowerCase()} ${car.fuel.toString().toLowerCase()}`.toString().includes(search.toString().toLowerCase())
+                );
 
             titleEmpty = `Pencarian <span class="color-green500 semibold">"${search}"</span> Tidak Ditemukan`;
             descEmpty = 'Silahkan gunakan kata kunci lain';
