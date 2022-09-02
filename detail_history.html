@@ -286,7 +286,7 @@
                 case 'Batal':
                   $('#container-status').addClass('status-1');
                   $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
-                  $('#statusDesc').html('Kami menemukan permasalahan terkait identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.');
+                  $('#statusDesc').html(`${(result.data.description != null && result.data.description != '' ? result.data.description : 'Kami menemukan permasalahan terkait identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.')}`);
                   $('#container-action').remove();
                   break;
 

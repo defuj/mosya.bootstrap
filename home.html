@@ -59,17 +59,13 @@
       <!-- end content form search -->
       
       <!-- start content slider -->
-      <div class="swiper mySlider">
-        <div class="swiper-wrapper" id="content-banner">
-          <!-- <a class="swiper-slide" href="#" target="_blank">
-            <img src="./assets/images/slider_1.png" alt="" srcset="">
-          </a> -->
-        </div>
+      <div class="swiper mySlider d-none">
+        <div class="swiper-wrapper" id="content-banner"></div>
       </div>
       <!-- end content slider -->
 
       <!-- start content brands list -->
-      <div class="contaier-brand d-flex w-100 flex-row px-3 mt-4">
+      <div class="contaier-brand d-none d-flex w-100 flex-row px-3 mt-4">
         <div class="w-100 d-flex justify-content-between align-items-center">
           <p class="bodytext1 color-black500 font-weight-bold">Merek Mobil</p>
           <a href="./merk.html" class="text-decoration-none">
@@ -77,51 +73,11 @@
           </a>
         </div>
       </div>
-      <!-- end content brands list -->
-
-      <!-- start content brands -->
-      <div class="container-brand-text">
-        <!-- <a href="./search.html?search=Semua" class="bodytext2 text-decoration-none flex-column brand-slide active">
-          Semua
-        </a>
-        <a href="./search.html?search=Audi" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Audi
-        </a>
-        <a href="./search.html?search=BMW" class="bodytext2 text-decoration-none flex-column brand-slide">
-          BMW
-        </a>
-        <a href="./search.html?search=Daihatsu" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Daihatsu
-        </a>
-        <a href="./search.html?search=Honda" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Honda
-        </a>
-        <a href="./search.html?search=Hyundai" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Hyundai
-        </a>
-        <a href="./search.html?search=Isuzu" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Isuzu
-        </a>
-        <a href="./search.html?search=" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Mercedes
-        </a>
-        <a href="./search.html?search=" class="bodytext2 text-decoration-none flex-column brand-slide">          
-          Mitsubishi
-        </a>
-        <a href="./search.html?search=Nissan" class="bodytext2 text-decoration-none flex-column brand-slide">          
-          Nissan
-        </a>
-        <a href="./search.html?search=Suzuki" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Suzuki
-        </a>
-        <a href="./search.html?search=Toyota" class="bodytext2 text-decoration-none flex-column brand-slide">
-          Toyota
-        </a> -->
-      </div>
+      <div class="container-brand-text d-none"></div>
       <!-- end content brands -->
 
       <!-- start content product list -->
-      <div class="container-products w-100">
+      <div class="container-products d-none w-100">
         <div class="w-100 d-flex justify-content-between align-items-center px-3 mt-4">
           <p class="bodytext1 color-black500 font-weight-bold m-0">Mobil Tersedia</p>
           <a href="./search.html" class="text-decoration-none">
@@ -236,6 +192,7 @@
         const user = getAccount();
         $('#dataName').text('Assalamualaikum, ' + user.name)
         user.image != null ? $('#dataImage').attr('src', user.image) : '';
+
       }
 
       // get data banner
@@ -244,6 +201,7 @@
           let result = response.data;
           if(result.status){
             if(result.data.length > 0){
+              $('.mySlider').removeClass('d-none');
               result.data.forEach(item => {
                 $('#content-banner').append(`
                 <a class="swiper-slide" href="${item.link}" target="_blank">
@@ -267,6 +225,8 @@
           let result = response.data;
           if(result.status){
             if(result.data.length > 0){
+              $('.contaier-brand').removeClass('d-none');
+              $('.container-brand-text').removeClass('d-none');
               $('.container-brand-text').append(`
               <a href="./search.html?search=Semua" class="bodytext2 text-decoration-none brand-slide active">
                 Semua
@@ -300,6 +260,7 @@
               var cars = result.data;
 
               if(cars.length > 0){
+                $('.container-products').removeClass('d-none');
                 if(cars.length > 12){
                   for(let i = 0; i <= 11; i++){
                     var car = cars[i];
@@ -330,6 +291,7 @@
               }
             }
         })
+      
     </script>
   </body>
 </html>
