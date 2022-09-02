@@ -148,11 +148,26 @@
 
     <script>
       if(!checkAccount()){
-        window.location.href = './login.html';
+        window.location.href = 'login.html';
       }
       var paymentSelected = null;
+      let datas = getDataBooking();
+      console.log(datas);
 
-      function selectPayment(item, payment) {
+      const dataURLtoFile = (dataurl, filename) => {
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+          while(n--){
+              u8arr[n] = bstr.charCodeAt(n);
+          }
+        
+        return new File([u8arr], filename, {type:mime});
+      }
+
+      const selectPayment =(item, payment) => {
         paymentSelected = payment;
         console.log(paymentSelected);
 
@@ -167,105 +182,202 @@
           $(".input-select-method").not(this).prop('checked', false);
       });
 
-      const fetchCars = () => {
-            const params = new URLSearchParams(window.location.search);
-            let booking = getBooking();
-            console.log(booking);
-            if(booking != null){
-              axios.get('car/detail?id='+booking.car)
-                .then(response => {
-                    let result = response.data;
-                    if(result.status){
-                      let data = result.data;
-                      $('#dataImage').attr('src', data.image_cover);
-                      $('#dataMerk').html(data.brand);
-                      $('#dataModel').html(data.model);
-                      $('#dataColorYear').html(data.color + ' | ' + data.year);
-
-                      $('.container-payment-type').append(`
-                      <label onclick="selectPayment(this,0)" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
-                        <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
-                        <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
-                        <input type="checkbox" name="payment" class="input-select-method" value="0" hidden>
-                      </label>
-                      `)
-                      data.payments.map((pay)=>{
-                        $('.container-payment-type').append(`
-                        <label onclick="selectPayment(this,${pay.id})" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
-                          <p class="bodytext2 color-black500 semibold mb-1">Kumaha Eko</p>
-                          <div class="d-flex flex-fill flex-row justity-content-between w-100">
-                            <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: ${pay.dp}</p>
-                            <p class="bodytext2 color-black500 semibold mb-0">Cicilan: ${pay.cicilan}</p>
-                          </div>
-                          <input type="checkbox" name="payment" class="input-select-method" value="${pay.id}" hidden>
-                        </label>
-                        `)
-                      })
-
-                      $('#buttonSubmit').click(function(){
-                        if(paymentSelected == null){
-                          Swal.fire({
-                            title: 'Perhatian',
-                            text: 'Silahkan pilih metode pembayaran',
-                            icon: 'error',
-                            confirmButtonText: 'Mengerti'
-                          })
-                        }else{
-                          $('#buttonSubmit').attr('disabled', true);
-                          $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
-                          axios.postForm('booking/payment',{
-                            code: booking.code,
-                            payment_method: parseInt(paymentSelected)
-                          })
-                            .then(response => {
-                              $('#buttonSubmit').attr('disabled', false);
-                              $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
-                              
-                                let result = response.data;
-                                if(result.status){
-                                  // Swal.fire({
-                                  //   title: 'Berhasil',
-                                  //   text: 'Pemesanan berhasil',
-                                  //   icon: 'success',
-                                  //   confirmButtonText: 'Mengerti'
-                                  // }).then(()=>{
-                                  //   window.location.href = './';
-                                  // })
-                                  window.location.href = 'upload_payment.html?code='+booking.code;
-                                }else{
-                                  console.log(result);
-                                  Swal.fire({
-                                    title: 'Gagal',
-                                    text: result.message,
-                                    icon: 'error',
-                                    confirmButtonText: 'Mengerti'
-                                  })
-                                }
-                            })
-                            .catch(error => {
-                              $('#buttonSubmit').attr('disabled', false);
-                              $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
-                                Swal.fire({
-                                  title: 'Gagal',
-                                  text: 'Terjadi kesalahan',
-                                  icon: 'error',
-                                  confirmButtonText: 'Mengerti'
-                                })
-                            })
-                        }
-                      });
-                    }else{
-                      history.back();
-                    }
+      const sendPaymentType = (code)=>{
+        $('#buttonSubmit').attr('disabled', true);
+        $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+        axios.postForm('booking/payment',{
+          code: code,
+          payment_method: parseInt(paymentSelected)
+        })
+          .then(response => {
+            $('#buttonSubmit').attr('disabled', false);
+            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
+            
+              let result = response.data;
+              if(result.status){
+                Swal.fire({
+                  title: 'Pemesanan berhasil',
+                  text: 'Silahkan lakukan pembayaran sesuai dengan metode yang anda pilih',
+                  icon: 'success',
+                  confirmButtonText: 'Mengerti'
+                }).then(()=>{
+                  window.location.href = 'upload_payment.html?code='+code;
                 })
-                .catch(error => history.back());
-            }else{
-              history.back();
-            }
+                
+              }else{
+                console.log(result);
+                Swal.fire({
+                  title: 'Gagal',
+                  text: result.message,
+                  icon: 'error',
+                  confirmButtonText: 'Mengerti'
+                })
+              }
+          })
+          .catch(error => {
+            $('#buttonSubmit').attr('disabled', false);
+            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
+              Swal.fire({
+                title: 'Gagal',
+                text: 'Terjadi kesalahan',
+                icon: 'error',
+                confirmButtonText: 'Mengerti'
+              })
+          })
+      }
 
-        };
+      // upload booking image identity
+      const uploadImage = (code) => {
+        $('#buttonSubmit').attr('disabled', true);
+        $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+        const data = getDataBooking();
+        console.log(data);
+        const postForm = {
+          code: code,
+          card_id: dataURLtoFile(data.cardId,data.cardIdName),
+          card_familly: dataURLtoFile(data.cardFamilly, data.cardFamillyName),
+          card_id_2: data.cardId2 != null ? dataURLtoFile(data.cardId2, data.cardId2Name) : null,
+        }
+        axios.postForm('booking/upload', postForm).then(response => {
+          let result = response.data;
+          $('#buttonSubmit').attr('disabled', false);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          console.log(result);
+          if(result.status){
+            sendPaymentType(code);
+          }else{
+            console.log(result);
+            Swal.fire({
+              title: 'Gagal',
+              text: result.message,
+              icon: 'error',
+              confirmButtonText: 'Mengerti',
+            })
+          }
+        }).catch(error => {
+          $('#buttonSubmit').attr('disabled', false);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          console.log(error);
+          Swal.fire({
+            title: 'Perhatian',
+            text: 'Gagal mengupload file',
+            icon: 'error',
+            confirmButtonText: 'Mengerti',
+          })
+        })
+      }
 
-        fetchCars();
+      // upload booking identidy data to server
+      const uploadData = () => {
+        $('#buttonSubmit').attr('disabled', true);
+        $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
+
+        const user = getAccount();
+        const car = getCurrentCar();
+        const data = getDataBooking();
+        // upload data 
+        axios.postForm('booking/create', {
+          id: user.id,
+          id_car: car.id,
+          name: data.name,
+          address: data.address,
+          phone: data.phone,
+          name_2: data.name2,
+        }).then(response => {
+          let result = response.data
+          console.log(result);
+          if(result.status){
+            const code = result.code;
+            setBooking({
+              car: car.id,
+              code: code,
+            });
+            // upload image
+            uploadImage(code);
+          }else{
+            $('#buttonSubmit').attr('disabled', false);
+            $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+            console.log(result);
+            Swal.fire({
+              title: 'Perhatian',
+              text: result.message,
+              icon: 'error',
+              confirmButtonText: 'Mengerti',
+            })
+          }
+        }).catch(error => {
+          $('#buttonSubmit').attr('disabled', false);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          console.log(error);
+          Swal.fire({
+            title: 'Perhatian',
+            text: 'Terjadi kesalahan',
+            icon: 'error',
+            confirmButtonText: 'Mengerti',
+          })
+        })
+      }
+
+
+      const fetchCars = () => {
+        const params = new URLSearchParams(window.location.search);
+        let car = getCurrentCar();
+        console.log(car);
+        if(car != null){
+          axios.get('car/detail?id='+car.id)
+            .then(response => {
+                let result = response.data;
+                if(result.status){
+                  let data = result.data;
+                  $('#dataImage').attr('src', data.image_cover);
+                  $('#dataMerk').html(data.brand);
+                  $('#dataModel').html(data.model);
+                  $('#dataColorYear').html(data.color + ' | ' + data.year);
+
+                  $('.container-payment-type').append(`
+                  <label onclick="selectPayment(this,0)" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                    <p class="bodytext2 color-black500 semibold mb-1">Cash</p>
+                    <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
+                    <input type="checkbox" name="payment" class="input-select-method" value="0" hidden>
+                  </label>
+                  `)
+                  data.payments.map((pay)=>{
+                    $('.container-payment-type').append(`
+                    <label onclick="selectPayment(this,${pay.id})" class="payment-type-item d-flex flex-column justify-content-start w-100 mb-2">
+                      <p class="bodytext2 color-black500 semibold mb-1">Kumaha Eko</p>
+                      <div class="d-flex flex-fill flex-row justity-content-between w-100">
+                        <p class="bodytext2 flex-fill color-black500 semibold mb-0">DP: ${pay.dp}</p>
+                        <p class="bodytext2 color-black500 semibold mb-0">Cicilan: ${pay.cicilan}</p>
+                      </div>
+                      <input type="checkbox" name="payment" class="input-select-method" value="${pay.id}" hidden>
+                    </label>
+                    `)
+                  })
+
+                  $('#buttonSubmit').click(function(){
+                    if(paymentSelected == null){
+                      Swal.fire({
+                        title: 'Perhatian',
+                        text: 'Silahkan pilih metode pembayaran',
+                        icon: 'error',
+                        confirmButtonText: 'Mengerti'
+                      })
+                    }else{
+                      uploadData();
+                    }
+                  });
+                }else{
+                  history.back();
+                }
+            })
+            .catch(error => history.back());
+        }else{
+          history.back();
+        }
+
+      };
+
+      fetchCars();
     </script>
   </body>
 </html>

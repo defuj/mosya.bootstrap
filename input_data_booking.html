@@ -103,6 +103,13 @@
         const car = getCurrentCar();
         console.log(car);
 
+        const toBase64 = (file) => new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = error => reject(error);
+        });
+
         // upload booking image identity
         const uploadImage = (code) => {
           $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`)
@@ -312,31 +319,38 @@
                                 })
                               }else{
                                 // save data booking to local storage
-                                let data = {
-                                  name: inputName,
-                                  address: inputAddress,
-                                  phone: inputPhone,
-                                  cardId: inputCarId.files[0],
-                                  cardFamilly: inputCardFamilly.files[0],
-                                  name2: inputName2,
-                                  cardId2: inputCardId2.files[0],
-                                }
-                                setDataBooking(data)
-                                
-                                const booking = getBooking();
-                                if(booking != null){
-                                  if(booking.car == car.id){
-                                    // next to upload image for booking
-                                    uploadImage(booking.code);
-                                  }else{
-                                    // reset car booking
-                                    deleteBooking();
-                                    // create new booking for new car
-                                    uploadData();
+                                async function prepareDataBooking(){
+                                  let data = {
+                                    name: inputName,
+                                    address: inputAddress,
+                                    phone: inputPhone,
+                                    cardId: await toBase64(inputCarId.files[0]),
+                                    cardIdName: inputCarId.files[0].name,
+                                    cardFamilly: await toBase64(inputCardFamilly.files[0]),
+                                    cardFamillyName: inputCardFamilly.files[0].name,
+                                    name2: inputName2,
+                                    cardId2: inputCardId2.files.length > 0 ? await toBase64(inputCardId2.files[0]) : null,
+                                    cardId2Name: inputCardId2.files.length > 0 ? inputCardId2.files[0].name : null,
                                   }
-                                }else{
-                                  uploadData();
+                                  setDataBooking(data)
                                 }
+                                prepareDataBooking()
+                                window.location.href = 'select_payment_booking.html'
+
+                                // const booking = getBooking();
+                                // if(booking != null){
+                                //   if(booking.car == car.id){
+                                //     // next to upload image for booking
+                                //     uploadImage(booking.code);
+                                //   }else{
+                                //     // reset car booking
+                                //     deleteBooking();
+                                //     // create new booking for new car
+                                //     uploadData();
+                                //   }
+                                // }else{
+                                //   uploadData();
+                                // }
                                 
                                 
                               }
