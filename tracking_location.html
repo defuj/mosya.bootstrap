@@ -132,7 +132,7 @@
       const params = new URLSearchParams(window.location.search);
       const user = getAccount();
 
-      const loadTrack = () =>{
+      const loadTrack = () => {
         axios.get(`history/tracking?id=${params.get('code')}&user_id=${user.id}`)
           .then(response=>{
             let result = response.data;

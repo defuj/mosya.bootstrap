@@ -43,7 +43,7 @@
         <div class="container-user d-flex flex-column w-100 px-3 py-4 mb-4">
             <div class="content-profile d-flex flex-column align-items-center mt-2 py-4">
               <div class="container-image-profile">
-                <img src="./assets/images/user-default.png" alt="profile" class="image-profile" id="dataImage">
+                <img src="https://defuj.github.io/mosya.bootstrap/assets/images/user-default.png" alt="profile" class="image-profile" id="dataImage">
               </div>
               <div class="data-profile d-flex flex-column flex-fill">
 
@@ -190,7 +190,7 @@
           $('#dataEmail').text(user.email + ' | ' + user.phone);
           $('#dataName').text(user.name);
         }else{
-          window.location.href = "./login.html";
+          window.location.href = "login.html";
         }
       }
 
@@ -210,7 +210,7 @@
         }).then((result) => {
           if (result.isConfirmed) {
             deleteAccount();
-            window.location.href = './home.html';
+            window.location.href = 'home.html';
           }
         })
       });
