@@ -274,17 +274,17 @@
           if(filter.start_price != ''){
             if(filter.end_price != ''){
               console.log('filter by price ' + filter.start_price + ' - ' + filter.end_price);
-              newCars = newCars.filter(car => paerseInt(car.price) >= parseInt(filter.start_price) && paerseInt(car.price) <= paerseInt(filter.end_price));
+              newCars = newCars.filter(car => parseInt(car.price.replace('Rp. ','')) >= parseInt(filter.start_price) && parseInt(car.price.replace('Rp. ','')) <= parseInt(filter.end_price));
               filterCount++;
             }else{
               console.log('filter by start price ' + filter.start_price);
-              newCars = newCars.filter(car => paerseInt(car.price) >= parseInt(filter.start_price));
+              newCars = newCars.filter(car => parseInt(car.price.replace('Rp. ','')) >= parseInt(filter.start_price));
               filterCount++;
             }
           }else{
             if(filter.end_price != ''){
               console.log('filter by end price ' + filter.end_price);
-              newCars = newCars.filter(car => paerseInt(car.price) <= parseInt(filter.end_price));
+              newCars = newCars.filter(car => parseInt(car.price.replace('Rp. ','')) <= parseInt(filter.end_price));
               filterCount++;
             }
           }
@@ -293,17 +293,17 @@
           if(filter.start_year != ''){
             if(filter.end_year != ''){
               console.log('filter by year ' + filter.start_year + ' - ' + filter.end_year);
-              newCars = newCars.filter(car => paerseInt(car.year) >= parseInt(filter.start_year) && paerseInt(car.year) <= paerseInt(filter.end_year));
+              newCars = newCars.filter(car => parseInt(car.year) >= parseInt(filter.start_year) && parseInt(car.year) <= parseInt(filter.end_year));
               filterCount++;
             }else{
               console.log('filter by start year ' + filter.start_year);
-              newCars = newCars.filter(car => paerseInt(car.year) >= parseInt(filter.start_year));
+              newCars = newCars.filter(car => parseInt(car.year) >= parseInt(filter.start_year));
               filterCount++;
             }
           }else{
             if(filter.end_year != ''){
               console.log('filter by end year ' + filter.end_year);
-              newCars = newCars.filter(car => paerseInt(car.year) <= parseInt(filter.end_year));
+              newCars = newCars.filter(car => parseInt(car.year) <= parseInt(filter.end_year));
               filterCount++;
             }
           }
