@@ -369,9 +369,13 @@
                 console.log('order by price ' + orderType);
                 newCars = newCars.sort((a, b) => {
                   if(orderType == 'asc'){
-                    return parseInt(a.price.replace('Rp. ', '')) - parseInt(b.price.replace('Rp. ', ''));
+                    console.log(parseFloat(a.price.replace('Rp. ', '').replaceAll('.','')));
+                    console.log(parseFloat(b.price.replace('Rp. ', '').replaceAll('.','')));
+                    return parseFloat(a.price.replace('Rp. ', '')) - parseFloat(b.price.replace('Rp. ', '').replaceAll('.',''));
                   }else{
-                    return parseInt(b.price.replace('Rp. ', '')) - parseInt(a.price.replace('Rp. ', ''));
+                    console.log(parseFloat(a.price.replace('Rp. ', '').replaceAll('.','')));
+                    console.log(parseFloat(b.price.replace('Rp. ', '').replaceAll('.','')));
+                    return parseFloat(b.price.replace('Rp. ', '').replaceAll('.','')) - parseFloat(a.price.replace('Rp. ', '').replaceAll('.',''));
                   }
                 });
                 break;
@@ -436,7 +440,7 @@
       const selectPrice = () => {
         order = 'price';
         orderType = (orderType == 'asc') ? 'desc' : 'asc';
-        $('#menu-price').html(`Harga ${orderType == 'asc' ? '<i class="fi fi-sr-arrow-down"></i>' : '<i class="fi fi-sr-arrow-up"></i>'}`)
+        $('#menu-price').html(`Harga ${orderType == 'asc' ? '<i class="fi fi-sr-arrow-up"></i>' : '<i class="fi fi-sr-arrow-down"></i>'}`)
         
         const search = $('#input-search').val();
         loadCars(search);
