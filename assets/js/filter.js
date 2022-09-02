@@ -86,6 +86,18 @@ const resetFilter = () => {
     loadCars(keyword);
 }
 
+// $("#tahun-awal").datepicker({
+//     format: "yyyy",
+//     viewMode: "years", 
+//     minViewMode: "years"
+// });
+
+// $("#tahun-akhir").datepicker({
+//     format: "yyyy",
+//     viewMode: "years", 
+//     minViewMode: "years"
+// });
+
 const prepareFilter = () => {
     const filter = getFilter();
     if(filter.merk != ''){
