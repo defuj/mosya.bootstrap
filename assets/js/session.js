@@ -38,6 +38,25 @@ const getAccount = () => {
     return null;
 }
 
+const getDataBooking = () => {
+    if (storageAvailable('localStorage')) {
+        return localStorage.getItem('data_booking') != null ? JSON.parse(localStorage.getItem('data_booking')) : null;
+    }
+    return null;
+}
+
+const setDataBooking = (data) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('data_booking', JSON.stringify(data));
+    }
+}
+
+const deleteDataBooking = () => {
+    if (storageAvailable('localStorage')) {
+        localStorage.removeItem('data_booking');
+    }
+}
+
 const getBooking = () => {
     if (storageAvailable('localStorage')) {
         return localStorage.getItem('booking') != null ? JSON.parse(localStorage.getItem('booking')) : null;

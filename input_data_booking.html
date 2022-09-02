@@ -240,13 +240,13 @@
                     <label class="bodytext1 color-black500 p-0 mb-1">
                       Upload KTP <span class="text-danger">*</span>
                     </label>
-                    <input type="file" name="cardId" id="inputCardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
+                    <input type="file" accept="image/*,.pdf" name="cardId" id="inputCardId" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data" required>
                     <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
                     <label class="bodytext1 color-black500 p-0 mb-1">
                       Upload KK <span class="text-danger">*</span>
                     </label>
-                    <input type="file" name="cardFamilly" id="inputCardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
+                    <input type="file" accept="image/*,.pdf" name="cardFamilly" id="inputCardFamilly" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KK" enctype="multipart/form-data" required>
                     <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
 
                     <label class="bodytext1 color-black500 p-0 mb-1">
@@ -257,7 +257,7 @@
                     <label class="bodytext1 color-black500 p-0 mb-1">
                       Upload KTP Pasangan (Jika Ada)
                     </label>
-                    <input type="file" name="cardId2" id="inputCardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
+                    <input type="file" accept="image/*,.pdf" name="cardId2" id="inputCardId2" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file KTP" enctype="multipart/form-data">
                     <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
                   </form>
                   `)
@@ -311,6 +311,18 @@
                                   confirmButtonText: 'Mengerti',
                                 })
                               }else{
+                                // save data booking to local storage
+                                let data = {
+                                  name: inputName,
+                                  address: inputAddress,
+                                  phone: inputPhone,
+                                  cardId: inputCarId.files[0],
+                                  cardFamilly: inputCardFamilly.files[0],
+                                  name2: inputName2,
+                                  cardId2: inputCardId2.files[0],
+                                }
+                                setDataBooking(data)
+                                
                                 const booking = getBooking();
                                 if(booking != null){
                                   if(booking.car == car.id){

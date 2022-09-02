@@ -32,7 +32,7 @@
     <!-- start navigation bar -->
     <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <a class="navbar-brand" title="back" onclick="history.back()">
+        <a href="history.html" class="navbar-brand" title="back">
             <i class="fi fi-sr-angle-left color-black400 headline6"></i>
         </a>
         <p class="mb-0 bodytext1 semibold color-black500 px-2">Informasi Pembayaran Booking</p>
@@ -174,7 +174,7 @@
                 Upload Bukti Bayar
               </p>
               
-              <input type="file" name="payment-image" id="buktiBayar" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
+              <input type="file" accept="image/*,.pdf" name="payment-image" id="buktiBayar" class="form-input form-data-file-booking bodytext2" placeholder="Pilih file" enctype="multipart/form-data">
               <p class="mb-3 caption color-black300 mt-1">format file: JPG,JPEG, PNG,PDF max upload 2Mb</p>
               <button type="button" id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
                 <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
