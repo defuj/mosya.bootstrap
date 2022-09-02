@@ -131,51 +131,56 @@
       let titleEmpty = "Tidak ada merk";
       let descEmpty = 'Silahkan coba lagi nanti';
       let emptyState = `
-        <div class="container-empty d-flex justify-content-center align-items-center flex-column flex-fill py-5">
-          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="120">
-          <div class="empty-text text-center">
-            <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
-            <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
-          </div>
-        </div>`;
+      <div class="container-empty d-flex justify-content-center align-items-center flex-column flex-fill py-5">
+        <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="120">
+        <div class="empty-text text-center">
+          <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
+          <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
+        </div>
+      </div>`;
 
-      // load data car
-      axios.get('car/list')
-        .then(response => {
-          let result = response.data;
-          if(result.status){
-            cars = result.data;
-          }
-        })
+      const loadBrand = () => {
+        // laad data merk
+        axios.get('brand/list')
+          .then(response => {
+            let result = response.data;
+            if(result.status){
+              merks = result.data;
+              // clear container merk
+              $('#container-merk').empty();
 
-      // laad data merk
-      axios.get('brand/list')
-        .then(response => {
-          let result = response.data;
-          if(result.status){
-            merks = result.data;
-            // clear container merk
-            $('#container-merk').empty();
-
-            // check if merk is empty
-            if (merks.length == 0) {
-              $('#container-merk').html(emptyState);
-            } else {
-              // looping data merk
-              merks.forEach(merk => {
-                const countCar = cars.filter(car => car.brand.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
-                $('#container-merk').append(`
-                <a href="search.html?search=${merk.name}" class="merk-item text-decoration-none">
-                    <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
-                    <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+ Mobil Tersedia' : countCar == 0 ? 'Tidak Ada Mobil' : countCar+' Mobil Tersedia'}</p>
-                </a>
-                `);
-              });
+              // check if merk is empty
+              if (merks.length == 0) {
+                $('#container-merk').html(emptyState);
+              } else {
+                // looping data merk
+                merks.forEach(merk => {
+                  const countCar = cars.filter(car => car.brand.toString().toLowerCase() == merk.name.toString().toLowerCase()).length;
+                  $('#container-merk').append(`
+                  <a href="search.html?search=${merk.name}" class="merk-item text-decoration-none">
+                      <p class="bodytext1 color-black500 semibold mb-0 merk-name">${merk.name}</p>
+                      <p class="caption color-black400 mb-0 merk-car">${countCar > 99 ? '99+ Mobil Tersedia' : countCar == 0 ? 'Tidak Ada Mobil' : countCar+' Mobil Tersedia'}</p>
+                  </a>
+                  `);
+                });
+              }
             }
-          }
+          })
+      }
 
-        })
-
+      const loadCar = () =>{
+        // load data car
+        axios.get('car/list')
+          .then(response => {
+            let result = response.data;
+            if(result.status){
+              cars = result.data;
+              loadBrand();
+            }
+          })
+      }
+      
+      loadCar();
       // search merk by name
       $('#search-merk').on('keyup', function() {
         const keyword = $(this).val();
