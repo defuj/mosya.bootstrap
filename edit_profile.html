@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
-    <link rel="stylesheet" href="./assets/css/navigation.css">
-    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -78,10 +78,10 @@
       <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
       <div class="container-footer-button d-flex justify-content-center">
         <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-google-play.png" alt="">
+          <img src="assets/images/btn-google-play.png" alt="">
         </a>
         <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-app-store.png" alt="">
+          <img src="assets/images/btn-app-store.png" alt="">
         </a>
       </div>
 
@@ -119,18 +119,17 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="./assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="./assets/js/session.js"></script>
-    <script src="./assets/js/navigation.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script src="assets/js/navigation.js"></script>
 
     <script>
       if(checkAccount()){
         const user = getAccount();
-        console.log(user);
-        $('#dataName').val(user.name);
-        $('#dataPhone').val(user.phone.replace('+', ''));
-        $('#dataEmail').val(user.email);
+        $('#dataName').val(safeString(user.name));
+        $('#dataPhone').val(safeString(user.phone.replace('+', '')));
+        $('#dataEmail').val(safeString(user.email));
         user.image != null && user.image != '' ? $('#image-profile').attr('src', user.image) : '';
       }else{
         window.location.href = 'login.html';
@@ -153,8 +152,8 @@
       }
 
       $('#buttonSave').click(function(e){
-        const name = $('#dataName').val();
-        const phone = $('#dataPhone').val();
+        const name = safeString($('#dataName').val());
+        const phone = safeString( $('#dataPhone').val());
         const account = getAccount()
 
         if(name != '' && phone != ''){
@@ -170,9 +169,8 @@
           axios.postForm('auth/update_profile', postForm).then(response=>{
             $('#buttonSave').attr('disabled', false);
             $('#buttonSave').html('Simpan Perubahan');
-            // console.log(response.data);
             let result = response.data;
-            console.log(result.data);
+            // console.log(result.data);
             if(result.status){
               Swal.fire({
                 icon: 'success',
@@ -195,7 +193,7 @@
           .catch(error=>{
             $('#buttonSave').attr('disabled', false);
             $('#buttonSave').html('Simpan Perubahan');
-            console.log(error);
+            // console.log(error);
           })
 
           

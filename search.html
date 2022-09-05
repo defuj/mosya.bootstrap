@@ -5,15 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
-    <link rel="stylesheet" href="./assets/css/navigation.css">
-    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -71,10 +71,10 @@
         <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
         <div class="container-footer-button d-flex justify-content-center">
           <a class="button-footer px-2" href="#">
-            <img src="./assets/images/btn-google-play.png" alt="">
+            <img src="assets/images/btn-google-play.png" alt="">
           </a>
           <a class="button-footer px-2" href="#">
-            <img src="./assets/images/btn-app-store.png" alt="">
+            <img src="assets/images/btn-app-store.png" alt="">
           </a>
         </div>
 
@@ -202,12 +202,12 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="./assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazy/1.7.5/jquery.lazy.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazy/1.7.5/jquery.lazy.plugins.min.js"></script>
-    <script src="./assets/js/session.js"></script>
-    <script src="./assets/js/navigation.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script src="assets/js/navigation.js"></script>
 
     <script>
       const params = new URLSearchParams(window.location.search);
@@ -216,14 +216,14 @@
 
       if(params.has('search')){
         const search = params.get('search');
-        $('#input-search').val(search);
+        $('#input-search').val(safeString(search));
       }
       let cars;
       let titleEmpty = "Belum ada produk";
       let descEmpty = 'Silahkan coba lagi nanti';
       let emptyState = `
         <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5" >
-          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
             <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
             <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
@@ -334,7 +334,7 @@
 
           emptyState = `
             <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
-              <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+              <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
               <div class="empty-text text-center">
                 <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
                 <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
@@ -386,7 +386,7 @@
             
             newCars.map((data, i) => {
               $('.container-product').append(
-              `<a class="product-items w-50 flex-column lazy" href="./product.html?id=${data.id}">
+              `<a class="product-items w-50 flex-column lazy" href="product.html?id=${data.id}">
                   <div class="lazy product-cover mb-2" style="background-image: url('${data.image_cover}');"></div>
                   <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
                   <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
@@ -408,7 +408,7 @@
           descEmpty = 'Silahkan coba lagi nanti';
           emptyState = `
             <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5" >
-              <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+              <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
               <div class="empty-text text-center">
                 <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
                 <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
@@ -472,14 +472,14 @@
               cars = result.data;
               console.log(cars.length + ' cars is available');
               const search = params.has('search') ? params.get('search') : '';
-              loadCars(search);
+              loadCars(safeString(search));
             }else{
               // Show error state
               titleEmpty = "Terjadi Kesalahan";
               descEmpty = 'Silahkan coba lagi nanti';
               emptyState = `
                 <div class="container-empty d-flex justify-content-center align-items-center flex-column w-100 py-5">
-                  <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+                  <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
                   <div class="empty-text text-center">
                     <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
                     <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
@@ -509,7 +509,7 @@
           }
           try {clearTimeout(timeout);} catch (error) {}
           timeout = setTimeout(function() {
-            loadCars($('#input-search').val());
+            loadCars(safeString($('#input-search').val()));
           }, 2000);;
         }
       });
@@ -523,11 +523,11 @@
         console.log(filter);
         setFilter(filter);
 
-        const keyword = $('#input-search').val();
+        const keyword = safeString($('#input-search').val());
         loadCars(keyword);
       }
 
     </script>
-    <script src="./assets/js/filter.js"></script>
+    <script src="assets/js/filter.js"></script>
   </body>
 </html>

@@ -25,6 +25,10 @@ const storageAvailable = (type) => {
     }
 }
 
+const safeString = (content) => {
+    return content.toString().replace(/</g, "&lt;").replace(/>/g, "&gt;")
+}
+
 let book = {
     id: '',
     code: '',
@@ -144,8 +148,8 @@ const checkAccount = () => {
                 var mm = Math.floor(msec / 1000 / 60);
 
                 if(mm < 15){
-                    console.log('last time : '+lasttime);
-                    console.log('update time : ' + now);
+                    //console.log('last time : '+lasttime);
+                    //console.log('update time : ' + now);
 
                     user.lasttime = now;
                     localStorage.setItem('account', JSON.stringify(user));

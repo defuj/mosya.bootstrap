@@ -5,15 +5,15 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="./assets/css/bootstrap.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
-    <link rel="stylesheet" href="./assets/css/navigation.css">
-    <link rel="stylesheet" href="./assets/css/typography.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/navigation.css">
+    <link rel="stylesheet" href="assets/css/typography.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
@@ -59,8 +59,8 @@
             <p class="headline6 flex-fill color-black600 mb-0"><b>Honda</b> (99+)</p>
             <a href="search.html?merk=HONDA" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
           </div>
-          <a class="product-items w-50 flex-column" href="./product.html">
-            <div class="product-cover mb-2" style="background-image: url('./assets/images/brio.jpg');"></div>
+          <a class="product-items w-50 flex-column" href="product.html">
+            <div class="product-cover mb-2" style="background-image: url('assets/images/brio.jpg');"></div>
             <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
             <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
             <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
@@ -77,10 +77,10 @@
       <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
       <div class="container-footer-button d-flex justify-content-center">
         <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-google-play.png" alt="">
+          <img src="assets/images/btn-google-play.png" alt="">
         </a>
         <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-app-store.png" alt="">
+          <img src="assets/images/btn-app-store.png" alt="">
         </a>
       </div>
 
@@ -296,10 +296,10 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="./assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="./assets/js/session.js"></script>
-    <script src="./assets/js/navigation.js"></script>
+    <script src="assets/js/session.js"></script>
+    <script src="assets/js/navigation.js"></script>
 
     <script>
       const filters = new URLSearchParams(window.location.search);
@@ -309,7 +309,7 @@
       let descEmpty = 'Silahkan coba lagi nanti';
       let emptyState = `
         <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
-          <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
+          <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
             <p class="headline6 color-black500 semibold m-0 px-3" id="title-not-found">${titleEmpty}</p>
             <p class="bodytext2 color-black300 semibold m-0 px-3" id="desc-not-found">${descEmpty}</p>
@@ -339,7 +339,7 @@
                 let cars = data.cars;
                 cars.map((car, a)=>{
                   $('.container-product').append(`
-                    <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                    <a class="product-items w-50 flex-column" href="product.html?id=${car.id}">
                         <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
                         <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
                         <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
