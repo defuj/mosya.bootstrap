@@ -530,16 +530,14 @@ Response :
 		payments: [
 			{
 				id: "string",
-				name: "string", // the value is payment name, ex: Cash, Cicilan 46 Bulan, Cicilan 48 Bulan, Cicilan 60 Bulan
-				type: "string", // the value is payment type, ex: Cash, Cicilan
-				payment: "string", // the value is car cicilan, ex: if cicilan : Rp 4.973.000 X 48 bln or if cash : Rp 200.000.000
+				label: "string", // the value is payment name, ex: Cash, Cicilan 46 Bulan, Cicilan 48 Bulan, Cicilan 60 Bulan
+				cicilan: "string", // the value is car cicilan, ex: if cicilan : Rp 4.973.000 X 48 bln or if cash : Rp 200.000.000
 				dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000, just if type is cicilan
 			},
 			{
 				id: "string",
-				name: "string", // the value is payment name, ex: Cash, Cicilan 46 Bulan, Cicilan 48 Bulan, Cicilan 60 Bulan
-				type: "string", // the value is payment type, ex: Cash, Cicilan
-				payment: "string", // the value is car cicilan, ex: if cicilan : Rp 4.973.000 X 48 bln or if cash : Rp 200.000.000
+				label: "string", // the value is payment name, ex: Cash, Cicilan 46 Bulan, Cicilan 48 Bulan, Cicilan 60 Bulan
+				cicilan: "string", // the value is car cicilan, ex: if cicilan : Rp 4.973.000 X 48 bln or if cash : Rp 200.000.000
 				dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000, just if type is cicilan
 			},
 		],
