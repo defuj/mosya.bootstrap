@@ -563,7 +563,9 @@ input.middle:focus {
 }
 
 .form-data-file-booking {
-	border: solid 2px #d1d2d2;
+	border-top: solid 2px #d1d2d2;
+	border-bottom: solid 2px #d1d2d2;
+	border-right: solid 2px #d1d2d2;
 	border-radius: 8px;
 	padding: 14px 16px 14px 0px;
 }
@@ -579,7 +581,7 @@ input.middle:focus {
 	font-family: "Open Sans", sans-serif;
 	color: #191c1f;
 	margin-right: 16px;
-	border-radius: 6px;
+	border-radius: 8px;
 }
 
 .container-form {
