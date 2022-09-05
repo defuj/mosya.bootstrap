@@ -25,6 +25,30 @@ const storageAvailable = (type) => {
     }
 }
 
+let book = {
+    id: '',
+    code: '',
+    forlup: false,
+}
+const getLastBooking = (id) => {
+    if (storageAvailable('localStorage')) {
+        return JSON.parse(localStorage.getItem(`${id}`));
+    }
+    return null;
+}
+
+const setLastBooking = (id, data) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem(`${id}`, JSON.stringify(data));
+    }
+}
+
+const deleteLastBooking = (id) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.removeItem(`${id}`);
+    }
+}
+
 const setAccount = (data) => {
     if (storageAvailable('localStorage')) {
         localStorage.setItem('account', JSON.stringify(data));

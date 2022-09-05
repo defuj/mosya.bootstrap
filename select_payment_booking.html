@@ -85,11 +85,11 @@
 
     <!-- start navigation bottom -->
     <nav class="navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <button type="reset" class="btn flex-fill button-action-filter button-back-payment bg-white bodytext2 semibold color-green500 mr-2" onclick="history.back()">
+      <button type="reset" class="btn flex-fill button-action-filter button-back-payment w-50 bg-white bodytext2 semibold color-green500 mr-2" onclick="history.back()">
         Kembali
       </button>
-      <button id="buttonSubmit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-        <p class="mb-0 py-1">Konfirmasi Pemesanan</p>
+      <button id="buttonSubmit" class="button-message flex-fill bodytext2 semibold w-50 text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
+        <p class="mb-0 py-1">Konfirmasi</p>
       </button>
     </nav>
     <!-- end navigation bottom -->
@@ -104,6 +104,11 @@
     <script src="./assets/js/navigation.js"></script>
 
     <script>
+
+      var lc = '';
+      var forup = false;
+      let car = getCurrentCar();
+      
       if(!checkAccount()){
         window.location.href = 'login.html';
       }
@@ -146,10 +151,11 @@
         })
           .then(response => {
             $('#buttonSubmit').attr('disabled', false);
-            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
+            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi</p>');
             
               let result = response.data;
               if(result.status){
+                deleteLastBooking(`${car.id}`);
                 Swal.fire({
                   title: 'Pemesanan berhasil',
                   text: 'Silahkan lakukan pembayaran sesuai dengan metode yang anda pilih',
@@ -171,7 +177,7 @@
           })
           .catch(error => {
             $('#buttonSubmit').attr('disabled', false);
-            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi Pemesanan</p>');
+            $('#buttonSubmit').html('<p class="mb-0 py-1">Konfirmasi</p>');
               Swal.fire({
                 title: 'Gagal',
                 text: 'Terjadi kesalahan',
@@ -196,9 +202,16 @@
         axios.postForm('booking/upload', postForm).then(response => {
           let result = response.data;
           $('#buttonSubmit').attr('disabled', false);
-          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">konfirmasi</p>`);
           console.log(result);
           if(result.status){
+            forup = true;
+            const lb = getLastBooking(`${car.id}`)
+            setLastBooking(`${car.id}`,{
+              car: lb.car,
+              code: lb.code,
+              image: true,
+            });
             sendPaymentType(code);
           }else{
             console.log(result);
@@ -211,7 +224,7 @@
           }
         }).catch(error => {
           $('#buttonSubmit').attr('disabled', false);
-          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">konfirmasi</p>`);
           console.log(error);
           Swal.fire({
             title: 'Perhatian',
@@ -247,11 +260,17 @@
               car: car.id,
               code: code,
             });
+            setLastBooking(`${car.id}`,{
+              car: car.id,
+              code: code,
+              image: false
+            });
             // upload image
+
             uploadImage(code);
           }else{
             $('#buttonSubmit').attr('disabled', false);
-            $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+            $('#buttonSubmit').html(`<p class="mb-0 py-1">konfirmasi</p>`);
             console.log(result);
             Swal.fire({
               title: 'Perhatian',
@@ -262,7 +281,7 @@
           }
         }).catch(error => {
           $('#buttonSubmit').attr('disabled', false);
-          $('#buttonSubmit').html(`<p class="mb-0 py-1">Konfirmasi Pesanan</p>`);
+          $('#buttonSubmit').html(`<p class="mb-0 py-1">konfirmasi</p>`);
           console.log(error);
           Swal.fire({
             title: 'Perhatian',
@@ -273,10 +292,8 @@
         })
       }
 
-
       const fetchCars = () => {
         const params = new URLSearchParams(window.location.search);
-        let car = getCurrentCar();
         console.log(car);
         if(car != null){
           axios.get('car/detail?id='+car.id)
@@ -339,7 +356,17 @@
                         confirmButtonText: 'Mengerti'
                       })
                     }else{
-                      uploadData();
+                      const lb = getLastBooking(`${car.id}`)
+                      console.log(lb);
+                      if(lb == null){
+                        uploadData();
+                      }else{
+                        if(lb.image){
+                          sendPaymentType(lb.code);
+                        }else{
+                          uploadImage(lb.code);
+                        }
+                      }
                     }
                   });
                 }else{
