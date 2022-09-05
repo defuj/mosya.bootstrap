@@ -132,6 +132,7 @@
         $('#dataEmail').val(safeString(user.email));
         user.image != null && user.image != '' ? $('#image-profile').attr('src', user.image) : '';
       }else{
+        setLastPage(document.URL);
         window.location.href = 'login.html';
       }
 

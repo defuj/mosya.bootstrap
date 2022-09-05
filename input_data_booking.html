@@ -97,6 +97,7 @@
 
     <script>
         if(!checkAccount()){
+          setLastPage(document.URL);
           window.location.href = 'login.html';
         }
         const params = new URLSearchParams(window.location.search);

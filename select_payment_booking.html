@@ -110,6 +110,7 @@
       let car = getCurrentCar();
       
       if(!checkAccount()){
+        setLastPage(document.URL);
         window.location.href = 'login.html';
       }
       var paymentSelected = null;

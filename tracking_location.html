@@ -43,42 +43,6 @@
     <!-- start body content -->
     <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
       <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-
-      <!-- <div class="container-tracking px-4 py-3 d-flex flex-column mb-2 mt-3">
-        <div class="timeline">
-            <div class="pb-4 container-track end right">
-              <div class="content">
-                <div class="d-flex flex-row justify-content-between">
-                    <p class="mb-0 color-green500 bodytext1 flex-fill">Sabtu, 20 Agustus 2022</p>
-                    <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
-                </div>
-                <p class="mb-0 color-black300 bodytext2">Mobil telah diterima penerima.</p>
-              </div>
-            </div>
-
-            <div class="pb-4 container-track right">
-              <div class="content">
-                <div class="d-flex flex-row justify-content-between">
-                    <p class="mb-0 color-black500 bodytext1 flex-fill">Jumat, 19 Agustus 2022</p>
-                    <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
-                </div>
-                <p class="mb-0 color-black300 bodytext2">Mobil berada di Jakarta Utara</p>
-              </div>
-            </div>
-
-            <div class="pb-4 container-track start right">
-              <div class="content">
-                <div class="d-flex flex-row justify-content-between">
-                    <p class="mb-0 color-black500 bodytext1 flex-fill">Jumat, 18 Agustus 2022</p>
-                    <p class="mb-0 color-black300 bodytext2">19:21 WIB</p>
-                </div>
-                <p class="mb-0 color-black300 bodytext2">Pesanan kamu sedang dikirim</p>
-              </div>
-            </div>
-          
-          </div>
-      </div> -->
-
     </main>
     <!-- end body content -->
 
@@ -126,6 +90,7 @@
 
     <script>
       if(!checkAccount()){
+        setLastPage(document.URL);
         window.location.href = 'login.html';
       }
 
