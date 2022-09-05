@@ -581,7 +581,7 @@ input.middle:focus {
 	font-family: "Open Sans", sans-serif;
 	color: #191c1f;
 	margin-right: 16px;
-	border-radius: 8px;
+	border-radius: 8px 6px 6px 8px;
 }
 
 .container-form {
