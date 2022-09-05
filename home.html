@@ -191,7 +191,7 @@
       if(checkAccount()){
         const user = getAccount();
         $('#dataName').text('Assalamualaikum, ' + user.name)
-        user.image != null ? $('#dataImage').attr('src', user.image) : '';
+        user.image != null && user.image != '' ? $('#dataImage').attr('src', user.image) : '';
 
       }
 

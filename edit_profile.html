@@ -131,7 +131,7 @@
         $('#dataName').val(user.name);
         $('#dataPhone').val(user.phone.replace('+', ''));
         $('#dataEmail').val(user.email);
-        user.image != null ? $('#image-profile').attr('src', user.image) : '';
+        user.image != null && user.image != '' ? $('#image-profile').attr('src', user.image) : '';
       }else{
         window.location.href = 'login.html';
       }
