@@ -242,6 +242,7 @@ const deleteLastPage = () => {
 
 const checkSessionOnPage = () => {
     if(checkAccount()){
+        deleteLastPage();
         // redirect to home page if user is already logged in
         if(pathname === '/login.html' || pathname === '/register.html' || pathname === '/forgot_password.html' || pathname === '/reset_password.html'){
             window.location.href = '/';
