@@ -221,6 +221,7 @@
                   setCurrentCar(data);
                   window.location.href = "input_data_booking.html?id=" + data.id;
                 }else{
+                  setLastPage(document.URL);
                   window.location.href = "login.html";
                 }
               });

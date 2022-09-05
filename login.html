@@ -84,7 +84,13 @@
               const account = result.data;
               if(account !== undefined){
                 setAccount(account);
-                window.location.href = 'home.html';
+                let page = getLastPage();
+                if(page != null){
+                  window.location.href = page;
+                  deleteLastPage();
+                }else{
+                  window.location.href = 'home.html';
+                }
               }else{
                 Swal.fire({
                   title: 'Perhatian',

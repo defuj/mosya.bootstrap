@@ -221,6 +221,25 @@ const clearFilter = () => {
     }
 }
 
+const setLastPage = (url) => {
+    if (storageAvailable('localStorage')) {
+        localStorage.setItem('last_page', url);
+    }
+}
+
+const getLastPage = () => {
+    if (storageAvailable('localStorage')) {
+        return localStorage.getItem('last_page');
+    }
+    return null;
+}
+
+const deleteLastPage = () => {
+    if (storageAvailable('localStorage')) {
+        localStorage.removeItem('last_page');
+    }
+}
+
 const checkSessionOnPage = () => {
     if(checkAccount()){
         // redirect to home page if user is already logged in
@@ -229,6 +248,7 @@ const checkSessionOnPage = () => {
         }
     }else{
         if(pathname == '/profile.html' || pathname === '/history.html' || pathname === '/detail_history.html' || pathname === '/input_data_booking.html'  || pathname === '/select_payment_booking.html'  || pathname === '/upload_payment.html' || pathname === '/tracking_location.html') {
+            setLastPage(document.URL);
             window.location.href = '/login.html';
         }
     }
