@@ -833,7 +833,7 @@ input.middle:focus {
 
 .without-navbar {
 	max-height: 300px !important;
-	min-height: 190px;
+	min-height: 300px;
 }
 
 .change-picture {
