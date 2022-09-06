@@ -1,186 +1,269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Mobil Syariah</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+	<head>
+		<title>Mosya - Mobil Syariah</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column">
+		<!-- start body content -->
+		<main
+			role="main"
+			class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0"
+		>
+			<!-- start content welcome user -->
+			<div
+				class="container-user d-flex flex-row justify-content-between px-3 py-4"
+			>
+				<div class="content-text flex-column w-100">
+					<p class="bodytext2 color-black500 p-0 m-0" id="dataName">
+						Assalamualaikum
+					</p>
+					<p class="headline6 color-black500 semibold p-0 m-0">
+						Temukan mobil impian!
+					</p>
+				</div>
+				<a class="content-image-profile flex-shrink" href="profile">
+					<div class="frame-image">
+						<img
+							src="https://defuj.github.io/mosya.bootstrap/assets/images/user-default.png"
+							alt="profile"
+							srcset=""
+							id="dataImage"
+						/>
+					</div>
+				</a>
+			</div>
+			<!-- end content welcome user -->
 
-  </head>
-  <body class="align-items-start pt-0 flex-column">
-    <!-- start body content -->
-    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0">
-      <!-- start content welcome user -->
-      <div class="container-user d-flex flex-row justify-content-between px-3 py-4">
-        <div class="content-text flex-column w-100">
-          <p class="bodytext2 color-black500 p-0 m-0" id="dataName">
-            Assalamualaikum
-          </p>
-          <p class="headline6 color-black500 semibold p-0 m-0">
-            Temukan mobil impian!
-          </p>
-        </div>
-        <a class="content-image-profile flex-shrink" href="profile.html">
-          <div class="frame-image">
-            <img src="https://defuj.github.io/mosya.bootstrap/assets/images/user-default.png" alt="profile" srcset="" id="dataImage">
-          </div>
-        </a>
-      </div>
-      <!-- end content welcome user -->
+			<!-- start content form search -->
+			<form
+				action="search"
+				method="get"
+				class="form-search container-search mx-3 mb-4 d-flex justify-content-between align-items-center"
+				style="height: 48px"
+			>
+				<div class="input-group-search bg-white h-100">
+					<input
+						type="text"
+						name="search"
+						class="bodytext1 color-black800"
+						placeholder="Cari mobil di sini ..."
+						required
+					/>
+				</div>
+				<button
+					type="submit"
+					class="h-100 d-flex align-items-center justify-content-center button-search ml-3"
+					style="width: 48px"
+				>
+					<i class="fi fi-br-search text-white"></i>
+				</button>
+			</form>
+			<!-- end content form search -->
 
-      <!-- start content form search -->
-      <form action="search.html" method="get" class="form-search container-search mx-3 mb-4 d-flex justify-content-between align-items-center" style="height: 48px;">
-          <div class="input-group-search bg-white h-100">
-            <input type="text" name="search" class=" bodytext1 color-black800" placeholder="Cari mobil di sini ..." required>
-          </div>
-          <button type="submit" class="h-100 d-flex align-items-center justify-content-center button-search ml-3" style="width: 48px;">
-            <i class="fi fi-br-search text-white"></i>
-          </button>
-      </form>
-      <!-- end content form search -->
-      
-      <!-- start content slider -->
-      <div class="swiper mySlider d-none">
-        <div class="swiper-wrapper" id="content-banner"></div>
-      </div>
-      <!-- end content slider -->
+			<!-- start content slider -->
+			<div class="swiper mySlider d-none">
+				<div class="swiper-wrapper" id="content-banner"></div>
+			</div>
+			<!-- end content slider -->
 
-      <!-- start content brands list -->
-      <div class="contaier-brand d-none d-flex w-100 flex-row px-3 mt-4">
-        <div class="w-100 d-flex justify-content-between align-items-center">
-          <p class="bodytext1 color-black500 font-weight-bold">Merek Mobil</p>
-          <a href="./merk.html" class="text-decoration-none">
-            <p class="caption color-green500 semibold">Lainnya</p>
-          </a>
-        </div>
-      </div>
-      <div class="container-brand-text d-none"></div>
-      <!-- end content brands -->
+			<!-- start content brands list -->
+			<div class="contaier-brand d-none d-flex w-100 flex-row px-3 mt-4">
+				<div
+					class="w-100 d-flex justify-content-between align-items-center"
+				>
+					<p class="bodytext1 color-black500 font-weight-bold">
+						Merek Mobil
+					</p>
+					<a href="./merk" class="text-decoration-none">
+						<p class="caption color-green500 semibold">Lainnya</p>
+					</a>
+				</div>
+			</div>
+			<div class="container-brand-text d-none"></div>
+			<!-- end content brands -->
 
-      <!-- start content product list -->
-      <div class="container-products d-none w-100">
-        <div class="w-100 d-flex justify-content-between align-items-center px-3 mt-4">
-          <p class="bodytext1 color-black500 font-weight-bold m-0">Mobil Tersedia</p>
-          <a href="./search.html" class="text-decoration-none">
-            <p class="caption color-green500 semibold m-0">Lainnya</p>
-          </a>
-        </div>
-        <div id="container-product" class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-2">
-        </div>
-      </div>
-      <!-- end content product list -->
-    </main>
-    <!-- end body content -->
+			<!-- start content product list -->
+			<div class="container-products d-none w-100">
+				<div
+					class="w-100 d-flex justify-content-between align-items-center px-3 mt-4"
+				>
+					<p class="bodytext1 color-black500 font-weight-bold m-0">
+						Mobil Tersedia
+					</p>
+					<a href="./search" class="text-decoration-none">
+						<p class="caption color-green500 semibold m-0">
+							Lainnya
+						</p>
+					</a>
+				</div>
+				<div
+					id="container-product"
+					class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-2"
+				></div>
+			</div>
+			<!-- end content product list -->
+		</main>
+		<!-- end body content -->
 
-    <!-- start content footer -->
-    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="./assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="./assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="./assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
+		</footer>
+		<!-- end content footer -->
 
-    <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <div class="bottom-nav-item active">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-home unselected"></i>
-            <i class="fi fi-sr-home selected"></i>
-          </p>
-          <span>Beranda</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-car-alt unselected"></i>
-            <i class="fi fi-sr-car-alt selected"></i>
-          </p>
-          <span>Katalog</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-ballot unselected"></i>
-            <i class="fi fi-sr-ballot selected"></i>
-          </p>
-          <span>Riwayat</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-user unselected"></i>
-            <i class="fi fi-sr-user selected"></i>
-          </p>
-          <span>Profil</span>
-        </div>
-      </div>
-    </nav>
-    <!-- end navigation bottom -->
+		<!-- start navigation bottom -->
+		<nav
+			class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto"
+		>
+			<div class="bottom-nav-item active">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-home unselected"></i>
+						<i class="fi fi-sr-home selected"></i>
+					</p>
+					<span>Beranda</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-car-alt unselected"></i>
+						<i class="fi fi-sr-car-alt selected"></i>
+					</p>
+					<span>Katalog</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-ballot unselected"></i>
+						<i class="fi fi-sr-ballot selected"></i>
+					</p>
+					<span>Riwayat</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-user unselected"></i>
+						<i class="fi fi-sr-user selected"></i>
+					</p>
+					<span>Profil</span>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation bottom -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/home.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
+		<script src="assets/js/home.js"></script>
 
-    <script>
-      let titleEmpty = "Belum ada produk";
-      let descEmpty = 'Silahkan coba lagi nanti';
-      let emptyState = `
+		<script>
+			let titleEmpty = "Belum ada produk";
+			let descEmpty = "Silahkan coba lagi nanti";
+			let emptyState = `
         <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
           <img src="./assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
@@ -189,111 +272,110 @@
           </div>
         </div>`;
 
-      // check if session is empty
-      if(checkAccount()){
-        const user = getAccount();
-        $('#dataName').text('Assalamualaikum, ' + user.name)
-        user.image != null && user.image != '' ? $('#dataImage').attr('src', user.image) : '';
+			// check if session is empty
+			if (checkAccount()) {
+				const user = getAccount();
+				$("#dataName").text("Assalamualaikum, " + user.name);
+				user.image != null && user.image != ""
+					? $("#dataImage").attr("src", user.image)
+					: "";
+			}
 
-      }
-
-      // get data banner
-      axios.get('banner/list')
-        .then(response => {
-          let result = response.data;
-          if(result.status){
-            if(result.data.length > 0){
-              $('.mySlider').removeClass('d-none');
-              result.data.forEach(item => {
-                $('#content-banner').append(`
+			// get data banner
+			axios.get("banner/list").then((response) => {
+				let result = response.data;
+				if (result.status) {
+					if (result.data.length > 0) {
+						$(".mySlider").removeClass("d-none");
+						result.data.forEach((item) => {
+							$("#content-banner").append(`
                 <a class="swiper-slide" href="${item.link}" target="_blank">
                   <img src="${item.image}" alt="" srcset="">
                 </a>
                 `);
-              });
+						});
 
-              startBanner();
-            }else{
-              $('.mySlider').remove();  
-            }
-          }else{
-            $('.mySlider').remove();
-          }
-        })
-      
-      // get brand list
-      axios.get('brand/list')
-        .then(response => {
-          let result = response.data;
-          if(result.status){
-            if(result.data.length > 0){
-              $('.contaier-brand').removeClass('d-none');
-              $('.container-brand-text').removeClass('d-none');
-              $('.container-brand-text').append(`
-              <a href="./search.html" class="bodytext2 text-decoration-none brand-slide active">
+						startBanner();
+					} else {
+						$(".mySlider").remove();
+					}
+				} else {
+					$(".mySlider").remove();
+				}
+			});
+
+			// get brand list
+			axios.get("brand/list").then((response) => {
+				let result = response.data;
+				if (result.status) {
+					if (result.data.length > 0) {
+						$(".contaier-brand").removeClass("d-none");
+						$(".container-brand-text").removeClass("d-none");
+						$(".container-brand-text").append(`
+              <a href="./search" class="bodytext2 text-decoration-none brand-slide active">
                 Semua
               </a>
               `);
-              result.data.forEach(item => {
-                $('.container-brand-text').append(`
-                <a href="./search.html?search=${item.name}" class="bodytext2 text-decoration-none flex-column brand-slide">
+						result.data.forEach((item) => {
+							$(".container-brand-text").append(`
+                <a href="./search?search=${item.name}" class="bodytext2 text-decoration-none flex-column brand-slide">
                   ${item.name}
                 </a>
                 `);
-              });
-            }else{
-              $('.contaier-brand').remove();
-              $('.container-brand-text').remove();
-            }
-          }else{
-            $('.contaier-brand').remove();
-            $('.container-brand-text').remove();
-          }
-        });
+						});
+					} else {
+						$(".contaier-brand").remove();
+						$(".container-brand-text").remove();
+					}
+				} else {
+					$(".contaier-brand").remove();
+					$(".container-brand-text").remove();
+				}
+			});
 
-      // get data car
-      $('#container-product').append(loading);
-      axios.get('car/list',{
-        limit: 12,
-      })
-        .then(response => {
-            let result = response.data;
-            if(result.status){
-              var cars = result.data;
+			// get data car
+			$("#container-product").append(loading);
+			axios
+				.get("car/list", {
+					limit: 12,
+				})
+				.then((response) => {
+					let result = response.data;
+					if (result.status) {
+						var cars = result.data;
 
-              if(cars.length > 0){
-                $('.container-products').removeClass('d-none');
-                if(cars.length > 12){
-                  for(let i = 0; i <= 11; i++){
-                    var car = cars[i];
-                    $('#container-product').append(`
-                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+						if (cars.length > 0) {
+							$(".container-products").removeClass("d-none");
+							if (cars.length > 12) {
+								for (let i = 0; i <= 11; i++) {
+									var car = cars[i];
+									$("#container-product").append(`
+                      <a class="product-items w-50 flex-column" href="./product?id=${car.id}">
                           <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
                           <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
                           <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
                           <p class="caption color-green500 m-0 py-1 px-2">${car.price}</p>
                       </a>
-                    `)
-                  }
-                }else{
-                  cars.map((car, i)=>{
-                    $('#container-product').append(`
-                      <a class="product-items w-50 flex-column" href="./product.html?id=${car.id}">
+                    `);
+								}
+							} else {
+								cars.map((car, i) => {
+									$("#container-product").append(`
+                      <a class="product-items w-50 flex-column" href="./product?id=${car.id}">
                           <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
                           <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
                           <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
                           <p class="caption color-green500 m-0 py-1 px-2">${car.price}</p>
                       </a>
-                    `)
-                  });
-                }
-                $('.loading').remove();
-              }else{
-                $('.container-product').html(emptyState);
-              }
-            }
-        })
-      
-    </script>
-  </body>
+                    `);
+								});
+							}
+							$(".loading").remove();
+						} else {
+							$(".container-product").html(emptyState);
+						}
+					}
+				});
+		</script>
+	</body>
 </html>

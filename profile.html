@@ -1,138 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Profil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Mosya - Profil</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta name="robots" content="noindex,nofollow" />
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="align-items-start pt-0 flex-column pb-0">
-    <!-- start navigation bar -->
-    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between  align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-2">
-        <p class="navbar-brand mb-0 bodytext1 semibold color-black500 px-1 py-2 flex-fill" title="">
-          Profil Akun
-        </p>
-      </div>
-    </nav>
-    <!-- end navigation bar -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column pb-0">
+		<!-- start navigation bar -->
+		<nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+			<div
+				class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-2"
+			>
+				<p
+					class="navbar-brand mb-0 bodytext1 semibold color-black500 px-1 py-2 flex-fill"
+					title=""
+				>
+					Profil Akun
+				</p>
+			</div>
+		</nav>
+		<!-- end navigation bar -->
 
-    <!-- start body content -->
-    <main role="main" id="container-user" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5">
-      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-    </main>
-    <!-- end body content -->
+		<!-- start body content -->
+		<main
+			role="main"
+			id="container-user"
+			class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5"
+		>
+			<lottie-player
+				src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"
+				background="transparent"
+				speed="1"
+				style="width: 150px; height: 300px"
+				class="ml-auto mr-auto my-4 loading"
+				loop
+				autoplay
+			></lottie-player>
+		</main>
+		<!-- end body content -->
 
-    <!-- start content footer -->
-    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
+		</footer>
+		<!-- end content footer -->
 
-    <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-home unselected"></i>
-            <i class="fi fi-sr-home selected"></i>
-          </p>
-          <span>Beranda</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-car-alt unselected"></i>
-            <i class="fi fi-sr-car-alt selected"></i>
-          </p>
-          <span>Katalog</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-ballot unselected"></i>
-            <i class="fi fi-sr-ballot selected"></i>
-          </p>
-          <span>Riwayat</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item active">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-user unselected"></i>
-            <i class="fi fi-sr-user selected"></i>
-          </p>
-          <span>Profil</span>
-        </div>
-      </div>
-    </nav>
-    <!-- end navigation bottom -->
+		<!-- start navigation bottom -->
+		<nav
+			class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto"
+		>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-home unselected"></i>
+						<i class="fi fi-sr-home selected"></i>
+					</p>
+					<span>Beranda</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-car-alt unselected"></i>
+						<i class="fi fi-sr-car-alt selected"></i>
+					</p>
+					<span>Katalog</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-ballot unselected"></i>
+						<i class="fi fi-sr-ballot selected"></i>
+					</p>
+					<span>Riwayat</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item active">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-user unselected"></i>
+						<i class="fi fi-sr-user selected"></i>
+					</p>
+					<span>Profil</span>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation bottom -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
 
-    <script>
-      function isAccount(){
-        const user = getAccount();
-        if(user != null){
-          $('.loading').remove();
-          $('#container-user').append(`
+		<script>
+			function isAccount() {
+				const user = getAccount();
+				if (user != null) {
+					$(".loading").remove();
+					$("#container-user").append(`
           <!-- start content welcome user -->
           <div class="container-user d-flex flex-column w-100 px-3 py-4 mb-4">
                 <div class="content-profile d-flex flex-column align-items-center mt-2 py-4">
@@ -163,7 +227,7 @@
                   <div class="spec-item flex-column flex-fill justify-content-column m-0 mt-3 p-3 radius-16">
                     <p class="bodytext1 color-black500 semibold mb-2 flex-fill w-100">Pengaturan Akun</p>
 
-                    <a href="edit_profile.html" class="text-decoration-none d-flex">
+                    <a href="edit_profile" class="text-decoration-none d-flex">
                       <button class="button-action-profile color-black500 bg-white bodytext1 d-flex flex-row justify-content-between align-items-center flex-fill px-0 py-2">
                           <p class="mb-0 bodytext1 flex-fill text-left">
                             Edit Profil
@@ -172,7 +236,7 @@
                       </button>
                     </a>
                   
-                    <a href="change_password.html" class="text-decoration-none d-flex">
+                    <a href="change_password" class="text-decoration-none d-flex">
                       <button class="button-action-profile color-black500 bg-white bodytext1 d-flex flex-row justify-content-between align-items-center flex-fill px-0 py-2">
                           <p class="mb-0 bodytext1 flex-fill text-left">
                             Ubah Kata Sandi
@@ -190,47 +254,55 @@
           </div>
           <!-- end content welcome user -->
           `);
-          user.image != null && user.image != '' ? $('#dataImage').attr('src', user.image) : '';
-          $('#dataEmail').text(safeString(user.email) + ' | ' + safeString(user.phone));
-          $('#dataName').text(safeString(user.name));
+					user.image != null && user.image != ""
+						? $("#dataImage").attr("src", user.image)
+						: "";
+					$("#dataEmail").text(
+						safeString(user.email) + " | " + safeString(user.phone)
+					);
+					$("#dataName").text(safeString(user.name));
 
-          axios.get(`history/list?id=${user.id}`)
-            .then(response =>{
-              let result = response.data;
-              if(result.status){
-                let finished = result.data.filter(trx => trx.status == 'Selesai')
-                $('#dataFinished').text(finished.length);
-                let processing = result.data.filter(trx => trx.status != 'Selesai' && trx.status != 'Dibatalkan' && trx.status != 'Ditolak' && trx.status != 'Belum Dibayar')
-                $('#dataProcess').text(processing.length);
-              }
-            })
-        }else{
-          setLastPage(document.URL);
-          window.location.href = "login.html";
-        }
-      }
+					axios.get(`history/list?id=${user.id}`).then((response) => {
+						let result = response.data;
+						if (result.status) {
+							let finished = result.data.filter(
+								(trx) => trx.status == "Selesai"
+							);
+							$("#dataFinished").text(finished.length);
+							let processing = result.data.filter(
+								(trx) =>
+									trx.status != "Selesai" &&
+									trx.status != "Dibatalkan" &&
+									trx.status != "Ditolak" &&
+									trx.status != "Belum Dibayar"
+							);
+							$("#dataProcess").text(processing.length);
+						}
+					});
+				} else {
+					setLastPage(document.URL);
+					window.location.href = "login";
+				}
+			}
 
-      isAccount();
-      
-      
+			isAccount();
 
-      $('#buttonLogout').click(function(){
-        // alert dialog
-        Swal.fire({
-          title: 'Keluar Akun?',
-          text: "Apakah kamu yakin ingin keluar akun?",
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: 'Ya, Keluar!',
-          cancelButtonText: 'Tidak'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            deleteAccount();
-            window.location.href = 'home.html';
-          }
-        })
-      });
-
-    </script>
-  </body>
+			$("#buttonLogout").click(function () {
+				// alert dialog
+				Swal.fire({
+					title: "Keluar Akun?",
+					text: "Apakah kamu yakin ingin keluar akun?",
+					icon: "question",
+					showCancelButton: true,
+					confirmButtonText: "Ya, Keluar!",
+					cancelButtonText: "Tidak",
+				}).then((result) => {
+					if (result.isConfirmed) {
+						deleteAccount();
+						window.location.href = "home.html";
+					}
+				});
+			});
+		</script>
+	</body>
 </html>

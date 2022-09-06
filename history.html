@@ -44,7 +44,7 @@
       <!-- start content history list -->
       <!-- <div class="container-history w-100 d-flex flex-column w-100 py-1 px-3">
 
-        <a href="detail_history.html?status=1" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=1" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -68,7 +68,7 @@
           </div>
         </a>
 
-        <a href="detail_history.html?status=2" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=2" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -92,7 +92,7 @@
           </div>
         </a>
 
-        <a href="detail_history.html?status=3" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=3" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -116,7 +116,7 @@
           </div>
         </a>
 
-        <a href="detail_history.html?status=4" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=4" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -140,7 +140,7 @@
           </div>
         </a>
 
-        <a href="detail_history.html?status=5" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=5" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -164,7 +164,7 @@
           </div>
         </a>
 
-        <a href="detail_history.html?status=6" class="d-flex flex-column history-item mb-3 text-decoration-none">
+        <a href="detail_history?status=6" class="d-flex flex-column history-item mb-3 text-decoration-none">
           <div class=" d-flex flex-row justify-content-center align-items-center">
             <div class="d-flex flex-column flex-fill">
               <p class="semibold bodytext2 color-black500 mb-0">
@@ -289,7 +289,7 @@
 
       if(!checkAccount()){
         setLastPage(document.URL);
-        window.location.href = 'login.html';
+        window.location.href = 'login';
       }
 
       const getHistory = () => {
@@ -304,7 +304,7 @@
               $('.container-fluid').html(`<div class="container-history w-100 d-flex flex-column w-100 py-1 px-3"></div>`);
               data.map((data, i)=>{
                 $('.container-history').prepend(`
-                <a href="detail_history.html?code=${data.id}" class="d-flex flex-column history-item mb-3 text-decoration-none">
+                <a href="detail_history?code=${data.id}" class="d-flex flex-column history-item mb-3 text-decoration-none">
                   <div class=" d-flex flex-row justify-content-center align-items-center">
                     <div class="d-flex flex-column flex-fill">
                       <p class="semibold bodytext2 color-black500 mb-0">

@@ -91,7 +91,7 @@
     <script>
       if(!checkAccount()){
         setLastPage(document.URL);
-        window.location.href = 'login.html';
+        window.location.href = 'login';
       }
 
       const params = new URLSearchParams(window.location.search);
@@ -158,7 +158,7 @@
                 icon: 'error',
                 confirmButtonText: 'Kembali'
               }).then((result) => {
-                window.location.href = 'history.html';
+                window.location.href = 'history';
               });
             }
           }).catch(error=>{
@@ -169,7 +169,7 @@
               icon: 'error',
               confirmButtonText: 'Kembali'
             }).then((result) => {
-              window.location.href = 'history.html';
+              window.location.href = 'history';
             });
           })
       }
@@ -189,7 +189,7 @@
                   icon: 'warning',
                   confirmButtonText: 'Kembali'
                 }).then((result) => {
-                  window.location.href = 'history.html';
+                  window.location.href = 'history';
                 });
               }
             }else{
@@ -199,7 +199,7 @@
                 icon: 'error',
                 confirmButtonText: 'Kembali'
               }).then((result) => {
-                window.location.href = 'history.html';
+                window.location.href = 'history';
               });
             }
           })
@@ -211,11 +211,11 @@
               icon: 'error',
               confirmButtonText: 'Kembali'
             }).then((result) => {
-              window.location.href = 'history.html';
+              window.location.href = 'history';
             });
           });
       }else{
-        window.location.href = 'history.html';
+        window.location.href = 'history';
       }
     </script>
   </body>

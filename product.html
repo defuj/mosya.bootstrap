@@ -1,79 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Detail Produk</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Mosya - Detail Produk</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="align-items-start pt-0 flex-column">
-    <!-- start navigation bar -->
-    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <a class="navbar-brand" title="back" onclick="history.back()">
-            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
-        </a>
-        <p class="mb-0 bodytext1 semibold color-black500 px-2">Detail Mobil</p>
-      </div>
-    </nav>
-    <!-- end navigation bar -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column">
+		<!-- start navigation bar -->
+		<nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+			<div
+				class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3"
+			>
+				<a class="navbar-brand" title="back" onclick="history.back()">
+					<i class="fi fi-sr-angle-left color-black400 headline6"></i>
+				</a>
+				<p class="mb-0 bodytext1 semibold color-black500 px-2">
+					Detail Mobil
+				</p>
+			</div>
+		</nav>
+		<!-- end navigation bar -->
 
-    <!-- start body content -->
-    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4">
-      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-      <!-- start content slider -->
-      <div class="container-slider d-none">
-        <div class="swiper carSlider">
-            <div class="swiper-wrapper">
-            </div>
-          </div>
-          <div class="swiper-pagination" style="bottom: auto;"></div>
-      </div>
+		<!-- start body content -->
+		<main
+			role="main"
+			class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-4"
+		>
+			<lottie-player
+				src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"
+				background="transparent"
+				speed="1"
+				style="width: 150px; height: 300px"
+				class="ml-auto mr-auto my-4 loading"
+				loop
+				autoplay
+			></lottie-player>
+			<!-- start content slider -->
+			<div class="container-slider d-none">
+				<div class="swiper carSlider">
+					<div class="swiper-wrapper"></div>
+				</div>
+				<div class="swiper-pagination" style="bottom: auto"></div>
+			</div>
 
-      <div class="container-data mt-5 mb-3  d-none">
-        <p class="color-black300 caption semibold mb-0 px-3" id="data-merk">
-          <!-- Honda -->
-        </p>
-        <p class="color-black800 headline5 semibold px-3 mb-0" id="data-model">
-          <!-- Brio Satya 1.2E CVT -->
-        </p>
-        <p class="color-green500 bodytext1 semibold px-3 mb-4" id="data-price">
-          <!-- Brio Satya 1.2E CVT -->
-        </p>
+			<div class="container-data mt-5 mb-3 d-none">
+				<p
+					class="color-black300 caption semibold mb-0 px-3"
+					id="data-merk"
+				>
+					<!-- Honda -->
+				</p>
+				<p
+					class="color-black800 headline5 semibold px-3 mb-0"
+					id="data-model"
+				>
+					<!-- Brio Satya 1.2E CVT -->
+				</p>
+				<p
+					class="color-green500 bodytext1 semibold px-3 mb-4"
+					id="data-price"
+				>
+					<!-- Brio Satya 1.2E CVT -->
+				</p>
 
-        <p class="color-black500 bodytext1 semibold mb-1 px-3">Deskripsi</p>
-        <p class="color-black500 bodytext2 px-3 text-justify" id="data-desc">
-          <!-- Mobil bagus mesin dan body terawat siap pakai... -->
-        </p>
+				<p class="color-black500 bodytext1 semibold mb-1 px-3">
+					Deskripsi
+				</p>
+				<p
+					class="color-black500 bodytext2 px-3 text-justify"
+					id="data-desc"
+				>
+					<!-- Mobil bagus mesin dan body terawat siap pakai... -->
+				</p>
 
-        <p class="color-black500 bodytext1 semibold mb-1 px-3">Spesifikasi</p>
-        <div class="container-spec d-flex align-content-start flex-wrap px-2 mb-3 data-spec" id="data-spec">
-        </div>
+				<p class="color-black500 bodytext1 semibold mb-1 px-3">
+					Spesifikasi
+				</p>
+				<div
+					class="container-spec d-flex align-content-start flex-wrap px-2 mb-3 data-spec"
+					id="data-spec"
+				></div>
 
-        <p class="color-black500 bodytext1 semibold mb-1 px-3">Harga & Cicilan</p>
-        <div class="container-spec d-flex align-content-start flex-wrap px-2 data-dp mb-3" id="data-dp">
-          <!-- <div class="spec-item d-flex flex-row justify-content-start w-100">
+				<p class="color-black500 bodytext1 semibold mb-1 px-3">
+					Harga & Cicilan
+				</p>
+				<div
+					class="container-spec d-flex align-content-start flex-wrap px-2 data-dp mb-3"
+					id="data-dp"
+				>
+					<!-- <div class="spec-item d-flex flex-row justify-content-start w-100">
             <div class="flex-fill w-50">
               <p class="caption color-black300 mb-0">DP</p>
               <p class="bodytext2 color-black500 semibold mb-0">Rp 20,400,000</p>
@@ -83,88 +144,136 @@
               <p class="bodytext2 color-black500 semibold mb-0">Rp 4.973.000 X 48 bln</p>
             </div>
           </div> -->
-        </div>
+				</div>
 
-        <p class="color-black500 bodytext1 semibold mb-2 px-3">Kontak</p>
-        <div class="container-contact d-flex flex-row align-items-center px-3 py-3 mx-3 mb-5">
-          <img src="assets/images/contact.jpg" alt="" class="mr-3">
-          <div class="flex-column flex-fill">
-            <p class="mb-0 bodytext1 semibold color-black600">Sintia</p>
-            <p class="mb-0 bodytext2 color-black300">Narahubung</p>
-          </div>
-          <a href="https://wa.me/+6285315131514/?text=Hallo," target="_blank" id="sendMessage" rel="noopener noreferrer" class="text-decoration-none">
-            <i class="fi fi-brands-whatsapp mr-2 px-2 mt-1" ></i>
-          </a>
-          
-          <i class="fi fi-rr-phone-call  px-2 mt-1" onclick="window.open('tel:+6285315131514');"></i>
-        </div>
-      </div>
-      
-      <!-- end content slider -->
-    </main>
-    <!-- end body content -->
+				<p class="color-black500 bodytext1 semibold mb-2 px-3">
+					Kontak
+				</p>
+				<div
+					class="container-contact d-flex flex-row align-items-center px-3 py-3 mx-3 mb-5"
+				>
+					<img src="assets/images/contact.jpg" alt="" class="mr-3" />
+					<div class="flex-column flex-fill">
+						<p class="mb-0 bodytext1 semibold color-black600">
+							Sintia
+						</p>
+						<p class="mb-0 bodytext2 color-black300">Narahubung</p>
+					</div>
+					<a
+						href="https://wa.me/+6285315131514/?text=Hallo,"
+						target="_blank"
+						id="sendMessage"
+						rel="noopener noreferrer"
+						class="text-decoration-none"
+					>
+						<i class="fi fi-brands-whatsapp mr-2 px-2 mt-1"></i>
+					</a>
 
-    <!-- start content footer -->
-    <footer class="container-footer without-navbar w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+					<i
+						class="fi fi-rr-phone-call px-2 mt-1"
+						onclick="window.open('tel:+6285315131514');"
+					></i>
+				</div>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<!-- end content slider -->
+		</main>
+		<!-- end body content -->
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer without-navbar w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-    <!-- start navigation bottom -->
-    <nav class="navbar d-none bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-        <!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
-        <form action="input_data_booking.html" class="text-decoration-none d-flex flex-fill">
-          <input type="text" id="productId" name="id" hidden required>
-          <button type="submit" id="buttonSubmit" hidden></button>
-          <button id="buttonRequest" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
-            <p class="mb-0 py-1">Pesan Mobil</p>
-            <!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
-          </button>
-        </form>
-    </nav>
-    <!-- end navigation bottom -->
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
+		</footer>
+		<!-- end content footer -->
 
-    <script>
-      const params = new URLSearchParams(window.location.search);
-      let titleEmpty = "Produk tidak ditemukan";
-      let descEmpty = 'Silahkan cari produk lainnya';
-      let emptyState = `
+		<!-- start navigation bottom -->
+		<nav
+			class="navbar d-none bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto"
+		>
+			<!-- <p class="mb-0 color-black500 semibold headline6 semibold color-black500 flex-fill text-left" id="data-price">Rp 0,0</p> -->
+			<form
+				action="input_data_booking"
+				class="text-decoration-none d-flex flex-fill"
+			>
+				<input type="text" id="productId" name="id" hidden required />
+				<button type="submit" id="buttonSubmit" hidden></button>
+				<button
+					id="buttonRequest"
+					class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500"
+					type="button"
+				>
+					<p class="mb-0 py-1">Pesan Mobil</p>
+					<!-- <i class="fi fi-rr-comment bodytext1 ml-2"></i> -->
+				</button>
+			</form>
+		</nav>
+		<!-- end navigation bottom -->
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
+
+		<script>
+			const params = new URLSearchParams(window.location.search);
+			let titleEmpty = "Produk tidak ditemukan";
+			let descEmpty = "Silahkan cari produk lainnya";
+			let emptyState = `
       <div class="container-empty py-5 d-flex justify-content-center align-items-center flex-column">
           <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
@@ -173,120 +282,137 @@
           </div>
       </div>`;
 
-      // banner slider
-      const startSlider = () => {
-        var swiper = new Swiper(".carSlider", {
-            slidesPerView: 'auto',
-            // centeredSlides: true,
-            centeredSlides: false,
-            direction: 'horizontal',
-            spaceBetween: 16,
-            loop: true,
-            autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
-      }
-      
-      if(params.has('id')){
-        const id = params.get('id')
-        if(id == ''){
-          $('.container-slider').remove();
-          $('.container-data').remove();
-          $('.bottom-nav-buy').remove();
-          $('.loading').remove();
-          $('.container-car').html(emptyState); 
-        }else{
-          $('#productId').val(id)
-          axios.get('car/detail?id='+id)
-          .then(response =>{
-            let result = response.data;
-            if(result.status){
-              let data = result.data;
-              console.log(data);
-              if(data.status != 'Ready'){
-                $('.bottom-nav-buy').remove();
-              }else{
-                $('.bottom-nav-buy').removeClass('d-none');
-                $('footer').removeClass('without-navbar');
-              }
-              // prepare data car for request
-              $('#buttonRequest').click(function(){
-                if(checkAccount()){
-                  // $('#buttonSubmit').click();
-                  setCurrentCar(data);
-                  window.location.href = "input_data_booking.html?id=" + data.id;
-                }else{
-                  setLastPage(document.URL);
-                  window.location.href = "login.html";
-                }
-              });
+			// banner slider
+			const startSlider = () => {
+				var swiper = new Swiper(".carSlider", {
+					slidesPerView: "auto",
+					// centeredSlides: true,
+					centeredSlides: false,
+					direction: "horizontal",
+					spaceBetween: 16,
+					loop: true,
+					autoplay: {
+						delay: 5000,
+						disableOnInteraction: false,
+					},
+					pagination: {
+						el: ".swiper-pagination",
+					},
+				});
+			};
 
-              // load image banner
-              if(data.image.length > 0){
-                data.image.map((img)=>{
-                  document.querySelector('.swiper-wrapper').insertAdjacentHTML('afterbegin',`
+			if (params.has("id")) {
+				const id = params.get("id");
+				if (id == "") {
+					$(".container-slider").remove();
+					$(".container-data").remove();
+					$(".bottom-nav-buy").remove();
+					$(".loading").remove();
+					$(".container-car").html(emptyState);
+				} else {
+					$("#productId").val(id);
+					axios.get("car/detail?id=" + id).then((response) => {
+						let result = response.data;
+						if (result.status) {
+							let data = result.data;
+							console.log(data);
+							if (data.status != "Ready") {
+								$(".bottom-nav-buy").remove();
+							} else {
+								$(".bottom-nav-buy").removeClass("d-none");
+								$("footer").removeClass("without-navbar");
+							}
+							// prepare data car for request
+							$("#buttonRequest").click(function () {
+								if (checkAccount()) {
+									// $('#buttonSubmit').click();
+									setCurrentCar(data);
+									window.location.href =
+										"input_data_booking?id=" + data.id;
+								} else {
+									setLastPage(document.URL);
+									window.location.href = "login";
+								}
+							});
+
+							// load image banner
+							if (data.image.length > 0) {
+								data.image.map((img) => {
+									document
+										.querySelector(".swiper-wrapper")
+										.insertAdjacentHTML(
+											"afterbegin",
+											`
                   <div class="swiper-slide">
                       <img src="${img}" alt="" srcset="">
-                  </div>`);
-                });
-                startSlider();
-              }else{
-                $('.container-slider').remove();
-              }
+                  </div>`
+										);
+								});
+								startSlider();
+							} else {
+								$(".container-slider").remove();
+							}
 
-              // load data product
-              $('#data-merk').html(`<a href="search.html?merk=${data.brand}" class=" color-black300"><u>#${data.brand}</u></a>`);
-              $('#data-model').html(data.model);
-              $('#data-desc').html(data.description)
-              $('#data-price').html(`${data.price}`);
-              $('.data-spec').append(`
+							// load data product
+							$("#data-merk").html(
+								`<a href="search?merk=${data.brand}" class=" color-black300"><u>#${data.brand}</u></a>`
+							);
+							$("#data-model").html(data.model);
+							$("#data-desc").html(data.description);
+							$("#data-price").html(`${data.price}`);
+							$(".data-spec").append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Warna</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">${data.color != undefined ? data.color : '-'}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${
+						data.color != undefined ? data.color : "-"
+					}</p>
               </div>
               `);
-              $('.data-spec').append(`
+							$(".data-spec").append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Tahun</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">${data.year != undefined ? data.year : '-'}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${
+						data.year != undefined ? data.year : "-"
+					}</p>
               </div>
               `);
-              $('.data-spec').append(`
+							$(".data-spec").append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Bahan Bakar</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">${data.fuel != undefined ? data.fuel : '-'}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${
+						data.fuel != undefined ? data.fuel : "-"
+					}</p>
               </div>
               `);
-              $('.data-spec').append(`
+							$(".data-spec").append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Kilometer</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">${data.kilometer != undefined ? data.kilometer : '-'}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${
+						data.kilometer != undefined ? data.kilometer : "-"
+					}</p>
               </div>
               `);
-              $('.data-spec').append(`
+							$(".data-spec").append(`
               <div class="spec-item flex-column justify-content-start">
                   <p class="caption color-black300 mb-0">Plat Nomor</p>
-                  <p class="bodytext2 color-black500 semibold mb-0">${data.plate_number != undefined ? data.plate_number : '-'}</p>
+                  <p class="bodytext2 color-black500 semibold mb-0">${
+						data.plate_number != undefined ? data.plate_number : "-"
+					}</p>
               </div>
               `);
-              $('.data-dp').append(`
+							$(".data-dp").append(`
               <div class="spec-item flex-column justify-content-start flex-fill">
                   <p class="caption color-black300 mb-0">Tunai</p>
                   <p class="bodytext2 color-black500 semibold mb-0">${data.price}</p>
               </div>`);
-              $('.data-dp').append(`
+							$(".data-dp").append(`
               <div class="spec-item flex-column justify-content-start flex-fill">
                   <p class="caption color-black300 mb-0">Booking Fee</p>
                   <p class="bodytext2 color-black500 semibold mb-0">Rp 200.000</p>
               </div>`);
 
-              data.payments.map((pay)=>{
-                $('.data-dp').append(`
+							data.payments.map((pay) => {
+								$(".data-dp").append(`
                 <div class="spec-item d-flex flex-row justify-content-start w-100">
                   <div class="flex-fill w-50">
                     <p class="caption color-black300 mb-0">DP</p>
@@ -297,31 +423,32 @@
                     <p class="bodytext2 color-black500 semibold mb-0">${pay.cicilan}</p>
                   </div>
                 </div>`);
-              });
+							});
 
-              // remove empty page
-              $('.container-empty').remove();
-              $('.loading').remove();
-              $('.container-slider').removeClass('d-none');
-              $('.container-data').removeClass('d-none');
+							// remove empty page
+							$(".container-empty").remove();
+							$(".loading").remove();
+							$(".container-slider").removeClass("d-none");
+							$(".container-data").removeClass("d-none");
 
-              $('#sendMessage').attr('href',`https://wa.me/+6285315131514/?text=Hallo,\nSaya ingin membeli mobil ${data.model} dengan harga ${data.price}`);
-
-            }else{
-              $('.container-slider').remove();
-              $('.container-data').remove();
-              $('.bottom-nav-buy').remove();
-              $('.container-car').html(emptyState);    
-            }
-          })
-        }
-      }else{
-        $('.container-slider').remove();
-          $('.container-data').remove();
-          $('.bottom-nav-buy').remove();
-          $('.container-car').html(emptyState); 
-      }
-      
-    </script>
-  </body>
+							$("#sendMessage").attr(
+								"href",
+								`https://wa.me/+6285315131514/?text=Hallo,\nSaya ingin membeli mobil ${data.model} dengan harga ${data.price}`
+							);
+						} else {
+							$(".container-slider").remove();
+							$(".container-data").remove();
+							$(".bottom-nav-buy").remove();
+							$(".container-car").html(emptyState);
+						}
+					});
+				}
+			} else {
+				$(".container-slider").remove();
+				$(".container-data").remove();
+				$(".bottom-nav-buy").remove();
+				$(".container-car").html(emptyState);
+			}
+		</script>
+	</body>
 </html>

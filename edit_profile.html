@@ -133,7 +133,7 @@
         user.image != null && user.image != '' ? $('#image-profile').attr('src', user.image) : '';
       }else{
         setLastPage(document.URL);
-        window.location.href = 'login.html';
+        window.location.href = 'login';
       }
 
       document.getElementById('choose-image').onchange = function (evt) {
@@ -180,7 +180,7 @@
               }).then(res => {
                 if(res.value){
                   setAccount(result.data);
-                  window.location.href = 'profile.html';
+                  window.location.href = 'profile';
                 }
               })
             }else{

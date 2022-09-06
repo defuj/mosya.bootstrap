@@ -1,128 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Pembayaran Booking</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Mosya - Pembayaran Booking</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta name="robots" content="noindex,nofollow" />
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="align-items-start pt-0 flex-column">
-    <!-- start navigation bar -->
-    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <a href="history.html" class="navbar-brand" title="back">
-            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
-        </a>
-        <p class="mb-0 bodytext1 semibold color-black500 px-2">Informasi Pembayaran Booking</p>
-      </div>
-    </nav>
-    <!-- end navigation bar -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column">
+		<!-- start navigation bar -->
+		<nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+			<div
+				class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3"
+			>
+				<a href="history" class="navbar-brand" title="back">
+					<i class="fi fi-sr-angle-left color-black400 headline6"></i>
+				</a>
+				<p class="mb-0 bodytext1 semibold color-black500 px-2">
+					Informasi Pembayaran Booking
+				</p>
+			</div>
+		</nav>
+		<!-- end navigation bar -->
 
-    <!-- start body content -->
-    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-    </main>
-    <!-- end body content -->
+		<!-- start body content -->
+		<main
+			role="main"
+			class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2"
+		>
+			<lottie-player
+				src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"
+				background="transparent"
+				speed="1"
+				style="width: 150px; height: 300px"
+				class="ml-auto mr-auto my-4 loading"
+				loop
+				autoplay
+			></lottie-player>
+		</main>
+		<!-- end body content -->
 
-    <!-- start content footer -->
-    <footer class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto without-navbar">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto without-navbar"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
 
-      <div class="d-none">
-        
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div class="d-none"></div>
+		</footer>
+		<!-- end content footer -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
 
-    <script>
-      if(!checkAccount()){
-        setLastPage(document.URL);
-        window.location.href = 'login.html';
-      }
+		<script>
+			if (!checkAccount()) {
+				setLastPage(document.URL);
+				window.location.href = "login.html";
+			}
 
-      const copyContent = (content) =>{
-        var text = "Example text to appear on clipboard";
-        navigator.clipboard.writeText(content).then(function() {
-          console.log('Berhasil disalin ke clipboard');
-          alert('Berhasil disalin ke clipboard');
-        }, function(err) {
-          console.error('Tidak dapat menyalin', err);
-          alert('Tidak dapat menyalin');
-        });
-      }
-      
-      const params = new URLSearchParams(window.location.search);
-      if(params.has('code') && params.get('code') != ''){
-        axios.postForm('booking/payment_info',{
-          code: params.get('code')
-        })
-        .then(response => {
-          let result = response.data;
-          if(result.status){
-            $('.loading').remove();
+			const copyContent = (content) => {
+				var text = "Example text to appear on clipboard";
+				navigator.clipboard.writeText(content).then(
+					function () {
+						console.log("Berhasil disalin ke clipboard");
+						alert("Berhasil disalin ke clipboard");
+					},
+					function (err) {
+						console.error("Tidak dapat menyalin", err);
+						alert("Tidak dapat menyalin");
+					}
+				);
+			};
 
-            let data = result.data;
-            console.log(result.data);
+			const params = new URLSearchParams(window.location.search);
+			if (params.has("code") && params.get("code") != "") {
+				axios
+					.postForm("booking/payment_info", {
+						code: params.get("code"),
+					})
+					.then((response) => {
+						let result = response.data;
+						if (result.status) {
+							$(".loading").remove();
 
-            $('.container-car').append(`
+							let data = result.data;
+							console.log(result.data);
+
+							$(".container-car").append(`
             <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
               <p class="bodytext1 color-black500 semibold p-0 mb-4">
                 Untuk melanjutkan booking, harap transfer sesuai petunjuk di bawah!
@@ -168,8 +233,8 @@
 
               
             </div>
-            `)
-            $('.container-car').append(`
+            `);
+							$(".container-car").append(`
             <form class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
               <p class="bodytext1 color-black500 semibold p-0 mb-4">
                 Upload Bukti Bayar
@@ -181,8 +246,8 @@
                 <p class="mb-0 py-1">Kirim Bukti Pembayaran</p>
               </button>
             </form>
-            `)
-            $('.container-car').append(`
+            `);
+							$(".container-car").append(`
             <div class="container-form px-3 py-3 bg-white d-flex flex-column mb-3">
               <p class="bodytext1 color-black500 semibold p-0 mb-4">
                 Petunjuk Transfer Bank
@@ -243,81 +308,100 @@
                 </div>
               </div>
             </div>
-            `)
+            `);
 
-            $('#buttonSubmit').click(function(){
-              let image = document.querySelector('#buktiBayar')
-              if(image.files.length > 0){
-                $('#buttonSubmit').attr('disabled', true);
-                $('#buttonSubmit').html(`<p class="mb-0 py-1">${spinnerWhite}</p>`);
-                axios.postForm('booking/payment_upload',{
-                  code: params.get('code'),
-                  image: image.files[0]
-                }).then(response=>{
-                  $('#buttonSubmit').attr('disabled', false);
-                  $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
-                  let result = response.data;
-                  if(result.status){
-                    Swal.fire({
-                      icon: 'success',
-                      title: 'Berhasil',
-                      text: 'Bukti pembayaran berhasil dikirim.',
-                      confirmButtonText: 'Lanjutkan',
-                    }).then(()=>{
-                      window.location.href = 'history.html';
-                    })
-                  }else{
-                    Swal.fire({
-                      icon: 'error',
-                      title: 'Perhatian',
-                      text: result.message,
-                      confirmButtonText: 'Mengerti',
-                    })
-                  }
-                }).catch(error => {
-                  $('#buttonSubmit').attr('disabled', false);
-                  $('#buttonSubmit').html(`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`);
-                  console.log(error);
-                  Swal.fire({
-                    icon: 'error',
-                    title: 'Terjadi Kesalahan',
-                    text: 'Silahkan mencoba lagi nanti',
-                    confirmButtonText: 'Mengerti',
-                  })
-                })
-              }else{
-                Swal.fire({
-                  icon: 'error',
-                  title: 'Perhatian',
-                  text: 'Bukti pembayaran belum dipilih',
-                  confirmButtonText: 'Mengerti',
-                })
-              }
-            });
-          }else{
-            Swal.fire({
-              icon: 'error',
-              title: 'Perhatian',
-              text: result.message,
-              confirmButtonText: 'Kembali',
-            }).then(() => {
-              window.location.href = 'history.html';
-            });
-          }
-        }).catch(error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Terjadi Kesalahan',
-            text: 'Telah terjadi kesalahan, silahkan mencoba lagi nanti',
-            confirmButtonText: 'Kembali',
-          }).then(() => {
-            window.location.href = 'history.html';
-          });
-        })
-      }else{
-        window.location.href = 'home.html';
-      }
-      
-    </script>
-  </body>
+							$("#buttonSubmit").click(function () {
+								let image =
+									document.querySelector("#buktiBayar");
+								if (image.files.length > 0) {
+									$("#buttonSubmit").attr("disabled", true);
+									$("#buttonSubmit").html(
+										`<p class="mb-0 py-1">${spinnerWhite}</p>`
+									);
+									axios
+										.postForm("booking/payment_upload", {
+											code: params.get("code"),
+											image: image.files[0],
+										})
+										.then((response) => {
+											$("#buttonSubmit").attr(
+												"disabled",
+												false
+											);
+											$("#buttonSubmit").html(
+												`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`
+											);
+											let result = response.data;
+											if (result.status) {
+												Swal.fire({
+													icon: "success",
+													title: "Berhasil",
+													text: "Bukti pembayaran berhasil dikirim.",
+													confirmButtonText:
+														"Lanjutkan",
+												}).then(() => {
+													window.location.href =
+														"history.html";
+												});
+											} else {
+												Swal.fire({
+													icon: "error",
+													title: "Perhatian",
+													text: result.message,
+													confirmButtonText:
+														"Mengerti",
+												});
+											}
+										})
+										.catch((error) => {
+											$("#buttonSubmit").attr(
+												"disabled",
+												false
+											);
+											$("#buttonSubmit").html(
+												`<p class="mb-0 py-1">Kirim Bukti Pembayaran</p>`
+											);
+											console.log(error);
+											Swal.fire({
+												icon: "error",
+												title: "Terjadi Kesalahan",
+												text: "Silahkan mencoba lagi nanti",
+												confirmButtonText: "Mengerti",
+											});
+										});
+								} else {
+									Swal.fire({
+										icon: "error",
+										title: "Perhatian",
+										text: "Bukti pembayaran belum dipilih",
+										confirmButtonText: "Mengerti",
+									});
+								}
+							});
+						} else {
+							Swal.fire({
+								icon: "error",
+								title: "Perhatian",
+								text: result.message,
+								confirmButtonText: "Kembali",
+							}).then(() => {
+								window.location.href = "history.html";
+							});
+						}
+					})
+					.catch((error) => {
+						Swal.fire({
+							icon: "error",
+							title: "Terjadi Kesalahan",
+							text: "Telah terjadi kesalahan, silahkan mencoba lagi nanti",
+							confirmButtonText: "Kembali",
+						}).then(() => {
+							window.location.href = "history.html";
+						});
+					});
+			} else {
+				window.location.href = "home.html";
+			}
+		</script>
+	</body>
 </html>

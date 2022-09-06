@@ -1,161 +1,239 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Pemesanan Mobil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="robots" content="noindex,nofollow" />
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Mosya - Pemesanan Mobil</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta name="robots" content="noindex,nofollow" />
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="align-items-start pt-0 flex-column">
-    <!-- start navigation bar -->
-    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <a class="navbar-brand" title="back" onclick="history.back()">
-            <i class="fi fi-sr-angle-left color-black400 headline6"></i>
-        </a>
-        <p class="mb-0 bodytext1 semibold color-black500 px-2">Detail Pemesanan</p>
-      </div>
-    </nav>
-    <!-- end navigation bar -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column">
+		<!-- start navigation bar -->
+		<nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+			<div
+				class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-start align-items-center flex-row py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3"
+			>
+				<a class="navbar-brand" title="back" onclick="history.back()">
+					<i class="fi fi-sr-angle-left color-black400 headline6"></i>
+				</a>
+				<p class="mb-0 bodytext1 semibold color-black500 px-2">
+					Detail Pemesanan
+				</p>
+			</div>
+		</nav>
+		<!-- end navigation bar -->
 
-    <!-- start body content -->
-    <main role="main" class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2">
-      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-    </main>
-    <!-- end body content -->
+		<!-- start body content -->
+		<main
+			role="main"
+			class="container-car container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-0 pl-0 pr-0 mt-5 pt-2"
+		>
+			<lottie-player
+				src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"
+				background="transparent"
+				speed="1"
+				style="width: 150px; height: 300px"
+				class="ml-auto mr-auto my-4 loading"
+				loop
+				autoplay
+			></lottie-player>
+		</main>
+		<!-- end body content -->
 
-    <!-- start content footer -->
-    <footer class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto without-navbar">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer w-100 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto without-navbar"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
+		</footer>
+		<!-- end content footer -->
 
-    <!-- start navigation bottom -->
-    <nav id="container-action" class="d-none navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-    </nav>
-  <!-- end navigation bottom -->
+		<!-- start navigation bottom -->
+		<nav
+			id="container-action"
+			class="d-none navbar bottom-nav-buy fixed-bottom navbar-expand bg-white px-3 py-3 shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto"
+		></nav>
+		<!-- end navigation bottom -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
 
-    <script>
-        if(!checkAccount()){
-          setLastPage(document.URL);
-          window.location.href = 'login.html';
-        }
+		<script>
+			if (!checkAccount()) {
+				setLastPage(document.URL);
+				window.location.href = "login.html";
+			}
 
-        const params = new URLSearchParams(window.location.search);
-        $('#container-status').removeClass('status-0');
-        const user = getAccount();
+			const params = new URLSearchParams(window.location.search);
+			$("#container-status").removeClass("status-0");
+			const user = getAccount();
 
-        const confirmRequest = () =>{
-          $('#buttonConfirm').attr('disabled', true);
-          $('#buttonConfirm').html(spinnerWhite);
+			const confirmRequest = () => {
+				$("#buttonConfirm").attr("disabled", true);
+				$("#buttonConfirm").html(spinnerWhite);
 
-          axios.get(`history/confirm?id=${params.get('code')}&user_id=${user.id}`)
-            .then(response=>{
-              $('#buttonConfirm').attr('disabled', false);
-              $('#buttonConfirm').html('Pesanan Diterima');
-              let result = response.data;
-              console.log(result);
-              if(result.status){
-                Swal.fire({
-                  title: 'Pesanan Diterima',
-                  text: 'Pesanan kamu sudah diterima',
-                  icon: 'success',
-                  confirmButtonText: 'OK'
-                }).then((result) => {
-                  window.location.href = `history.html?code=${params.get('code')}`;
-                });
-              }else{
-                Swal.fire({
-                  title: 'Gagal',
-                  text: result.message,
-                  icon: 'error',
-                  confirmButtonText: 'Oke'
-                })
-              }
-            }).catch(error=>{
-              $('#buttonConfirm').attr('disabled', false);
-              $('#buttonConfirm').html('Pesanan Diterima');
-              Swal.fire({
-                title: 'Gagal',
-                text: 'Terjadi kesalahan, silahkan coba lagi',
-                icon: 'error',
-                confirmButtonText: 'Oke'
-              })
-            })
-        }
+				axios
+					.get(
+						`history/confirm?id=${params.get("code")}&user_id=${
+							user.id
+						}`
+					)
+					.then((response) => {
+						$("#buttonConfirm").attr("disabled", false);
+						$("#buttonConfirm").html("Pesanan Diterima");
+						let result = response.data;
+						console.log(result);
+						if (result.status) {
+							Swal.fire({
+								title: "Pesanan Diterima",
+								text: "Pesanan kamu sudah diterima",
+								icon: "success",
+								confirmButtonText: "OK",
+							}).then((result) => {
+								window.location.href = `history?code=${params.get(
+									"code"
+								)}`;
+							});
+						} else {
+							Swal.fire({
+								title: "Gagal",
+								text: result.message,
+								icon: "error",
+								confirmButtonText: "Oke",
+							});
+						}
+					})
+					.catch((error) => {
+						$("#buttonConfirm").attr("disabled", false);
+						$("#buttonConfirm").html("Pesanan Diterima");
+						Swal.fire({
+							title: "Gagal",
+							text: "Terjadi kesalahan, silahkan coba lagi",
+							icon: "error",
+							confirmButtonText: "Oke",
+						});
+					});
+			};
 
-        if(params.has('code') && params.get('code') != ''){
-          axios.get(`history/detail?id=${params.get('code')}&user_id=${user.id}`)
-          .then(response=> {
-            let result = response.data;
-            console.log(result);
-            if(result.status){
-              $('.loading').remove();
-              $('.container-car').append(`
+			if (params.has("code") && params.get("code") != "") {
+				axios
+					.get(
+						`history/detail?id=${params.get("code")}&user_id=${
+							user.id
+						}`
+					)
+					.then((response) => {
+						let result = response.data;
+						console.log(result);
+						if (result.status) {
+							$(".loading").remove();
+							$(".container-car").append(`
               <div id="container-status" class="container-status status-0 px-3 py-3 d-flex flex-column mb-2">
                 <p class="mb-1 bodytext1 semibold" id="statusTitle"></p>
                 <p class="mb-0 bodytext2" id="statusDesc"></p>
               </div>
               `);
-              $('.container-car').append(`
+							$(".container-car").append(`
               <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
                 <p class="mb-1 bodytext1 semibold color-black500 mb-2">
                   Informasi Pemesanan
@@ -168,9 +246,9 @@
                 </div>
               </div>
               `);
-              
-              let address = result.data.address;
-              $('.container-car').append(`
+
+							let address = result.data.address;
+							$(".container-car").append(`
               <div class="container-address bg-white px-3 py-3 d-flex flex-column mb-2">
                 <p class="mb-1 bodytext1 semibold color-black500 mb-2">
                   Alamat Pengiriman
@@ -179,9 +257,9 @@
                 <p class="mb-0 bodytext2 color-black400" id="address">${address.address}</p>
               </div>
               `);
-              
-              let car = result.data.car;
-              $('.container-car').append(`
+
+							let car = result.data.car;
+							$(".container-car").append(`
               <div class="d-flex flex-row bg-white px-3 py-3 product-section-payment justify-content-between mb-2">
                 <img id="dataImage" src="${car.image}" alt="">
                 <div class="flex-fill ml-3">
@@ -191,9 +269,9 @@
                 </div>
               </div>
               `);
-              
-              let payment = result.data.payment;
-              $('.container-car').append(`
+
+							let payment = result.data.payment;
+							$(".container-car").append(`
               <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
                 <p class="mb-1 bodytext1 semibold color-black500 mb-2">
                   Rincian Pembayaran
@@ -228,9 +306,8 @@
 
               </div>
               `);
-              
 
-              $('.container-car').append(`
+							$(".container-car").append(`
               <div class="container-request-code bg-white px-3 py-3 d-flex flex-column mb-2">
                 <p class="mb-1 bodytext1 semibold color-black500 mb-2">
                   Kontak
@@ -251,122 +328,154 @@
               </div>
               `);
 
-              switch (result.data.status) {
-                case 'Belum Bayar':
-                  $('nav').removeClass('d-none');
-                  $('footer').removeClass('without-navbar');
-                  $('#container-status').addClass('status-1');
-                  $('#statusTitle').html('Pesanan Kamu Belum Dibayar');
-                  $('#statusDesc').html('Segera lakukan pembayaran booking fee !');
-                  $('#container-action').html(`
-                    <a href="upload_payment.html?code=${params.get('code')}" class="d-flex flex-fill text-decoration-none">
+							switch (result.data.status) {
+								case "Belum Bayar":
+									$("nav").removeClass("d-none");
+									$("footer").removeClass("without-navbar");
+									$("#container-status").addClass("status-1");
+									$("#statusTitle").html(
+										"Pesanan Kamu Belum Dibayar"
+									);
+									$("#statusDesc").html(
+										"Segera lakukan pembayaran booking fee !"
+									);
+									$("#container-action").html(`
+                    <a href="upload_payment?code=${params.get(
+						"code"
+					)}" class="d-flex flex-fill text-decoration-none">
                       <button type="button" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
                         <p class="mb-0 py-1">Bayar Sekarang</p>
                       </button>
                     </a>
                   `);
-                  break;
-              
-                case 'Dibayar':
-                  $('#container-status').addClass('status-2');
-                  $('#statusTitle').html('Pesanan Kamu Sudah Dibayar');
-                  $('#statusDesc').html('Silahkan tunggu, informasi selanjutnya akan kami hubungi via nomor telepon yang terdaftar');
-                  $('#container-action').remove();
-                  break;
+									break;
 
-                case 'Verifikasi':
-                  $('#container-status').addClass('status-2');
-                  $('#statusTitle').html('Pesanan Kamu Sedang Diverifikasi');
-                  $('#statusDesc').html('Pesanan kamu sedang diverifikasi oleh tim kami, harap  tunggu informasi selanjutnya.');
-                  $('#container-action').remove();
-                  break;
-                
-                case 'Batal':
-                  $('#container-status').addClass('status-1');
-                  $('#statusTitle').html('Maaf Pesanan Kamu Dibatalkan!');
-                  $('#statusDesc').html(`${(result.data.description != null && result.data.description != '' ? result.data.description : 'Kami menemukan permasalahan terkait identitas kamu, silahkan hubungi kami untuk konfirmasi kembali.')}`);
-                  $('#container-action').remove();
-                  break;
+								case "Dibayar":
+									$("#container-status").addClass("status-2");
+									$("#statusTitle").html(
+										"Pesanan Kamu Sudah Dibayar"
+									);
+									$("#statusDesc").html(
+										"Silahkan tunggu, informasi selanjutnya akan kami hubungi via nomor telepon yang terdaftar"
+									);
+									$("#container-action").remove();
+									break;
 
-                case 'Dikirim':
-                  $('nav').removeClass('d-none');
-                  $('footer').removeClass('without-navbar');
-                  $('#container-status').addClass('status-2');
-                  $('#statusTitle').html('Pesanan Kamu Dalam Perjalanan');
-                  $('#statusDesc').html('Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN.');
-                  $('#container-action').html(`
+								case "Verifikasi":
+									$("#container-status").addClass("status-2");
+									$("#statusTitle").html(
+										"Pesanan Kamu Sedang Diverifikasi"
+									);
+									$("#statusDesc").html(
+										"Pesanan kamu sedang diverifikasi oleh tim kami, harap  tunggu informasi selanjutnya."
+									);
+									$("#container-action").remove();
+									break;
+
+								case "Batal":
+									$("#container-status").addClass("status-1");
+									$("#statusTitle").html(
+										"Maaf Pesanan Kamu Dibatalkan!"
+									);
+									$("#statusDesc").html(
+										`${
+											result.data.description != null &&
+											result.data.description != ""
+												? result.data.description
+												: "Kami menemukan permasalahan terkait identitas kamu, silahkan hubungi kami untuk konfirmasi kembali."
+										}`
+									);
+									$("#container-action").remove();
+									break;
+
+								case "Dikirim":
+									$("nav").removeClass("d-none");
+									$("footer").removeClass("without-navbar");
+									$("#container-status").addClass("status-2");
+									$("#statusTitle").html(
+										"Pesanan Kamu Dalam Perjalanan"
+									);
+									$("#statusDesc").html(
+										"Tim kami sedang mengirim mobil kamu, harap tunggu, dan cek secara berkala pada LACAK PESANAN."
+									);
+									$("#container-action").html(`
                     <a class="d-flex flex-fill text-decoration-none w-50">
                       <button type="button" id="buttonConfirm" class="mr-2 button-request-finish bg-white flex-fill bodytext2 semibold color-green500 d-flex flex-row justify-content-center align-items-center" type="button">
                         Pesanan Diterima
                       </button>
                     </a>  
-                    <a href="tracking_location.html?code=${params.get('code')}" class="d-flex flex-fill text-decoration-none w-50">
+                    <a href="tracking_location?code=${params.get(
+						"code"
+					)}" class="d-flex flex-fill text-decoration-none w-50">
                       <button type="button" class="button-message flex-fill bodytext2 semibold text-white justify-content-center background-green500" type="button">
                         Lacak Pesanan
                       </button>
                     </a>
                   `);
-                  break;
+									break;
 
-                case 'Selesai':
-                  $('nav').removeClass('d-none');
-                  $('footer').removeClass('without-navbar');
-                  $('#container-status').addClass('status-2');
-                  $('#statusTitle').html('Pesanan Kamu Sudah Sampai');
-                  $('#statusDesc').html('Alhamdulillah pesanan kamu sudah sampai.');
-                  $('#container-action').html(`
-                    <a href="catalog.html" class="d-flex flex-fill text-decoration-none">
+								case "Selesai":
+									$("nav").removeClass("d-none");
+									$("footer").removeClass("without-navbar");
+									$("#container-status").addClass("status-2");
+									$("#statusTitle").html(
+										"Pesanan Kamu Sudah Sampai"
+									);
+									$("#statusDesc").html(
+										"Alhamdulillah pesanan kamu sudah sampai."
+									);
+									$("#container-action").html(`
+                    <a href="catalog" class="d-flex flex-fill text-decoration-none">
                       <button type="submit" class="button-message flex-fill bodytext2 semibold text-white d-flex flex-row justify-content-center align-items-center background-green500" type="button">
                         <p class="mb-0 py-1">Belanja Lagi</p>
                       </button>
                     </a>
                   `);
-                  break;
+									break;
 
-                default:
-                  break;
-              }
-            
-              $('#buttonConfirm').click(function(){
-                Swal.fire({
-                  title: 'Mobil sudah diterima?',
-                  text: 'Apakah kamu yakin pesanan kamu sudah sampai?',
-                  icon: 'question',
-                  showCancelButton: true,
-                  cancelButtonText: 'Tidak',
-                  confirmButtonText: 'Ya, Sudah Sampai'
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    confirmRequest()
-                  }
-                });
-              })
+								default:
+									break;
+							}
 
-            }else{
-              Swal.fire({
-                icon: 'error',
-                title: 'Perhatian',
-                text: result.message,
-                confirmButtonText: 'Mengerti',
-              }).then(() => {
-                window.location.href = 'history.html';
-              });
-            }
-          }).catch(error=> {
-            console.log(error);
-            Swal.fire({
-                icon: 'error',
-                title: 'Terjadi kesalahan',
-                text: 'Terjadi kesalahan, silahkan coba lagi',
-                confirmButtonText: 'Mengerti',
-              }).then(() => {
-                window.location.href = 'history.html';
-              });
-          })
-            
-        }else{
-          history.back();
-        }
-    </script>
-  </body>
+							$("#buttonConfirm").click(function () {
+								Swal.fire({
+									title: "Mobil sudah diterima?",
+									text: "Apakah kamu yakin pesanan kamu sudah sampai?",
+									icon: "question",
+									showCancelButton: true,
+									cancelButtonText: "Tidak",
+									confirmButtonText: "Ya, Sudah Sampai",
+								}).then((result) => {
+									if (result.isConfirmed) {
+										confirmRequest();
+									}
+								});
+							});
+						} else {
+							Swal.fire({
+								icon: "error",
+								title: "Perhatian",
+								text: result.message,
+								confirmButtonText: "Mengerti",
+							}).then(() => {
+								window.location.href = "history.html";
+							});
+						}
+					})
+					.catch((error) => {
+						console.log(error);
+						Swal.fire({
+							icon: "error",
+							title: "Terjadi kesalahan",
+							text: "Terjadi kesalahan, silahkan coba lagi",
+							confirmButtonText: "Mengerti",
+						}).then(() => {
+							window.location.href = "history.html";
+						});
+					});
+			} else {
+				history.back();
+			}
+		</script>
+	</body>
 </html>

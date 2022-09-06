@@ -244,13 +244,13 @@ const checkSessionOnPage = () => {
     if(checkAccount()){
         deleteLastPage();
         // redirect to home page if user is already logged in
-        if(pathname === '/login.html' || pathname === '/register.html' || pathname === '/forgot_password.html' || pathname === '/reset_password.html'){
+        if(pathname === '/login' || pathname === '/register' || pathname === '/forgot_password' || pathname === '/reset_password'){
             window.location.href = '/';
         }
     }else{
-        if(pathname == '/profile.html' || pathname === '/history.html' || pathname === '/detail_history.html' || pathname === '/input_data_booking.html'  || pathname === '/select_payment_booking.html'  || pathname === '/upload_payment.html' || pathname === '/tracking_location.html') {
+        if(pathname == '/profile' || pathname === '/history' || pathname === '/detail_history' || pathname === '/input_data_booking'  || pathname === '/select_payment_booking'  || pathname === '/upload_payment' || pathname === '/tracking_location') {
             setLastPage(document.URL);
-            window.location.href = '/login.html';
+            window.location.href = '/login';
         }
     }
 }

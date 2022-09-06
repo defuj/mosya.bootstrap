@@ -1,162 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Mosya - Katalog Mobil</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Mosya - Katalog Mobil</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/navigation.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/home.css" />
+		<link rel="stylesheet" href="assets/css/navigation.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  </head>
-  <body class="align-items-start pt-0 flex-column">
-    <!-- start navigation bar -->
-    <nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
-      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-column py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3">
-        <form method="get" action="search.html" id="form-search" class="container-search form-search w-100 d-flex justify-content-between align-items-center" style="height: 48px;">
-            <div class="input-group-search background-black50 h-100">
-                <i class="fi fi-br-search color-black200 mr-2 headline5"></i>
-                <input type="text" name="search" class="bodytext1" id="input-search" placeholder="Cari mobil ...">
-            </div>
-            <button type="submit" class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter" style="width: 48px;">
-              <i class="fi fi-rr-search text-white headline5"></i>
-            </button>
-        </form>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+	<body class="align-items-start pt-0 flex-column">
+		<!-- start navigation bar -->
+		<nav class="navbar fixed-top bg-white border-bottom shadow-sm px-0">
+			<div
+				class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto d-flex justify-content-between align-items-center flex-column py-0 px-xl-3 px-lg-3 px-md-3 px-sm-3 px-3"
+			>
+				<form
+					method="get"
+					action="search"
+					id="form-search"
+					class="container-search form-search w-100 d-flex justify-content-between align-items-center"
+					style="height: 48px"
+				>
+					<div class="input-group-search background-black50 h-100">
+						<i
+							class="fi fi-br-search color-black200 mr-2 headline5"
+						></i>
+						<input
+							type="text"
+							name="search"
+							class="bodytext1"
+							id="input-search"
+							placeholder="Cari mobil ..."
+						/>
+					</div>
+					<button
+						type="submit"
+						class="h-100 d-flex align-items-center justify-content-center button-search ml-3 menu-filter"
+						style="width: 48px"
+					>
+						<i class="fi fi-rr-search text-white headline5"></i>
+					</button>
+				</form>
 
-        <!-- <div class="container-menu-tab w-100 d-flex justify-content-between mt-2">
+				<!-- <div class="container-menu-tab w-100 d-flex justify-content-between mt-2">
             <button class="menu-tab-item bodytext2 flex-fill active">Semua</button>
             <button class="menu-tab-item bodytext2 flex-fill">Terbaru</button>
             <button class="menu-tab-item bodytext2 flex-fill">Harga</button>
         </div> -->
-      </div>
-    </nav>
-    <!-- end navigation bar -->
+			</div>
+		</nav>
+		<!-- end navigation bar -->
 
-    <!-- start body content -->
-    <main role="main" class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pl-0 pr-0 mt-5">
-      <lottie-player src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"  background="transparent"  speed="1"  style="width: 150px; height: 300px;" class="ml-auto mr-auto my-4 loading" loop autoplay></lottie-player>
-      <!-- start content product list -->
-      <div class="container-products w-100 mb-2">
-        <div class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-1">
-          <!-- <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
+		<!-- start body content -->
+		<main
+			role="main"
+			class="container-fluid col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 pt-4 pl-0 pr-0 mt-5"
+		>
+			<lottie-player
+				src="https://lottie.host/c6adff8b-27bc-48e3-a625-5bcc7331acf1/2TLwoxtwof.json"
+				background="transparent"
+				speed="1"
+				style="width: 150px; height: 300px"
+				class="ml-auto mr-auto my-4 loading"
+				loop
+				autoplay
+			></lottie-player>
+			<!-- start content product list -->
+			<div class="container-products w-100 mb-2">
+				<div
+					class="container-product d-flex justify-content-start d-flex w-100 flex-wrap px-2 py-1"
+				>
+					<!-- <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
             <p class="headline6 flex-fill color-black600 mb-0"><b>Honda</b> (99+)</p>
-            <a href="search.html?merk=HONDA" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
+            <a href="search?merk=HONDA" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
           </div>
-          <a class="product-items w-50 flex-column" href="product.html">
+          <a class="product-items w-50 flex-column" href="product">
             <div class="product-cover mb-2" style="background-image: url('assets/images/brio.jpg');"></div>
             <p class="bodytext1 color-black800 semibold m-0 px-2">Brio Satya 1.2E CVT</p>
             <p class="bodytext2 color-black300 semibold m-0 px-2">2018 Silver</p>
             <p class="caption color-green500 m-0 py-1 px-2">Rp 150.000.000</p>
           </a> -->
-        </div>
-      </div>
-      <!-- end content product list -->
-    </main>
-    <!-- end body content -->
+				</div>
+			</div>
+			<!-- end content product list -->
+		</main>
+		<!-- end body content -->
 
-    <!-- start content footer -->
-    <footer class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto">
-      <p class="headline6 color-black700 semibold text-center">Download Aplikasi Mosya!</p>
-      <p class="bodytext1 color-black400 text-center">Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak klik klik aja.</p>
-      <div class="container-footer-button d-flex justify-content-center">
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-google-play.png" alt="">
-        </a>
-        <a class="button-footer px-2" href="#">
-          <img src="assets/images/btn-app-store.png" alt="">
-        </a>
-      </div>
+		<!-- start content footer -->
+		<footer
+			class="container-footer w-100 mb-4 bg-white p-3 flex-row justify-content-center col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 m-auto"
+		>
+			<p class="headline6 color-black700 semibold text-center">
+				Download Aplikasi Mosya!
+			</p>
+			<p class="bodytext1 color-black400 text-center">
+				Lebih mudah mencari mobil impian kamu hanya tinggal scroll dak
+				klik klik aja.
+			</p>
+			<div class="container-footer-button d-flex justify-content-center">
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-google-play.png" alt="" />
+				</a>
+				<a class="button-footer px-2" href="#">
+					<img src="assets/images/btn-app-store.png" alt="" />
+				</a>
+			</div>
 
-      <div class="container-footer-action d-flex justify-content-center flex-wrap mt-3">
-        <a class="action-footer px-1 color-black300 bodytext2" href="#">
-          Tentang Mosya |
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Syarat dan Ketentuan | 
-        </a>
-        <a class="action-footer px-1  color-black300 bodytext2" href="#">
-          Pusat Bantuan
-        </a>
-      </div>
+			<div
+				class="container-footer-action d-flex justify-content-center flex-wrap mt-3"
+			>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Tentang Mosya |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Syarat dan Ketentuan |
+				</a>
+				<a class="action-footer px-1 color-black300 bodytext2" href="#">
+					Pusat Bantuan
+				</a>
+			</div>
 
-      <div class="container-line background-black100 w-100 my-3" style="height: 1px;"></div>
+			<div
+				class="container-line background-black100 w-100 my-3"
+				style="height: 1px"
+			></div>
 
-      <div class="container-footer-copyright d-flex justify-content-center flex-wrap">
-        <p class="copyright color-black300 bodytext2">Copyright © 2022 Mosya. All rights reserved.</p>
-      </div>
-    </footer>
-    <!-- end content footer -->
+			<div
+				class="container-footer-copyright d-flex justify-content-center flex-wrap"
+			>
+				<p class="copyright color-black300 bodytext2">
+					Copyright © 2022 Mosya. All rights reserved.
+				</p>
+			</div>
+		</footer>
+		<!-- end content footer -->
 
-    <!-- start navigation bottom -->
-    <nav class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto">
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-home unselected"></i>
-            <i class="fi fi-sr-home selected"></i>
-          </p>
-          <span>Beranda</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item active">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-car-alt unselected"></i>
-            <i class="fi fi-sr-car-alt selected"></i>
-          </p>
-          <span>Katalog</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-ballot unselected"></i>
-            <i class="fi fi-sr-ballot selected"></i>
-          </p>
-          <span>Riwayat</span>
-        </div>
-      </div>
-      <div class="bottom-nav-item">
-        <div class="bottom-nav-link">
-          <p>
-            <i class="fi fi-rr-user unselected"></i>
-            <i class="fi fi-sr-user selected"></i>
-          </p>
-          <span>Profil</span>
-        </div>
-      </div>
-    </nav>
-    <!-- end navigation bottom -->
+		<!-- start navigation bottom -->
+		<nav
+			class="navbar bottom-nav fixed-bottom navbar-expand bg-white shadow-sm col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 text-center m-auto"
+		>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-home unselected"></i>
+						<i class="fi fi-sr-home selected"></i>
+					</p>
+					<span>Beranda</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item active">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-car-alt unselected"></i>
+						<i class="fi fi-sr-car-alt selected"></i>
+					</p>
+					<span>Katalog</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-ballot unselected"></i>
+						<i class="fi fi-sr-ballot selected"></i>
+					</p>
+					<span>Riwayat</span>
+				</div>
+			</div>
+			<div class="bottom-nav-item">
+				<div class="bottom-nav-link">
+					<p>
+						<i class="fi fi-rr-user unselected"></i>
+						<i class="fi fi-sr-user selected"></i>
+					</p>
+					<span>Profil</span>
+				</div>
+			</div>
+		</nav>
+		<!-- end navigation bottom -->
 
-    <form action="" method="get" id="form-filter">
-      <div class="modal fade" id="dialogFilter" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
-          <div class="modal-content modal-filter-content">
-              <div class="modal-header">
-                <h5 class="modal-title headline6" id="staticBackdropLabel">Filter</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <i class="fi fi-br-cross headline6"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- <p class="textbody1 semibold mb-2">Merek</p>
+		<form action="" method="get" id="form-filter">
+			<div
+				class="modal fade"
+				id="dialogFilter"
+				data-backdrop="static"
+				data-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="staticBackdropLabel"
+				aria-hidden="true"
+			>
+				<div
+					class="modal-dialog modal-dialog-centered modal-dialog-scrollable col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12"
+				>
+					<div class="modal-content modal-filter-content">
+						<div class="modal-header">
+							<h5
+								class="modal-title headline6"
+								id="staticBackdropLabel"
+							>
+								Filter
+							</h5>
+							<button
+								type="button"
+								class="close"
+								data-dismiss="modal"
+								aria-label="Close"
+							>
+								<i class="fi fi-br-cross headline6"></i>
+							</button>
+						</div>
+						<div class="modal-body">
+							<!-- <p class="textbody1 semibold mb-2">Merek</p>
                 <div class="container-select-merk d-flex align-content-start flex-wrap w-100 my-2">
                   <label class="select-item select-merk-item active">
                     <input type="checkbox" name="merk" class="input-select-merk" value="Semua" hidden checked>
@@ -207,107 +299,257 @@
                     Toyota
                   </label>
                 </div> -->
-                <p class="textbody1 semibold mb-2">Warna</p>
-                <div class="container-select-color d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
-                  <label class="select-item select-color-item active">
-                      <input type="checkbox" name="color" class="input-select-color" value="Semua" hidden checked>
-                      Semua
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Hitam" hidden>
-                      Hitam
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Silver" hidden>
-                      Silver
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Putih" hidden>
-                      Putih
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Biru" hidden>
-                      Biru
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Jingga" hidden>
-                      Jingga
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Merah" hidden>
-                      Merah
-                  </label>
-                  <label class="select-item select-color-item">
-                      <input type="checkbox" name="color" class="input-select-color" value="Gray" hidden>
-                      Gray
-                  </label>
-                </div>
-                <p class="textbody1 semibold mb-2">Tahun</p>
-                <div class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2">
-                  <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="tahun-awal" id="tahun-awal" maxlength="4" minlength="4" class="  bodytext1 text-center" placeholder="Tahun Awal">
-                  </div>
-                  <p class="bodytext1 color-black500 semibold px-2 pt-3">sd</p>
-                  <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="tahun-akhir" id="tahun-akhir" maxlength="4" minlength="4" class="  bodytext1 text-center" placeholder="Tahun Akhir">
-                  </div>
-                </div>
-                <p class="textbody1 semibold mb-2">Bahan Bakar</p>
-                <div class="container-select-fuel d-flex align-content-start flex-wrap flex-wrap w-100 my-2">
-                  <label class="select-item select-fuel-item active">
-                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Semua" checked hidden>
-                      Semua
-                  </label>
-                  <label class="select-item select-fuel-item">
-                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Bensin" hidden>
-                      Bensin
-                  </label>
-                  <label class="select-item select-fuel-item">
-                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Solar" hidden>
-                      Solar
-                  </label>
-                  <label class="select-item select-fuel-item">
-                      <input type="checkbox" name="fuel" class="input-select-fuel" value="Listrik" hidden>
-                      Listrik
-                  </label>`
-                </div>
-                <p class="textbody1 semibold mb-2">Batas Harga (Rp)</p>
-                <div class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2">
-                  <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="harga-awal" id="harga-awal" class="bodytext1 text-center" placeholder="Harga Awal">
-                  </div>
-                  <p class="bodytext1 color-black500 semibold px-2 pt-3">sd</p>
-                  <div class="input-group-search form-search background-black50 h-50 py-0 px-3">
-                    <input type="number" name="harga-akhir" id="harga-akhir" class="bodytext1 text-center" placeholder="Harga Akhir">
-                  </div>
-                </div>
-  
-              </div>
-              <div class="modal-footer justify-content-around">
-                <button type="reset" class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500" onclick="reseltFilter()">Atur ulang</button>
-                <button type="submit" class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2">Tampilkan</button>
-              </div>
-          </div>
-        </div>
-      </div>
-    </form>
+							<p class="textbody1 semibold mb-2">Warna</p>
+							<div
+								class="container-select-color d-flex align-content-start flex-wrap flex-wrap w-100 my-2"
+							>
+								<label
+									class="select-item select-color-item active"
+								>
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Semua"
+										hidden
+										checked
+									/>
+									Semua
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Hitam"
+										hidden
+									/>
+									Hitam
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Silver"
+										hidden
+									/>
+									Silver
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Putih"
+										hidden
+									/>
+									Putih
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Biru"
+										hidden
+									/>
+									Biru
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Jingga"
+										hidden
+									/>
+									Jingga
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Merah"
+										hidden
+									/>
+									Merah
+								</label>
+								<label class="select-item select-color-item">
+									<input
+										type="checkbox"
+										name="color"
+										class="input-select-color"
+										value="Gray"
+										hidden
+									/>
+									Gray
+								</label>
+							</div>
+							<p class="textbody1 semibold mb-2">Tahun</p>
+							<div
+								class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2"
+							>
+								<div
+									class="input-group-search form-search background-black50 h-50 py-0 px-3"
+								>
+									<input
+										type="number"
+										name="tahun-awal"
+										id="tahun-awal"
+										maxlength="4"
+										minlength="4"
+										class="bodytext1 text-center"
+										placeholder="Tahun Awal"
+									/>
+								</div>
+								<p
+									class="bodytext1 color-black500 semibold px-2 pt-3"
+								>
+									sd
+								</p>
+								<div
+									class="input-group-search form-search background-black50 h-50 py-0 px-3"
+								>
+									<input
+										type="number"
+										name="tahun-akhir"
+										id="tahun-akhir"
+										maxlength="4"
+										minlength="4"
+										class="bodytext1 text-center"
+										placeholder="Tahun Akhir"
+									/>
+								</div>
+							</div>
+							<p class="textbody1 semibold mb-2">Bahan Bakar</p>
+							<div
+								class="container-select-fuel d-flex align-content-start flex-wrap flex-wrap w-100 my-2"
+							>
+								<label
+									class="select-item select-fuel-item active"
+								>
+									<input
+										type="checkbox"
+										name="fuel"
+										class="input-select-fuel"
+										value="Semua"
+										checked
+										hidden
+									/>
+									Semua
+								</label>
+								<label class="select-item select-fuel-item">
+									<input
+										type="checkbox"
+										name="fuel"
+										class="input-select-fuel"
+										value="Bensin"
+										hidden
+									/>
+									Bensin
+								</label>
+								<label class="select-item select-fuel-item">
+									<input
+										type="checkbox"
+										name="fuel"
+										class="input-select-fuel"
+										value="Solar"
+										hidden
+									/>
+									Solar
+								</label>
+								<label class="select-item select-fuel-item">
+									<input
+										type="checkbox"
+										name="fuel"
+										class="input-select-fuel"
+										value="Listrik"
+										hidden
+									/>
+									Listrik </label
+								>`
+							</div>
+							<p class="textbody1 semibold mb-2">
+								Batas Harga (Rp)
+							</p>
+							<div
+								class="container-input-year d-flex lex-column justify-content-between align-items-center mb-2"
+							>
+								<div
+									class="input-group-search form-search background-black50 h-50 py-0 px-3"
+								>
+									<input
+										type="number"
+										name="harga-awal"
+										id="harga-awal"
+										class="bodytext1 text-center"
+										placeholder="Harga Awal"
+									/>
+								</div>
+								<p
+									class="bodytext1 color-black500 semibold px-2 pt-3"
+								>
+									sd
+								</p>
+								<div
+									class="input-group-search form-search background-black50 h-50 py-0 px-3"
+								>
+									<input
+										type="number"
+										name="harga-akhir"
+										id="harga-akhir"
+										class="bodytext1 text-center"
+										placeholder="Harga Akhir"
+									/>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer justify-content-around">
+							<button
+								type="reset"
+								class="btn flex-fill button-action-filter button-action-filter-reset bg-white bodytext2 py-2 color-green500"
+								onclick="reseltFilter()"
+							>
+								Atur ulang
+							</button>
+							<button
+								type="submit"
+								class="btn flex-fill button-action-filter background-green500 bodytext2 text-white py-2"
+							>
+								Tampilkan
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/navigation.js"></script>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/navigation.js"></script>
 
-    <script>
-      const filters = new URLSearchParams(window.location.search);
-      const root = window.location.href; 
+		<script>
+			const filters = new URLSearchParams(window.location.search);
+			const root = window.location.href;
 
-      let titleEmpty = "Belum ada produk";
-      let descEmpty = 'Silahkan coba lagi nanti';
-      let emptyState = `
+			let titleEmpty = "Belum ada produk";
+			let descEmpty = "Silahkan coba lagi nanti";
+			let emptyState = `
         <div class="container-empty d-flex justify-content-center align-items-center flex-column" height="1024">
           <img src="assets/images/car_not_found.png" alt="empty" class="img-empty h-100 mx-5 my-4" width="150">
           <div class="empty-text text-center">
@@ -316,46 +558,48 @@
           </div>
         </div>`;
 
-      axios.get('car/list_catalog')
-        .then(response => {
-          let result = response.data;
-          // console.log(result.status);
-          if(result.status){
-            let catalog = result.data;
-            if(catalog.length > 0){
-              $('.loading').remove();
-              $('.container-empty').remove();
-              $('.container-product').empty();
+			axios.get("car/list_catalog").then((response) => {
+				let result = response.data;
+				// console.log(result.status);
+				if (result.status) {
+					let catalog = result.data;
+					if (catalog.length > 0) {
+						$(".loading").remove();
+						$(".container-empty").remove();
+						$(".container-product").empty();
 
-              catalog.map((data, i)=>{
-                // section merk title
-                $('.container-product').append(`
+						catalog.map((data, i) => {
+							// section merk title
+							$(".container-product").append(`
                 <div class="d-flex flex-row w-100 align-items-center justify-content-between px-2 py-2">
-                  <p class="bodytext1 flex-fill color-black600 mb-0"><b>${data.brand}</b> (${data.total >= 100 ? '99+' : data.total})</p>
-                  <a href="search.html?search=${data.brand}" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
+                  <p class="bodytext1 flex-fill color-black600 mb-0"><b>${
+						data.brand
+					}</b> (${data.total >= 100 ? "99+" : data.total})</p>
+                  <a href="search?search=${
+						data.brand
+					}" class="bodytext2 color-green500 mb-0 text-decoration-none">Lihat lainnya</a>
                 </div>
                 `);
-                // section car list
-                let cars = data.cars;
-                cars.map((car, a)=>{
-                  $('.container-product').append(`
-                    <a class="product-items w-50 flex-column" href="product.html?id=${car.id}">
+							// section car list
+							let cars = data.cars;
+							cars.map((car, a) => {
+								$(".container-product").append(`
+                    <a class="product-items w-50 flex-column" href="product?id=${car.id}">
                         <div class="product-cover mb-2" style="background-image: url('${car.image_cover}');"></div>
                         <p class="bodytext1 color-black800 semibold m-0 px-2">${car.model}</p>
                         <p class="bodytext2 color-black300 m-0 px-2">${car.year} ${car.color}</p>
                         <p class="bodytext2 semibold color-green500 m-0 py-1 px-2">${car.price}</p>
                     </a>
                   `);
-                });
-              });
-            }else{
-              $('.loading').remove();
-              $('.text-search-result').remove();
-              $('.container-products').empty().append(emptyState);
-            }
-          }
-          
-        })
-    </script>
-  </body>
+							});
+						});
+					} else {
+						$(".loading").remove();
+						$(".text-search-result").remove();
+						$(".container-products").empty().append(emptyState);
+					}
+				}
+			});
+		</script>
+	</body>
 </html>

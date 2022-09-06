@@ -1,126 +1,186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Masuk - Mosya</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta http-equiv="Access-Control-Allow-Headers" content="Authorization, Content-Type">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<head>
+		<title>Masuk - Mosya</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+		<meta
+			http-equiv="Access-Control-Allow-Headers"
+			content="Authorization, Content-Type"
+		/>
+		<link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/signin.css">
-    <link rel="stylesheet" href="assets/css/typography.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="assets/css/bootstrap.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/signin.css" />
+		<link rel="stylesheet" href="assets/css/typography.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+		/>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  </head>
-  <body class="text-center">
-    
-    <form class="form-signin" style="max-width: 300px;">
-    <a href="home.html" class="text-decoration-none">
-      <img class="mb-4" src="assets/images/app_icon_title_h.png" alt="" width="100%">
-    </a>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	</head>
+	<body class="text-center">
+		<form class="form-signin" style="max-width: 300px">
+			<a href="home" class="text-decoration-none">
+				<img
+					class="mb-4"
+					src="assets/images/app_icon_title_h.png"
+					alt=""
+					width="100%"
+				/>
+			</a>
 
-      <div class="input-group-custom">
-        <i class="fi fi-rr-at color-black400"></i>
-        <input type="email" name="email" id="inputEmail" class="form-input bodytext2" placeholder="Alamat Email" required>
-      </div>
+			<div class="input-group-custom">
+				<i class="fi fi-rr-at color-black400"></i>
+				<input
+					type="email"
+					name="email"
+					id="inputEmail"
+					class="form-input bodytext2"
+					placeholder="Alamat Email"
+					required
+				/>
+			</div>
 
-      <div class="input-group-custom mt-3">
-        <i class="fi fi-rr-lock color-black400"></i>
-        <input type="password" name="password" id="inputPassword" class="form-input bodytext2" placeholder="Kata Sandi" required>
-      </div>
+			<div class="input-group-custom mt-3">
+				<i class="fi fi-rr-lock color-black400"></i>
+				<input
+					type="password"
+					name="password"
+					id="inputPassword"
+					class="form-input bodytext2"
+					placeholder="Kata Sandi"
+					required
+				/>
+			</div>
 
-      <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Alamat Email" required> -->
-      <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Kata Sandi" required> -->
+			<!-- <input type="email" id="inputEmail" class="form-control" placeholder="Alamat Email" required> -->
+			<!-- <input type="password" id="inputPassword" class="form-control" placeholder="Kata Sandi" required> -->
 
-      <a href="forgot_password.html" class="mb-3 mt-2 font-weight-normal color-primary float-right bodytext2">Lupa kata sandi?</a>
-      <button class="btn btn-lg btn-block button-primary bodytext2" type="button" id="buttonLogin">Masuk</button>
-      <p class="mt-3 mb-1 bodytext2">Belum punya akun? <a href="register.html" class="color-primary">Daftar</a></p>
-    </form>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="assets/js/session.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
-    <script>
-      $('#buttonLogin').click(function(e){
-        var inputEmail = safeString($('#inputEmail').val());
-        var inputPassword = safeString($('#inputPassword').val());
+			<a
+				href="forgot_password"
+				class="mb-3 mt-2 font-weight-normal color-primary float-right bodytext2"
+				>Lupa kata sandi?</a
+			>
+			<button
+				class="btn btn-lg btn-block button-primary bodytext2"
+				type="button"
+				id="buttonLogin"
+			>
+				Masuk
+			</button>
+			<p class="mt-3 mb-1 bodytext2">
+				Belum punya akun?
+				<a href="register" class="color-primary">Daftar</a>
+			</p>
+		</form>
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script
+			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"
+		></script>
+		<script src="assets/js/session.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script>
+			$("#buttonLogin").click(function (e) {
+				var inputEmail = safeString($("#inputEmail").val());
+				var inputPassword = safeString($("#inputPassword").val());
 
-        if(inputEmail == '' || inputPassword == ''){
-          Swal.fire({
-            title: 'Perhatian',
-            text: 'Email dan kata sandi tidak boleh kosong!',
-            icon: 'error',
-            confirmButtonText: 'Mengerti',
-          })
-        }else{
-          $('#buttonLogin').attr('disabled', true);
-          $('#buttonLogin').html(spinnerWhite);
-          axios.postForm('auth/sign', {
-            email: inputEmail,
-            password: inputPassword
-          })
-          .then(function(response) {
-            $('#buttonLogin').attr('disabled', false);
-            $('#buttonLogin').html('Masuk');
-            console.log(response);
-            const result = response.data;
-            if(result.status){
-              const account = result.data;
-              if(account !== undefined){
-                setAccount(account);
-                let page = getLastPage();
-                if(page != null){
-                  window.location.href = page;
-                  deleteLastPage();
-                }else{
-                  window.location.href = 'home.html';
-                }
-              }else{
-                Swal.fire({
-                  title: 'Perhatian',
-                  text: 'Terjadi kesalahan! Silahkan coba lagi.',
-                  icon: 'error',
-                  confirmButtonText: 'Mengerti',
-                })
-              }
-              
-            }else{
-              Swal.fire({
-                title: 'Perhatian',
-                text: result.message,
-                icon: 'error',
-                confirmButtonText: 'Mengerti'
-              })
-            }
-          }).catch((error)=> {
-            $('#buttonLogin').attr('disabled', false);
-            $('#buttonLogin').html('Masuk');
-            Swal.fire({
-              title: 'Perhatian',
-              text: 'Terjadi kesalahan! Silahkan coba lagi.',
-              icon: 'error',
-              confirmButtonText: 'Mengerti',
-            })
-          });
-        }
-      });
-
-    </script>
-  </body>
+				if (inputEmail == "" || inputPassword == "") {
+					Swal.fire({
+						title: "Perhatian",
+						text: "Email dan kata sandi tidak boleh kosong!",
+						icon: "error",
+						confirmButtonText: "Mengerti",
+					});
+				} else {
+					$("#buttonLogin").attr("disabled", true);
+					$("#buttonLogin").html(spinnerWhite);
+					axios
+						.postForm("auth/sign", {
+							email: inputEmail,
+							password: inputPassword,
+						})
+						.then(function (response) {
+							$("#buttonLogin").attr("disabled", false);
+							$("#buttonLogin").html("Masuk");
+							console.log(response);
+							const result = response.data;
+							if (result.status) {
+								const account = result.data;
+								if (account !== undefined) {
+									setAccount(account);
+									let page = getLastPage();
+									if (page != null) {
+										window.location.href = page;
+										deleteLastPage();
+									} else {
+										window.location.href = "home.html";
+									}
+								} else {
+									Swal.fire({
+										title: "Perhatian",
+										text: "Terjadi kesalahan! Silahkan coba lagi.",
+										icon: "error",
+										confirmButtonText: "Mengerti",
+									});
+								}
+							} else {
+								Swal.fire({
+									title: "Perhatian",
+									text: result.message,
+									icon: "error",
+									confirmButtonText: "Mengerti",
+								});
+							}
+						})
+						.catch((error) => {
+							$("#buttonLogin").attr("disabled", false);
+							$("#buttonLogin").html("Masuk");
+							Swal.fire({
+								title: "Perhatian",
+								text: "Terjadi kesalahan! Silahkan coba lagi.",
+								icon: "error",
+								confirmButtonText: "Mengerti",
+							});
+						});
+				}
+			});
+		</script>
+	</body>
 </html>

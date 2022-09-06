@@ -386,7 +386,7 @@
             
             newCars.map((data, i) => {
               $('.container-product').append(
-              `<a class="product-items w-50 flex-column lazy" href="product.html?id=${data.id}">
+              `<a class="product-items w-50 flex-column lazy" href="product?id=${data.id}">
                   <div class="lazy product-cover mb-2" style="background-image: url('${data.image_cover}');"></div>
                   <p class="bodytext1 color-black800 semibold m-0 px-2">${data.model}</p>
                   <p class="bodytext2 color-black300 m-0 px-2">${data.year} ${data.color}</p>
