@@ -1,5 +1,5 @@
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+    // navigator.serviceWorker.register("service-worker.js");
 }
 
 const spinnerWhite = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
