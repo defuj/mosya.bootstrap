@@ -262,6 +262,6 @@ const checkSessionOnPage = () => {
 checkSessionOnPage();
 
 // config axios
-axios.defaults.baseURL = 'https://apimosya.miebledek.com/'; //api.mosya.co.id
+axios.defaults.baseURL = 'https://api.mosya.co.id/'; //api.mosya.co.id
 axios.defaults.headers.common['Authorization'] = 'Basic bW9zeWFBcGk6OWY2NjE1ZjdmYzA1MDNiODEzODIwZTFiYTRiYWQ1MzA=';
 // axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
