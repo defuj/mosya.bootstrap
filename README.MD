@@ -513,7 +513,11 @@ Response :
 		id: "string",
 		model: "string", // the value is car name, ex: Honda Jazz
 		brand: "string", // the value is brand name, ex: Honda
-		color: "string", // the value is color name, ex: Black
+		color: [
+			"color",
+			"color",
+			"color",
+		], // the value is color name, ex: Black
 		fuel: "string", // the value is fuel type, ex: Bensin
 		year: "string", // the value is car year, ex: 2019
 		price: "string", // the value is car price, ex: 1.000.000.000
@@ -541,6 +545,10 @@ Response :
 				dp: "string", // the value is car cicilan dp, ex: Rp 20.400.000, just if type is cicilan
 			},
 		],
+		catalog : {
+			link : "string",
+			size : "string" // the value is catalog size, ex: 1.2 MB
+		}
 	}
 }
 ```
