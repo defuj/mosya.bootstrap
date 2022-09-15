@@ -246,7 +246,7 @@ Request :
 ```json5
 {
 	search: "string", // value : search keyword (parameter is optional, just use for search)
-	color: "string", // value : flter by color name (parameter is optional, just use for filter)
+	color: ["string", "string", "string"], // value : flter by color name (parameter is optional, just use for filter)
 	brand: "string", // value : filter by brand name (parameter is optional, just use for filter)
 	fuel: "string", // value : Bensin, Solar, Listrik, Hybrid (parameter is optional, just use for filter)
 	start_year: "string", // value : filter dengan tahun mulai (parameter is optional, just use for filter)
@@ -584,7 +584,7 @@ Response :
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
 			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
-			color: "string", // the value is color name, ex: Black
+			note: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
 		},
 		{
@@ -594,7 +594,7 @@ Response :
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
 			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
-			color: "string", // the value is color name, ex: Black
+			note: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
 		},
 		{
@@ -604,7 +604,7 @@ Response :
 			image: "string", // the value is car image, ex: https://www.google.com/images/brand/brand.png
 			model: "string", // the value is car name, ex: Honda Jazz
 			brand: "string", // the value is brand name, ex: Honda
-			color: "string", // the value is color name, ex: Black
+			note: "string", // the value is color name, ex: Black
 			year: "string", // the value is car year, ex: 2019
 		},
 	],
